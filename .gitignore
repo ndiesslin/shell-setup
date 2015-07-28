@@ -1,0 +1,23 @@
+# Remove SASS cache files #
+wp-content/themes/Divi-child/.sass-cache/*
+
+# No need to add the upgrade folder to the repo #
+wp-content/upgrade/*
+
+# No need to add the uploads folder to the repo #
+wp-content/uploads/*
+
+# No need to add the plugins folder to the repo #
+wp-content/plugins/*
+
+# Going to ignore themes until final is installed
+wp-content/themes/twentythirteen/*
+wp-content/themes/twentyfourteen/*
+wp-content/themes/Divi/*
+
+# no need for these #
+readme.html
+license.txt
+.htpasswd
+.htaccess
+wp-config-sample.php
