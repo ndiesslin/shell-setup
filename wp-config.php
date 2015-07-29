@@ -42,7 +42,9 @@ if (WP_ENV == 'dev') {
 
 	/** The Database Collate type. Don't change this if in doubt. */
 	define('DB_COLLATE', '');
-} else {
+} else if (WP_ENV == 'staging') {
+  define('WP_HOME','http://augeogreercloud.com/minneapolis-heart-institute-foundation');
+  define('WP_SITEURL','http://augeogreercloud.com/minneapolis-heart-institute-foundation');
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'augeogre_mhif');
