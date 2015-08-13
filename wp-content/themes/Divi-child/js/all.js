@@ -1,0 +1,1 @@
+console.log("plugin"),jQuery(document).ready(function(){jQuery("#accordion").accordion({autoHeight:!1,collapsible:!0,active:!1})});

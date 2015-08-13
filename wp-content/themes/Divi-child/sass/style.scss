@@ -1,8 +1,13 @@
-/*
+/*!
 Theme Name: Divi Child
 Theme URI: http://www.elegantthemes.com/gallery/divi/
 Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
 Template: Divi
-Author: Elegant Themes
+Author: Augeo+Greer
 Author URI: http://www.elegantthemes.com
 */
+@import "site-settings";
+@import "base";
+
+/* Layout */
+@import "layout/nav";

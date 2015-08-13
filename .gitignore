@@ -21,3 +21,4 @@ license.txt
 .htpasswd
 .htaccess
 wp-config-sample.php
+node_modules/

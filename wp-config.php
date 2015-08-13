@@ -22,8 +22,8 @@ if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
 }
 
 if (WP_ENV == 'dev') {
-  define('WP_HOME','http://127.0.0.1/mhif');
-  define('WP_SITEURL','http://127.0.0.1/mhif');
+  define('WP_HOME','http://127.0.0.1/minneapolis-heart-institute-foundation');
+  define('WP_SITEURL','http://127.0.0.1/minneapolis-heart-institute-foundation');
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'mhif');
@@ -35,7 +35,7 @@ if (WP_ENV == 'dev') {
 	define('DB_PASSWORD', 'root');
 
 	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
+	define('DB_HOST', '127.0.0.1');
 
 	/** Database Charset to use in creating database tables. */
 	define('DB_CHARSET', 'utf8mb4');

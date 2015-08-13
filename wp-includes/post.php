@@ -2905,10 +2905,11 @@ function wp_untrash_post_comments( $post = null ) {
 
 	foreach ( $group_by_status as $status => $comments ) {
 		// Sanity check. This shouldn't happen.
-		if ( 'post-trashed' == $status )
+		if ( 'post-trashed' == $status ) {
 			$status = '0';
-		$comments_in = implode( "', '", $comments );
-		$wpdb->query( "UPDATE $wpdb->comments SET comment_approved = '$status' WHERE comment_ID IN ('" . $comments_in . "')" );
+		}
+		$comments_in = implode( ', ', array_map( 'intval', $comments ) );
+		$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->comments SET comment_approved = %s WHERE comment_ID IN ($comments_in)", $status ) );
 	}
 
 	clean_comment_cache( array_keys($statuses) );
@@ -4992,12 +4993,9 @@ function wp_get_attachment_url( $post_id = 0 ) {
 		$url = get_the_guid( $post->ID );
 	}
 
-	/*
-	 * If currently on SSL, prefer HTTPS URLs when we know they're supported by the domain
-	 * (which is to say, when they share the domain name of the current SSL page).
-	 */
-	if ( is_ssl() && 'https' !== substr( $url, 0, 5 ) && parse_url( $url, PHP_URL_HOST ) === $_SERVER['HTTP_HOST'] ) {
-		$url = set_url_scheme( $url, 'https' );
+	// On SSL front-end, URLs should be HTTPS.
+	if ( is_ssl() && ! is_admin() && 'wp-login.php' !== $GLOBALS['pagenow'] ) {
+		$url = set_url_scheme( $url );
 	}
 
 	/**
