@@ -8,3 +8,42 @@
     right: initial;
   }
 }
+
+#top-menu > .menu-item-has-children > a:first-child {
+  &:after {
+    content: "5";
+  }
+  &:hover::after {
+    content: "3";
+  }
+}
+
+// Mobile Nav Styles
+.et_mobile_menu li ul {
+  visibility: initial !important;
+  display: initial !important;
+}
+
+.menu-item-has-children.ui-accordion {
+  ul {
+    display: none !important;
+  }
+  ul.ui-accordion-content-active {
+    display: initial !important;
+  }
+}
+
+.ui-accordion-icons {
+  &::after {
+    font-family: 'ETmodules';
+    content: "5";
+    font-size: 16px;
+    vertical-align: bottom;
+    right: 0;
+    top: 0;
+    font-weight: 800;
+  }
+  &.ui-accordion-header-active::after {
+    content: "3";
+  }
+}

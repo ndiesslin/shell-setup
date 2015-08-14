@@ -1,9 +1,6 @@
 jQuery(document).ready ->
-  # jQuery(".menu-item-has-children").accordion
-  #   autoHeight: false,
-  #   collapsible: true,
-  #   active: false
-  jQuery("#accordion").accordion
+  jQuery(".menu-item-has-children").accordion
+    animate: 0,
     autoHeight: false,
     collapsible: true,
     active: false

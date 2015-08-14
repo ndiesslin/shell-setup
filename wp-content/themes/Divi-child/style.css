@@ -5,4 +5,4 @@ Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our 
 Template: Divi
 Author: Augeo+Greer
 Author URI: http://www.elegantthemes.com
-*/.nav li.slide-left li ul{left:initial;right:240px}.nav li.mega-menu li ul{left:240px;right:initial}
+*/.nav li.slide-left li ul{left:initial;right:240px}.nav li.mega-menu li ul{left:240px;right:initial}#top-menu>.menu-item-has-children>a:first-child:after{content:"5"}#top-menu>.menu-item-has-children>a:first-child:hover::after{content:"3"}.et_mobile_menu li ul{visibility:initial !important;display:initial !important}.menu-item-has-children.ui-accordion ul{display:none !important}.menu-item-has-children.ui-accordion ul.ui-accordion-content-active{display:initial !important}.ui-accordion-icons::after{font-family:'ETmodules';content:"5";font-size:16px;vertical-align:bottom;right:0;top:0;font-weight:800}.ui-accordion-icons.ui-accordion-header-active::after{content:"3"}
