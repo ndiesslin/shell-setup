@@ -1,0 +1,30 @@
+body {
+  color: $black;
+  font-size: 0.875em;
+}
+
+// Links
+.full-width-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: $purple;
+  color: white;
+  @include font-size(35px);
+  text-transform: uppercase;
+  text-decoration: underline;
+  padding: 2.125em 1em;
+  margin: 0 0 0.75em 0;
+}
+
+// Font Styles
+.font-small {
+  @include font-size(12px);
+}
+
+.et_fixed_nav.et_show_nav #page-container {
+  padding-top: 170px !important;
+  @include breakpoint (large){
+    padding-top: 89px !important;
+  }
+}

@@ -1,3 +1,14 @@
+#et-top-navigation {
+  text-transform: uppercase;
+}
+
+.et_header_style_left #et-top-navigation {
+  padding-top: 123px;
+  @include breakpoint (large){
+    padding-top: 33px;
+  }
+}
+
 .nav{
   li.slide-left li ul {
     left: initial;
@@ -9,19 +20,125 @@
   }
 }
 
-#top-menu > .menu-item-has-children > a:first-child {
-  &:after {
-    content: "5";
+#top-menu {
+  > .menu-item-has-children {
+    > a:first-child {
+      padding-right: 1em;
+      &:after {
+        content: "5";
+      }
+      .et-hover & {
+        color: green;
+      }
+      &:hover::after {
+        content: "3";
+      }
+    }
+    &.et-hover > a:after {
+      content: "3";
+    }
   }
-  &:hover::after {
-    content: "3";
+  .sub-menu {
+    .menu-item-has-children {
+      a:after {
+        content: "5";
+      }
+    }
+  }
+  li {
+    font-size: 1em;
+    padding-right: 1em;
+  }
+}
+
+#top-menu, #mobile_menu {
+  a {
+    color: $purple;
+  }
+}
+
+#top-menu-nav {
+  @include breakpoint (large) {
+    display: none;
+  }
+}
+
+#et_mobile_nav_menu {
+  @include breakpoint (large) {
+    display: block;
+  }
+}
+
+#et_top_search {
+  color: $purple;
+  position: absolute;
+  right: -2.5em;
+  @include breakpoint (large) {
+    margin: 8px 16px 0 33px;
+    position: relative;
+    float: left;
+    right: initial;
+  }
+}
+
+span.et_close_search_field {
+  margin: 0;
+  padding: 119px 0 0 0;
+  height: initial;
+  @include breakpoint (large) {
+    padding: 29px 0 0 0;
+  }
+}
+
+#et_search_icon {
+  color: $purple;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  &:before {
+    top: -3px ;
+  }
+  &:hover {
+    color: $purple;
+    opacity: 0.7;
+  }
+}
+
+.et-search-form {
+  padding-top: 123px;
+  @include breakpoint (large) {
+    padding-top: 33px;
+    max-width: 50% !important;
+  }
+  input {
+    position: initial;
+  }
+}
+
+span.et_close_search_field {
+  color: $purple;
+  margin: auto 3em auto 0;
+  &:after {
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  &:hover:after {
+    opacity: 0.7;
   }
 }
 
 // Mobile Nav Styles
-.et_mobile_menu li ul {
-  visibility: initial !important;
-  display: initial !important;
+.et_mobile_menu {
+  border-color: $red;
+  li ul {
+    visibility: initial !important;
+    display: initial !important;
+  }
+}
+
+.mobile_menu_bar:before {
+  color: $red;
 }
 
 .menu-item-has-children.ui-accordion {
