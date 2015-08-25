@@ -8,13 +8,28 @@ body {
   display: block;
   width: 100%;
   text-align: center;
-  background: $purple;
+  background-color: $purple;
   color: white;
   @include font-size(35px);
   text-transform: uppercase;
   text-decoration: underline;
-  padding: 2.125em 1em;
+  padding: 1.75em 1em;
   margin: 0 0 0.75em 0;
+  line-height: 1.5;
+  @include breakpoint (small) {
+    @include font-size(19px);
+  }
+
+  // &:after {
+  //   content: "";
+  //   background: url("img/patterns/motion-lines.png");
+  //   @include opacity(0.25);
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   position: absolute;
+  // }
 }
 
 // Font Styles
@@ -23,6 +38,7 @@ body {
 }
 
 .et_fixed_nav.et_show_nav #page-container {
+  //padding-top: 218px !important;
   padding-top: 170px !important;
   @include breakpoint (large){
     padding-top: 89px !important;

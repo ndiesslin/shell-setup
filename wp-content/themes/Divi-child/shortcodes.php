@@ -27,3 +27,12 @@ function register_shortcodes(){
   add_shortcode('fullwidth_button', 'fullwidth_button_shortcode');
 }
 add_action( 'init', 'register_shortcodes');
+
+
+add_action( 'admin_menu', 'register_my_custom_menu_page' );
+
+function register_my_custom_menu_page() {
+
+	add_menu_page( 'custom menu title', 'custom menu', 'manage_options', 'myplugin/myplugin-admin.php', '', '', 6 );
+
+}

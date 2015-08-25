@@ -18,6 +18,9 @@
     left: 240px;
     right: initial;
   }
+  li ul {
+    border-color: $red;
+  }
 }
 
 #top-menu {
@@ -117,7 +120,10 @@ span.et_close_search_field {
 
 span.et_close_search_field {
   color: $purple;
-  margin: auto 3em auto 0;
+  margin: auto -3em auto 0;
+  @include breakpoint (large) {
+    margin: auto 3em auto 0;
+  }
   &:after {
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;

@@ -140,6 +140,7 @@
   .lh-click {
     @include font-size(20px);
     line-height: 1.5;
+    margin: 0;
     &:after {
       speak: none;
       font-style: normal;
@@ -154,11 +155,19 @@
       display: block;
       text-align: center;
       @include fontawesome;
+      @include breakpoint (medium) {
+        display: none;
+      }
     }
   }
   .lh-reveal {
     @include font-size(14px);
     margin: 0.5em 25% 1em;
+    @include breakpoint (medium) {
+      margin: 0.5em 10% 1em !important;
+      display: block !important;
+      height: auto !important;
+    }
   }
   .lh-background {
     background: url(assets/1.jpg);

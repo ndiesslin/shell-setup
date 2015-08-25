@@ -2034,14 +2034,19 @@ body {
   display: block;
   width: 100%;
   text-align: center;
-  background: #250670;
+  background-color: #250670;
   color: white;
   font-size: 35px;
   font-size: 2.1875rem;
   text-transform: uppercase;
   text-decoration: underline;
-  padding: 2.125em 1em;
-  margin: 0 0 0.75em 0; }
+  padding: 1.75em 1em;
+  margin: 0 0 0.75em 0;
+  line-height: 1.5; }
+  @media (max-width: 480px) {
+    .full-width-link {
+      font-size: 19px;
+      font-size: 1.1875rem; } }
 
 .font-small {
   font-size: 12px;
@@ -2063,6 +2068,9 @@ body {
   #breadcrumbs a {
     color: #250670; }
 
+.container.et_menu_container {
+  z-index: auto; }
+
 #et-top-navigation {
   text-transform: uppercase; }
 
@@ -2079,6 +2087,9 @@ body {
 .nav li.mega-menu li ul {
   left: 240px;
   right: initial; }
+
+.nav li ul {
+  border-color: #AB162B; }
 
 #top-menu > .menu-item-has-children > a:first-child {
   padding-right: 1em; }
@@ -2151,7 +2162,10 @@ span.et_close_search_field {
 
 span.et_close_search_field {
   color: #250670;
-  margin: auto 3em auto 0; }
+  margin: auto -3em auto 0; }
+  @media (max-width: 1200px) {
+    span.et_close_search_field {
+      margin: auto 3em auto 0; } }
   span.et_close_search_field:after {
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -2361,7 +2375,8 @@ span.et_close_search_field {
   .elem-large-hover .lh-click {
     font-size: 20px;
     font-size: 1.25rem;
-    line-height: 1.5; }
+    line-height: 1.5;
+    margin: 0; }
     .elem-large-hover .lh-click:after {
       speak: none;
       font-style: normal;
@@ -2380,10 +2395,18 @@ span.et_close_search_field {
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
+      @media (max-width: 768px) {
+        .elem-large-hover .lh-click:after {
+          display: none; } }
   .elem-large-hover .lh-reveal {
     font-size: 14px;
     font-size: 0.875rem;
     margin: 0.5em 25% 1em; }
+    @media (max-width: 768px) {
+      .elem-large-hover .lh-reveal {
+        margin: 0.5em 10% 1em !important;
+        display: block !important;
+        height: auto !important; } }
   .elem-large-hover .lh-background {
     background: url(assets/1.jpg);
     background-position: 0 center;
@@ -2405,3 +2428,6 @@ span.et_close_search_field {
   @media (max-width: 768px) {
     .lh-container p {
       margin: 0.5em 10%; } }
+
+#main-content .container:before {
+  display: none; }
