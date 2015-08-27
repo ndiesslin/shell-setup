@@ -2030,6 +2030,10 @@ body {
   color: #474647;
   font-size: 0.875em; }
 
+a {
+  color: #250670;
+  text-decoration: underline; }
+
 .full-width-link {
   display: block;
   width: 100%;
@@ -2048,15 +2052,24 @@ body {
       font-size: 19px;
       font-size: 1.1875rem; } }
 
+p {
+  font-size: 16px;
+  font-size: 1rem; }
+
 .font-small {
   font-size: 12px;
   font-size: 0.75rem; }
 
+.left-align {
+  text-align: left !important; }
+
+#main-content .container {
+  padding: 0; }
+
 .et_fixed_nav.et_show_nav #page-container {
-  padding-top: 170px !important; }
-  @media (max-width: 1200px) {
-    .et_fixed_nav.et_show_nav #page-container {
-      padding-top: 89px !important; } }
+  padding: 0 !important; }
+  .et_fixed_nav.et_show_nav #page-container #main-header {
+    top: 0 !important; }
 
 #main-header {
   box-shadow: none;
@@ -2065,11 +2078,20 @@ body {
 #breadcrumbs {
   margin-bottom: 1em;
   color: #250670; }
+  #breadcrumbs span {
+    font-size: 12px;
+    font-size: 0.75rem; }
   #breadcrumbs a {
     color: #250670; }
 
 .container.et_menu_container {
   z-index: auto; }
+
+.et_fixed_nav #main-header {
+  position: relative; }
+
+.et_fixed_nav #main-header.et-fixed-header {
+  position: fixed; }
 
 #et-top-navigation {
   text-transform: uppercase; }
@@ -2178,6 +2200,8 @@ span.et_close_search_field {
   .et_mobile_menu li ul {
     visibility: initial !important;
     display: initial !important; }
+  .et_mobile_menu li a {
+    text-decoration: none; }
 
 .mobile_menu_bar:before {
   color: #AB162B; }
@@ -2233,9 +2257,9 @@ span.et_close_search_field {
       width: 100%;
       margin-right: 0; } }
   .bottom-nav > li > a {
-    text-decoration: underline;
     margin: 0 0 0.25em 0;
-    display: block; }
+    display: block;
+    font-weight: bold !important; }
 
 #footer-bottom {
   background-color: #ffffff; }
@@ -2431,3 +2455,32 @@ span.et_close_search_field {
 
 #main-content .container:before {
   display: none; }
+
+.single .et_pb_post {
+  padding: 0; }
+
+.single .post {
+  padding: 0; }
+
+.page-title {
+  background: #AB162B;
+  padding: 3em 0;
+  overflow: hidden; }
+  @media (max-width: 768px) {
+    .page-title {
+      padding: 1.5em 0; } }
+  .page-title:after {
+    content: "";
+    background: #ffffff;
+    position: absolute;
+    right: -10%;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    transform: skewX(-25deg); }
+    @media (max-width: 768px) {
+      .page-title:after {
+        display: none; } }
+  .page-title h1 {
+    color: white;
+    padding: 0; }

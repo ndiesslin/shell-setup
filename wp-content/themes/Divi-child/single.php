@@ -9,11 +9,11 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 ?>
 
 <div id="main-content">
-	<section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_fullwidth_header_0">
+	<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_fullwidth_header_0 page-title">
 		<div class="et_pb_fullwidth_header_container left">
 			<h1><?php the_title(); ?></h1>
 		</div>
-	</section>
+	</div>
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -122,6 +122,13 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 					</div> <!-- .et_post_meta_wrapper -->
 				</article> <!-- .et_pb_post -->
+
+				<?php
+					echo get_the_category();
+					// if( is_page( 'news' ) {
+					// 	query_posts( array( 'category_name' => 'news' ) );
+			    // }
+				?>
 
 				<?php if (et_get_option('divi_integration_single_bottom') <> '' && et_get_option('divi_integrate_singlebottom_enable') == 'on') echo(et_get_option('divi_integration_single_bottom')); ?>
 			<?php endwhile; ?>

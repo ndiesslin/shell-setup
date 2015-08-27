@@ -16,6 +16,7 @@ Author URI: http://www.elegantthemes.com
 
 // Layout
 @import "layout/grid";
+@import "layout/page";
 @import "layout/header";
 @import "layout/nav";
 @import "layout/footer";
@@ -23,3 +24,4 @@ Author URI: http://www.elegantthemes.com
 
 // Modules
 @import "modules/post";
+@import "modules/page-title";

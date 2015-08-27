@@ -141,6 +141,11 @@ span.et_close_search_field {
     visibility: initial !important;
     display: initial !important;
   }
+  li { 
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .mobile_menu_bar:before {

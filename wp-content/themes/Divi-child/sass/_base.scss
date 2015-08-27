@@ -4,6 +4,11 @@ body {
 }
 
 // Links
+a {
+  color: $purple;
+  text-decoration: underline;
+}
+
 .full-width-link {
   display: block;
   width: 100%;
@@ -19,28 +24,17 @@ body {
   @include breakpoint (small) {
     @include font-size(19px);
   }
-
-  // &:after {
-  //   content: "";
-  //   background: url("img/patterns/motion-lines.png");
-  //   @include opacity(0.25);
-  //   top: 0;
-  //   left: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   position: absolute;
-  // }
 }
 
 // Font Styles
+p {
+  @include font-size(16px);
+}
+
 .font-small {
   @include font-size(12px);
 }
 
-.et_fixed_nav.et_show_nav #page-container {
-  //padding-top: 218px !important;
-  padding-top: 170px !important;
-  @include breakpoint (large){
-    padding-top: 89px !important;
-  }
+.left-align {
+  text-align: left !important;
 }
