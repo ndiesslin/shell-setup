@@ -372,3 +372,11 @@ if ( is_multisite() ) {
  * @since 3.0.0
  */
 do_action( 'wp_loaded' );
+
+if (defined('WP_DEBUG') and WP_DEBUG == true){
+	error_reporting(E_ALL); 
+} 
+else {     
+	error_reporting(E_ALL ^ E_NOTICE ^ E_USER_NOTICE);     
+	//error_reporting(0); 
+}
