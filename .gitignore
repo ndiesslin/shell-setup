@@ -23,3 +23,5 @@ license.txt
 #wp-config-sample.php
 wp-config.php
 node_modules/
+wp-config-live.php
+wp-config.php
