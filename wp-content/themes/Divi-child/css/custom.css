@@ -1,0 +1,15 @@
+body .et_pb_section{
+	padding-top: 0;
+}
+.page-title{
+	background: #ab1f2d;
+}
+.gratitude-video .et_pb_row{
+	margin: 0;
+	width: 100%;
+}
+.view-all{
+	text-align: right;
+	display: block;
+	width: 100%;
+}

@@ -4,7 +4,7 @@
  *
  * This file has the following configurations: MySQL settings, Table Prefix,
  * Secret Keys, and ABSPATH. You can find more information by visiting
- * {@link https://codex.wordpress.org/Editing_wp-config.php Editing wp-config.php}
+ * {@link http://codex.wordpress.org/Editing_wp-config.php Editing wp-config.php}
  * Codex page. You can get the MySQL settings from your web host.
  *
  * This file is used by the wp-config.php creation script during the
@@ -14,56 +14,24 @@
  * @package WordPress
  */
 
-// ** multiple environments listed here
-if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
-  define('WP_ENV', 'dev');
-} else {
-  define('WP_ENV', 'staging');
-}
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'mhif');
 
-if (WP_ENV == 'dev') {
-  define('WP_HOME','http://127.0.0.1/minneapolis-heart-institute-foundation');
-  define('WP_SITEURL','http://127.0.0.1/minneapolis-heart-institute-foundation');
-	// ** MySQL settings - You can get this info from your web host ** //
-	/** The name of the database for WordPress */
-	define('DB_NAME', 'mhif');
+/** MySQL database username */
+define('DB_USER', 'root');
 
-	/** MySQL database username */
-	define('DB_USER', 'root');
+/** MySQL database password */
+define('DB_PASSWORD', '');
 
-	/** MySQL database password */
-	define('DB_PASSWORD', 'root');
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
 
-	/** MySQL hostname */
-	define('DB_HOST', '127.0.0.1');
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
 
-	/** Database Charset to use in creating database tables. */
-	define('DB_CHARSET', 'utf8mb4');
-
-	/** The Database Collate type. Don't change this if in doubt. */
-	define('DB_COLLATE', '');
-} else if (WP_ENV == 'staging') {
-  define('WP_HOME','http://augeogreercloud.com/minneapolis-heart-institute-foundation');
-  define('WP_SITEURL','http://augeogreercloud.com/minneapolis-heart-institute-foundation');
-	// ** MySQL settings - You can get this info from your web host ** //
-	/** The name of the database for WordPress */
-	define('DB_NAME', 'augeogre_mhif');
-
-	/** MySQL database username */
-	define('DB_USER', 'augeogre_admin');
-
-	/** MySQL database password */
-	define('DB_PASSWORD', '905park');
-
-	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
-
-	/** Database Charset to use in creating database tables. */
-	define('DB_CHARSET', 'utf8mb4');
-
-	/** The Database Collate type. Don't change this if in doubt. */
-	define('DB_COLLATE', '');
-}
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -74,14 +42,14 @@ if (WP_ENV == 'dev') {
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'XE9 iX~$`a.{_K.A)vg<|wNAPhA$rLhFHD-5(HFU5l ?rNDbZTj|aj%>)+!Kv.a(');
-define('SECURE_AUTH_KEY',  'qgG-]zL:$U-Gp^|E.1bSLWX]$tnrdFOiH>f-L3],!hlU:y>OWV+2Z?H.Nz^*DrPb');
-define('LOGGED_IN_KEY',    'Ft1rjdnn2->t5eRHMx?E`dMTCn4S!U@-|esm|%CQh6i{|#ePb5!vs,]VqwF5ZI^3');
-define('NONCE_KEY',        'MR{EQ#-:r-v3z,iwb+MwWX85;r^y/i+V$(&e-+d=w.l4We|.z+O3^g2PA`Cf^:hj');
-define('AUTH_SALT',        'iuH64^l5K-`gF`Kbec!YEQmk*@d&kmOU^6~Y~-*ms+Tqe*U&Nb|de3|KmU:_yQ;C');
-define('SECURE_AUTH_SALT', ';F7=$JFEaDm=-#bg)Cyu@MGoh+0.TKfxa7S,|TSb pq8?T$G.qp1w(AqV-qrP?Mc');
-define('LOGGED_IN_SALT',   'OPlGUhBO8yAPQ+o m1q<k8|>ml- %v-i9gKmUv+~O5@LLLtrXd+aMnkqRRPXO_xt');
-define('NONCE_SALT',       'k_}$R_=4d`9]YSs73M~#slcp:hRT]`O+-ZA;$|oj*;!?*BSO7b[#CTl[R?X}/tb ');
+define('AUTH_KEY',         ').-;)..xu$ixQ}W8`p,]&-y268e0N<8jLC23kxv|<bn|Gzh ZrPEIKd}_HpK(C2S');
+define('SECURE_AUTH_KEY',  'w*/Gq*3G{-~y7+a5+27aU4%Ux,wv?p3u.p)+z`^djk-XEIZoA3dkcKttZ3AJ)9H~');
+define('LOGGED_IN_KEY',    'F[It8O*aK]W%rv1z:cXHF8C~I@5j]7$ 5t;Ae6X~l@8b+1S0k8?*B_YsdE-B)vrI');
+define('NONCE_KEY',        'rxkQ*N+)v(-uARJb5i`N7p&KgAe09s|X-#/S|z-7/2u8J0~-R=h,B.i-ze`/c Ww');
+define('AUTH_SALT',        '>y|e*?*H)eAy:)K}V+-1}FS.H:OL9x.k66Tfsu`ep>Esk^lm?ldUgNLur%lWCqhZ');
+define('SECURE_AUTH_SALT', 'Rp|~j4I!O|i*p+crOiw^Ok^|^Q S/#k {qVT|M, M]P2FY=C9Qn&D4|Jk+L?%uKr');
+define('LOGGED_IN_SALT',   'kw-.l=CDg5~:/u6MM$!`o-p%qo*)0qjeqW4c(3,pIG+|!5~6KUOGrtOz]g+:q82@');
+define('NONCE_SALT',       'm`D5?}C}Ay;ES-$|h&p~70vd]!|le-kl`N1fD7h@vC{.m2B)3^{Tto^vGb6G&cK9');
 
 /**#@-*/
 
@@ -100,9 +68,8 @@ $table_prefix  = 'wp_';
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-if (WP_ENV == 'dev') {
-  define('WP_DEBUG', false);
-}
+define('WP_DEBUG', false);
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
