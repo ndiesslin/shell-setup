@@ -24,6 +24,19 @@
 
 .hover-container {
   overflow: hidden;
+  visibility: hidden;
+  &:before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    background: url("assets/homepage/loading.gif");
+    visibility: visible;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+  }
 }
 
 .elem-large-hover {
@@ -170,8 +183,8 @@
     }
   }
   .lh-background {
-    background: url(assets/1.jpg);
-    background-position: 0 center;
+    background: url("");
+    background-position: center;
     background-size: cover;
     position: absolute;
     width: 200%;
@@ -183,6 +196,9 @@
       left: 0;
       width: 100%;
     }
+  }
+  .initial-image {
+    display:none;
   }
 }
 .lh-container {
