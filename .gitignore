@@ -20,7 +20,8 @@ readme.html
 license.txt
 .htpasswd
 .htaccess
-wp-config-sample.php
+#wp-config-sample.php
+wp-config.php
 node_modules/
 wp-config-live.php
 wp-config.php
