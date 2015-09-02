@@ -1,0 +1,2 @@
+<?php $this->techlink('http://www.wpthemefaqs.com/making-simple-lightbox-work-with-divi/'); ?>
+<?php $this->checkbox(__FILE__); ?> Fix <a href="https://wordpress.org/plugins/simple-lightbox/" target="_blank">Simple LightBox</a> overlap with Divi top header

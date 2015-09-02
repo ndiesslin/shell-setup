@@ -1,0 +1,1 @@
+jQuery(function($){ $(".et_pb_more_button").wrap('<div class="et_pb_more_button_wrap"></div>'); });

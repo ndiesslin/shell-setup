@@ -1,0 +1,2 @@
+<?php $this->techlink('http://www.wpthemefaqs.com/making-the-divi-header-shrink-further-down-the-page/'); ?> 
+<?php $this->checkbox(__FILE__); ?> Don't shrink the header until user scrolls down by <?php $this->numberpicker(__FILE__, 'offset', 500, 0); ?>px
