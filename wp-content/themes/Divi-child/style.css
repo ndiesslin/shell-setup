@@ -2286,19 +2286,7 @@ span.et_close_search_field {
   display: inline-block; }
 
 .hover-container {
-  overflow: hidden;
-  visibility: hidden; }
-  .hover-container:before {
-    content: "";
-    width: 200px;
-    height: 200px;
-    background: url("assets/homepage/loading.gif");
-    visibility: visible;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -100px;
-    margin-top: -100px; }
+  overflow: hidden; }
 
 .elem-large-hover {
   width: 120%;
@@ -2444,8 +2432,8 @@ span.et_close_search_field {
         display: block !important;
         height: auto !important; } }
   .elem-large-hover .lh-background {
-    background: url("");
-    background-position: center;
+    background: url(assets/1.jpg);
+    background-position: 0 center;
     background-size: cover;
     position: absolute;
     width: 200%;
@@ -2457,8 +2445,6 @@ span.et_close_search_field {
       .elem-large-hover .lh-background {
         left: 0;
         width: 100%; } }
-  .elem-large-hover .initial-image {
-    display: none; }
 
 .lh-container p {
   margin: 0.5em 25%;

@@ -1,15 +1,7 @@
-"use scrict";
+"use scrict"
 
 jQuery(document).ready ->
   largeHoverInit = ->
-    jQuery(window).load ->
-      jQuery('.hover-container').css('visibility','visible');
-
-    jQuery('.large-hover-img').each ->
-      src = jQuery(this).find('.initial-image').attr('src')
-      console.log src
-      jQuery(this).find('.lh-background').css( "background-image", 'url(' + src + ')' )
-
     jQuery('.lh-reveal').hide();
     jQuery('.large-hover-img').hover (->
         jQuery('.large-hover-img').removeClass 'active'
