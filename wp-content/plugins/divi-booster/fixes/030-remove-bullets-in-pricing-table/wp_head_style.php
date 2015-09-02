@@ -1,0 +1,1 @@
+.et_pb_pricing li:before { display:none; }

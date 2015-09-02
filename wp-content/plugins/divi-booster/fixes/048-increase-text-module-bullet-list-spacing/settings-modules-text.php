@@ -1,0 +1,1 @@
+<?php $this->checkbox(__FILE__); ?> Increase spacing around bullet lists
