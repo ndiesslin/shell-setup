@@ -4,7 +4,7 @@ body .et_pb_section{
 .page-title{
 	background: #ab1f2d;
 }
-.gratitude-video .et_pb_row{
+.gratitude-video .et_pb_row, .focus-area .et_pb_row{
 	margin: 0;
 	width: 100%;
 }
@@ -12,4 +12,13 @@ body .et_pb_section{
 	text-align: right;
 	display: block;
 	width: 100%;
+}
+header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
+	top: auto;
+}
+.oval-thumb{
+	text-align: center;
+}
+.oval-thumb .icon{
+	display: block;
 }
