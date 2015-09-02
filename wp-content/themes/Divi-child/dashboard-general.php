@@ -78,7 +78,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 <?php endif; ?>
 	<div class="container">
-		<div class="gratitude-video">
+		<div class="gratitude-video hidden">
 			<h2><i class="fa fa-quote-left"></i> STORIES OF GRATITUDE</h2>
 			<div class="row">
 				<?php 
@@ -109,7 +109,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			</div>
 			<p class="view-all"><a href="#">View All Stories of Gratitude</a></p>
 		</div> <!-- /.gratitude-video -->
-		<div class="focus-area">
+		<div class="focus-area hidden">
 			<h2><i class="fa fa-heartbeat"></i>AREAS OF FOCUS</h2>
 			<div class="row">
 				<?php 
@@ -134,7 +134,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			</div>
 			<div class="row"><p class="view-all"><a href="#">View All Areas of Focus</a></p></div>
 		</div> <!-- /.focus-area -->
-		<div class="current-studies">
+		<div class="current-studies hidden">
 			<h2><i class="fa fa-file-text"></i> Current Studies</h2>
 			<div class="row">
 				<?php 
@@ -159,6 +159,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			</div>
 			<div class="row"><p class="view-all"><a href="#">View All Current Studies</a></p></div>
 		</div> <!-- /.current-studies -->
+
 		<div class="oval-thumb">
 			<div class="row">
 				
