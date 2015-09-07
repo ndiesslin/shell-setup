@@ -160,7 +160,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			<div class="row"><p class="view-all"><a href="#">View All Current Studies</a></p></div>
 		</div> <!-- /.current-studies -->
 
-		<div class="oval-thumb">
+		<div class="oval-thumb hidden">
 			<div class="row">
 				
 				<div class="col-sm-4">
@@ -185,7 +185,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 				</div><!-- /.col-sm-4 -->
 			</div> <!-- /.row -->
 		</div><!-- /.oval-thumb -->
-		<div class="support-us">
+		<div class="support-us hidden">
 			<div class="row">	
 				<div class="col-xs-12">
 					<h2>Why Support Us</h2>
@@ -194,10 +194,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 				</div>
 			</div> <!-- /.row -->
 		</div> <!-- /.support-us -->
-		<div class="full-width-button">
+		<div class="full-width-button hidden">
 			<a href="#">JOIN the CAUSE TODAY!</a>		
 		</div> <!-- /.full-width-button -->
-		<div class="event-intro">
+		<div class="event-intro hidden">
 			<h2><i class="fa fa-calendar"></i> Events</h2>
 			<div class="row">
 				<div class="col-sm-6">

@@ -35,4 +35,19 @@ add_action( 'init', 'register_secondary_footer' );
 
 include( 'shortcodes.php' );
 
+
+
+function mycustom_featured_width( ) { return 320; /* Custom featured post image width */ }
+add_filter( 'et_pb_blog_image_width', 'mycustom_featured_width');
+
+function mycustom_featured_height( ) { return 260; /* Custom featured post image height */ }
+add_filter( 'et_pb_blog_image_height', 'mycustom_featured_height');
+
+function mycustom_featured_size( $image_sizes ) {
+$custom_size = mycustom_featured_width() . 'x' . mycustom_featured_height();
+$image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
+return $image_sizes;
+}
+add_filter( 'et_theme_image_sizes', 'mycustom_featured_size' );
+
 ?>

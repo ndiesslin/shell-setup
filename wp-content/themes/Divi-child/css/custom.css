@@ -22,3 +22,102 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 .oval-thumb .icon{
 	display: block;
 }
+.blue-btn a {
+    background: #2b266d;
+}
+.circleimage img {
+    border-radius: 50%;
+}
+.top-intro{
+	margin-top: 38px;
+	margin-bottom: 85px;
+}
+.top-intro h4 span {
+    display: inline-block;
+    background: #ab1f2d;
+    padding: 20px;
+    margin-top: 30px;
+}
+.top-intro h4 {
+    position: absolute;
+    width: 100%;
+}
+.top-intro section {
+    background: #d1e0d7;
+}
+.blue-btn .et_pb_promo_description {
+    display: none;
+}
+body .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
+	margin-left: 0;
+}
+.et_pb_blog_grid .et_pb_post {
+    border: none;
+    padding: 0;
+}
+
+.et_pb_row {
+    width: 100%;
+}
+body h3{
+    color: #ab1f2d;
+}
+.et_pb_column_1_3 h2, .et_pb_column_1_4 h2, h3 {
+    font-size: 30px;
+}
+
+.circleimage {
+    font-size: 20px;
+    color: #2b266d;
+}
+.et_pb_column_1_3 h2, .et_pb_column_1_4 h2, h3 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.two-column .column:nth-child(3){
+	display: none;
+}
+
+.et_pb_blog_grid article.et_pb_post {
+    border: none;
+}
+
+.column .et_pb_row {
+    width: 100%;
+}
+
+/*catagory icon top right */
+.icon-top-right i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #FFF;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    border-left: 80px solid #2b266d;
+    border-top: 0 solid #2b266d;
+    border-bottom: 80px solid transparent;
+    font-size: 25px;
+}
+.icon-top-right i:before {
+    margin-left: -68px;
+    margin-top: 10px;
+    display: block;
+}
+
+@media(min-width: 981px){
+	.two-column .column{
+	    width: 46.25% !important;
+	    margin: 0 7.5% 7.5% 0;
+	}
+	.two-column .column:nth-child(2){
+		margin-right: 0 !important;
+	}
+	.et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post{
+		padding: 0;
+	}
+	body .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
+	    padding-bottom: 0;
+	}
+}

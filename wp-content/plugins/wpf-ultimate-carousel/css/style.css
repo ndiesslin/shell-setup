@@ -1,0 +1,10 @@
+.wpf_carousel_container{}
+.wpf_carousel_container > h2{margin: 10px 0px !important;font-size: 18px !important;padding:5px;}
+.wpf_slides{margin-left:2px;}
+.wpf_slides img{border-radius:3px;width:97%;}
+.wpf_slides:hover img{opacity: 1;}
+.wpf_slides > h2{font-size: 14px !important;line-height: 18px !important;margin: 5px 0px 10px !important;}
+.wpf_slides > h2 a{text-decoration:none;font-size:14px;line-height:18px;border:none;}
+.wpf_slides > h2 a:focus{outline:none;}
+.slick-prev:before, .slick-next:before{color:#999999;}
+.slick-prev, .slick-next{top:35%;}
