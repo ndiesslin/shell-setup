@@ -105,7 +105,11 @@ body h3{
     margin-top: 10px;
     display: block;
 }
-
+.newsletter-box {
+    background: #ab1f2d;
+    padding: 20px 15px;
+    color: #FFF;
+}
 @media(min-width: 981px){
 	.two-column .column{
 	    width: 46.25% !important;
