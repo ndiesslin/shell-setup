@@ -75,7 +75,7 @@ body h3{
     text-transform: uppercase;
 }
 .two-column .column:nth-child(3){
-	display: none;
+	/*display: none;*/
 }
 
 .et_pb_blog_grid article.et_pb_post {
@@ -113,7 +113,7 @@ body h3{
 @media(min-width: 981px){
 	.two-column .column{
 	    width: 46.25% !important;
-	    margin: 0 7.5% 7.5% 0;
+	    margin: 0 7.5% 0 0;/*corrected for general dashboard video: 0 7.5% 7.5% 0*/
 	}
 	.two-column .column:nth-child(2){
 		margin-right: 0 !important;
@@ -124,4 +124,8 @@ body h3{
 	body .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
 	    padding-bottom: 0;
 	}
+    /*General dashboard: Video*/
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
+        margin-bottom: 0 !important;
+    }
 }
