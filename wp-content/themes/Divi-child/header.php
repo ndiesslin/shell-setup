@@ -27,13 +27,12 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( $template_directory_uri . '/js/html5.js"' ); ?>" type="text/javascript"></script>
 	<![endif]-->
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/custom.css">
+	<!-- <link rel="stylesheet" href="<?php  // echo get_stylesheet_directory_uri();?>/css/bootstrap.min.css"> -->
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
-
 	<?php wp_head(); ?>
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/custom.css">
 </head>
 <body <?php body_class(); ?>>
 	<div id="page-container">
@@ -162,7 +161,7 @@
 
 					<?php if ( false !== et_get_option( 'show_search_icon', true ) ) : ?>
 					<div id="et_top_search">
-						<span id="et_search_icon"></span>
+						<span id="et_search_icon" class="fa fa-search"></span>
 					</div>
 					<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
 

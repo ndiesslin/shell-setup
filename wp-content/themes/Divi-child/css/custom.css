@@ -1,3 +1,56 @@
+/*menu css */
+.container, .et_pb_row{
+    width: 90%;
+    max-width: 1160px;
+}
+#top-menu li a {
+    font-weight: normal;
+}
+.et_header_style_left #et-top-navigation nav > ul > li > a, .et_header_style_split #et-top-navigation nav > ul > li > a {
+    padding: 10px;
+    padding-bottom: 40px;
+}
+.et_header_style_left #et-top-navigation {
+    padding-top: 110px;
+}
+#et_search_icon:hover, .mobile_menu_bar:before, .et-social-icon a:hover, .comment-reply-link, .form-submit input, .et_pb_sum, .et_pb_pricing li a, .et_pb_pricing_table_button, .et_overlay:before, .entry-summary p.price ins, .woocommerce div.product span.price, .woocommerce-page div.product span.price, .woocommerce #content div.product span.price, .woocommerce-page #content div.product span.price, .woocommerce div.product p.price, .woocommerce-page div.product p.price, .woocommerce #content div.product p.price, .woocommerce-page #content div.product p.price, .et_pb_member_social_links a:hover, .woocommerce .star-rating span:before, .woocommerce-page .star-rating span:before, .woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt, .woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button, .woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button, .woocommerce a.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button:hover, .woocommerce-page a.button:hover, .woocommerce button.button, .woocommerce-page button.button:hover, .woocommerce input.button:hover, .woocommerce-page input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce-page #respond input#submit:hover, .woocommerce #content input.button:hover, .woocommerce-page #content input.button:hover .et_pb_widget li a:hover, .et_pb_bg_layout_light .et_pb_promo_button, .et_pb_bg_layout_light .et_pb_more_button, .et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active, .et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active, .et_pb_gallery .et_pb_gallery_pagination ul li a.active, .wp-pagenavi span.current, .wp-pagenavi a:hover, .et_pb_contact_submit, .et_password_protected_form .et_submit_button, .et_pb_bg_layout_light .et_pb_newsletter_button, .nav-single a, .posted_in a, #top-menu li.current-menu-ancestor > a, #top-menu li.current-menu-item > a, .bottom-nav li.current-menu-item > a, .footer-widget h4{
+    color: inherit;
+}
+#et_search_icon.fa.fa-search, #et_search_icon.fa.fa-search:before{
+    font-family: 'FontAwesome';
+    content: "\f002";
+}
+#et_top_search{
+    margin-top: 8px;
+}
+/*footer*/
+#main-footer #menu-main-nav a {
+    font-size: 14px;
+}
+
+#main-footer #menu-main-nav a {
+    font-size: 14px;
+    color: #474647;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+#main-footer #menu-main-nav ul.sub-menu a {
+    text-decoration: none;
+    text-transform: none;
+}
+
+#main-footer #menu-main-nav ul.sub-menu li {
+    margin-top: 4px;
+}
+#menu-secondary-footer li a {
+    text-decoration: none;
+}
+
+ul.sub-menu {
+    margin-top: 15px;
+}
+
 body .et_pb_section{
 	padding-top: 0;
 }
@@ -15,6 +68,10 @@ body .et_pb_section{
 }
 header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
 	top: auto;
+}
+/*banner*/
+.lh-table {
+    text-shadow: 1px 2px 2px #000;
 }
 .oval-thumb{
 	text-align: center;
@@ -109,6 +166,12 @@ body h3{
     background: #ab1f2d;
     padding: 20px 15px;
     color: #FFF;
+}
+@media (max-width: 1366px){
+    .bottom-nav > li {
+        width: 18%;
+        margin-right: 2%;
+    }
 }
 @media(min-width: 981px){
 	.two-column .column{
