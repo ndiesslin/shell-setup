@@ -50,4 +50,18 @@ return $image_sizes;
 }
 add_filter( 'et_theme_image_sizes', 'mycustom_featured_size' );
 
+//for admin style
+add_action('admin_head', 'admin_style');
+
+function admin_style() {
+  echo '<style>
+    #et_pb_toggle_builder.et_pb_builder_is_used {/* use default editor */
+      display: none !important;
+    }
+    .control-section#add-page {
+      display: block !important;
+    }
+  </style>';
+}
+
 ?>
