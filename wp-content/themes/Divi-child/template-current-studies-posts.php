@@ -8,10 +8,43 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 <div id="main-content">
+
 	<?php 
+	//title
 	$title = get_the_title();
 	page_title($title, 'fa-file-text');
 	?>
+
+	<div class="container">
+		<div class="row-spaced">
+			<?php 
+			$page_url = get_the_permalink();
+			$args = array(
+		        'child_of' => $post->ID,
+		        //'number' => '1',
+		      ); 
+	    $pages = get_pages($args); 
+
+	    foreach ( $pages as $page ):
+	    ?>
+
+	    <div class="">
+	      <a href="<?php echo $page_url;?><?php echo $page->post_name;?>/">
+	        <?php echo $page->post_title;?>        
+	      </a>
+	      <p>
+	      	Research Coordinator: Not present on inside page layout.<br>
+	      	And a little description.
+	      </p>
+	      <br>
+	    </div>
+	    <?php
+	    endforeach;
+	    ?>
+    </div>
+  </div>
+
+	
 
 <?php if ( ! $is_page_builder_used ) : ?>
 

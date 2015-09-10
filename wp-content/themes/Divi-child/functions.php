@@ -64,6 +64,7 @@ function admin_style() {
   </style>';
 }
 
+//title
 function page_title($title, $icon) {
   echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular"> 
     <section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0">

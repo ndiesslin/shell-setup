@@ -201,3 +201,6 @@ body h3{
     -moz-column-gap: 60px;
     column-gap: 60px;
 }
+.row-spaced {
+    padding: 40px 0;
+}
