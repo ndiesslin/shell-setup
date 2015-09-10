@@ -64,4 +64,20 @@ function admin_style() {
   </style>';
 }
 
-?>
+function page_title($title, $icon) {
+  echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular"> 
+    <section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0">
+    
+      <div class="et_pb_fullwidth_header_container left">
+        <div class="header-content-container center">
+        <div class="header-content">
+          <h1><i class="fa '.$icon.' fa- "></i> '.$title.'</h1>        
+        </div>
+      </div>
+        
+      </div>
+      <div class="et_pb_fullwidth_header_overlay"></div>
+      <div class="et_pb_fullwidth_header_scroll"></div>
+    </section>    
+  </div>';
+}
