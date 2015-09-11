@@ -9,12 +9,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 ?>
 
 <div id="main-content">
-	<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_fullwidth_header_0 page-title">
+	<!-- <div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_fullwidth_header_0 page-title">
 		<div class="et_pb_fullwidth_header_container left">
 			<h1><?php the_title(); ?></h1>
 		</div>
-	</div>
-	<div class="container">
+	</div> -->
+	<div class=""><!--container-->
 		<div id="content-area" class="clearfix">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php if (et_get_option('divi_integration_single_top') <> '' && et_get_option('divi_integrate_singletop_enable') == 'on') echo(et_get_option('divi_integration_single_top')); ?>

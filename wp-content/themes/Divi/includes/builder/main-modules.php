@@ -8141,7 +8141,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		ob_start();
 
-		$args['post_type'] = array('post','video','area-of-focus','current-study','event-presentation','team');//added one - added dynamically above
+		$args['post_type'] = array('post','news-events','team');//added one - added dynamically above
 		query_posts( $args );
 
 		if ( have_posts() ) {
