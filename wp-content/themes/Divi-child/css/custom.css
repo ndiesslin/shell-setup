@@ -1,7 +1,10 @@
 /*menu css */
-.container, .et_pb_row{
+.container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container{
     width: 90%;
     max-width: 1160px;
+}
+.et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
+    padding-left: 0;
 }
 #top-menu li a {
     font-weight: normal;
@@ -56,6 +59,10 @@ body .et_pb_section{
 }
 .page-title{
 	background: #ab1f2d;
+    padding: 2.2em 0;
+}
+#breadcrumbs{
+    margin-bottom: 0.8em;
 }
 .gratitude-video .et_pb_row, .focus-area .et_pb_row{
 	margin: 0;
@@ -82,6 +89,16 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 .blue-btn a {
     background: #2b266d;
 }
+.circleimage .et_pb_main_blurb_image {
+    margin-bottom: 15px;
+}
+.circleimage .et_pb_blurb_container i, .circleimage .et_pb_blurb_container a{
+    font-size: 30px;
+    text-decoration: none;
+}
+.circleimage .et_pb_blurb_container a{
+    font-size: 20px;
+}
 .circleimage img {
     border-radius: 50%;
 }
@@ -89,11 +106,14 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 	margin-top: 38px;
 	margin-bottom: 85px;
 }
-.top-intro h4 span {
+.top-intro h4 span, .top-intro h4 strong{
     display: inline-block;
     background: #ab1f2d;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 5px;
+    color: #FFF;
+    font-weight: normal;
+    font-size: 26px;
 }
 .top-intro h4 {
     position: absolute;
@@ -102,8 +122,14 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 .top-intro section {
     background: #d1e0d7;
 }
+.top-intro section h2{
+    font-size: 38px;
+}
 .blue-btn .et_pb_promo_description {
     display: none;
+}
+.et_pb_fullwidth_header{
+    padding-bottom: 23px;
 }
 body .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
 	margin-left: 0;
@@ -166,6 +192,15 @@ body h3{
     background: #ab1f2d;
     padding: 20px 15px;
     color: #FFF;
+}
+
+@media only screen and (min-width: 1350px){
+    .circleimage .et_pb_row {
+        padding-top: 0;
+    }
+    .et_pb_section {
+        padding-bottom: 25px;
+    }
 }
 @media (max-width: 1366px){
     .bottom-nav > li {
