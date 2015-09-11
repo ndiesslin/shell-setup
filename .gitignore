@@ -13,7 +13,7 @@ wp-content/uploads/*
 # Going to ignore themes until final is installed
 wp-content/themes/twentythirteen/*
 wp-content/themes/twentyfourteen/*
-wp-content/themes/Divi/*
+#wp-content/themes/Divi/*
 
 # no need for these #
 readme.html

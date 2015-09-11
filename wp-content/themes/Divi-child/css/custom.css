@@ -239,3 +239,6 @@ body h3{
 .row-spaced {
     padding: 40px 0;
 }
+.nomarginright {
+    margin-right: 0 !important;
+}

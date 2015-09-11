@@ -82,3 +82,8 @@ function page_title($title, $icon) {
     </section>    
   </div>';
 }
+
+function get_all_posts_name() {
+  $posts_name = array('post','news-events', 'team');
+  return $posts_name;
+}
