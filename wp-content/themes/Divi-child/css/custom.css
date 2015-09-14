@@ -27,6 +27,9 @@
     margin-top: 8px;
 }
 /*footer*/
+#main-footer, #footer-bottom{
+    background: #d1e0d7;
+}
 #main-footer #menu-main-nav a {
     font-size: 14px;
 }
@@ -157,6 +160,63 @@ body h3{
     font-size: 30px;
     text-transform: uppercase;
 }
+.et_pb_post h2{
+    margin-top: 20px;
+    font-size: 22px;
+    color: #2b266d;
+    line-height: 28px;
+    padding-bottom: 6px;
+}
+.et_pb_post h2 a, .et_pb_portfolio_item h3 a{
+    text-decoration: underline;
+}
+.et_pb_bg_layout_light .et_pb_post .post-meta, .et_pb_post {
+    font-size: 18px;
+    color: #2d2d2d;
+    line-height: 24px;
+}
+.et_pb_post{
+    margin-bottom: 35px;
+}
+.two-col-sec p {
+    font-size: 18px;
+}
+/*jcarousel*/
+a.jcarousel-control-prev, a.jcarousel-control-next{
+    background: transparent;
+    text-shadow: none;
+    box-shadow: none;
+    color: #2b266d;
+    font-size: 70px;
+    left: -45px;
+    margin-top: -65px;
+}
+a.jcarousel-control-next{
+    left: auto;
+    right: -35px
+}
+.jcarousel h2 {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2b266d;
+    padding-bottom: 5px;
+}
+
+.jcarousel p {
+    font-size: 18px;
+    color: #2b266d;
+    text-decoration: underline;
+}
+.carousel-section .view-all {
+    margin-top: 43px;
+}
+
+@media (min-width: 981px){
+    .et_pb_gutters3 .et_pb_column_1_2 .et_pb_module, .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_row .et_pb_column_1_2 .et_pb_gutters3.et_pb_row_inner .et_pb_module {
+        margin-bottom: 0px;
+    }
+}
 .two-column .column:nth-child(3){
 	/*display: none;*/
 }
@@ -193,14 +253,59 @@ body h3{
     padding: 20px 15px;
     color: #FFF;
 }
+/*current studies section */
+.current-studies-section .et_pb_row.et_pb_row_8.et_pb_row_4col {
+    padding-top: 10px;
+}
 
+.current-studies-section .et_pb_main_blurb_image {
+    margin-bottom: 15px;
+}
+
+.current-studies-section .et_pb_blurb h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2b266d;
+    text-decoration: underline;
+}
+.current-studies-section .view-all {
+    margin-top: 20px;
+}
+/*call to action button*/
+.call-to-action-wrap .blue-btn a {
+    font-size: 30px;
+}
+.call-to-action-wrap .blue-btn a:hover{
+    background: #2b266d;
+}
+.et_pb_button:hover, .woocommerce a.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button:hover, .woocommerce-page a.button:hover, .woocommerce button.button:hover, .woocommerce-page button.button:hover, .woocommerce input.button:hover, .woocommerce-page input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce-page #respond input#submit:hover, .woocommerce #content input.button:hover, .woocommerce-page #content input.button:hover, .et_pb_button, .woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt, .woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button, .woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button{
+    padding: 0.5em 1.1em;
+    text-transform: uppercase;
+}
+.call-to-action-wrap .et_pb_button:after{
+    display: none;
+}
 @media only screen and (min-width: 1350px){
+    .carousel-section{
+        padding-bottom: 0;
+    }
+    .carousel-section .et_pb_row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
     .circleimage .et_pb_row {
         padding-top: 0;
     }
     .et_pb_section {
-        padding-bottom: 25px;
+        /*padding-bottom: 25px;*/
     }
+    .current-studies-section  .et_pb_row.et_pb_row_7{
+        padding-bottom: 0;
+    }
+    .call-to-action-wrap  .et_pb_row{
+        padding-top: 5px;
+    }
+
 }
 @media (max-width: 1366px){
     .bottom-nav > li {
@@ -209,6 +314,9 @@ body h3{
     }
 }
 @media(min-width: 981px){
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module{
+
+    }
 	.two-column .column{
 	    width: 46.25% !important;
 	    margin: 0 7.5% 0 0;/*corrected for general dashboard video: 0 7.5% 7.5% 0*/
@@ -225,6 +333,9 @@ body h3{
     /*General dashboard: Video*/
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
         margin-bottom: 0 !important;
+    }
+    .carousel-section .et_pb_text.et_pb_module{
+        margin-bottom: 20px;
     }
 }
 

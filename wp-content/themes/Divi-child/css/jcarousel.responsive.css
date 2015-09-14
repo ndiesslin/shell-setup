@@ -1,13 +1,6 @@
 .jcarousel-wrapper {
-    margin: 20px auto;
+    margin: 0 auto;
     position: relative;
-    border: 10px solid #fff;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 2px #999;
-    -moz-box-shadow: 0 0 2px #999;
-    box-shadow: 0 0 2px #999;
 }
 
 /** Carousel **/
