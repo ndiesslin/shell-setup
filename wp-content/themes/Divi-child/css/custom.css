@@ -27,6 +27,9 @@
     margin-top: 8px;
 }
 /*footer*/
+.home #main-footer, .home #footer-bottom{
+    background-color: #FFF;
+}
 #main-footer, #footer-bottom{
     background: #d1e0d7;
 }
