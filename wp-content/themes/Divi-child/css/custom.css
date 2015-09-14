@@ -30,6 +30,9 @@
 .home #main-footer, .home #footer-bottom{
     background-color: #FFF;
 }
+#main-footer{
+    padding-top: 35px;
+}
 #main-footer, #footer-bottom{
     background: #d1e0d7;
 }
@@ -127,15 +130,20 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 }
 .top-intro section {
     background: #d1e0d7;
+    padding-top: 0;
+    padding-bottom: 26px;
 }
 .top-intro section h2{
     font-size: 38px;
+    margin-top: 34px;
+}
+.top-intro h3 {
+    font-size: 27px;
+    line-height: 37px;
+    margin-top: 15px;
 }
 .blue-btn .et_pb_promo_description {
     display: none;
-}
-.et_pb_fullwidth_header{
-    padding-bottom: 23px;
 }
 body .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
 	margin-left: 0;
@@ -158,6 +166,11 @@ body h3{
 .circleimage {
     font-size: 20px;
     color: #2b266d;
+    padding-bottom: 60px;
+}
+.circleimage p {
+    font-size: 20px;
+    line-height: 26px;
 }
 .et_pb_column_1_3 h2, .et_pb_column_1_4 h2, h3 {
     font-size: 30px;
@@ -211,10 +224,19 @@ a.jcarousel-control-next{
     color: #2b266d;
     text-decoration: underline;
 }
+.carousel-section {
+    padding-bottom: 23px;
+}
 .carousel-section .view-all {
     margin-top: 43px;
 }
-
+/*general dashboard*/
+.top-intro.general-dashbord{
+    margin-bottom: 69px;
+}
+.stories-of-gratitude {
+    padding-bottom: 40px;
+}
 @media (min-width: 981px){
     .et_pb_gutters3 .et_pb_column_1_2 .et_pb_module, .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_row .et_pb_column_1_2 .et_pb_gutters3.et_pb_row_inner .et_pb_module {
         margin-bottom: 0px;
@@ -261,20 +283,29 @@ a.jcarousel-control-next{
     padding-top: 10px;
 }
 
-.current-studies-section .et_pb_main_blurb_image {
-    margin-bottom: 15px;
+.current-studies-section .et_pb_main_blurb_image, .thumb-with-title .et_pb_main_blurb_image{
+    margin-bottom: 10px;
 }
 
-.current-studies-section .et_pb_blurb h4 {
+.current-studies-section .et_pb_blurb h4 , .thumb-with-title h4{
+    text-transform: uppercase;
     font-size: 24px;
+    line-height: 29px;
     font-weight: bold;
     color: #2b266d;
     text-decoration: underline;
 }
 .current-studies-section .view-all {
-    margin-top: 20px;
+    margin-top: 56px;
+}
+.thumb-with-title .view-all{
+    margin-top: 7px;
 }
 /*call to action button*/
+.call-to-action-wrap{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .call-to-action-wrap .blue-btn a {
     font-size: 30px;
 }
@@ -289,8 +320,8 @@ a.jcarousel-control-next{
     display: none;
 }
 @media only screen and (min-width: 1350px){
-    .carousel-section{
-        padding-bottom: 0;
+    .et_pb_row {
+        padding: 8px 0;
     }
     .carousel-section .et_pb_row {
         padding-top: 10px;
@@ -298,9 +329,6 @@ a.jcarousel-control-next{
     }
     .circleimage .et_pb_row {
         padding-top: 0;
-    }
-    .et_pb_section {
-        /*padding-bottom: 25px;*/
     }
     .current-studies-section  .et_pb_row.et_pb_row_7{
         padding-bottom: 0;
