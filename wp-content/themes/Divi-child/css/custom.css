@@ -335,7 +335,7 @@ a.jcarousel-control-next{
 	}
     /*General dashboard: Video*/
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
-        margin-bottom: 0 !important;
+        /* margin-bottom: 0 !important; *//*Removed for events page*/
     }
     .carousel-section .et_pb_text.et_pb_module{
         margin-bottom: 20px;

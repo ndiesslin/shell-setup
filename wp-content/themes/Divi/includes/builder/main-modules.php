@@ -8195,7 +8195,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 			<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 				<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a></h2>
 				<?php } ?>
 
 				<?php
@@ -8212,7 +8212,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									: ''
 							),
 							(
-								'on' === $show_date
+								'on' === $show_date_
 									? sprintf( __( '%s', 'et_builder' ), get_the_date( $meta_date ) )
 									: ''
 							),
