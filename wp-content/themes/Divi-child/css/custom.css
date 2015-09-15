@@ -384,3 +384,16 @@ a.jcarousel-control-next{
 .nomarginright {
     margin-right: 0 !important;
 }
+/* Friends and Family Dashboard */
+.show-video-only .et_pb_row {
+    display: none;
+}
+.show-video-only .et_pb_section {
+    padding-bottom: 0;
+}
+.show-video-only .et_pb_row.et_pb_row_1 {
+    display: block;
+}
+.two-items-in-row .column.size-1of3 {
+    width: 44% !important;
+}
