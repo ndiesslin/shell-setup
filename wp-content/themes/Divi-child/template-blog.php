@@ -1,6 +1,6 @@
 <?php
 /* 
-Template Name: Current Studies Template 
+Template Name: Blog Template 
 */
 get_header();
 
