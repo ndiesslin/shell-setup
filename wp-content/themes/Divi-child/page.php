@@ -5,7 +5,14 @@ get_header();
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
-
+	
+<?php 
+//title
+$title = get_the_title();
+$title_icon = do_shortcode(types_render_field('title-icon', array()));
+page_title($title, $title_icon);
+?>
+	
 <div id="main-content">
 
 <?php if ( ! $is_page_builder_used ) : ?>

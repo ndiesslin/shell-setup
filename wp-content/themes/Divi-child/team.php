@@ -10,13 +10,14 @@ get_header();
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
-<!-- <div class="page-title">
-	<div class="container">
-		<?php while(have_posts()):the_post(); ?>
-		<h1><?php the_title();?></h1>
-		<?php endwhile;?>
-	</div>
-</div> -->
+
+<?php 
+//title
+$title = get_the_title();
+$title_icon = do_shortcode(types_render_field('title-icon', array()));
+page_title($title, $title_icon);
+?>
+
 <div id="main-content team-template">
 
 <?php if ( ! $is_page_builder_used ) : ?>

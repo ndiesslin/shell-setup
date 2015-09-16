@@ -397,3 +397,15 @@ a.jcarousel-control-next{
 .two-items-in-row .column.size-1of3 {
     width: 44% !important;
 }
+
+/* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
+.single-team article.team.has-post-thumbnail .et_post_meta_wrapper img {
+    display: none;
+}
+.page article.team.has-post-thumbnail img {
+    float: left;
+    margin-right: 20px;
+}
+.page .et_pb_posts article.team.has-post-thumbnail a.more-link {
+    display: inline-block;
+}

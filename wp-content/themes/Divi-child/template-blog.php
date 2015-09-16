@@ -7,13 +7,14 @@ get_header();
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
-<div id="main-content">
+<?php 
+//title
+$title = get_the_title();
+$title_icon = do_shortcode(types_render_field('title-icon', array()));
+page_title($title, $title_icon);
+?>
 
-	<?php 
-	//title
-	$title = get_the_title();
-	page_title($title, 'fa-file-text');
-	?>
+<div id="main-content">
 
 	<div class="container">
 		<div class="et_pb_row row-spaced">
