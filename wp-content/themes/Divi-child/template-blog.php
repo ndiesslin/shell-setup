@@ -37,7 +37,7 @@ page_title($title, $title_icon);
 			  $banner_url = $banner[0];
 			  if($banner_url != ''):
 				?>
-	    	<div class="img"><img src="<?php echo $banner_url;?>" alt="" class="img-responsive">
+	    	<div class="img"><img src="<?php echo $banner_url;?>" alt="" class="full-width">
 	    	<?php endif;?></div>
 
 	      <a href="<?php echo $page_url;?><?php echo $page->post_name;?>/">

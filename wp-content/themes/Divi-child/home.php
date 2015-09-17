@@ -11,7 +11,46 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 
-<div id="main-content">
+<div class="homepage-slider elem-large-hover" style="">
+	<?php
+	  $args = array(
+		'order'=> 'ASC', 
+		'numberposts'=> '5',
+		'post_type' => 'homepage-slider',
+		);
+	  $postslist = get_posts( $args );
+	  $count = count($postslist);
+	  if($count != 0):	  
+	  	$i = 1;
+	    ?>
+	    <?php foreach ($postslist as $post) :  setup_postdata($post); ?>
+
+			<?php 
+			$page_link = types_render_field('page-link',array());
+			if($i <= 3):
+				$color = 'red';
+			else:
+				$color = 'purple';//3 red and 2 purple
+			endif;
+			?>
+			<div class="large-hover-img">
+				<div class="lh-table <?php echo ($i == 1 ? 'img-first': '');?>">
+					<div class="lh-container <?php echo $color;?>">
+						<a class="caption-head" href="<?php echo $page_link;?>"><?php the_title();?></a>
+						<p class="lh-click"></p>
+						<p class="lh-reveal"><a href="<?php echo $page_link;?>"><?php echo $post->post_content;?></a></p>
+					</div>
+					<div class="lh-background"> </div></div>
+			</div>
+  		
+  		<?php 
+	    	$i++;
+	    endforeach;
+	  endif;
+	?>
+</div>
+
+<div id="main-content" class="">
 
 <?php if ( ! $is_page_builder_used ) : ?>
 

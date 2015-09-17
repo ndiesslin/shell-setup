@@ -1,3 +1,7 @@
+html {
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: 'din_alternatebold';
     src: url('../fonts/din-font/din_alternate_bold-webfont.eot');
@@ -163,8 +167,11 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     position: absolute;
     width: 100%;
 }
-.top-intro section {
-    background: #d1e0d7;
+.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
+    background-color: #AB162B !important;
+}
+.top-intro section.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
+    background: #d1e0d7 !important;
     padding-top: 0;
     padding-bottom: 0px;
 }
@@ -488,4 +495,62 @@ a.jcarousel-control-next{
 }
 .page .et_pb_posts article.team.has-post-thumbnail a.more-link {
     display: inline-block;
+}
+img.full-width {
+    height: auto;
+    width: 100%;
+}
+
+/* homepage-slider */
+.homepage-slider {
+    height: 500px;
+}
+.homepage-slider .caption-head {
+    font-size: 1.25rem;
+}
+.elem-large-hover .lh-container a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.elem-large-hover .lh-table.img-first .lh-reveal, .elem-large-hover .lh-table.img-last .lh-reveal {
+    margin: 0.5em 30% 0;
+}
+.elem-large-hover .lh-table .lh-reveal a {
+    display: block;
+}
+
+.full-width-link {
+    position: absolute;
+    left: 0;
+}
+.full-width-link a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #250670;
+    color: white;
+    font-size: 35px;
+    font-size: 2.1875rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    line-height: 1.5;
+}
+body.home .et_pb_row {
+    position: initial;
+    min-height: 174px;
+    padding: 0;
+}
+
+/*Professional Dashboard*/
+.event-style .et_pb_blurb_content {
+    min-height: 150px;
+    margin-bottom: 20px;
+}
+.event-style p {
+    padding-bottom: 5px;
+}
+.event-style .et_pb_main_blurb_image img {
+    height: 150px;
+    margin-right: 20px;
+    float: left;
 }

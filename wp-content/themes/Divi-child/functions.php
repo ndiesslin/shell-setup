@@ -76,7 +76,7 @@ function page_title($title, $title_icon) {
           if($title_icon != ''):
             echo $title_icon;
           else:
-            echo '<i class="fa fa-file-text fa- "></i> ';
+            //echo '<i class="fa fa-file-text fa- "></i> ';
           endif;
           echo $title.'</h1>        
         </div>

@@ -4,5 +4,17 @@ $(document).ready(function() {
 
 	//team page
 	$('article.team').addClass('clearfix');
-	$('article.team .more-link').text('View Profile')
+	$('article.team .more-link').text('View Profile');
+
+	//homepage-slider
+	
+	$('.lh-container').click(function() {
+		$('.lh-click').css({'opacity':'0'});
+	});
+	$('.large-hover-img').hover(function() {
+	}, function() {
+		$('.lh-click').css({'opacity':'1'});
+	}
+	);
+	
 });
