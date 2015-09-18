@@ -154,7 +154,11 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 	margin-top: 38px;
 	margin-bottom: 85px;
 }
-.top-intro h4 span, .top-intro h4 strong{
+.top-intro h2 {
+    color: #ab1f2d;
+    text-align: center;
+}
+.top-intro h4, .top-intro h4 span, .top-intro h4 strong{
     display: inline-block;
     background: #ab1f2d;
     padding: 20px;
@@ -164,8 +168,9 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     font-size: 26px;
 }
 .top-intro h4 {
+    display: none;
     position: absolute;
-    width: 100%;
+    left: 50%;
 }
 .et_pb_fullwidth_header_0.et_pb_fullwidth_header {
     background-color: #AB162B !important;
@@ -206,13 +211,18 @@ body h3{
 }
 
 .circleimage {
-    font-size: 20px;
-    color: #2b266d;
     padding-bottom: 60px;
 }
-.circleimage p {
+.circleimage h4,
+.circleimage i {
+    color: #2b266d;
+}
+.circleimage h4 {    
     font-size: 20px;
     line-height: 26px;
+    text-transform: uppercase;
+}
+.circleimage p {
 }
 .et_pb_column_1_3 h2, .et_pb_column_1_4 h2, h3 {
     font-size: 30px;
@@ -340,8 +350,16 @@ a.jcarousel-control-next{
 .current-studies-section .et_pb_main_blurb_image, .thumb-with-title .et_pb_main_blurb_image{
     margin-bottom: 10px;
 }
+.et_post_video,
+.et_pb_video {
+    margin-bottom: 20px !important;
+}
+.et_pb_video_play:before {
+    content: '';
+}
 
-.current-studies-section .et_pb_blurb h4 , .thumb-with-title h4{
+.current-studies-section .et_pb_blurb h4 , .thumb-with-title h4,
+.current-studies-section h4 {
     text-transform: uppercase;
     font-size: 24px;
     line-height: 29px;
@@ -356,7 +374,7 @@ a.jcarousel-control-next{
     margin-top: 7px;
 }
 /*call to action button*/
-.call-to-action-wrap{
+.call-to-action-wrap {
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -553,4 +571,9 @@ body.home .et_pb_row {
     height: 150px;
     margin-right: 20px;
     float: left;
+}
+
+/* Template 4a */
+.et_pb_row .et_pb_column:last-child, .et_pb_row_inner .et_pb_column:last-child {
+    float: right;
 }
