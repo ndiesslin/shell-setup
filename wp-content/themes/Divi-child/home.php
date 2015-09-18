@@ -26,7 +26,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	    <?php foreach ($postslist as $post) :  setup_postdata($post); ?>
 
 			<?php 
+			$post_id = $post->ID;
 			$page_link = types_render_field('page-link',array());
+			
+			$banner = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), '');
+			$banner_url = $banner[0];
+
 			if($i <= 3):
 				$color = 'red';
 			else:
@@ -40,7 +45,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 						<p class="lh-click"></p>
 						<p class="lh-reveal"><a href="<?php echo $page_link;?>"><?php echo $post->post_content;?></a></p>
 					</div>
-					<div class="lh-background"> </div></div>
+					<div class="lh-background" style="background-image: url(<?php echo $banner_url;?>);"> </div></div>
 			</div>
   		
   		<?php 
