@@ -575,5 +575,22 @@ body.home .et_pb_row {
 
 /* Template 4a */
 .et_pb_row .et_pb_column:last-child, .et_pb_row_inner .et_pb_column:last-child {
-    float: right;
+    /* float: right; */
+}
+
+/* current studies */
+.show-image-and-text article.et_pb_post {
+    width: 20.875%;
+    float: left;
+    margin-right: 5.5%;
+}
+.show-image-and-text .et_pb_post h2 {
+    /*margin: 0 -20px;*/
+    text-transform: uppercase;
+}
+.show-image-and-text article.et_pb_post:nth-child(4n) {
+    margin-right: 0;
+}
+.et_pb_image_container, .et_pb_blog_grid .et_main_video_container, .et_pb_blog_grid .et_audio_content, .et_pb_blog_grid .et_pb_post .et_pb_slider {
+    margin: 0;
 }

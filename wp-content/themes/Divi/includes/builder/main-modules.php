@@ -8142,6 +8142,9 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		ob_start();
 
 		$args['post_type'] = array('post','news-events','team');//added one - added dynamically above
+		global $post;
+		$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in all the case of blog
+		//print_r($post);exit;
 		query_posts( $args );
 
 		if ( have_posts() ) {
@@ -8168,87 +8171,88 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					$no_thumb_class = '';
 				} ?>
 
+			<!-- blog posts -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 
-			<?php
-				et_divi_post_format_content();
-
-				if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) {
-					if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
-						printf(
-							'<div class="et_main_video_container">
-								%1$s
-							</div>',
-							$first_video
-						);
-					elseif ( 'gallery' === $post_format ) :
-						et_gallery_images();
-					elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
-						if ( 'on' !== $fullwidth ) echo '<div class="et_pb_image_container">'; ?>
-							<a href="<?php the_permalink(); ?>">
-								<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
-							</a>
-					<?php
-						if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
-					endif;
-				} ?>
-
-			<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
-				<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-					<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a></h2>
-				<?php } ?>
-
 				<?php
-					if ( 'on' === $show_author || 'on' === $show_date || 'on' === $show_categories ) {
-						printf( '<p class="post-meta">%1$s %2$s %3$s %4$s %5$s</p>',
-							(
-								'on' === $show_author
-									? sprintf( __( 'by %s', 'et_builder' ), et_pb_get_the_author_posts_link() )
-									: ''
-							),
-							(
-								( 'on' === $show_author && 'on' === $show_date )
-									? ' | '
-									: ''
-							),
-							(
-								'on' === $show_date_
-									? sprintf( __( '%s', 'et_builder' ), get_the_date( $meta_date ) )
-									: ''
-							),
-							(
-								(( 'on' === $show_author || 'on' === $show_date ) && 'on' === $show_categories)
-									? ' | '
-									: ''
-							),
-							(
-								'on' === $show_categories
-									? get_the_category_list(', ')
-									: ''
-							)
-						);
-					}
+					et_divi_post_format_content();
 
-					if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
-						if ( 'on' === $show_content ) {
-							global $more;
-							$more = null;
+					if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) {
+						if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
+							printf(
+								'<div class="et_main_video_container">
+									%1$s
+								</div>',
+								$first_video
+							);
+						elseif ( 'gallery' === $post_format ) :
+							et_gallery_images();
+						elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
+							if ( 'on' !== $fullwidth ) echo '<div class="et_pb_image_container">'; ?>
+								<a href="<?php the_permalink(); ?>">
+									<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
+								</a>
+						<?php
+							if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
+						endif;
+					} ?>
 
-							the_content( __( 'read more...', 'et_builder' ) );
-						} else {
-							if ( has_excerpt() ) {
-								the_excerpt();
-							} else {
-								truncate_post( 270 );
-							}
-							$more = 'on' == $show_more ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '';
-							echo $more;
+				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
+					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
+						<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a></h2>
+					<?php } ?>
+
+					<?php
+						if ( 'on' === $show_author || 'on' === $show_date || 'on' === $show_categories ) {
+							printf( '<p class="post-meta">%1$s %2$s %3$s %4$s %5$s</p>',
+								(
+									'on' === $show_author
+										? sprintf( __( 'by %s', 'et_builder' ), et_pb_get_the_author_posts_link() )
+										: ''
+								),
+								(
+									( 'on' === $show_author && 'on' === $show_date )
+										? ' | '
+										: ''
+								),
+								(
+									'on' === $show_date_
+										? sprintf( __( '%s', 'et_builder' ), get_the_date( $meta_date ) )
+										: ''
+								),
+								(
+									(( 'on' === $show_author || 'on' === $show_date ) && 'on' === $show_categories)
+										? ' | '
+										: ''
+								),
+								(
+									'on' === $show_categories
+										? get_the_category_list(', ')
+										: ''
+								)
+							);
 						}
-					} else if ( has_excerpt() ) {
-						the_excerpt();
-					}
-					?>
-			<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
+
+						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
+							if ( 'on' === $show_content ) {
+								global $more;
+								$more = null;
+
+								the_content( __( 'read more...', 'et_builder' ) );
+							} else {
+								if ( has_excerpt() ) {
+									the_excerpt();
+								} else {
+									truncate_post( 270 );
+								}
+								$more = 'on' == $show_more ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '';
+								echo $more;
+							}
+						} else if ( has_excerpt() ) {
+							the_excerpt();
+						}
+						?>
+				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
 			</article> <!-- .et_pb_post -->
 	<?php
@@ -8276,18 +8280,36 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		$class = " et_pb_module et_pb_bg_layout_{$background_layout}";
 
-		$output = sprintf(
-			'<div%5$s class="%1$s%3$s%6$s"%7$s>
-				%2$s
-			%4$s',
-			( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
-			$posts,
-			esc_attr( $class ),
-			( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
-			( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
-			( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
-			( 'on' !== $fullwidth ? ' data-columns' : '' )
-		);
+		//blog output
+		if (strpos($module_class,'show-image-and-text') !== false) {
+			$class = '';
+			$output = sprintf(
+				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
+					%2$s
+				%4$s',
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+		else {
+			$output = sprintf(
+				'<div%5$s class="%1$s%3$s%6$s"%7$s>
+					%2$s
+				%4$s',
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
 
 		if ( 'on' !== $fullwidth )
 			$output = sprintf( '<div class="et_pb_blog_grid_wrapper">%1$s</div>', $output );
