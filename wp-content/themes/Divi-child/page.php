@@ -17,7 +17,6 @@ page_title($title, $title_icon);
 
 <?php if ( ! $is_page_builder_used ) : ?>
 
-	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 
@@ -70,7 +69,6 @@ page_title($title, $title_icon);
 
 			<?php get_sidebar(); ?>
 		</div> <!-- #content-area -->
-	</div> <!-- .container -->
 
 <?php endif; ?>
 

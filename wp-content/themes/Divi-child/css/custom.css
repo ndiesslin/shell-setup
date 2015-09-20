@@ -15,9 +15,6 @@ html {
 
 }
 
-
-
-
 @font-face {
     font-family: 'din_mediumregular';
     src: url('../fonts/din-font/din_medium-webfont.eot');
@@ -32,12 +29,17 @@ html {
 }
 
 body{
-    font-family: 'din_mediumregular';
+    /*font-family: 'din_mediumregular';*/
+    font-family: 'Roboto', sans-serif;
 }
 /*menu css */
-.container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container{
+.container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .content-wrapper{
     width: 90%;
     max-width: 1160px;
+}
+.content-wrapper{
+    margin-left: auto;
+    margin-right: auto;
 }
 .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
     padding-left: 0;
@@ -99,9 +101,9 @@ footer ul.sub-menu {
     margin-top: 15px;
 }
 
-body .et_pb_section{
+/*body .et_pb_section{
 	padding-top: 0;
-}
+}*/
 .page-title{
 	background: #ab1f2d;
     padding: 2.2em 0;
@@ -296,6 +298,9 @@ a.jcarousel-control-next{
     padding-bottom: 40px;
 }
 @media (min-width: 981px){
+    .et_pb_section{
+        padding: 0;
+    }
     .et_pb_gutters3 .et_pb_column_1_2 .et_pb_module, .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_row .et_pb_column_1_2 .et_pb_gutters3.et_pb_row_inner .et_pb_module {
         margin-bottom: 0px;
     }
@@ -411,76 +416,6 @@ a.jcarousel-control-next{
 .full-width-container section {
     padding-top: 0;
 }
-/*responsive*/
-
-@media only screen and (min-width: 1350px){
-    .et_pb_row {
-        padding: 8px 0;
-    }
-    .carousel-section .et_pb_row {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .circleimage .et_pb_row {
-        padding-top: 0;
-    }
-    .current-studies-section  .et_pb_row.et_pb_row_7{
-        padding-bottom: 0;
-    }
-    .call-to-action-wrap  .et_pb_row{
-        padding-top: 5px;
-    }
-
-}
-@media (max-width: 1366px){
-    .bottom-nav > li {
-        width: 18%;
-        margin-right: 2%;
-    }
-}
-@media(min-width: 981px){
-    .circleimage .et_pb_column{
-        margin-bottom: 45px;
-    }
-    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module{
-
-    }
-	.two-column .column{
-	    width: 46.25% !important;
-	    margin: 0 7.5% 0 0;/*corrected for general dashboard video: 0 7.5% 7.5% 0*/
-	}
-	.two-column .column:nth-child(2){
-		margin-right: 0 !important;
-	}
-	.et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post{
-		padding: 0;
-	}
-	body .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
-	    padding-bottom: 0;
-	}
-    /*General dashboard: Video*/
-    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
-        /* margin-bottom: 0 !important; *//*Removed for events page*/
-    }
-    .carousel-section .et_pb_text.et_pb_module{
-        margin-bottom: 20px;
-    }
-}
-@media (max-width: 980px){
-    .circleimage .et_pb_column{
-        margin-bottom: 45px;
-    }
-    .et_pb_column {
-        margin-bottom: 0;
-    }
-    .et_pb_row, .et_pb_column .et_pb_row_inner{
-        padding: 0;
-    }
-    .et_pb_section .et_pb_row, .et_pb_section.et_section_specialty .et_pb_row{
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
 .two-column {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -507,6 +442,20 @@ a.jcarousel-control-next{
 }
 .two-items-in-row .column.size-1of3 {
     width: 44% !important;
+}
+/* team list page */
+.profile-img {
+    float: left;
+    margin-right: 30px;
+}
+.profile-intro h2{
+    color: #2b266d;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+.profile-intro h2 .name{
+    text-decoration: underline;
+    font-weight: normal;
 }
 
 /* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
@@ -599,4 +548,104 @@ body.home .et_pb_row {
 }
 .et_pb_image_container, .et_pb_blog_grid .et_main_video_container, .et_pb_blog_grid .et_audio_content, .et_pb_blog_grid .et_pb_post .et_pb_slider {
     margin: 0;
+}
+
+/* team tempalte */
+.team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
+    background-color: #f3f1ed;
+}
+/* single team */
+.single-team h5{
+    color: #2b266d;
+    text-decoration: underline;
+}
+
+.full-widht-sec{
+    font-weight: 300;
+}
+.full-widht-sec h2{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+/*responsive*/
+
+@media only screen and (min-width: 1350px){
+    /*.et_pb_row {
+        padding: 8px 0;
+    }*/
+    .et_pb_section {
+        padding: 0px 0;
+    }
+
+
+    .carousel-section .et_pb_row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .circleimage .et_pb_row {
+        padding-top: 0;
+    }
+    .current-studies-section  .et_pb_row.et_pb_row_7{
+        padding-bottom: 0;
+    }
+    .call-to-action-wrap  .et_pb_row{
+        padding-top: 5px;
+    }
+
+}
+@media (max-width: 1366px){
+    .bottom-nav > li {
+        width: 18%;
+        margin-right: 2%;
+    }
+}
+@media(min-width: 981px){
+    .circleimage .et_pb_column{
+        margin-bottom: 45px;
+    }
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module{
+
+    }
+    .two-column .column{
+        width: 46.25% !important;
+        margin: 0 7.5% 0 0;/*corrected for general dashboard video: 0 7.5% 7.5% 0*/
+    }
+    .two-column .column:nth-child(2){
+        margin-right: 0 !important;
+    }
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post{
+        padding: 0;
+    }
+    body .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
+        padding-bottom: 0;
+    }
+    /*General dashboard: Video*/
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_blog_grid .column.size-1of3 .et_pb_post {
+        /* margin-bottom: 0 !important; *//*Removed for events page*/
+    }
+    .carousel-section .et_pb_text.et_pb_module{
+        margin-bottom: 20px;
+    }
+    .profile-intro {
+        width: 60%;
+        float: left;
+    }
+}
+@media (max-width: 980px){
+    .et_pb_section{
+        padding: 0;
+    }
+    .circleimage .et_pb_column{
+        margin-bottom: 45px;
+    }
+    .et_pb_column {
+        margin-bottom: 0;
+    }
+    /*.et_pb_section .et_pb_row, .et_pb_section.et_section_specialty .et_pb_row{
+        padding-left: 30px;
+        padding-right: 30px;
+    }*/
+    .profile-intro{
+        width: 100%;
+    }
 }
