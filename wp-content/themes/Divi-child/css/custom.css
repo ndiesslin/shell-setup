@@ -32,6 +32,13 @@ body{
     /*font-family: 'din_mediumregular';*/
     font-family: 'Roboto', sans-serif;
 }
+.heading-row{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.heading-row h3 {
+    padding-bottom: 0;
+}
 /*menu css */
 .container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .content-wrapper{
     width: 90%;
@@ -115,10 +122,9 @@ footer ul.sub-menu {
 	margin: 0;
 	width: 100%;
 }
-.view-all{
-	text-align: right;
-	display: block;
-	width: 100%;
+.view-all-row{
+	padding-top: 0;
+    margin-bottom: 27px;
 }
 header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
 	top: auto;
@@ -146,7 +152,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     max-width: 1040px;
 }
 .circleimage .et_pb_main_blurb_image {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 .circleimage .et_pb_blurb_container i, .circleimage .et_pb_blurb_container a{
     font-size: 30px;
@@ -567,6 +573,20 @@ body.home .et_pb_row {
     margin-bottom: 20px;
     font-weight: bold;
 }
+/*four colum blog list*/
+.show-image-and-text article.et_pb_post {
+    width: 23.875%;
+    float: left;
+    margin-right: 1.5%;
+}
+.icon-top-right h4 a {
+    color: #2b266d;
+    text-decoration: underline;
+}
+
+.icon-top-right .et_pb_main_blurb_image {
+    margin-bottom: 10px;
+}
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
@@ -630,6 +650,9 @@ body.home .et_pb_row {
         width: 60%;
         float: left;
     }
+    .show-image-and-text article.et_pb_post {
+        margin-bottom: 60px;
+    }
 }
 @media (max-width: 980px){
     .et_pb_section{
@@ -647,5 +670,24 @@ body.home .et_pb_row {
     }*/
     .profile-intro{
         width: 100%;
+    }
+    .show-image-and-text article.et_pb_post {
+        width: 47.25%;
+        margin-right: 5.5%;
+    }
+    .show-image-and-text article.et_pb_post:nth-child(2n){
+        width: 47.25%;
+        margin-right: 0; 
+    }
+}
+@media(max-width: 479px){
+    .show-image-and-text article.et_pb_post {
+        width: 100%;
+        margin-right: 0%;
+        text-align: center;
+    }
+    .show-image-and-text article.et_pb_post:nth-child(2n){
+        width: 100%;
+        margin-right: 0;
     }
 }
