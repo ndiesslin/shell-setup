@@ -312,16 +312,21 @@ a.jcarousel-control-next{
 
 /*two-column*/
 .stories-of-gratitude-two article.et_pb_post,
-.news-events-page article.et_pb_post {
+.news-events-page article.et_pb_post, 
+.list-news-two article.et_pb_post {
     float: left;
-    margin-right: 5.5%;
-    width: 47.25%;
+    margin-right: 1.4%;
+    width: 49.30%;
 }
-.stories-of-gratitude-two article.et_pb_post:last-child,
-.news-events-page article.et_pb_post:nth-child(even) {
+.stories-of-gratitude-two article.et_pb_post:nth-child(even),
+.news-events-page article.et_pb_post:nth-child(even),
+.list-news-two article.et_pb_post:nth-child(even) {
     margin-right: 0;
 }
-
+.list-news-two article.et_pb_post{
+    margin-right: 6.7%;
+    width: 46.65%;
+}
 /* news-events */
 .news-events-page article .et_pb_image_container {
     display: none;
@@ -339,6 +344,9 @@ a.jcarousel-control-next{
 }
 
 @media (min-width: 981px){
+    .et_pb_gutters3 .et_pb_column_4_4 .heading-module{
+        margin-bottom: 0.15%;
+    }
     .et_pb_section{
         padding: 0;
     }

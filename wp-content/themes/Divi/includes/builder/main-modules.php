@@ -8252,7 +8252,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					echo '<div class="profile-intro">';
 				} 
 				if (strpos($module_class,'list-news') !== false) {
-					echo '<div class="list-news-detail">';
+					//echo '<div class="list-news-detail">';
 				}
 				?>
 
@@ -8347,7 +8347,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				echo '</div>';//end profile-detail || list-news-detail
 			}
 			if (strpos($module_class,'list-news') !== false ) { 
-				echo '</div>';//list-news-detail
+				//echo '</div>';//list-news-detail
 			}
 			?>
 	<?php
@@ -8376,7 +8376,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		$class = " et_pb_module et_pb_bg_layout_{$background_layout}";
 
 		//blog output eg. current studies || team page || stories-of-gratitude-two in general dashboard (friend and family) || news-events-page page eg. What's new
-		if (strpos($module_class,'show-image-and-text') !== false || strpos($module_class,'list-team-member') !== false || strpos($module_class,'stories-of-gratitude-two') !== false || strpos($module_class,'news-events-page') !== false) {
+		if (strpos($module_class,'show-image-and-text') !== false || strpos($module_class,'list-team-member') !== false || strpos($module_class,'stories-of-gratitude-two') !== false || strpos($module_class,'news-events-page') !== false || strpos($module_class,'list-news') !== false) {
 			$class = '';
 			$output = sprintf(
 				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
