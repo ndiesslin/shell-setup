@@ -1,4 +1,5 @@
 <?php
+$post_types = array('post','news-events','team');//added one - added dynamically above
 class ET_Builder_Module_Image extends ET_Builder_Module {
 	function init() {
 		$this->name = __( 'Image', 'et_builder' );
@@ -8141,9 +8142,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		ob_start();
 
-		$args['post_type'] = array('post','news-events','team');//added one - added dynamically above
+		$args['post_type'] = $post_types;
 		global $post;
-		$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in all the case of blog
+		$post_name = $post->post_name;
+		if (strpos($module_class,'donot-show-grand-children') !== false) {
+			$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in all the case of blog
+		}
 		//print_r($post);exit;
 		query_posts( $args );
 
@@ -8172,6 +8176,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				} ?>
 
 			<!-- blog posts -->
+			<?php if (strpos($module_class,'list-team-member') !== false) { 
+				echo '<div class="full-row">';
+			}
+			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 
 				<?php
@@ -8189,17 +8197,30 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							et_gallery_images();
 						elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
 							if ( 'on' !== $fullwidth ) echo '<div class="et_pb_image_container">'; ?>
+								<?php if (strpos($module_class,'list-team-member') !== false) { 
+									echo '<div class="profile-img">';
+								} ?>
 								<a href="<?php the_permalink(); ?>">
 									<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
 								</a>
+								<?php if (strpos($module_class,'list-team-member') !== false) { 
+									echo '</div>';//end profile-img
+								} ?>
 						<?php
 							if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
 						endif;
-					} ?>
+					}//end if(! in_array) ?>
 
+				<?php if (strpos($module_class,'list-team-member') !== false) { 
+					echo '<div class="profile-intro">';
+				} ?>
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-						<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a></h2>
+						<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
+							<?php if(types_render_field('team-title', array()) != '') { ?>
+							<span><?php echo types_render_field('team-title', array());?></span>
+							<?php } ?>
+						</h2>
 					<?php } ?>
 
 					<?php
@@ -8253,8 +8274,15 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						}
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
+				<?php if (strpos($module_class,'list-team-member') !== false) { 
+					echo '<div class="profile-intro">';
+				} ?>
 
 			</article> <!-- .et_pb_post -->
+			<?php if (strpos($module_class,'list-team-member') !== false) { 
+				echo '</div>';//end profile-detail
+			}
+			?>
 	<?php
 			} // endwhile
 
@@ -8282,6 +8310,22 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		//blog output
 		if (strpos($module_class,'show-image-and-text') !== false) {
+			$class = '';
+			$output = sprintf(
+				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
+					%2$s
+				%4$s',
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+		//team page
+		else if (strpos($module_class,'list-team-member') !== false) {
 			$class = '';
 			$output = sprintf(
 				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
