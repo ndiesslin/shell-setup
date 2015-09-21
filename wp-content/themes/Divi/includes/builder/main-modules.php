@@ -8216,7 +8216,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				} ?>
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-						<h2><a href="<?php the_permalink(); ?>"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
+						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
 							<?php if(types_render_field('team-title', array()) != '') { ?>
 							<span><?php echo types_render_field('team-title', array());?></span>
 							<?php } ?>
@@ -8261,22 +8261,22 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 								the_content( __( 'read more...', 'et_builder' ) );
 							} else {
+								echo '<p>';
 								if ( has_excerpt() ) {
 									the_excerpt();
 								} else {
 									truncate_post( 270 );
 								}
+								echo '</p>';
+
 								$more = 'on' == $show_more ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '';
-								echo $more;
+								echo '<p>' . $more . '</p>';
 							}
 						} else if ( has_excerpt() ) {
 							the_excerpt();
 						}
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
-				<?php if (strpos($module_class,'list-team-member') !== false) { 
-					echo '<div class="profile-intro">';
-				} ?>
 
 			</article> <!-- .et_pb_post -->
 			<?php if (strpos($module_class,'list-team-member') !== false) { 
