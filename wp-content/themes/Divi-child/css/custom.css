@@ -139,9 +139,6 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 .lh-click{
     opacity: 1 !important;
 }
-.large-hover-img:last-child.active{
-    padding-right: 7%;
-}
 .lh-table {
     text-shadow: 1px 2px 2px #000;
 }
@@ -697,6 +694,11 @@ body.home .et_pb_row {
         margin-right: 2%;
     }
 
+}
+@media(min-width: 769px){
+    .large-hover-img:last-child.active{
+        padding-right: 7%;
+    }
 }
 @media(min-width: 981px){
     .et_pb_section .et_pb_row .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_row_inner .et_pb_column .view-all-module:last-child{
