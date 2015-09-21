@@ -29,3 +29,33 @@ $(document).ready(function() {
 	//stories of gratitude
 	$('.et_pb_video_play').html('<span class="et-pb-icon et-waypoint et_pb_animation_top et-animated"></span>');
 });
+
+// For equal height
+function eq_height_div(){
+	$listItem = $('.eq-height div article');
+	maxValue = findMaxValue($listItem);
+	$listItemImg = $('img',$listItem);
+	maxImgHeight = findMaxValue($listItemImg);
+	$listItem.each(function(){
+		$(this).css("height",maxValue);
+		var imageHeight = $('img',this).height();
+		var imageMargin = maxImgHeight - imageHeight;
+		$('img',this).css("margin-bottom",imageMargin);
+	});
+}
+jQuery(document).ready(function (){
+	eq_height_div();
+});
+jQuery(window).resize()(function (){
+	eq_height_div();
+});
+function findMaxValue(element){
+	var maxValue = undefined;
+	$(element).each(function(){
+		var val = parseInt($(this).height());
+		if (maxValue === undefined || maxValue < val) {
+			maxValue = val;
+		}
+	});
+	return maxValue;
+}
