@@ -8204,9 +8204,19 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								<?php if (strpos($module_class,'list-team-member') !== false) { 
 									echo '<div class="profile-img">';
 								} ?>
+
+								<?php if (strpos($module_class,'news-events') !== false) { ?>
+								<a href="<?php the_permalink(); ?>">
+									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
+									the_post_thumbnail();
+									?>
+								</a>
+								<?php } else { ?>
 								<a href="<?php the_permalink(); ?>">
 									<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
 								</a>
+								<?php } ?>
+
 								<?php if (strpos($module_class,'list-team-member') !== false) { 
 									echo '</div>';//end profile-img
 								} ?>
@@ -8221,12 +8231,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				//stories of gratitude in general dashboard
 				if (strpos($module_class,'stories-of-gratitude-two') !== false) { 
 					$post_content_arr = explode(']',$post_content);
-					//var_dump($post_content_arr[3]);
-					echo do_shortcode($post_content_arr[3].'] [/et_pb_video]');//exit();
+					echo do_shortcode($post_content_arr[3].'] [/et_pb_video]');
 				}
 				?>
 
-				<?php if (strpos($module_class,'list-team-member') !== false) { 
+				<?php 
+				if (strpos($module_class,'list-team-member') !== false) { 
 					echo '<div class="profile-intro">';
 				} ?>
 
@@ -8326,62 +8336,9 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		$class = " et_pb_module et_pb_bg_layout_{$background_layout}";
 
-		//blog output
-		if (strpos($module_class,'show-image-and-text') !== false) {
+		//blog output eg. current studies || team page || stories-of-gratitude-two in general dashboard (friend and family) || news-events page eg. What's new
+		if (strpos($module_class,'show-image-and-text') !== false || strpos($module_class,'list-team-member') !== false || strpos($module_class,'stories-of-gratitude-two') !== false || strpos($module_class,'news-events') !== false) {
 			$class = '';
-			$output = sprintf(
-				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
-					%2$s
-				%4$s',
-				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
-				$posts,
-				esc_attr( $class ),
-				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
-				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
-				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
-				( 'on' !== $fullwidth ? ' data-columns' : '' )
-			);//ends output
-		}
-
-		//team page
-		else if (strpos($module_class,'list-team-member') !== false) {
-			$class = '';
-			$output = sprintf(
-				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
-					%2$s
-				%4$s',
-				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
-				$posts,
-				esc_attr( $class ),
-				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
-				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
-				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
-				( 'on' !== $fullwidth ? ' data-columns' : '' )
-			);//ends output
-		}
-
-		//stories-of-gratitude-two in general dashboard (friend and family)
-		else if (strpos($module_class,'stories-of-gratitude-two') !== false) {
-			$class = '';
-			//var_dump($posts);exit;
-			$output = sprintf(
-				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
-					%2$s
-				%4$s',
-				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
-				$posts,
-				esc_attr( $class ),
-				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
-				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
-				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
-				( 'on' !== $fullwidth ? ' data-columns' : '' )
-			);//ends output
-		}
-
-		//stories-of-gratitude-two in general dashboard (friend and family)
-		else if (strpos($module_class,'news-events') !== false) {
-			$class = '';
-			//var_dump($posts);exit;
 			$output = sprintf(
 				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
 					%2$s
