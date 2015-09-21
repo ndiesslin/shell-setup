@@ -40,6 +40,12 @@ body{
     padding-bottom: 0;
 }
 /*menu css */
+.home .et_fixed_nav #main-header.et-fixed-header{
+    position: relative;
+}
+.home .et-fixed-header .container.clearfix.et_menu_container{
+    height: 100% !important;
+}
 .container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .content-wrapper{
     width: 90%;
     max-width: 1160px;
