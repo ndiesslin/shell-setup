@@ -453,6 +453,7 @@ a.jcarousel-control-next{
 .profile-img {
     float: left;
     margin-right: 30px;
+    width: 216px;
 }
 .profile-intro h2{
     color: #2b266d;
@@ -462,6 +463,9 @@ a.jcarousel-control-next{
 .profile-intro h2 .name{
     text-decoration: underline;
     font-weight: normal;
+}
+.profile-intro .more-link {
+    display: block;
 }
 
 /* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
@@ -557,8 +561,20 @@ body.home .et_pb_row {
 }
 
 /* team tempalte */
+.et_pb_row.full-width-row {
+    max-width: 100%;
+}
+.full-width-row .list-team-member article {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 27px 0;
+}
 .team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
     background-color: #f3f1ed;
+}
+.team-template .wp-pagenavi {
+    max-width: 1160px;
+    margin: 0 auto;
 }
 /* single team */
 .single-team h5{

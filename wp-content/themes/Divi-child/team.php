@@ -17,7 +17,7 @@ $title = get_the_title();
 $title_icon = do_shortcode(types_render_field('title-icon', array()));
 page_title($title, $title_icon);
 ?>
-<div class="team-template">
+<div class="team-template" style="display:none;">
 	<div class="full-row">
 		<div class="content-wrapper">
 			<div class="et_pb_section">
