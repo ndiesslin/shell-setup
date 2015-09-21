@@ -2824,3 +2824,21 @@ function et_pb_remove_lb_plugin_force_editor_mode() {
 	remove_filter( 'wp_default_editor', 'et_force_tmce_editor' );
 }
 add_action( 'admin_init', 'et_pb_remove_lb_plugin_force_editor_mode' );
+
+function parseDate($dateString){
+  $dateArray = array();
+  $hold = explode(' ',$dateString);
+  $date = $hold[0];
+  $time = $hold[1];
+  $date = explode(':', $date);
+  $time = explode(':',$time);
+
+  foreach ($date as $part) {      //First push date (Month Day Date)
+    array_push($dateArray,$part);
+  }
+
+  foreach ($time as $part) {      //then time (Hour min)
+    array_push($dateArray,$part);
+  }
+  return $dateArray;
+}

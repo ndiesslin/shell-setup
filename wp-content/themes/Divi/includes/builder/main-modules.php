@@ -8148,7 +8148,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			//$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in case of page
 		}
 
-		if (strpos($module_class,'news-events') === false) {//if news-events is not the class
+		if (strpos($module_class,'news-events-page') === false) {//if news-events-page is not the class
 			//excluded sub categories post in all case not only in donot-show-grand-children
 			$child_cats = (array) get_term_children($include_categories, 'category');
 			$args['category__not_in'] = $child_cats;
@@ -8201,11 +8201,21 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							et_gallery_images();
 						elseif ( '' !== $thumb && 'on' === $show_thumbnail ) :
 							if ( 'on' !== $fullwidth ) echo '<div class="et_pb_image_container">'; ?>
-								<?php if (strpos($module_class,'list-team-member') !== false) { 
-									echo '<div class="profile-img">';
-								} ?>
 
-								<?php if (strpos($module_class,'news-events') !== false) { ?>
+								<?php 
+								//team page
+								if (strpos($module_class,'list-team-member') !== false) { 
+									echo '<div class="profile-img">';
+								} 
+
+								//list-news in professional dashboard								
+								if (strpos($module_class,'list-news') !== false) { 
+									echo '<div class="list-news-thumb">';
+								} 
+								?>
+
+								<?php //news events - what's new page
+								if (strpos($module_class,'news-events-page') !== false) { ?>
 								<a href="<?php the_permalink(); ?>">
 									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
 									the_post_thumbnail();
@@ -8217,9 +8227,11 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								</a>
 								<?php } ?>
 
-								<?php if (strpos($module_class,'list-team-member') !== false) { 
-									echo '</div>';//end profile-img
-								} ?>
+								<?php 
+								if (strpos($module_class,'list-team-member') !== false || strpos($module_class,'list-news') !== false) { 
+									echo '</div>';//end profile-img || list-news-thumb
+								} 
+								?>
 						<?php
 							if ( 'on' !== $fullwidth ) echo '</div> <!-- .et_pb_image_container -->';
 						endif;
@@ -8238,7 +8250,11 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				<?php 
 				if (strpos($module_class,'list-team-member') !== false) { 
 					echo '<div class="profile-intro">';
-				} ?>
+				} 
+				if (strpos($module_class,'list-news') !== false) {
+					echo '<div class="list-news-detail">';
+				}
+				?>
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
@@ -8280,6 +8296,25 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							);
 						}
 
+					if (strpos($module_class,'list-news') !== false) {
+						//echo 'Date ' . types_render_field('date-and-time', array());
+						$date = '';
+						$time = '';
+						if(types_render_field('date-and-time', array()) != '') {
+							$start_date = types_render_field('date-and-time', array('format'=>'F:j:Y H:i'));
+							$start_date = parseDate($start_date) ; 
+
+							$date = $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '<br>';
+							$time = $start_date[3] . ':' . $start_date[4] . ' hrs <br>';
+						}
+
+						if($date != '') echo $date;	
+						else echo 'Date<br>';
+
+						if($time != '') echo $time;
+						else echo 'Time';
+					}
+					//excerpt or content
 					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
@@ -8307,8 +8342,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
 			</article> <!-- .et_pb_post -->
-			<?php if (strpos($module_class,'list-team-member') !== false) { 
-				echo '</div>';//end profile-detail
+			<?php 
+			if (strpos($module_class,'list-team-member') !== false ) { 
+				echo '</div>';//end profile-detail || list-news-detail
+			}
+			if (strpos($module_class,'list-news') !== false ) { 
+				echo '</div>';//list-news-detail
 			}
 			?>
 	<?php
@@ -8336,8 +8375,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		$class = " et_pb_module et_pb_bg_layout_{$background_layout}";
 
-		//blog output eg. current studies || team page || stories-of-gratitude-two in general dashboard (friend and family) || news-events page eg. What's new
-		if (strpos($module_class,'show-image-and-text') !== false || strpos($module_class,'list-team-member') !== false || strpos($module_class,'stories-of-gratitude-two') !== false || strpos($module_class,'news-events') !== false) {
+		//blog output eg. current studies || team page || stories-of-gratitude-two in general dashboard (friend and family) || news-events-page page eg. What's new
+		if (strpos($module_class,'show-image-and-text') !== false || strpos($module_class,'list-team-member') !== false || strpos($module_class,'stories-of-gratitude-two') !== false || strpos($module_class,'news-events-page') !== false) {
 			$class = '';
 			$output = sprintf(
 				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->

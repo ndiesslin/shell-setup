@@ -26,6 +26,10 @@ $(document).ready(function() {
 		'margin-left': '-'+top_intro_box_width/2+'px',
 		'display': 'block'
 	});
+
 	//stories of gratitude
 	$('.et_pb_video_play').html('<span class="et-pb-icon et-waypoint et_pb_animation_top et-animated"></span>');
+
+	//list-news
+	$('.list-news article').addClass('clearfix');
 });
