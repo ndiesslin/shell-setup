@@ -8144,11 +8144,16 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		$args['post_type'] = $post_types;
 		global $post;
-		$post_name = $post->post_name;
 		if (strpos($module_class,'donot-show-grand-children') !== false) {
-			$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in all the case of blog
+			//$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in case of page
 		}
-		//print_r($post);exit;
+
+		if (strpos($module_class,'news-events') === false) {//if news-events is not the class
+			//excluded sub categories post in all case not only in donot-show-grand-children
+			$child_cats = (array) get_term_children($include_categories, 'category');
+			$args['category__not_in'] = $child_cats;
+		}
+
 		query_posts( $args );
 
 		if ( have_posts() ) {
@@ -8181,7 +8186,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			}
 			?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
-
 				<?php
 					et_divi_post_format_content();
 
@@ -8211,9 +8215,21 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						endif;
 					}//end if(! in_array) ?>
 
+				<?php 
+				$post_content = $post->post_content;
+				
+				//stories of gratitude in general dashboard
+				if (strpos($module_class,'stories-of-gratitude-two') !== false) { 
+					$post_content_arr = explode(']',$post_content);
+					//var_dump($post_content_arr[3]);
+					echo do_shortcode($post_content_arr[3].'] [/et_pb_video]');//exit();
+				}
+				?>
+
 				<?php if (strpos($module_class,'list-team-member') !== false) { 
 					echo '<div class="profile-intro">';
 				} ?>
+
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
 						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
@@ -8254,6 +8270,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							);
 						}
 
+					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
 								global $more;
@@ -8269,12 +8286,13 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								}
 								echo '</p>';
 
-								$more = 'on' == $show_more ? sprintf( ' <a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '';
-								echo '<p>' . $more . '</p>';
+								$more = 'on' == $show_more ? sprintf( '<p><a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '</p>';
+								echo $more;
 							}
 						} else if ( has_excerpt() ) {
 							the_excerpt();
-						}
+						}//end if (!has_shortcode)
+					}//end if(strpos)
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
@@ -8324,6 +8342,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				( 'on' !== $fullwidth ? ' data-columns' : '' )
 			);//ends output
 		}
+
 		//team page
 		else if (strpos($module_class,'list-team-member') !== false) {
 			$class = '';
@@ -8340,6 +8359,44 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				( 'on' !== $fullwidth ? ' data-columns' : '' )
 			);//ends output
 		}
+
+		//stories-of-gratitude-two in general dashboard (friend and family)
+		else if (strpos($module_class,'stories-of-gratitude-two') !== false) {
+			$class = '';
+			//var_dump($posts);exit;
+			$output = sprintf(
+				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
+					%2$s
+				%4$s',
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+
+		//stories-of-gratitude-two in general dashboard (friend and family)
+		else if (strpos($module_class,'news-events') !== false) {
+			$class = '';
+			//var_dump($posts);exit;
+			$output = sprintf(
+				'<div%5$s class="%6$s"%7$s><!--%1$s%3$s -->
+					%2$s
+				%4$s',
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+
+		//by default
 		else {
 			$output = sprintf(
 				'<div%5$s class="%1$s%3$s%6$s"%7$s>
