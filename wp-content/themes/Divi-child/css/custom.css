@@ -303,6 +303,19 @@ a.jcarousel-control-next{
 .stories-of-gratitude {
     padding-bottom: 40px;
 }
+
+/*two-column*/
+.stories-of-gratitude-two article.et_pb_post,
+.news-events article.et_pb_post {
+    float: left;
+    margin-right: 5.5%;
+    width: 47.25%;
+}
+.stories-of-gratitude-two article.et_pb_post:last-child,
+.news-events article.et_pb_post:nth-child(even) {
+    margin-right: 0;
+}
+
 @media (min-width: 981px){
     .et_pb_section{
         padding: 0;
