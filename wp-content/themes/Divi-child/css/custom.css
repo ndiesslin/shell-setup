@@ -563,6 +563,7 @@ body.home .et_pb_row {
 /* team tempalte */
 .et_pb_row.full-width-row {
     max-width: 100%;
+    width: 100%;
 }
 .full-width-row .list-team-member article {
     max-width: 1160px;
