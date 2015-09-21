@@ -191,6 +191,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     display: none;
     position: absolute;
     left: 50%;
+    padding: 15px 50px;
 }
 .et_pb_fullwidth_header_0.et_pb_fullwidth_header {
     background-color: #AB162B !important;
