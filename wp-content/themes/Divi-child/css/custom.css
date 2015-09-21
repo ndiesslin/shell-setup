@@ -133,7 +133,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 .lh-click{
     opacity: 1 !important;
 }
-.large-hover-img.active {
+.large-hover-img:last-child.active{
     padding-right: 7%;
 }
 .lh-table {
