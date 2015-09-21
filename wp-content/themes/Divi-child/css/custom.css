@@ -316,6 +316,15 @@ a.jcarousel-control-next{
     margin-right: 0;
 }
 
+/* news-events */
+.news-events article .et_pb_image_container {
+    display: none;
+}
+.news-events article:nth-child(1) .et_pb_image_container,
+.news-events article:nth-child(2) .et_pb_image_container {
+    display: block;
+}
+
 @media (min-width: 981px){
     .et_pb_section{
         padding: 0;
