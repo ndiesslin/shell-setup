@@ -8144,11 +8144,13 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		$args['post_type'] = $post_types;
 		global $post;
-		$post_name = $post->post_name;
 		if (strpos($module_class,'donot-show-grand-children') !== false) {
-			$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in all the case of blog
+			//$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in case of page
 		}
-		//print_r($post);exit;
+		//excluded sub categories post in all case not only in donot-show-grand-children
+		$child_cats = (array) get_term_children($include_categories, 'category');
+		$args['category__not_in'] = $child_cats;
+
 		query_posts( $args );
 
 		if ( have_posts() ) {
