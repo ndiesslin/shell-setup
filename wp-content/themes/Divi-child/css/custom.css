@@ -651,8 +651,9 @@ body.home .et_pb_row {
     .et_pb_section {
         padding: 0px 0;
     }
-
-
+    .circleimage .et_pb_row.et_pb_row_0{
+        margin-bottom: 0;
+    }
     .carousel-section .et_pb_row {
         padding-top: 10px;
         padding-bottom: 10px;
@@ -680,7 +681,7 @@ body.home .et_pb_row {
     margin-bottom: 40px;    
     }
     .circleimage .et_pb_column{
-        margin-bottom: 45px;
+        margin-bottom: 20px;
     }
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module{
 
@@ -719,7 +720,7 @@ body.home .et_pb_row {
         padding: 0;
     }
     .circleimage .et_pb_column{
-        margin-bottom: 45px;
+        margin-bottom: 20px;
     }
     .et_pb_column {
         margin-bottom: 0;
