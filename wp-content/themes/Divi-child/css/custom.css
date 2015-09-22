@@ -42,6 +42,13 @@ h1, h2, h3, h4, h5, h6{
 .heading-row h3 {
     padding-bottom: 0;
 }
+.heading-secondary{
+    margin-top: 55px;
+}
+.heading-secondary h3{
+    font-size: 24px;
+    text-transform: none;
+}
 /*menu css */
 .home .et_fixed_nav #main-header.et-fixed-header{
     position: relative;
@@ -73,6 +80,16 @@ h1, h2, h3, h4, h5, h6{
 #et_search_icon:hover, .mobile_menu_bar:before, .et-social-icon a:hover, .comment-reply-link, .form-submit input, .et_pb_sum, .et_pb_pricing li a, .et_pb_pricing_table_button, .et_overlay:before, .entry-summary p.price ins, .woocommerce div.product span.price, .woocommerce-page div.product span.price, .woocommerce #content div.product span.price, .woocommerce-page #content div.product span.price, .woocommerce div.product p.price, .woocommerce-page div.product p.price, .woocommerce #content div.product p.price, .woocommerce-page #content div.product p.price, .et_pb_member_social_links a:hover, .woocommerce .star-rating span:before, .woocommerce-page .star-rating span:before, .woocommerce a.button.alt, .woocommerce-page a.button.alt, .woocommerce button.button.alt, .woocommerce-page button.button.alt, .woocommerce input.button.alt, .woocommerce-page input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce-page #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page #content input.button.alt, .woocommerce a.button, .woocommerce-page a.button, .woocommerce button.button, .woocommerce-page button.button, .woocommerce input.button, .woocommerce-page input.button, .woocommerce #respond input#submit, .woocommerce-page #respond input#submit, .woocommerce #content input.button, .woocommerce-page #content input.button, .woocommerce a.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button:hover, .woocommerce-page a.button:hover, .woocommerce button.button, .woocommerce-page button.button:hover, .woocommerce input.button:hover, .woocommerce-page input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce-page #respond input#submit:hover, .woocommerce #content input.button:hover, .woocommerce-page #content input.button:hover .et_pb_widget li a:hover, .et_pb_bg_layout_light .et_pb_promo_button, .et_pb_bg_layout_light .et_pb_more_button, .et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active, .et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active, .et_pb_gallery .et_pb_gallery_pagination ul li a.active, .wp-pagenavi span.current, .wp-pagenavi a:hover, .et_pb_contact_submit, .et_password_protected_form .et_submit_button, .et_pb_bg_layout_light .et_pb_newsletter_button, .nav-single a, .posted_in a, #top-menu li.current-menu-ancestor > a, #top-menu li.current-menu-item > a, .bottom-nav li.current-menu-item > a, .footer-widget h4{
     color: inherit;
 }
+.wp-pagenavi span.current, .wp-pagenavi a:hover{
+    color: #474647 !important;
+}
+.wp-pagenavi a, .wp-pagenavi span{
+    font-size: 17px !important;
+}
+.wp-pagenavi span.current{
+    text-decoration: underline;
+    font-weight: bold !important;
+}
 #et_search_icon.fa.fa-search, #et_search_icon.fa.fa-search:before{
     font-family: 'FontAwesome';
     content: "\f002";
@@ -80,6 +97,35 @@ h1, h2, h3, h4, h5, h6{
 #et_top_search{
     margin-top: 8px;
 }
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19{
+    background: #d1e0d7;
+    padding: 20px;
+}
+
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 h4 {
+    font-size: 20px;
+}
+
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 article h2 {
+    margin-top: 2px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    padding-bottom: 0;
+}
+
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 article p {
+    font-size: 16px;
+    color: #2d2d2d;
+    line-height: 21px;
+}
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 article{
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 20px;
+}
+
+
 /*footer*/
 .home #main-footer, .home #footer-bottom{
     background-color: #FFF;
@@ -340,7 +386,34 @@ a.jcarousel-control-next{
 .news-events-page article:nth-child(2) .et_pb_image_container {
     display: block;
 }
-
+.news-event {
+    font-size: 18px;
+    line-height: 27px;
+}
+.news-event h2 {
+    margin-bottom: 0;
+}
+article.news-event{
+    margin-bottom: 93px;
+}
+ul.awDatesUL {
+    padding-top: 70px;
+    padding-bottom: 75px;
+    text-align: center;
+    list-style: none;
+}
+ul.awDatesUL li {
+    display: inline;
+    margin: 0 20px;
+    font-size: 30px;
+}
+ul.awDatesUL li:after {
+    content: "|";
+    padding-left: 42px;
+}
+ul.awDatesUL li:last-child::after {
+    display: none;
+}
 /* list-news in professional dashboard */
 .list-news-thumb {
     float: left;
@@ -349,6 +422,11 @@ a.jcarousel-control-next{
 }
 
 @media (min-width: 981px){
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary, 
+    .et_pb_gutters3.et_pb_row .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary{
+        margin-bottom: 25px;
+    }
     .et_pb_gutters3 .et_pb_column_4_4 .heading-module{
         margin-bottom: 0.15%;
     }
@@ -623,6 +701,9 @@ body.home .et_pb_row {
 .team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
     background-color: #f3f1ed;
 }
+.wp-pagenavi{
+    border-top: none;
+}
 .team-template .wp-pagenavi {
     max-width: 1160px;
     margin: 0 auto;
@@ -668,6 +749,20 @@ body.home .et_pb_row {
   -moz-column-gap: 2em;
   column-gap: 2em;
 }
+.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 .bottom-link{
+    position: absolute;
+    bottom: 5px;
+}
+.box-row-module .bottom-link p{
+    font-size: 18px;
+}
+.box-row-module .icon-top-right .et_pb_main_blurb_image {
+    margin-bottom: 12px;
+}
+.box-row-module .et_pb_blurb_container p,
+.box-row-module .et_pb_text.et_pb_module.et_pb_bg_layout_light.et_pb_text_align_left.et_pb_text_10 p {
+    font-size: 18px;
+}
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
@@ -711,6 +806,11 @@ body.home .et_pb_row {
     .et_pb_section .et_pb_row .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_row_inner .et_pb_column .view-all-module:last-child{
     margin-bottom: 40px;    
     }
+
+    .box-row-module .newsletter-box {
+        margin-bottom: 20px !important;
+    }
+
     .circleimage .et_pb_column{
         margin-bottom: 20px;
     }

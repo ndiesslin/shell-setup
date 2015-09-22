@@ -8323,15 +8323,19 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 								the_content( __( 'read more...', 'et_builder' ) );
 							} else {
+								if (strpos($module_class,'list-team-member') !== false) { 
 								echo '<p>';
+								}
 								if ( has_excerpt() ) {
 									the_excerpt();
 								} else {
 									truncate_post( 270 );
 								}
-								echo '</p>';
+								if (strpos($module_class,'list-team-member') !== false) { 
+									echo '</p>';
+								}
 
-								$more = 'on' == $show_more ? sprintf( '<p><a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '</p>';
+								$more = 'on' == $show_more ? sprintf( '<a href="%1$s" class="more-link" >%2$s</a>' , esc_url( get_permalink() ), __( 'read more', 'et_builder' ) )  : '';
 								echo $more;
 							}
 						} else if ( has_excerpt() ) {
