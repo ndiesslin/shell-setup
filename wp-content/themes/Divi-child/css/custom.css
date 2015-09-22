@@ -817,7 +817,9 @@ body.home .et_pb_row {
     .call-to-action-wrap  .et_pb_row{
         padding-top: 5px;
     }
-
+    .box-row-module .et_pb_column{
+        height: 282px;
+    }
 }
 @media (max-width: 1366px){
     .bottom-nav > li {
@@ -929,6 +931,19 @@ body.home .et_pb_row {
     }
 }
 @media(max-width: 479px){
+    .et-search-form, span.et_close_search_field{
+        padding-top: 50px;
+    }
+    #et_top_search{
+        margin-right: 0;
+        margin-left: 27px;
+    }
+    #et_mobile_nav_menu{
+        margin-left: 16px;
+    }
+    .et_header_style_left #et-top-navigation{
+       padding-top: 50px; 
+    }
    .stories-of-gratitude-two article.et_pb_post, .news-events-page article.et_pb_post, .list-news-two article.et_pb_post{
     width: 100%;
    } 
