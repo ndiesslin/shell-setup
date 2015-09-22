@@ -65,7 +65,7 @@ function admin_style() {
 }
 
 //title
-function page_title($title, $title_icon) {
+function page_title($title, $title_icon, $team_title) {
   echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular"> 
     <section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0">
     
@@ -73,12 +73,14 @@ function page_title($title, $title_icon) {
         <div class="header-content-container center">
         <div class="header-content">
           <h1>';
-          if($title_icon != ''):
+          if($title_icon != '')
             echo $title_icon;
-          else:
-            //echo '<i class="fa fa-file-text fa- "></i> ';
-          endif;
-          echo $title.'</h1>        
+          
+          echo $title;
+
+          if($team_title != '')
+            echo ', ' . $team_title;
+          echo '</h1>        
         </div>
       </div>
         
