@@ -212,6 +212,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     font-size: 27px;
     line-height: 37px;
     margin-top: 15px;
+    text-align: center;
 }
 .blue-btn .et_pb_promo_description {
     display: none;
