@@ -821,9 +821,18 @@ body.home .et_pb_row {
     }
 
 }
+@media (max-width: 1200px){
+    .et-search-form, span.et_close_search_field{
+        padding-top: 110px;
+    }
+}
 @media(min-width: 769px){
     .large-hover-img:last-child.active{
         padding-right: 7%;
+    }
+    .homepage-slider {
+        padding-left: 20px;
+        padding-right: 60px;
     }
 }
 @media(min-width: 981px){
@@ -900,6 +909,9 @@ body.home .et_pb_row {
     }
 }
 @media(max-width: 479px){
+   .stories-of-gratitude-two article.et_pb_post, .news-events-page article.et_pb_post, .list-news-two article.et_pb_post{
+    width: 100%;
+   } 
     .show-image-and-text article.et_pb_post {
         width: 100%;
         margin-right: 0%;
