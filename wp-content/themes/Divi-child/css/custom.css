@@ -821,9 +821,24 @@ body.home .et_pb_row {
     }
 
 }
+
 @media (max-width: 1200px){
     .et-search-form, span.et_close_search_field{
         padding-top: 110px;
+    }
+}
+
+@media (max-width: 991px){
+    .bottom-nav > li {
+        width: 31%;
+        margin-right: 2%;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 767px){
+    .bottom-nav > li {
+        width: 100%;
+        margin-right: 0%;
     }
 }
 @media(min-width: 769px){
