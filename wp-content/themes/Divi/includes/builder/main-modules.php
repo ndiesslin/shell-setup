@@ -8250,9 +8250,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				<?php 
 				if (strpos($module_class,'list-team-member') !== false) { 
 					echo '<div class="profile-intro">';
-				} 
-				if (strpos($module_class,'list-news') !== false) {
-					//echo '<div class="list-news-detail">';
 				}
 				?>
 
@@ -8316,6 +8313,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					}
 					//excerpt or content
 					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
+
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
 								global $more;
@@ -8323,6 +8321,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 								the_content( __( 'read more...', 'et_builder' ) );
 							} else {
+
 								if (strpos($module_class,'list-team-member') !== false) { 
 								echo '<p>';
 								}
@@ -8331,6 +8330,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								} else {
 									truncate_post( 270 );
 								}
+								
 								if (strpos($module_class,'list-team-member') !== false) { 
 									echo '</p>';
 								}
@@ -8341,7 +8341,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						} else if ( has_excerpt() ) {
 							the_excerpt();
 						}//end if (!has_shortcode)
-					}//end if(strpos)
+						
+					}//end if(strpos stories of gratitude two)
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
@@ -8349,9 +8350,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			<?php 
 			if (strpos($module_class,'list-team-member') !== false ) { 
 				echo '</div>';//end profile-detail || list-news-detail
-			}
-			if (strpos($module_class,'list-news') !== false ) { 
-				//echo '</div>';//list-news-detail
 			}
 			?>
 	<?php
