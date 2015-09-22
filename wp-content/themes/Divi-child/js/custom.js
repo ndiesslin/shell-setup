@@ -50,7 +50,7 @@ function eq_height_div(){
 jQuery(document).ready(function (){
 	eq_height_div();
 });
-jQuery(window).resize()(function (){
+jQuery(window).resize(function (){
 	eq_height_div();
 });
 function findMaxValue(element){
@@ -63,3 +63,18 @@ function findMaxValue(element){
 	});
 	return maxValue;
 }
+
+// parent height
+function parentHeight(){
+	var parentHeight = $('.news-event').height();
+	var childHeight = $('.list-news-thumb').height();
+	if (parentHeight > childHeight ) {
+		$('.list-news-thumb').height(parentHeight);
+	};
+}
+$(document).ready(function(){
+	parentHeight();
+});
+$(document).resize(function(){
+	parentHeight();
+});
