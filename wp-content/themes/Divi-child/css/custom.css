@@ -32,6 +32,9 @@ body{
     /*font-family: 'din_mediumregular';*/
     font-family: 'Roboto', sans-serif;
 }
+h1, h2, h3, h4, h5, h6{
+    color: #AB162B;
+}
 .heading-row{
     padding-top: 0;
     padding-bottom: 0;
@@ -141,6 +144,9 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 }
 .lh-table {
     text-shadow: 1px 2px 2px #000;
+}
+.call-to-action-row{
+    overflow: hidden;
 }
 .oval-thumb{
 	text-align: center;
