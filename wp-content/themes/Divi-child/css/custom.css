@@ -444,7 +444,12 @@ ul.awDatesUL li:last-child::after {
     margin-right: 20px;
     margin-top: 5px;
 }
-
+.list-news-two .list-news-thumb{
+    float: left;
+    width: 30%;
+    margin-right: 2%;
+    margin-top: 25px;
+}
 @media (min-width: 981px){
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary, 
     .et_pb_gutters3.et_pb_row .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary
