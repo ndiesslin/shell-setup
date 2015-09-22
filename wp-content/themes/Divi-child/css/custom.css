@@ -97,9 +97,14 @@ h1, h2, h3, h4, h5, h6{
 #et_top_search{
     margin-top: 8px;
 }
+.box-row-module{
+    padding-bottom: 37px;
+}
 .box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19{
+    position: relative;
     background: #d1e0d7;
     padding: 20px;
+    margin-bottom: 45px;
 }
 
 .box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 h4 {
@@ -750,7 +755,7 @@ body.home .et_pb_row {
 }
 .box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 .bottom-link{
     position: absolute;
-    bottom: 5px;
+    bottom: -45px;
 }
 .box-row-module .bottom-link p{
     font-size: 18px;
