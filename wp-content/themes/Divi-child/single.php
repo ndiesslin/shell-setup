@@ -13,7 +13,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 $title = get_the_title();
 $title_icon = do_shortcode(types_render_field('title-icon', array()));
 $team_title = types_render_field('team-title', array());
-//print_r($team_title);exit();
 page_title($title, $title_icon, $team_title);
 ?>
 
