@@ -104,9 +104,11 @@ h1, h2, h3, h4, h5, h6{
     position: relative;
     background: #d1e0d7;
     padding: 20px;
-    margin-bottom: 45px;
+    margin-bottom: 75px;
 }
-
+.box-row-module .icon-top-right .et_pb_main_blurb_image img{
+    width: 100%;
+}
 .box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19 h4 {
     font-size: 20px;
 }
