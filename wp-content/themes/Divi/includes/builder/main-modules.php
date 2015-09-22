@@ -8148,9 +8148,9 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			//$args['post_parent'] = $post->ID;//eg. 639, exclude grand children in case of page
 		}
 
-		if (strpos($module_class,'news-events-page') === false || strpos($module_class,'list-team-member') === false) {//if news-events-page is not the class
+		$child_cats = (array) get_term_children($include_categories, 'category');
+		if (strpos($module_class,'news-events-page') === false && strpos($module_class,'list-team-member') === false) {//if news-events-page, list-team-member is not the class
 			//excluded sub categories post in all case not only in donot-show-grand-children
-			$child_cats = (array) get_term_children($include_categories, 'category');
 			$args['category__not_in'] = $child_cats;
 		}
 
