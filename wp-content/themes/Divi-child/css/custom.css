@@ -42,6 +42,13 @@ h1, h2, h3, h4, h5, h6{
 .heading-row h3 {
     padding-bottom: 0;
 }
+.heading-secondary{
+    margin-top: 55px;
+}
+.heading-secondary h3{
+    font-size: 24px;
+    text-transform: none;
+}
 /*menu css */
 .home .et_fixed_nav #main-header.et-fixed-header{
     position: relative;
@@ -339,7 +346,16 @@ a.jcarousel-control-next{
 .news-events-page article:nth-child(2) .et_pb_image_container {
     display: block;
 }
-
+.news-event {
+    font-size: 18px;
+    line-height: 27px;
+}
+.news-event h2 {
+    margin-bottom: 0;
+}
+article.news-event{
+    margin-bottom: 93px;
+}
 /* list-news in professional dashboard */
 .list-news-thumb {
     float: left;
@@ -348,6 +364,11 @@ a.jcarousel-control-next{
 }
 
 @media (min-width: 981px){
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary, 
+    .et_pb_gutters3.et_pb_row .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary
+    .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary{
+        margin-bottom: 25px;
+    }
     .et_pb_gutters3 .et_pb_column_4_4 .heading-module{
         margin-bottom: 0.15%;
     }
@@ -667,6 +688,7 @@ body.home .et_pb_row {
   -moz-column-gap: 2em;
   column-gap: 2em;
 }
+
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
