@@ -821,6 +821,19 @@ body.home .et_pb_row {
     }
 
 }
+@media (max-width: 991px){
+    .bottom-nav > li {
+        width: 31%;
+        margin-right: 2%;
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 767px){
+    .bottom-nav > li {
+        width: 100%;
+        margin-right: 0%;
+    }
+}
 @media(min-width: 769px){
     .large-hover-img:last-child.active{
         padding-right: 7%;
