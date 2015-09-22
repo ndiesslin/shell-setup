@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6{
 .box-row-module{
     padding-bottom: 37px;
 }
-.box-row-module .et_pb_column.et_pb_column_1_2.et_pb_column_19{
+.box-row-module .et_pb_column:first-child{
     position: relative;
     background: #d1e0d7;
     padding: 20px;
