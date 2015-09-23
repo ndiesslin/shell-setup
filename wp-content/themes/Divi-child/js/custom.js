@@ -13,7 +13,7 @@ $(document).ready(function() {
 	if($(window).width() >= 768) {
 		//$('.jssor-slider').css({'display':'block !important'});	
 	}
-	$('#slider1_container').show();	
+	$('.homepage-slider').show();	
 	/*$('.lh-container').click(function() {
 		$('.lh-click').css({'opacity':'0'});
 	});

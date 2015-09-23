@@ -11,7 +11,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 
-<div class="homepage-slider- elem-large-hover visible-xs" style="">
+<div class="homepage-slider elem-large-hover" style="">
 	<?php
 	  $args = array(
 		'order'=> 'ASC', 
@@ -57,8 +57,8 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 <!-- Jssor Slider Begin -->
 <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
-<div class="jssor-slider hidden-xs">
-<div id="slider1_container" class="" style="display: none; position: relative; margin: 0 auto;
+<div class="jssor-slider hidden">
+<div id="slider1_container" class="" style="position: relative; margin: 0 auto;
     top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden; display:none;" class="homepage-slider">
     <!-- Loading Screen -->
     <!--<div u="loading" style="position: absolute; top: 0px; left: 0px;">
