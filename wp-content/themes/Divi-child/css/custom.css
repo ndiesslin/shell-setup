@@ -1131,4 +1131,11 @@ a:hover,
 
 .elem-large-hover .lh-background {
     width: 1000px;
+    left: -300px;
+}
+.large-hover-img:last-child .lh-container {
+    width: 140%;
+}
+.large-hover-img:last-child.active .lh-container {
+    width: 160%;
 }
