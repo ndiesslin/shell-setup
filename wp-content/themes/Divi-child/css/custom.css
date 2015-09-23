@@ -976,3 +976,8 @@ body.home .et_pb_row {
 body.single-post .et_post_meta_wrapper {
     display: none;
 }
+body:not(.et_pb_pagebuilder_layout) .entry-content {
+    width: 90%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
