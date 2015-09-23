@@ -1,4 +1,12 @@
 $=jQuery;
+
+var vph = $(window).width();
+function home_slide_img_width() {
+	if($(window).width() <= 991) {
+		$('.elem-large-hover .lh-background').css({'width':vph+'px'})
+	}
+}
+
 $(document).ready(function() {
 	//team page
 	$('.list-team-member').parent().parent().addClass('full-width-row team-template');
@@ -14,6 +22,7 @@ $(document).ready(function() {
 		//$('.jssor-slider').css({'display':'block !important'});	
 	}
 	$('.homepage-slider').show();	
+	home_slide_img_width();
 	/*$('.lh-container').click(function() {
 		$('.lh-click').css({'opacity':'0'});
 	});
@@ -35,6 +44,10 @@ $(document).ready(function() {
 
 	//list-news
 	$('.list-news article').addClass('clearfix');
+});
+$(window).resize(function() {
+	console.log(vph);
+	home_slide_img_width();
 });
 
 // For equal height
