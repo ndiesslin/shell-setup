@@ -15,9 +15,9 @@
 	</li>
 <?php endif; ?>
 
-	<li class="et-social-icon et-social-twitter">
-		<a href="http://twitter.com/MHIF_Research" class="icon">
-			<span>MHIF Research <?php esc_html_e( 'Twitter', 'Divi' ); ?></span>
+	<li class="et-social-icon et-social-linkedin">
+		<a href="https://www.linkedin.com/company/357676" class="icon">
+			<span><?php esc_html_e( 'LinkedIn', 'Divi' ); ?></span>
 		</a>
 	</li>
 

@@ -962,3 +962,8 @@ body.home .et_pb_row {
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img {
     display: none;
 }
+
+/* robert's quick & dirty edits */
+body.single-post .et_post_meta_wrapper {
+    display: none;
+}
