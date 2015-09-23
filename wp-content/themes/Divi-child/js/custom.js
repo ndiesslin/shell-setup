@@ -10,15 +10,15 @@ $(document).ready(function() {
 	$('article.team .more-link').text('View Profile');
 
 	//homepage-slider
-	
-	$('.lh-container').click(function() {
+	$('.homepage-slider').show();
+	/*$('.lh-container').click(function() {
 		$('.lh-click').css({'opacity':'0'});
 	});
 	$('.large-hover-img').hover(function() {
 	}, function() {
 		$('.lh-click').css({'opacity':'1'});
 	}
-	);
+	);*/
 
 	//professional dashboard
 	var top_intro_box_width = $('.top-intro h4').innerWidth();

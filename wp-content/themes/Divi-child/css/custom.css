@@ -981,3 +981,79 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     max-width: 1160px;
     margin: 0 auto;
 }
+.hidden {
+    display: none !important;
+}
+/*jssor*/
+.jcaption-head {
+    position: absolute; width: 100%; height: 120px; top: 30px; left: 30px; padding: 5px; 
+    text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px; 
+    color: #FFFFFF;
+}
+.jcaption {
+    position: absolute; width: 50%; height: 400px; top: 120px; left: 30px; padding: 5px; text-align: left; line-height: 32px; font-size: 20px; color: #FFFFFF; 
+}
+.jcaption-head a, .jcaption a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+/* jssor slider arrow navigator skin 21 css */
+/*
+.jssora21l                  (normal)
+.jssora21r                  (normal)
+.jssora21l:hover            (normal mouseover)
+.jssora21r:hover            (normal mouseover)
+.jssora21l.jssora21ldn      (mousedown)
+.jssora21r.jssora21rdn      (mousedown)
+*/
+.jssora21l, .jssora21r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    /* background: url(../img/a21.png) center center no-repeat; */
+    overflow: hidden;
+}
+.jssora21l { background-position: -3px -33px; }
+.jssora21r { background-position: -63px -33px; }
+.jssora21l:hover { background-position: -123px -33px; }
+.jssora21r:hover { background-position: -183px -33px; }
+.jssora21l.jssora21ldn { background-position: -243px -33px; }
+.jssora21r.jssora21rdn { background-position: -303px -33px; }
+
+/* jssor slider bullet navigator skin 21 css */
+/*
+.jssorb21 div           (normal)
+.jssorb21 div:hover     (normal mouseover)
+.jssorb21 .av           (active)
+.jssorb21 .av:hover     (active mouseover)
+.jssorb21 .dn           (mousedown)
+*/
+.jssorb21 {
+    position: absolute;
+}
+.jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+    position: absolute;
+    /* size of bullet elment */
+    width: 19px;
+    height: 10px;
+    text-align: center;
+    line-height: 19px;
+    color: white;
+    font-size: 12px;
+    /* background: url(../img/b21.png) no-repeat; */
+    background-color: #250670;
+    overflow: hidden;
+    cursor: pointer;
+}
+.jssorb21 div { background-position: -5px -5px; }
+.jssorb21 .av,
+.jssorb21 div:hover, .jssorb21 .av:hover { 
+    background-color: #b81137;
+    /* background-position: -35px -5px;  */
+}
+.jssorb21 .av { background-position: -65px -5px; }
+.jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
