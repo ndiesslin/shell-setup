@@ -1128,3 +1128,7 @@ a:hover,
         max-width: 100%;
     }
 }
+
+.elem-large-hover .lh-background {
+    width: 1000px;
+}
