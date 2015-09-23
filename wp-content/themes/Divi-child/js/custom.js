@@ -10,7 +10,10 @@ $(document).ready(function() {
 	$('article.team .more-link').text('View Profile');
 
 	//homepage-slider
-	$('.homepage-slider').show();
+	if($(window).width() >= 768) {
+		//$('.jssor-slider').css({'display':'block !important'});	
+	}
+	$('#slider1_container').show();	
 	/*$('.lh-container').click(function() {
 		$('.lh-click').css({'opacity':'0'});
 	});

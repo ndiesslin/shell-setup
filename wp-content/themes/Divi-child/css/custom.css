@@ -850,6 +850,9 @@ body.home .et_pb_row {
         margin-right: 2%;
         margin-bottom: 30px;
     }
+    .bottom-nav > li:nth-child(4) {
+        clear: left;
+    }
 }
 @media (max-width: 767px){
     .bottom-nav > li {
@@ -983,6 +986,22 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
 }
 .hidden {
     display: none !important;
+}
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block;
+    }
+    .hidden-xs {
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    .visible-xs {
+        display: none;
+    }
+    .hidden-xs {
+        display: block;
+    }
 }
 /*jssor*/
 .jcaption-head {
