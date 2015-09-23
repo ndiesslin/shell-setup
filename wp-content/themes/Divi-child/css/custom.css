@@ -157,7 +157,6 @@ h1, h2, h3, h4, h5, h6{
 #main-footer #menu-main-nav a {
     font-size: 14px;
     color: #474647;
-    text-decoration: underline;
     text-transform: uppercase;
 }
 
@@ -586,13 +585,15 @@ ul.awDatesUL li:last-child::after {
 .full-width-container section {
     padding-top: 0;
 }
-.two-column {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 60px;
-    -moz-column-gap: 60px;
-    column-gap: 60px;
+@media (min-width: 768px) {
+    .two-column {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 60px;
+        -moz-column-gap: 60px;
+        column-gap: 60px;
+    }
 }
 .row-spaced {
     padding: 40px 0;
@@ -681,7 +682,6 @@ img.full-width {
     font-size: 35px;
     font-size: 2.1875rem;
     text-transform: uppercase;
-    text-decoration: underline;
     line-height: 1.5;
 }
 body.home .et_pb_row {
@@ -1077,6 +1077,12 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
 .jssorb21 .av { background-position: -65px -5px; }
 .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
 
+a:hover,
+.full-width-link:hover,
+.jcarousel p:hover {
+    text-decoration: none !important;
+}
+
 @media (max-width: 1200px) {
     /* Correcting as in design of mobile site */
     #et_top_search {
@@ -1093,11 +1099,13 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
         top: 50%;
         margin-top: -15px;
         right: -10px;
+        z-index: 999;
     }
 }
 @media (max-width: 600px) {
-    .et_fixed_nav #main-header.et-fixed-header {
-        height: 110px;
+    .et_fixed_nav #main-header.et-fixed-header,
+    .et_fixed_nav #main-header.et-fixed-header .container:not(#breadcrumbs) {
+        min-height: 110px;
     }
 }
 @media (max-width: 479px) {    
@@ -1106,10 +1114,14 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
         padding: 10px 0;
     }
     .et_fixed_nav #main-header.et-fixed-header {
-        height: 80px;
+        min-height: 80px;
     }
+    header#main-header .container:not(#breadcrumbs) { 
+        min-height: 80px;
+    }
+
     .et_mobile_menu {
-        top: 70px;
+        top: 90px;
     }
     .logo_container #logo {
         min-height: 60px;
