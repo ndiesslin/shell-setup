@@ -1134,7 +1134,7 @@ a:hover,
     left: -300px;
 }
 .large-hover-img.active .lh-background {
-    left: -150px;/* making center on hover */
+    /*left: -150px; making center on hover */
 }
 .large-hover-img:last-child .lh-container {
     width: 140%;
