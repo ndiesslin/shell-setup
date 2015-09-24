@@ -1142,3 +1142,11 @@ a:hover,
 .large-hover-img:last-child.active .lh-container {
     width: 160%;
 }
+
+/* Nav fixes */
+.nav li ul {
+    display: none;
+}
+.nav li:hover ul {
+    display: block;
+}
