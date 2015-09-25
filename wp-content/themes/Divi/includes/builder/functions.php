@@ -2825,6 +2825,7 @@ function et_pb_remove_lb_plugin_force_editor_mode() {
 }
 add_action( 'admin_init', 'et_pb_remove_lb_plugin_force_editor_mode' );
 
+//date and time for events and presentation in general dashboard
 function parseDate($dateString){
   $dateArray = array();
   $hold = explode(' ',$dateString);
@@ -2841,4 +2842,32 @@ function parseDate($dateString){
     array_push($dateArray,$part);
   }
   return $dateArray;
+}
+
+//get years
+function array_unique_by_key (&$array, $key) {
+      $tmp = array();
+      $result = array();
+      foreach ($array as $value) {
+          if (!in_array($value[$key], $tmp) && !empty($value[$key]))
+          {
+              array_push($tmp, $value[$key]);
+              array_push($result, $value);
+          }
+      }
+      return $array = $result;
+  }
+function getYearSplitsOfPosts($args){
+  $years = array();
+  $postslist = get_posts($args);
+  foreach($postslist as $post) {
+    $year = date('Y', strtotime($post->post_date));
+    $years[$year][]= array('publish' => $year);
+  }
+  wp_reset_postdata();
+  krsort($years);
+  $filtered = array();
+  foreach ($years as $year ) 
+    array_push($filtered, array_unique_by_key($year,'publish')); //find distinct years
+  return $filtered;                   
 }

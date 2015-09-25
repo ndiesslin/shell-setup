@@ -8154,6 +8154,26 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args['category__not_in'] = $child_cats;
 		}
 
+		//2015, 2016 in news and events
+		if (strpos($module_class,'news-events-page') !== false) {
+   		$year = $_GET['y'] ? $_GET['y'] : date("Y");
+
+   		//$args['orderby'] = 'date';
+   		$args['date_query'] = array(
+												      array(
+												      'year'      => $year,
+												      'compare'   => '>=',
+												    ),
+												    array(
+												      'year'      => $year+1,
+												      'compare'   => '<',
+												        )
+												    );
+			if($year != '') {
+   		// echo "<script> var year = ' ' + $year; </script>";
+			}
+		}//end if news-event page
+
 		query_posts( $args );
 
 		if ( have_posts() ) {
@@ -8255,7 +8275,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
+						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
 							<?php if(types_render_field('team-title', array()) != '') { ?>
 							<span><?php echo types_render_field('team-title', array());?></span>
 							<?php } ?>
@@ -8370,6 +8390,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		} else {
 			get_template_part( 'includes/no-results', 'index' );
 		}
+
+		if (strpos($module_class,'news-events-page') !== false) {
+			//just for dates
+			$args_for_date = array(
+          'post_status' => 'publish',
+          'posts_per_page'=> '-1', 
+          'post_type' => 'news-event',
+      );
+      $years = getYearSplitsOfPosts($args_for_date);
+
+      $link = get_permalink();
+      
+      //print dates
+      echo '<div class="clear"></div><ul class="awDatesUL">';  
+      foreach ( $years as $year ) {
+        echo '<li ';               
+          if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
+        echo '>';
+
+      echo  '<a href="'. $link. '?y=' . $year[0]['publish'] . '">'.  $year[0]['publish'] .'</a></li>';
+  		}
+   		echo '</ul>';
+   	}
 
 		$posts = ob_get_contents();
 
