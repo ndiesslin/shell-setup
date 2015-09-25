@@ -411,6 +411,17 @@ a.jcarousel-control-next{
 .news-events-page article:nth-child(2) .et_pb_image_container {
     display: block;
 }
+.news-events-page article:nth-child(1) .et_pb_image_container a,
+.news-events-page article:nth-child(2) .et_pb_image_container a{
+    display: block;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.news-events-page article:nth-child(1) .et_pb_image_container img,
+.news-events-page article:nth-child(2) .et_pb_image_container img{
+opacity: 0;
+}
 .news-event {
     font-size: 18px;
     line-height: 27px;

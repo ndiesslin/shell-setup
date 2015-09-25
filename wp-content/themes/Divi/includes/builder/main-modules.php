@@ -8216,10 +8216,17 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 								<?php //news events - what's new page
 								if (strpos($module_class,'news-events-page') !== false) { ?>
-								<a href="<?php the_permalink(); ?>">
+								<?php 
+									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+									$url = $thumb['0']; 
+								?>
+
+								<a href="<?php the_permalink(); ?>" style="background-image:url('<?php echo $url;?>');">
+
 									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
-									the_post_thumbnail();
+									// the_post_thumbnail();
 									?>
+									<img src="<?php echo get_template_directory_uri(); ?>/../Divi-child/images/pad.jpg" alt="">
 								</a>
 								<?php } else { ?>
 								<a href="<?php the_permalink(); ?>">
