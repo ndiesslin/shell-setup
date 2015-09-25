@@ -424,6 +424,19 @@ article.news-event{
 .two-row-module article.news-event{
     margin-bottom: 35px;
 }
+.two-row-module article.news-event h2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.two-row-module article.news-event .time, .two-row-module article.news-event .date{
+    font-size: 14px;
+    line-height: 21px;
+    display: block;
+}
+.two-row-module article.news-event .time{
+    margin-bottom: 5px;
+}
 .two-row-module article.news-event:last-child{
     margin-bottom: 30px;
 }

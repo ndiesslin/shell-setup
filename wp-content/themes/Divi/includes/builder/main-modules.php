@@ -8301,15 +8301,15 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							$start_date = types_render_field('date-and-time', array('format'=>'F:j:Y H:i'));
 							$start_date = parseDate($start_date) ; 
 
-							$date = $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '<br>';
-							$time = $start_date[3] . ':' . $start_date[4] . ' hrs <br>';
+							$date = '<span class="date">' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '</span>';
+							$time = '<span class="time">' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
 						}
 
 						if($date != '') echo $date;	
-						else echo 'Date<br>';
+						else echo '<span class="date">Date</span>';
 
 						if($time != '') echo $time;
-						else echo 'Time';
+						else echo '<span class="time">Time</span>';
 					}
 					//excerpt or content
 					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
@@ -8328,7 +8328,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								if ( has_excerpt() ) {
 									the_excerpt();
 								} else {
-									truncate_post( 270 );
+									if (strpos($module_class,'list-news') !== false) {
+										truncate_post( 80 );
+									}
+									else{
+										truncate_post( 270 );
+									}
 								}
 								
 								if (strpos($module_class,'list-team-member') !== false) { 
