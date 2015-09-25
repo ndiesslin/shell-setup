@@ -9,7 +9,8 @@ function home_slide_img_width() {
 }
 
 $(document).ready(function() {
-	$('.top-stories h2').append(year);
+	//$('.top-stories h2').append(year);
+	
 	//team page
 	$('.list-team-member').parent().parent().addClass('full-width-row team-template');
 	//jcarousel

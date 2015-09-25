@@ -8282,11 +8282,23 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
+						<?php 
+						if (strpos($module_class,'list-title') !== false) {
+							echo '<ul><li>';
+							?>
+							<a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
+							<?php
+							echo '</li></ul>';
+						}
+						else {
+						?>
 						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
 							<?php if(types_render_field('team-title', array()) != '') { ?>
 							<span><?php echo types_render_field('team-title', array());?></span>
 							<?php } ?>
 						</h2>
+						<?php }//end if list-title ?>
+
 					<?php } ?>
 
 					<?php
@@ -8339,7 +8351,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						else echo '<span class="time">Time</span>';
 					}
 					//excerpt or content
-					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
+					if (strpos($module_class,'stories-of-gratitude-two') === false || strpos($module_class,'list-title') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
 
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
