@@ -1151,6 +1151,11 @@ a:hover,
         min-height: 60px;
         max-width: 100%;
     }
+    .list-news .list-news-thumb {
+        width: 100%;
+        min-height: 0px !important;
+        margin-bottom: 10px;
+    }
 }
 
 .elem-large-hover .lh-background {

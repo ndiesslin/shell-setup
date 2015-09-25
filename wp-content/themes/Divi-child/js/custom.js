@@ -86,7 +86,10 @@ function parentHeight(){
 	var parentHeight = $('.news-event').height();
 	var childHeight = $('.list-news-thumb').height();
 	if (parentHeight > childHeight ) {
-		$('.list-news-thumb').height(parentHeight);
+		$('.list-news-thumb').css({
+			'min-height': parentHeight
+		})
+		// height(parentHeight);
 	};
 }
 $(document).ready(function(){
