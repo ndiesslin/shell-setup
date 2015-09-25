@@ -1130,8 +1130,9 @@ a:hover,
 }
 
 .elem-large-hover .lh-background {
-    width: 1000px;
-    left: -300px;
+    background-position: 0 0;
+    /* width: 2000px; */
+    left: -190px;
 }
 .large-hover-img.active .lh-background {
     /*left: -150px; making center on hover */

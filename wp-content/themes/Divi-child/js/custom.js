@@ -1,10 +1,11 @@
 $=jQuery;
 
-var vph = $(window).width();
+
 function home_slide_img_width() {
-	if($(window).width() <= 991) {
-		$('.elem-large-hover .lh-background').css({'width':vph+'px'})
-	}
+	var vph = $(window).width();
+	//if($(window).width() <= 991) {
+		$('.elem-large-hover .lh-background').css({'width':2*vph/3+'px'})
+	//}
 }
 
 $(document).ready(function() {
@@ -46,7 +47,7 @@ $(document).ready(function() {
 	$('.list-news article').addClass('clearfix');
 });
 $(window).resize(function() {
-	console.log(vph);
+	//console.log(vph);
 	home_slide_img_width();
 });
 
