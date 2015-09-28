@@ -8306,7 +8306,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
 						<?php 
 						if (strpos($module_class,'list-title') !== false) {
-							echo '<ul><li>';
+							echo '<ul class="list-title"><li>';
 							?>
 							<a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
 							<?php
