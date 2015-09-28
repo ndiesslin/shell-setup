@@ -29,7 +29,7 @@ require( ABSPATH . WPINC . '/default-constants.php' );
 global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version;
 require( ABSPATH . WPINC . '/version.php' );
 
-// Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, WP_DEBUG, WP_CONTENT_DIR and WP_CACHE.
+// Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, WP_DEBUG, SCRIPT_DEBUG, WP_CONTENT_DIR and WP_CACHE.
 wp_initial_constants();
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
@@ -372,14 +372,3 @@ if ( is_multisite() ) {
  * @since 3.0.0
  */
 do_action( 'wp_loaded' );
-
-//hide error
-//Add define('WP_DEBUG',true); 
-//to wp-config.php to enable display of notices during development. 
-if (defined('WP_DEBUG') and WP_DEBUG == true){
-	error_reporting(E_ALL); 
-} 
-else {     
-//error_reporting(E_ALL ^ E_NOTICE ^ E_USER_NOTICE);     
-	error_reporting(0); //hides warnings
-}

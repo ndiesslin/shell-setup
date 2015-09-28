@@ -4,7 +4,7 @@ Tags: better, font, awesome, icon, icons, bootstrap, fontstrap, cdn, shortcode
 Donate link: http://mightyminnow.com
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.3.5
+Stable tag: 1.4.3
 License: GPLv2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,8 +109,18 @@ Better Font Awesome does it's best to load after any existing Font Awesome CSS, 
 
 == Changelog ==
 
-= 1.3.5 =
+= 1.4.3 =
+* Fix: refactor JS to allow icon shortcode insertion button to work in all instances (ACF Flexible and Repeater fields, divi, Black Studio TinyMCE ).
+
+= 1.4.2 =
+* Fix: icon picker not working for ACF Pro repeater field.
+
+= 1.4.1 =
 * Fix: icon picker not working for ACF repeater field.
+
+= 1.4.0 =
+* Fix: icon picker not working for Black Studio TinyMCE Widget. (props @EJOweb and @marcochiesi)
+* Update fallback Font Awesome to version 4.4.0.
 
 = 1.3.4 =
 * Update Better Font Awesome Library to version 1.3.4.
@@ -212,8 +222,18 @@ Better Font Awesome does it's best to load after any existing Font Awesome CSS, 
 
 == Upgrade Notice ==
 
-= 1.3.5 =
+= 1.4.3 =
+* Fix: refactor JS to allow icon shortcode insertion button to work in all instances (ACF Flexible and Repeater fields, divi, Black Studio TinyMCE ).
+
+= 1.4.2 =
+* Fix: icon picker not working for ACF Pro repeater field.
+
+= 1.4.1 =
 * Fix: icon picker not working for ACF repeater field.
+
+= 1.4.0 =
+* Fix: icon picker not working for Black Studio TinyMCE Widget. (props @EJOweb and @marcochiesi)
+* Update fallback Font Awesome to version 4.4.0.
 
 = 1.3.4 =
 * Update Better Font Awesome Library to version 1.3.4.

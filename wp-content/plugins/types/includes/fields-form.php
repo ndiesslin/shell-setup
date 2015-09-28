@@ -1301,7 +1301,11 @@ function wpcf_fields_get_field_form_data( $type, $form_data = array() ) {
          * only for post meta
          *
          */
-        if ( 'postmeta' == $form_data['meta_type'] && function_exists( 'wpml_cf_translation_preferences' ) ) {
+        if (
+            isset($form_data['meta_type'])
+            && 'postmeta' == $form_data['meta_type']
+            && function_exists( 'wpml_cf_translation_preferences' )
+        ) {
             $custom_field = !empty( $form_data['slug'] ) ? wpcf_types_get_meta_prefix( $form_data ) . $form_data['slug'] : false;
             $suppress_errors = $custom_field == false ? true : false;
             $translatable = array('textfield', 'textarea', 'wysiwyg');

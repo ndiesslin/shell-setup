@@ -94,8 +94,6 @@ function wpcf_ajax()
             die;
         }
         break;
-        break;
-        /*
     case 'user_fields_control_bulk':
     case 'usermeta_delete':
     case 'delete_usermeta':
@@ -117,8 +115,6 @@ function wpcf_ajax()
     case 'pt_edit_fields':
     case 'toggle':
     case 'cb_save_empty_migrate':
-         */
-    default:
         if ( !current_user_can('manage_options') ) {
             echo json_encode(
                 array(
@@ -127,6 +123,12 @@ function wpcf_ajax()
             );
             die;
         }
+        break;
+        /**
+         * do not check actions from other places
+         */
+    default:
+        return;
     }
 
     /**

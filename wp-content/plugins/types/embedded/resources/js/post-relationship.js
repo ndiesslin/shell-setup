@@ -453,6 +453,10 @@ jQuery(document).ready(function($) {
                     }
                 }
                 $('#wpcf-post-relationship .wpcf-pr-pagination-select').trigger('change');
+                /**
+                 * select2
+                 */
+                wpcfBindSelect2($);
             }
         });
         return false;
@@ -513,6 +517,10 @@ jQuery(document).ready(function($) {
                 $button.next().fadeOut(function() {
                     $(this).remove();
                 });
+                /**
+                 * select2
+                 */
+                wpcfBindSelect2($);
             }
         });
         return false;
@@ -551,6 +559,10 @@ jQuery(document).ready(function($) {
                 $button.next().fadeOut(function() {
                     $(this).remove();
                 });
+                /**
+                 * select2
+                 */
+                wpcfBindSelect2($);
             }
         });
         return false;
@@ -590,6 +602,10 @@ jQuery(document).ready(function($) {
                 $button.next().fadeOut(function() {
                     $(this).remove();
                 });
+                /**
+                 * select2
+                 */
+                wpcfBindSelect2($);
             }
         });
         return false;
@@ -841,6 +857,10 @@ jQuery(document).ready(function($) {
                         wptCond.addConditionals(data.conditionals);
                     }
                 }
+                /**
+                 * select2
+                 */
+                wpcfBindSelect2($);
             }
         });
     });
