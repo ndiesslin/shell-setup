@@ -8192,6 +8192,13 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$classtext = 'on' === $fullwidth ? 'et_pb_post_main_image' : '';
 				$titletext = get_the_title();
 				$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+				
+				//if no image - set default image
+				if( empty( $thumbnail["thumb"] ) ) {
+		      $thumbnail["thumb"] = of_get_option("default-image", array('url'=>'true'));//, 'size'=>'thumb'
+				}
+				//print_r($thumbnail);
+				
 				$thumb = $thumbnail["thumb"];
 
 				$no_thumb_class = '' === $thumb || 'off' === $show_thumbnail ? ' et_pb_no_thumb' : '';
@@ -8239,6 +8246,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								<?php 
 									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
 									$url = $thumb['0']; 
+
+									if($url == "") {
+										$url = of_get_option("default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+									}
 								?>
 
 								<a href="<?php the_permalink(); ?>" style="background-image:url('<?php echo $url;?>');">
