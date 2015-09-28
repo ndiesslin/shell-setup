@@ -372,3 +372,14 @@ if ( is_multisite() ) {
  * @since 3.0.0
  */
 do_action( 'wp_loaded' );
+
+//hide error
+//Add define('WP_DEBUG',true); 
+//to wp-config.php to enable display of notices during development. 
+if (defined('WP_DEBUG') and WP_DEBUG == true){
+error_reporting(E_ALL); 
+} 
+else {     
+//error_reporting(E_ALL ^ E_NOTICE ^ E_USER_NOTICE);     
+error_reporting(0); //hides warnings
+}
