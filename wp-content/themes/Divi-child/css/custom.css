@@ -999,6 +999,9 @@ body.home .et_pb_row {
         width: 100%;
         margin-right: 0;
     }
+    article.news-event{
+        margin-bottom: 10px;
+    }
 }
 
 /* Temporarily hiding featured image of news-event */
