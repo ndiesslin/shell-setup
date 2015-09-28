@@ -8198,7 +8198,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		      $thumbnail["thumb"] = of_get_option("default-image", array('url'=>'true'));//, 'size'=>'thumb'
 				}
 				//print_r($thumbnail);
-				
+
 				$thumb = $thumbnail["thumb"];
 
 				$no_thumb_class = '' === $thumb || 'off' === $show_thumbnail ? ' et_pb_no_thumb' : '';
@@ -8212,6 +8212,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				echo '<div class="full-row">';
 			}
 			?>
+			<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 				<?php
 					et_divi_post_format_content();
@@ -8375,6 +8376,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								if (strpos($module_class,'list-team-member') !== false) { 
 								echo '<p>';
 								}
+								if(strpos($module_class,'carousel') !== false) 
+									echo '<a href="'.get_the_permalink().'">';
 								if ( has_excerpt() ) {
 									the_excerpt();
 								} else {
@@ -8385,6 +8388,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 										truncate_post( 270 );
 									}
 								}
+								if(strpos($module_class,'carousel') !== false) echo '</a>';
 								
 								if (strpos($module_class,'list-team-member') !== false) { 
 									echo '</p>';
@@ -8402,6 +8406,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
 			</article> <!-- .et_pb_post -->
+			<?php if(strpos($module_class,'carousel') !== false) echo '</div>';?>
 			<?php 
 			if (strpos($module_class,'list-team-member') !== false ) { 
 				echo '</div>';//end profile-detail || list-news-detail
@@ -8466,6 +8471,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$posts,
 				esc_attr( $class ),
 				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+
+		elseif(strpos($module_class,'carousel') !== false) {
+			$class = '';
+			$output = sprintf(
+				'<div%5$s class="jcarousel-wrapper "><!--%1$s%3$s%5$s removed class -->
+					<div class="jcarousel"><!-- removed class -->
+						<ul>
+						%2$s
+						</ul>
+					</div>
+					<a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+	        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+        </div>
+				',//%4$s
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? ' <!-- .et_pb_posts -->' : '' ),
 				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
 				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
 				( 'on' !== $fullwidth ? ' data-columns' : '' )
