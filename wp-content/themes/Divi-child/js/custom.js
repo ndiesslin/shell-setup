@@ -18,7 +18,9 @@ $(document).ready(function() {
 	//team page
 	$('.list-team-member').parent().parent().addClass('full-width-row team-template');
 	//jcarousel
-	$('.jcarousel ul div, .jcarousel ul article').removeAttr('class'); //removing slideshow class
+	$('.jcarousel ul > div').removeAttr('class'); //removing slideshow class
+	//medium thumb parent div in jcarousel
+	$('.medium-thumb').parent().css({'width': '100%'});
 
 	//team page
 	$('article.team').addClass('clearfix');

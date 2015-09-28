@@ -8260,11 +8260,21 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									?>
 									<img src="<?php echo get_template_directory_uri(); ?>/../Divi-child/images/pad.jpg" alt="">
 								</a>
-								<?php } else { ?>
+								<?php }//end news 
+								elseif(strpos($module_class,'carousel') !== false || strpos($module_class,'show-image-and-text') !== false) {
+									?>
+									<div class="medium-thumb">
+										<div class="img-cover" style="background-image: url(<?php echo $thumbnail['thumb'];?>)">
+										</div>
+									</div>
+									<?php
+								}
+								else { ?>
 								<a href="<?php the_permalink(); ?>">
 									<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
 								</a>
-								<?php } ?>
+								<?php } 
+								?>
 
 								<?php 
 								if (strpos($module_class,'list-team-member') !== false || strpos($module_class,'list-news') !== false) { 
@@ -8296,7 +8306,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
 						<?php 
 						if (strpos($module_class,'list-title') !== false) {
-							echo '<ul><li>';
+							echo '<ul class="list-title"><li>';
 							?>
 							<a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
 							<?php
@@ -8480,7 +8490,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		elseif(strpos($module_class,'carousel') !== false) {
 			$class = '';
 			$output = sprintf(
-				'<div%5$s class="jcarousel-wrapper "><!--%1$s%3$s%5$s removed class -->
+				'<div%5$s class="%6$s jcarousel-wrapper "><!--%1$s%3$s%5$s removed class -->
 					<div class="jcarousel"><!-- removed class -->
 						<ul>
 						%2$s
