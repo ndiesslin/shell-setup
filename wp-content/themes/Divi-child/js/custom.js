@@ -2,10 +2,14 @@ $=jQuery;
 
 
 function home_slide_img_width() {
-	var vph = $(window).width();
-	//if($(window).width() <= 991) {
-		$('.elem-large-hover .lh-background').css({'width':2*vph/3+'px'})
-	//}
+	var vpw = $(document).width();//window
+	//console.log(vpw);
+	if(vpw >= 769) {//769 and above
+		$('.elem-large-hover .lh-background').css({'width':2*vpw/3+'px'})
+	}
+	else {
+		$('.elem-large-hover .lh-background').css({'width':'100%'})
+	}
 }
 
 $(document).ready(function() {
