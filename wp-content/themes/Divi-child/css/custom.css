@@ -1171,6 +1171,17 @@ a:hover,
 .elem-large-hover .lh-background {
     background-position: 0 0;
 }
+
+@media (max-width: 1290px) and (min-width: 870px) {
+    .elem-large-hover {
+        width: 125%;
+    }
+}
+@media (max-width: 869px) and (min-width: 769px) {
+    .elem-large-hover {
+        width: 130%;
+    }
+}
 @media (min-width: 769px) {
     .elem-large-hover .lh-background {
         left: -190px;
@@ -1181,7 +1192,6 @@ a:hover,
     .large-hover-img:last-child.active .lh-container {
         width: 160%;
     }
-
 }
 .large-hover-img.active .lh-background {
     /*left: -150px; making center on hover */

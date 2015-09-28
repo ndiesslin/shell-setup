@@ -8260,7 +8260,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									?>
 									<img src="<?php echo get_template_directory_uri(); ?>/../Divi-child/images/pad.jpg" alt="">
 								</a>
-								<?php } 
+								<?php }//end news 
 								elseif(strpos($module_class,'carousel') !== false || strpos($module_class,'show-image-and-text') !== false) {
 									?>
 									<div class="medium-thumb">
