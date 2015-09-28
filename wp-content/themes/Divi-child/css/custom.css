@@ -1175,17 +1175,19 @@ a:hover,
     .elem-large-hover .lh-background {
         left: -190px;
     }
+    .large-hover-img:last-child .lh-container {
+        width: 140%;
+    }
+    .large-hover-img:last-child.active .lh-container {
+        width: 160%;
+    }
 
 }
 .large-hover-img.active .lh-background {
     /*left: -150px; making center on hover */
 }
-.large-hover-img:last-child .lh-container {
-    width: 140%;
-}
-.large-hover-img:last-child.active .lh-container {
-    width: 160%;
-}
+
+
 
 /* Nav fixes */
 .nav li ul {
