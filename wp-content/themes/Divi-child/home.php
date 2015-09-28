@@ -32,7 +32,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			$banner = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), '');
 			$banner_url = $banner[0];
 
-			if($i <= 3):
+			if($i <= 2):
 				$color = 'red';
 			else:
 				$color = 'purple';//3 red and 2 purple
