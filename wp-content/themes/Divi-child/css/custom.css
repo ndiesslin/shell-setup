@@ -759,6 +759,7 @@ body.home .et_pb_row {
     max-width: 1160px;
     margin: 0 auto;
     padding: 27px 0;
+    width: 90%;
 }
 .team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
     background-color: #f3f1ed;
@@ -958,8 +959,17 @@ body.home .et_pb_row {
         padding-left: 30px;
         padding-right: 30px;
     }*/
+    .profile-img {
+        margin: 0 auto;
+        display: block;
+        float: none;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
     .profile-intro{
         width: 100%;
+        display: block;
+        clear: both;
     }
     .show-image-and-text article.et_pb_post {
         width: 47.25%;
