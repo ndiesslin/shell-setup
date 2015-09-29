@@ -1,1 +1,0 @@
-jQuery("#et-main-area").prepend(jQuery("#wtfdivi012-widget-area-wrap"));

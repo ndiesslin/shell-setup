@@ -1,2 +1,0 @@
-<?php $this->techlink('http://www.wpthemefaqs.com/split-divi-secondary-header-icons-to-left-and-right/'); ?>
-<?php $this->checkbox(__FILE__); ?> Put contact info icons on left, and social icons on the right

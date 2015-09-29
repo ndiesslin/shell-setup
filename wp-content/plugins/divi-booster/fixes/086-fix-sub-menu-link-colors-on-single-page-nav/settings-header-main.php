@@ -1,2 +1,0 @@
-<?php $this->techlink('http://www.wpthemefaqs.com/fixing-the-divi-sub-menu-hover-colors-on-single-page-layouts/'); ?>
-<?php $this->checkbox(__FILE__); ?> Fix sub-menu link colors on single page navigation

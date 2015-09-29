@@ -1,2 +1,0 @@
-<?php $this->techlink('https://www.wpthemefaqs.com/changing-the-pin-icon-in-the-divi-module/'); ?> 
-<?php $this->checkbox(__FILE__); ?> Change map pin icon (46 x 43px) <?php $this->imagePicker(__FILE__, 'url'); ?>

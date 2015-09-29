@@ -1,2 +1,0 @@
-<?php $this->techlink('http://www.wpthemefaqs.com/change-the-divi-header-font-size/'); ?>
-<?php $this->checkbox(__FILE__); ?> Menu font size: <?php $this->numberpicker(__FILE__, 'menufontsize', 14); ?>px
