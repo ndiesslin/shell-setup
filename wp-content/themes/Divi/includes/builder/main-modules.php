@@ -8387,7 +8387,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						else echo '<span class="time">Time</span>';
 					}
 					//excerpt or content
-					if (strpos($module_class,'stories-of-gratitude-two') === false || strpos($module_class,'list-title') === false || (strpos($module_class,'show-image-and-text') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
+					if (strpos($module_class,'stories-of-gratitude-two') === false || strpos($module_class,'list-title') === false || strpos($module_class,'show-image-and-text') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
 
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
