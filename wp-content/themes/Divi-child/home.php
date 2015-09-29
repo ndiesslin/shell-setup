@@ -118,8 +118,8 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	<?php endif; ?>
 </div> <!-- #main-content -->
 
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jssor.js"></script>
+<!-- <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jssor.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jssor.slider.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri();?>/js/custom-jssor.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri();?>/js/custom-jssor.js"></script> -->
 
 <?php get_footer(); ?>
