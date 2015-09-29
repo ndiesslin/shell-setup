@@ -1119,6 +1119,9 @@ a:hover,
 .jcarousel p:hover {
     text-decoration: none !important;
 }
+.jcarousel .news-event{
+    margin-bottom: 0;
+}
 
 @media (max-width: 1200px) {
     /* Correcting as in design of mobile site */
