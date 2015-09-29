@@ -1028,6 +1028,9 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     .hidden-xs {
         display: none;
     }
+    h2{
+        margin-top: 30px;
+    }
 }
 @media (min-width: 768px) {
     .visible-xs {
