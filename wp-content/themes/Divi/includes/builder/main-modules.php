@@ -8263,10 +8263,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								<?php }//end news 
 								elseif(strpos($module_class,'carousel') !== false || strpos($module_class,'show-image-and-text') !== false) {
 									?>
-									<div class="medium-thumb">
-										<div class="img-cover" style="background-image: url(<?php echo $thumbnail['thumb'];?>)">
+									<a href="<?php the_permalink(); ?>">
+										<div class="medium-thumb">
+											<div class="img-cover" style="background-image: url(<?php echo $thumbnail['thumb'];?>)">
+											</div>
 										</div>
-									</div>
+									</a>
 									<?php
 								}
 								else { ?>
@@ -8304,6 +8306,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
+
 						<?php 
 						if (strpos($module_class,'list-title') !== false) {
 							echo '<ul class="list-title"><li>';
@@ -8320,6 +8323,17 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							<?php } ?>
 						</h2>
 						<?php }//end if list-title ?>
+
+						<?php 
+						//current studies list - research coordinator
+						if (strpos($module_class,'list-items') !== false) { ?>
+						
+							<div class="research-coordinator">
+							
+							</div>
+							
+
+						<?php } //end if list-items ?>
 
 					<?php } ?>
 
@@ -8373,7 +8387,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						else echo '<span class="time">Time</span>';
 					}
 					//excerpt or content
-					if (strpos($module_class,'stories-of-gratitude-two') === false || strpos($module_class,'list-title') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
+					if (strpos($module_class,'stories-of-gratitude-two') === false && strpos($module_class,'list-title') === false && strpos($module_class,'show-image-and-text') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
 
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {

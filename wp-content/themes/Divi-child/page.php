@@ -16,12 +16,12 @@ page_title($title, $title_icon, $team_title);
 	
 <div id="main-content">
 
-<?php if ( ! $is_page_builder_used ) : ?>
+	<?php if ( ! $is_page_builder_used ) : ?>
 
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 
-<?php endif; ?>
+			<?php endif; ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -64,14 +64,14 @@ page_title($title, $title_icon, $team_title);
 
 			<?php endwhile; ?>
 
-<?php if ( ! $is_page_builder_used ) : ?>
+			<?php if ( ! $is_page_builder_used ) : ?>
 
 			</div> <!-- #left-area -->
 
 			<?php get_sidebar(); ?>
 		</div> <!-- #content-area -->
 
-<?php endif; ?>
+	<?php endif; ?>
 
 </div> <!-- #main-content -->
 

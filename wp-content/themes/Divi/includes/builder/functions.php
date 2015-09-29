@@ -2898,3 +2898,13 @@ function of_get_option($name, $default = false) {
   }
 }
 }
+
+//post to post relation
+/*function my_connection_types_team_to_page() {
+  p2p_register_connection_type( array(
+    'name' => 'team_to_page',
+    'from' => 'team',
+    'to' => 'page'
+  ) );
+}
+add_action( 'p2p_init', 'my_connection_types_team_to_page' );*/
