@@ -91,7 +91,7 @@ function findMaxValue(element){
 
 // parent height
 function parentHeight(){
-	var parentHeight = $('.news-event').height();
+	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
 	var childHeight = $('.list-news-thumb').height();
 	if (parentHeight > childHeight ) {
 		$('.list-news-thumb').css({
