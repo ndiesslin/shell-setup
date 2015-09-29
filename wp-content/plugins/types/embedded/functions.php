@@ -652,6 +652,10 @@ function wpcf_field_enqueue_scripts($type)
 
         $cache[$config['id']] = $config;
 
+        if ( isset($config['inherited_field_type']) && 'file' == $config['inherited_field_type']) {
+            wp_enqueue_media();
+        }
+
         return $config;
     } else {
         $wpcf->debug->errors['missing_type_config'][] = $type;
