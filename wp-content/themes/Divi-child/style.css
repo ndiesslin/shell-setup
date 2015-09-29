@@ -2484,3 +2484,11 @@ span.et_close_search_field {
   .page-title h1 {
     color: white;
     padding: 0; }
+
+/* Robert's temporary hacks */
+.carousel .medium-thumb .img-cover {
+    width: 280px; /* sets professional dashboard's carousel images to show */
+}
+.jcarousel ul div article>a {
+    display: none; /* hiding the excerpt in latest stories on the pro dash */ 
+}
