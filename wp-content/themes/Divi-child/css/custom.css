@@ -941,6 +941,9 @@ body.home .et_pb_row {
     .carousel-section .et_pb_text.et_pb_module{
         margin-bottom: 20px;
     }
+    .carousel-section .et_pb_module.heading-module{
+        margin-bottom: 0;
+    }
     .profile-intro {
         width: 60%;
         max-width: 585px;
