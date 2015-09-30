@@ -1258,3 +1258,8 @@ a:hover,
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+/* Removing mint green line under stories of gratitude video in general dashboard */
+.fluid-width-video-wrapper {
+    overflow: hidden;
+}
