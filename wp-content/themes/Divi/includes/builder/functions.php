@@ -2908,3 +2908,42 @@ function of_get_option($name, $default = false) {
   ) );
 }
 add_action( 'p2p_init', 'my_connection_types_team_to_page' );*/
+
+//get post by slug to fetch team name, title and link
+function get_post_by_slug($slug){
+	$post_type = 'team';
+  $posts = get_posts(array(
+    'name' => $slug,
+    'posts_per_page' => 1,
+    'post_type' => $post_type,
+    'post_status' => 'publish'
+  ));
+  
+  if(! $posts ) {
+    throw new Exception("NoSuchPostBySpecifiedID");
+  }
+
+  return $posts;
+}
+
+function get_team_name_by_slug($slug){
+	$post_type = 'team';
+  $posts = get_posts(array(
+    'name' => $slug,
+    'posts_per_page' => 1,
+    'post_type' => $post_type,
+    'post_status' => 'publish'
+  ));
+  $team_info = '';
+
+  $team_name = $posts[0]->post_title;
+  $post_id = $posts[0]->ID;
+  //var_dump($posts);
+  $team_title = types_render_field('team-title', array('post_id'=>$post_id));
+  $team_link = $posts[0]->guid;
+  if($posts ) {
+  	$team_info = '<a href="'.$team_link.'">'.$team_name . ', ' . $team_title . '</a>';
+	}
+
+  return $team_info;
+}
