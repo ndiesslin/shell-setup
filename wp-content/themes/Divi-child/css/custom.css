@@ -263,6 +263,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 }
 .top-intro h4 {
     position: absolute;
+    text-align: center;
     left: 50%;
     padding: 15px 50px;
     -webkit-transform: translateX(-50%);
@@ -1188,6 +1189,11 @@ a:hover,
         width: 100%;
         min-height: 0px !important;
         margin-bottom: 10px;
+    }
+    .top-intro h4{
+        width: 80%;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
