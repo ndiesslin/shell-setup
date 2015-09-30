@@ -8329,7 +8329,25 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						if (strpos($module_class,'list-items') !== false) { ?>
 						
 							<div class="research-coordinator">
-							
+								<?php 
+								//var_dump($post);exit();
+								$post_id = $post->ID;
+								$research_coordinator_data = types_render_field('research-coordinator', array('ID'=>$post_id, 'url'=>true, 'separator'=>';'));
+								//print_r($research_coordinator_data);
+								//print_r($post->ID);
+								$research_coordinator_arr = explode(';',$research_coordinator_data);
+								$team_info_arr = [];
+								if(!empty($research_coordinator_data)) {
+									foreach ($research_coordinator_arr as $research_coordinator_slug) {
+										$team_info_arr[] = get_team_name_by_slug($research_coordinator_slug);
+									}
+									$team_info_finish = implode(", ",$team_info_arr);
+									if($team_info_finish != '') {
+										echo 'Research Coordinator: ';
+										echo $team_info_finish;
+									}
+								}
+								?>
 							</div>
 							
 
