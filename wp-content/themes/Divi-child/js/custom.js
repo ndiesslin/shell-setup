@@ -103,7 +103,6 @@ function parentHeight(){
 $(document).ready(function(){
 	parentHeight();
 });
-});
 $(document).resize(function(){
 	parentHeight();
 });
