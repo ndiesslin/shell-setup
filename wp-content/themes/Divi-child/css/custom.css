@@ -1209,6 +1209,13 @@ a:hover,
         padding-left: 0;
         padding-right: 0;
     }
+    a.jcarousel-control-prev, a.jcarousel-control-next{
+        left: 10px;
+    }
+    a.jcarousel-control-next{
+        right: 15px;
+        left: auto;
+    }
 }
 
 .elem-large-hover .lh-background {
