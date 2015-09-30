@@ -61,6 +61,9 @@ function admin_style() {
     .control-section#add-page {
       display: block !important;
     }
+body.taxonomy-category span.view {
+display: none !important;
+}
   </style>';
 }
 
