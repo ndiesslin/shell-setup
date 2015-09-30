@@ -8332,7 +8332,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								<?php 
 								//var_dump($post);exit();
 								$post_id = $post->ID;
-								$research_coordinator_data = types_render_field('research-coordinator', array('ID'=>$post_id, 'url'=>true, 'separator'=>';'));
+								$research_coordinator_data = types_render_field('research-coordinator', array('ID'=>$post_id, 'url'=>'true', 'separator'=>';'));
 								//print_r($research_coordinator_data);
 								//print_r($post->ID);
 								$research_coordinator_arr = explode(';',$research_coordinator_data);
