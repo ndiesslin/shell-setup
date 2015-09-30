@@ -20,7 +20,7 @@ $(document).ready(function() {
 	//jcarousel
 	$('.jcarousel ul > div').removeAttr('class'); //removing slideshow class
 	//medium thumb parent div in jcarousel
-	$('.medium-thumb').parent().css({'width': '100%'});
+	$('.medium-thumb').parent().parent().css({'width': '100%'});//a and then div
 
 	//team page
 	$('article.team').addClass('clearfix');
