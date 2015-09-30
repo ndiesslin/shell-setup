@@ -1211,6 +1211,7 @@ a:hover,
     }
     a.jcarousel-control-prev, a.jcarousel-control-next{
         left: 10px;
+        margin-top: -45px;
     }
     a.jcarousel-control-next{
         right: 15px;
