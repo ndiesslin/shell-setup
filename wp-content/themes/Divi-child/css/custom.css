@@ -1053,6 +1053,10 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
         margin-left: -3rem;
         margin-top: -3rem;
     }
+    ul.awDatesUL {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 @media (min-width: 768px) {
     .visible-xs {
