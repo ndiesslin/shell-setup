@@ -39,10 +39,11 @@ page_title($title, $title_icon, $team_title);
 				while ( have_posts() ) : the_post();
 					// Your loop code
 			?>
-				
+				<div class="search-items">
 					<h3><?php search_title_highlight(); ?></h3>
-					<p><?php search_excerpt_highlight();?>
-						<a href="<?php the_permalink();?>" class="read-more-btn">Read More</a></p>	
+					<?php search_excerpt_highlight();?>
+					<a href="<?php the_permalink();?>" class="read-more-btn">Read More</a>
+				</div>
 
 			<?php 
 				endwhile;

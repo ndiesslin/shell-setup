@@ -101,7 +101,9 @@ function search_excerpt_highlight() {
  $excerpt = get_the_excerpt();
  //for page that used divi layouts
  if($excerpt == '') {
-  truncate_post( 80 );
+  echo '<p>';
+  truncate_post( 250 );
+  echo '</p>';
  }
  $keys = implode('|', explode(' ', get_search_query()));
  $excerpt = preg_replace('/(' . $keys .')/iu', '<strong class="search-highlight">\0</strong>', $excerpt);

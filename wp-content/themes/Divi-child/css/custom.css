@@ -1265,3 +1265,9 @@ a:hover,
 }
 
 /* Search Page */
+p:empty {
+    padding-bottom: 0;
+}
+.search .search-items {
+    margin-bottom: 40px;
+}
