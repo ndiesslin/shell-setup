@@ -262,10 +262,14 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     font-size: 26px;
 }
 .top-intro h4 {
-    display: none;
     position: absolute;
+    text-align: center;
     left: 50%;
     padding: 15px 50px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 .et_pb_fullwidth_header_0.et_pb_fullwidth_header {
     background-color: #AB162B !important;
@@ -1045,6 +1049,14 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     h2{
         margin-top: 30px;
     }
+    .et_pb_column_4_4 .et_pb_video_play, .et_pb_column_3_4 .et_pb_video_play, .et_pb_column_2_3 .et_pb_video_play, .et_pb_column_1_2 .et_pb_video_play{
+        margin-left: -3rem;
+        margin-top: -3rem;
+    }
+    ul.awDatesUL {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 @media (min-width: 768px) {
     .visible-xs {
@@ -1185,6 +1197,11 @@ a:hover,
         width: 100%;
         min-height: 0px !important;
         margin-bottom: 10px;
+    }
+    .top-intro h4{
+        width: 80%;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
