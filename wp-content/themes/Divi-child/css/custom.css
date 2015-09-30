@@ -966,6 +966,9 @@ body.home .et_pb_row {
     .et_pb_row .et_pb_column .view-all-module:last-child{
         margin-bottom: 27px;
     }
+    .carousel-section .et_pb_module.heading-module{
+        margin-bottom: 0;
+    }
     /*.et_pb_section .et_pb_row, .et_pb_section.et_section_specialty .et_pb_row{
         padding-left: 30px;
         padding-right: 30px;
