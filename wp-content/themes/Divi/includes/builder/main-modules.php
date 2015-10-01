@@ -8270,10 +8270,9 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									$url = $thumb['0']; 
 
 									if($url == "") {
-										$url = of_get_option("default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+										$url = of_get_option("landscape-default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
 									}
 								?>
-
 								<a href="<?php the_permalink(); ?>" style="background-image:url('<?php echo $url;?>');">
 
 									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
