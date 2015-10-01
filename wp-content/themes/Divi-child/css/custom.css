@@ -873,6 +873,9 @@ body.home .et_pb_row {
 .landscape-img-size{
     width: 100%;
 }
+.et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.et_pb_toggle{
+        margin-bottom: 0;
+    }
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
