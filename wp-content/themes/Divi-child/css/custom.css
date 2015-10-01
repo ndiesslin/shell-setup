@@ -870,6 +870,9 @@ body.home .et_pb_row {
 .et_pb_toggle_open .et_pb_toggle_title:before{
     content: "3";
 }
+.landscape-img-size{
+    width: 100%;
+}
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
