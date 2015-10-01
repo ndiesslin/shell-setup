@@ -35,6 +35,28 @@ body{
 h1, h2, h3, h4, h5, h6{
     color: #AB162B;
 }
+/* Default Font Styles */
+h1, .et_pb_post h1 {
+  font-size: 32px;
+  font-size: 2rem;
+}
+h2 {
+  font-size: 32px;
+  font-size: 2rem;
+}
+h3, .et_pb_post h3 {
+  font-size: 22px;
+  font-size: 1.375rem;
+}
+h4, .et_pb_post h4 {
+  font-size: 22px;
+  font-size: 1.375rem;
+}
+p, .et_pb_post p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+}
 .heading-row{
     padding-top: 0;
     padding-bottom: 0;
@@ -321,12 +343,14 @@ body h3{
 .circleimage p {
 }
 .et_pb_column_1_3 h2, .et_pb_column_1_4 h2, h3 {
-    font-size: 30px;
+    font-size: 22px;
+    font-size: 1.375rem;
     text-transform: uppercase;
 }
 .et_pb_post h2{
     margin-top: 20px;
     font-size: 22px;
+    font-size: 1.375rem;
     color: #2b266d;
     line-height: 28px;
     padding-bottom: 6px;
