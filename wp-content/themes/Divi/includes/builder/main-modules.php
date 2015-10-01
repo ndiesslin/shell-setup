@@ -8193,7 +8193,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			if($year != '') {
    		// echo "<script> var year = ' ' + $year; </script>";
 			}
-		}//end if news-event page
+		}//end if news-event page		
 
 		query_posts( $args );
 
@@ -8234,6 +8234,16 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			}
 			?>
 			<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
+
+			<?php 
+			//featured posts not working
+			//$is_featured = '';
+			//$is_featured = types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw'));
+			//print_r(types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw')));
+
+			//if(types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw')) == '1')
+			?>
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 				<?php
 					et_divi_post_format_content();
@@ -8470,7 +8480,9 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
-			</article> <!-- .et_pb_post -->
+			</article>
+
+
 			<?php if(strpos($module_class,'carousel') !== false) echo '</div>';?>
 			<?php 
 			if (strpos($module_class,'list-team-member') !== false ) { 

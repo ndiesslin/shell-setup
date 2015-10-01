@@ -64,6 +64,19 @@ function admin_style() {
 body.taxonomy-category span.view, body.taxonomy-post_tag span.view {
 display: none !important;
 }
+/* Hiding unused divi template */
+.et-pb-all-modules-tab, .et-pb-options-tabs-links li.et-pb-new-module {
+  display: none !important;
+  opacity: 0 !important;
+}
+.et-pb-options-tabs-links li a {
+  background-color: #8F43EC;
+}
+.et-pb-saved-modules-tab {
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
   </style>';
 }
 
