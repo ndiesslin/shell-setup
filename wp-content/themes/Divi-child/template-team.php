@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Team Page1
+Template Name: Team Page
 */
 
 //only for Team Title field to show (in pages) in this template
