@@ -75,5 +75,12 @@ function optionsframework_options() {
     'id' => 'default-image',
     'type' => 'upload');
 
+  //image 2
+  $options[] = array(
+    'name' => __('Lanscape Image Size', 'options_check'),
+    //'desc' => __('Upload image of 460px X 266px', 'options_check'),
+    'id' => 'Landscape-default-image',
+    'type' => 'upload');
+
   return $options;
 }

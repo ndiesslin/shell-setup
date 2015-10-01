@@ -8280,16 +8280,18 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									$url = $thumb['0']; 
 
 									if($url == "") {
-										$url = of_get_option("default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+										$url = of_get_option("landscape-default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
 									}
 								?>
-
 								<a href="<?php the_permalink(); ?>" style="background-image:url('<?php echo $url;?>');">
 
 									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
 									// the_post_thumbnail();
 									?>
-									<img src="<?php echo get_template_directory_uri(); ?>/../Divi-child/images/pad.jpg" alt="">
+									<?php 
+										$def_img = of_get_option("landscape-default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+									?>
+									<img src="<?php echo $def_img;?>" alt="" class="landscape-img-size">
 								</a>
 								<?php }//end news 
 								elseif(strpos($module_class,'carousel') !== false || strpos($module_class,'show-image-and-text') !== false) {
