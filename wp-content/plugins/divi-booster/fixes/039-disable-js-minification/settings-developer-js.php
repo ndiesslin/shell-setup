@@ -1,1 +1,0 @@
-<?php $this->checkbox(__FILE__); ?> Disable JavaScript minification

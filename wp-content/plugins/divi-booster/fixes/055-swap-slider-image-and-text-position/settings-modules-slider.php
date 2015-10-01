@@ -1,1 +1,0 @@
-<?php $this->checkbox(__FILE__); ?> Put slider images on the right

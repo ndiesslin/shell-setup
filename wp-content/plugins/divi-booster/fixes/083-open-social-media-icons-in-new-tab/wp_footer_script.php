@@ -1,1 +1,0 @@
-jQuery(function($){ $('.et-social-icon a').attr('target', '_blank'); });

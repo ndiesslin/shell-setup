@@ -1,2 +1,0 @@
-<?php $this->techlink('http://www.wpthemefaqs.com/changing-the-default-divi-font-size/'); ?>
-<?php $this->checkbox(__FILE__); ?> Set default font size: <?php $this->numberpicker(__FILE__, 'fontsize', 100, 0); ?>%

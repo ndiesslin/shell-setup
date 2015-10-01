@@ -1,1 +1,0 @@
-<?php $this->hiddencheckbox(__FILE__); ?> Generated Footer HTML: <a href="<?php echo htmlentities($this->cacheurl); ?>wp_footer.txt" target="_blank">wp_footer.txt</a>

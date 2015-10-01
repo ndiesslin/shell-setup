@@ -61,6 +61,22 @@ function admin_style() {
     .control-section#add-page {
       display: block !important;
     }
+body.taxonomy-category span.view, body.taxonomy-post_tag span.view {
+display: none !important;
+}
+/* Hiding unused divi template */
+.et-pb-all-modules-tab, .et-pb-options-tabs-links li.et-pb-new-module {
+  display: none !important;
+  opacity: 0 !important;
+}
+.et-pb-options-tabs-links li a {
+  background-color: #8F43EC;
+}
+.et-pb-saved-modules-tab {
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
   </style>';
 }
 
@@ -95,3 +111,34 @@ function get_all_posts_name() {
   $posts_name = array('post','news-events', 'team');
   return $posts_name;
 }
+
+//search
+function search_excerpt_highlight() {
+ $excerpt = get_the_excerpt();
+ //for page that used divi layouts
+ if($excerpt == '') {
+  echo '<p>';
+  truncate_post( 250 );
+  echo '</p>';
+ }
+ $keys = implode('|', explode(' ', get_search_query()));
+ $excerpt = preg_replace('/(' . $keys .')/iu', '<strong class="search-highlight">\0</strong>', $excerpt);
+
+ echo '<p>' . $excerpt . '</p>';
+}
+
+
+function search_title_highlight() {
+ $title = get_the_title();
+ $keys = implode('|', explode(' ', get_search_query()));
+ $title = preg_replace('/(' . $keys .')/iu', '<strong class="search-highlight">\0</strong>', $title);
+
+ echo $title;
+}
+
+/* Function which remove Plugin Update Notices – Askimet*/
+function disable_plugin_updates( $value ) {
+   unset( $value->response['types/wpcf.php'] );
+   return $value;
+}
+add_filter( 'site_transient_update_plugins', 'disable_plugin_updates' );

@@ -2825,6 +2825,7 @@ function et_pb_remove_lb_plugin_force_editor_mode() {
 }
 add_action( 'admin_init', 'et_pb_remove_lb_plugin_force_editor_mode' );
 
+//date and time for events and presentation in general dashboard
 function parseDate($dateString){
   $dateArray = array();
   $hold = explode(' ',$dateString);
@@ -2841,4 +2842,108 @@ function parseDate($dateString){
     array_push($dateArray,$part);
   }
   return $dateArray;
+}
+
+//get years
+function array_unique_by_key (&$array, $key) {
+      $tmp = array();
+      $result = array();
+      foreach ($array as $value) {
+          if (!in_array($value[$key], $tmp) && !empty($value[$key]))
+          {
+              array_push($tmp, $value[$key]);
+              array_push($result, $value);
+          }
+      }
+      return $array = $result;
+  }
+function getYearSplitsOfPosts($args){
+  $years = array();
+  $postslist = get_posts($args);
+  foreach($postslist as $post) {
+    $year = date('Y', strtotime($post->post_date));
+    $years[$year][]= array('publish' => $year);
+  }
+  wp_reset_postdata();
+  krsort($years);
+  $filtered = array();
+  foreach ($years as $year ) 
+    array_push($filtered, array_unique_by_key($year,'publish')); //find distinct years
+  return $filtered;                   
+}
+
+/* 
+ * Helper function to return the theme option value. If no value has been saved, it returns $default.
+ * Needed because options are saved as serialized strings.
+ *
+ * This code allows the theme to work without errors if the Options Framework plugin has been disabled.
+ */
+
+if ( !function_exists( 'of_get_option' ) ) {
+function of_get_option($name, $default = false) {
+  
+  $optionsframework_settings = get_option('optionsframework');
+  
+  // Gets the unique option id
+  $option_name = $optionsframework_settings['id'];
+  
+  if ( get_option($option_name) ) {
+    $options = get_option($option_name);
+  }
+    
+  if ( isset($options[$name]) ) {
+    return $options[$name];
+  } else {
+    return $default;
+  }
+}
+}
+
+//post to post relation
+/*function my_connection_types_team_to_page() {
+  p2p_register_connection_type( array(
+    'name' => 'team_to_page',
+    'from' => 'team',
+    'to' => 'page'
+  ) );
+}
+add_action( 'p2p_init', 'my_connection_types_team_to_page' );*/
+
+//get post by slug to fetch team name, title and link
+function get_post_by_slug($slug){
+	$post_type = 'team';
+  $posts = get_posts(array(
+    'name' => $slug,
+    'posts_per_page' => 1,
+    'post_type' => $post_type,
+    'post_status' => 'publish'
+  ));
+  
+  if(! $posts ) {
+    throw new Exception("NoSuchPostBySpecifiedID");
+  }
+
+  return $posts;
+}
+
+function get_team_name_by_slug($slug){
+	$post_type = 'team';
+  $posts = get_posts(array(
+    'name' => $slug,
+    'posts_per_page' => 1,
+    'post_type' => $post_type,
+    'post_status' => 'publish'
+  ));
+  $team_info = '';
+
+  $team_name = $posts[0]->post_title;
+  $post_id = $posts[0]->ID;
+  //var_dump($posts);
+  $team_title = types_render_field('team-title', array('post_id'=>$post_id));
+  $team_link = $posts[0]->guid;
+  if($posts ) {
+  	$team_info = '<a href="'.$team_link.'">'.$team_name . ', ' . $team_title . '</a>';
+	}
+
+  return $team_info;
 }

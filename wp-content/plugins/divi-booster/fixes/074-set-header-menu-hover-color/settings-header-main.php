@@ -1,2 +1,0 @@
-<?php $this->techlink('http://www.wpthemefaqs.com/change-the-divi-header-menu-link-hover-color/'); ?>
-<?php $this->checkbox(__FILE__); ?> Menu link hover color: <?php $this->colorpicker(__FILE__, 'col', '#333'); ?>

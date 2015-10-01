@@ -1,1 +1,0 @@
-<?php $this->hiddencheckbox(__FILE__); ?> Export plugin settings to file: <a href="<?php echo plugin_dir_url(__FILE__).'export.php'; ?>">download settings file</a>

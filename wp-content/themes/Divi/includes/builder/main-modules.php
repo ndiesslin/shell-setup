@@ -8117,8 +8117,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$paged = $et_paged;
 		}
 
-		if ( '' !== $include_categories )
+		if ( '' !== $include_categories ) {
 			$args['cat'] = $include_categories;
+
+			//$args['tag'] = 'first, second';
+		}		
+
+		/*$args['tax_query'] => array(
+		'relation' => 'OR',
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'slug',
+				//'terms'    => array( 'quotes' ),
+				'terms' => $include_categories;
+			),
+			array(
+				'taxonomy' => 'post_tag',
+				'field'    => 'slug',
+				//'terms'    => array( 'post-format-quote' ),
+				'terms' => 'first'
+			),
+		);*/
+
+		//print_r($args);
 
 		if ( ! is_search() ) {
 			$args['paged'] = $et_paged;
@@ -8154,6 +8175,26 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args['category__not_in'] = $child_cats;
 		}
 
+		//2015, 2016 in news and events
+		if (strpos($module_class,'news-events-page') !== false) {
+   		$year = $_GET['y'] ? $_GET['y'] : date("Y");
+
+   		//$args['orderby'] = 'date';
+   		$args['date_query'] = array(
+												      array(
+												      'year'      => $year,
+												      'compare'   => '>=',
+												    ),
+												    array(
+												      'year'      => $year+1,
+												      'compare'   => '<',
+												        )
+												    );
+			if($year != '') {
+   		// echo "<script> var year = ' ' + $year; </script>";
+			}
+		}//end if news-event page		
+
 		query_posts( $args );
 
 		if ( have_posts() ) {
@@ -8172,6 +8213,13 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$classtext = 'on' === $fullwidth ? 'et_pb_post_main_image' : '';
 				$titletext = get_the_title();
 				$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+				
+				//if no image - set default image
+				if( empty( $thumbnail["thumb"] ) ) {
+		      $thumbnail["thumb"] = of_get_option("default-image", array('url'=>'true'));//, 'size'=>'thumb'
+				}
+				//print_r($thumbnail);
+
 				$thumb = $thumbnail["thumb"];
 
 				$no_thumb_class = '' === $thumb || 'off' === $show_thumbnail ? ' et_pb_no_thumb' : '';
@@ -8185,6 +8233,17 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				echo '<div class="full-row">';
 			}
 			?>
+			<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
+
+			<?php 
+			//featured posts not working
+			//$is_featured = '';
+			//$is_featured = types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw'));
+			//print_r(types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw')));
+
+			//if(types_render_field('featured', array('post_id'=>$post->ID, 'output'=>'raw')) == '1')
+			?>
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 				<?php
 					et_divi_post_format_content();
@@ -8216,16 +8275,41 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 								<?php //news events - what's new page
 								if (strpos($module_class,'news-events-page') !== false) { ?>
-								<a href="<?php the_permalink(); ?>">
+								<?php 
+									$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+									$url = $thumb['0']; 
+
+									if($url == "") {
+										$url = of_get_option("landscape-default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+									}
+								?>
+								<a href="<?php the_permalink(); ?>" style="background-image:url('<?php echo $url;?>');">
+
 									<?php //print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); 
-									the_post_thumbnail();
+									// the_post_thumbnail();
 									?>
+									<?php 
+										$def_img = of_get_option("landscape-default-image", array('url'=>'true', 'size'=>'thumbnail_size'));
+									?>
+									<img src="<?php echo $def_img;?>" alt="" class="landscape-img-size">
 								</a>
-								<?php } else { ?>
+								<?php }//end news 
+								elseif(strpos($module_class,'carousel') !== false || strpos($module_class,'show-image-and-text') !== false) {
+									?>
+									<a href="<?php the_permalink(); ?>">
+										<div class="medium-thumb">
+											<div class="img-cover" style="background-image: url(<?php echo $thumbnail['thumb'];?>)">
+											</div>
+										</div>
+									</a>
+									<?php
+								}
+								else { ?>
 								<a href="<?php the_permalink(); ?>">
 									<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
 								</a>
-								<?php } ?>
+								<?php } 
+								?>
 
 								<?php 
 								if (strpos($module_class,'list-team-member') !== false || strpos($module_class,'list-news') !== false) { 
@@ -8255,11 +8339,53 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 				<?php if ( 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) { ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) { ?>
-						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?></a>
+
+						<?php 
+						if (strpos($module_class,'list-title') !== false) {
+							echo '<ul class="list-title"><li>';
+							?>
+							<a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
+							<?php
+							echo '</li></ul>';
+						}
+						else {
+						?>
+						<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
 							<?php if(types_render_field('team-title', array()) != '') { ?>
 							<span><?php echo types_render_field('team-title', array());?></span>
 							<?php } ?>
 						</h2>
+						<?php }//end if list-title ?>
+
+						<?php 
+						//current studies list - research coordinator
+						if (strpos($module_class,'list-items') !== false) { ?>
+						
+							<div class="research-coordinator">
+								<?php 
+								//var_dump($post);exit();
+								$post_id = $post->ID;
+								$research_coordinator_data = types_render_field('research-coordinator', array('ID'=>$post_id, 'url'=>'true', 'separator'=>';'));
+								//print_r($research_coordinator_data);
+								//print_r($post->ID);
+								$research_coordinator_arr = explode(';',$research_coordinator_data);
+								$team_info_arr = [];
+								if(!empty($research_coordinator_data)) {
+									foreach ($research_coordinator_arr as $research_coordinator_slug) {
+										$team_info_arr[] = get_team_name_by_slug($research_coordinator_slug);
+									}
+									$team_info_finish = implode(", ",$team_info_arr);
+									if($team_info_finish != '') {
+										echo 'Research Coordinator: ';
+										echo $team_info_finish;
+									}
+								}
+								?>
+							</div>
+							
+
+						<?php } //end if list-items ?>
+
 					<?php } ?>
 
 					<?php
@@ -8301,18 +8427,18 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							$start_date = types_render_field('date-and-time', array('format'=>'F:j:Y H:i'));
 							$start_date = parseDate($start_date) ; 
 
-							$date = $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '<br>';
-							$time = $start_date[3] . ':' . $start_date[4] . ' hrs <br>';
+							$date = '<span class="date">' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '</span>';
+							$time = '<span class="time">' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
 						}
 
 						if($date != '') echo $date;	
-						else echo 'Date<br>';
+						else echo '<span class="date">Date</span>';
 
 						if($time != '') echo $time;
-						else echo 'Time';
+						else echo '<span class="time">Time</span>';
 					}
 					//excerpt or content
-					if (strpos($module_class,'stories-of-gratitude-two') === false) { //don't show excerpt or content if there is stories-of-gratitide class added.
+					if (strpos($module_class,'stories-of-gratitude-two') === false && strpos($module_class,'list-title') === false && strpos($module_class,'show-image-and-text') === false && strpos($module_class,'carousel') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
 
 						if ( ! has_shortcode( get_the_content(), 'et_pb_blog' ) ) {
 							if ( 'on' === $show_content ) {
@@ -8325,11 +8451,19 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								if (strpos($module_class,'list-team-member') !== false) { 
 								echo '<p>';
 								}
+								if(strpos($module_class,'carousel') !== false) 
+									echo '<a href="'.get_the_permalink().'">';
 								if ( has_excerpt() ) {
 									the_excerpt();
 								} else {
-									truncate_post( 270 );
+									if (strpos($module_class,'list-news') !== false) {
+										truncate_post( 80 );
+									}
+									else{
+										truncate_post( 270 );
+									}
 								}
+								if(strpos($module_class,'carousel') !== false) echo '</a>';
 								
 								if (strpos($module_class,'list-team-member') !== false) { 
 									echo '</p>';
@@ -8346,7 +8480,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						?>
 				<?php } // 'off' === $fullwidth || ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ?>
 
-			</article> <!-- .et_pb_post -->
+			</article>
+
+
+			<?php if(strpos($module_class,'carousel') !== false) echo '</div>';?>
 			<?php 
 			if (strpos($module_class,'list-team-member') !== false ) { 
 				echo '</div>';//end profile-detail || list-news-detail
@@ -8371,6 +8508,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			get_template_part( 'includes/no-results', 'index' );
 		}
 
+		if (strpos($module_class,'news-events-page') !== false) {
+			//just for dates
+			$args_for_date = array(
+          'post_status' => 'publish',
+          'posts_per_page'=> '-1', 
+          'post_type' => 'news-event',
+      );
+      $years = getYearSplitsOfPosts($args_for_date);
+
+      $link = get_permalink();
+      
+      //print dates
+      echo '<div class="clear"></div><ul class="awDatesUL">';  
+      foreach ( $years as $year ) {
+        echo '<li ';               
+          if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
+        echo '>';
+
+      echo  '<a href="'. $link. '?y=' . $year[0]['publish'] . '">'.  $year[0]['publish'] .'</a></li>';
+  		}
+   		echo '</ul>';
+   	}
+
 		$posts = ob_get_contents();
 
 		ob_end_clean();
@@ -8388,6 +8548,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				$posts,
 				esc_attr( $class ),
 				( ! $container_is_closed ? '</div> <!-- .et_pb_posts -->' : '' ),
+				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
+				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
+				( 'on' !== $fullwidth ? ' data-columns' : '' )
+			);//ends output
+		}
+
+		elseif(strpos($module_class,'carousel') !== false) {
+			$class = '';
+			$output = sprintf(
+				'<div%5$s class="%6$s jcarousel-wrapper "><!--%1$s%3$s%5$s removed class -->
+					<div class="jcarousel"><!-- removed class -->
+						<ul>
+						%2$s
+						</ul>
+					</div>
+					<a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+	        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+        </div>
+				',//%4$s
+				( 'on' === $fullwidth ? 'et_pb_posts' : 'et_pb_blog_grid clearfix' ),
+				$posts,
+				esc_attr( $class ),
+				( ! $container_is_closed ? ' <!-- .et_pb_posts -->' : '' ),
 				( '' !== $module_id ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : '' ),
 				( '' !== $module_class ? sprintf( ' %1$s', esc_attr( $module_class ) ) : '' ),
 				( 'on' !== $fullwidth ? ' data-columns' : '' )

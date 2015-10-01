@@ -1,17 +1,26 @@
 $=jQuery;
 
-var vph = $(window).width();
+
 function home_slide_img_width() {
-	if($(window).width() <= 991) {
-		$('.elem-large-hover .lh-background').css({'width':vph+'px'})
+	var vpw = $(document).width();//window
+	//console.log(vpw);
+	if(vpw >= 769) {//769 and above
+		$('.elem-large-hover .lh-background').css({'width':2*vpw/3+'px'})
+	}
+	else {
+		$('.elem-large-hover .lh-background').css({'width':'100%'})
 	}
 }
 
 $(document).ready(function() {
+	//$('.top-stories h2').append(year);
+	
 	//team page
 	$('.list-team-member').parent().parent().addClass('full-width-row team-template');
 	//jcarousel
-	$('.jcarousel ul div').removeAttr('class'); //removing slideshow class
+	$('.jcarousel ul > div').removeAttr('class'); //removing slideshow class
+	//medium thumb parent div in jcarousel
+	$('.medium-thumb').parent().parent().css({'width': '100%'});//a and then div
 
 	//team page
 	$('article.team').addClass('clearfix');
@@ -33,11 +42,11 @@ $(document).ready(function() {
 	);*/
 
 	//professional dashboard
-	var top_intro_box_width = $('.top-intro h4').innerWidth();
-	$('.top-intro h4').css({
-		'margin-left': '-'+top_intro_box_width/2+'px',
-		'display': 'block'
-	});
+	// var top_intro_box_width = $('.top-intro h4').innerWidth();
+	// $('.top-intro h4').css({
+	// 	'margin-left': '-'+top_intro_box_width/2+'px',
+	// 	'display': 'block'
+	// });
 
 	//stories of gratitude
 	$('.et_pb_video_play').html('<span class="et-pb-icon et-waypoint et_pb_animation_top et-animated"></span>');
@@ -46,7 +55,7 @@ $(document).ready(function() {
 	$('.list-news article').addClass('clearfix');
 });
 $(window).resize(function() {
-	console.log(vph);
+	//console.log(vph);
 	home_slide_img_width();
 });
 
@@ -82,15 +91,35 @@ function findMaxValue(element){
 
 // parent height
 function parentHeight(){
-	var parentHeight = $('.news-event').height();
+	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
 	var childHeight = $('.list-news-thumb').height();
 	if (parentHeight > childHeight ) {
-		$('.list-news-thumb').height(parentHeight);
+		$('.list-news-thumb').css({
+			'min-height': parentHeight
+		})
+		// height(parentHeight);
 	};
 }
 $(document).ready(function(){
 	parentHeight();
+	windowHeight();
 });
-$(document).resize(function(){
+$(window).resize(function(){
 	parentHeight();
+	windowHeight();
 });
+
+// calculate window height for banner
+function windowHeight(){
+	var windowHeight = $(window).height();
+
+	if (windowHeight > 1000) {
+		$('.homepage-slider').height(windowHeight/100*80);
+		$('.elem-large-hover .large-hover-img').height(windowHeight/100*80);
+	}
+	else if(windowHeight < 700){
+		$('.homepage-slider').height(500);
+		$('.elem-large-hover .large-hover-img').height(500);
+	}
+
+}

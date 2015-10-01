@@ -1,1 +1,0 @@
-<?php $this->hiddencheckbox(__FILE__); ?> Generated .htaccess rules: <a href="<?php echo htmlentities($this->cacheurl); ?>htaccess.txt" target="_blank">htaccess.txt</a>

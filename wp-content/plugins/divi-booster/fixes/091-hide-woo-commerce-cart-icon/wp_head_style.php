@@ -1,1 +1,0 @@
-.et-cart-info { display:none; }
