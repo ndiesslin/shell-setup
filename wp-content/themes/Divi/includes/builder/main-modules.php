@@ -8117,8 +8117,29 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$paged = $et_paged;
 		}
 
-		if ( '' !== $include_categories )
+		if ( '' !== $include_categories ) {
 			$args['cat'] = $include_categories;
+
+			//$args['tag'] = 'first, second';
+		}		
+
+		/*$args['tax_query'] => array(
+		'relation' => 'OR',
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'slug',
+				//'terms'    => array( 'quotes' ),
+				'terms' => $include_categories;
+			),
+			array(
+				'taxonomy' => 'post_tag',
+				'field'    => 'slug',
+				//'terms'    => array( 'post-format-quote' ),
+				'terms' => 'first'
+			),
+		);*/
+
+		//print_r($args);
 
 		if ( ! is_search() ) {
 			$args['paged'] = $et_paged;
