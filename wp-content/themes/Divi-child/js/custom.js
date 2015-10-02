@@ -123,3 +123,13 @@ function windowHeight(){
 	}
 
 }
+
+// banner
+$('body').click(function(evt){    
+       if(evt.target.id == "homepage-slider")
+          return;
+       //For descendants of homepage-slider being clicked, remove this check if you do not want to put constraint on descendants.
+       if($(evt.target).closest('#homepage-slider').length)
+          return;             
+      //Do processing of click event here for every element except with id homepage-slider
+});
