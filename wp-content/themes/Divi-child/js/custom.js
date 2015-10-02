@@ -123,4 +123,11 @@ function windowHeight(){
 	}
 
 }
-	
+
+$('#homepage-slider').on('click', function(e) {
+    e.stopPropagation();
+});
+
+$(document).on('click', function (e) {
+    // $(e.target).children('.large-hover-img').removeClass('active');
+});	
