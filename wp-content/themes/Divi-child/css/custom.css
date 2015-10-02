@@ -933,9 +933,6 @@ body.home .et_pb_row {
     }
 }
 @media (max-width: 767px){
-    body{
-        display: none !important;
-    }
     .bottom-nav > li {
         width: 100%;
         margin-right: 0%;
