@@ -13,8 +13,9 @@ function(){
 	jQuery(this).removeClass("active"),
 	jQuery(".large-hover-img").removeClass("condense"),
 	jQuery(this).find(".lh-reveal").slideUp()}),
-	jQuery(".lh-container").bind('click',function(){
+	jQuery(".lh-container").click(function(){
 	// jQuery(this).children(".lh-reveal").slideDown()
+	alert('test');
 	jQuery(this).toggleClass("open");
 	if (jQuery(this).hasClass("open")) {
 		jQuery(this).children(".lh-reveal").slideDown();
