@@ -11,7 +11,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 
-<div class="homepage-slider elem-large-hover" style="">
+<div class="homepage-slider elem-large-hover" id="homepage-slider" style="">
 	<?php
 	  $args = array(
 		'order'=> 'ASC', 
