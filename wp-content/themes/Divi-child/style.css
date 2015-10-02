@@ -2419,6 +2419,9 @@ span.et_close_search_field {
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
+      .elem-large-hover .open .lh-click:after{
+        content: "\f056";
+      }
       @media (max-width: 768px) {
         .elem-large-hover .lh-click:after {
           display: none; } }
