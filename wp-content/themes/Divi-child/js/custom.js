@@ -114,8 +114,8 @@ function windowHeight(){
 	var windowHeight = $(window).height();
 
 	if (windowHeight > 1000) {
-		$('.homepage-slider').height(windowHeight/100*80);
-		$('.elem-large-hover .large-hover-img').height(windowHeight/100*80);
+		$('.homepage-slider').height(windowHeight/100*70);
+		$('.elem-large-hover .large-hover-img').height(windowHeight/100*70);
 	}
 	else if(windowHeight < 700){
 		$('.homepage-slider').height(500);

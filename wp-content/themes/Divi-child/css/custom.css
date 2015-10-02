@@ -1305,6 +1305,12 @@ a:hover,
         width: 160%;
     }
 }
+/* ipad Portrait  */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){
+    .elem-large-hover .large-hover-img {
+        width: 100% !important;
+    }    
+}
 .large-hover-img.active .lh-background {
     /*left: -150px; making center on hover */
 }
