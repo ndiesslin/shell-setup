@@ -1104,7 +1104,7 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     }
     .et_pb_column_4_4 .et_pb_video_play, .et_pb_column_3_4 .et_pb_video_play, .et_pb_column_2_3 .et_pb_video_play, .et_pb_column_1_2 .et_pb_video_play{
         margin-left: -1rem;
-        margin-top: -2rem;
+        margin-top: -1.7rem;
     }
     ul.awDatesUL {
         padding-top: 20px;
