@@ -2320,7 +2320,7 @@ span.et_close_search_field {
         -ms-transform: none;
         -webkit-transform: none;
         transform: none;
-        width: 50% !important; }
+        width: 100% !important; }
         .elem-large-hover .large-hover-img:first-child {
           width: 100% !important; } }
     @media (max-width: 480px) {
