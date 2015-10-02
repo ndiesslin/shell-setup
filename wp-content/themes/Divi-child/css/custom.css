@@ -1110,6 +1110,10 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
         padding-top: 20px;
         padding-bottom: 20px;
     }
+    .page-title{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
     .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
         margin-top: 5px;
         margin-bottom: 5px;
