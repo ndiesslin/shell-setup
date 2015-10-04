@@ -65,7 +65,7 @@ body.taxonomy-category span.view, body.taxonomy-post_tag span.view {
 display: none !important;
 }
 /* Hiding unused divi template */
-.et-pb-all-modules-tab, .et-pb-options-tabs-links li.et-pb-new-module {
+/*.et-pb-all-modules-tab, .et-pb-options-tabs-links li.et-pb-new-module {
   display: none !important;
   opacity: 0 !important;
 }
@@ -76,6 +76,9 @@ display: none !important;
   display: block !important;
   opacity: 1 !important;
   pointer-events: none !important;
+}*/
+.et-pb-main-settings.et-pb-all-modules-tab {
+display: none !important;
 }
   </style>';
 }
