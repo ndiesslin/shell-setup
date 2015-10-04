@@ -979,7 +979,7 @@ body.home .et_pb_row {
 }
 @media(min-width: 981px){
     .logo-sm{
-        display: none;
+        display: none !important;
     }
     .logo-lg{
         display: block;
