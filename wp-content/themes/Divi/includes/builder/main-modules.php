@@ -8768,7 +8768,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							}
 							
 							//source link and source text for current studies template 3
-							if(strpos($module_class,'show-image-and-text') !== false) {
+							if(strpos($module_class,'show-source') !== false) {
 								echo '<div class="source">';
 								$source_link = types_render_field('source-link', array('post_id'=>$post->ID));
 								$source_copy = types_render_field('source-copy', array('post_id'=>$post->ID));
