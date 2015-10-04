@@ -8238,12 +8238,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					$no_thumb_class = '';
 				} ?>
 
-					<!-- blog posts -->
-					<?php if (strpos($module_class,'list-team-member') !== false) { 
-						echo '<div class="full-row">';
-					}
-					?>
-					<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
 
 					<?php 
 					//featured posts not working
@@ -8254,6 +8248,13 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					if($is_featured == 1 && $i == 0):
 						$i++;
 					?>
+
+					<!-- blog posts -->
+					<?php if (strpos($module_class,'list-team-member') !== false) { 
+						echo '<div class="full-row">';
+					}
+					?>
+					<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 						<?php
@@ -8450,7 +8451,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							}
 
 							//source link and source text for current studies template 3
-							if(strpos($module_class,'show-image-and-text') !== false) {
+							if(strpos($module_class,'show-source') !== false) {
 								echo '<div class="source">';
 								$source_link = types_render_field('source-link', array('post_id'=>$post->ID));
 								$source_copy = types_render_field('source-copy', array('post_id'=>$post->ID));
@@ -8508,15 +8509,17 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 					</article>
 
-					<?php endif;?>
-
 
 					<?php if(strpos($module_class,'carousel') !== false) echo '</div>';?>
 					<?php 
 					if (strpos($module_class,'list-team-member') !== false ) { 
 						echo '</div>';//end profile-detail || list-news-detail
 					}
-					?>
+
+					?>				
+
+					<?php endif;//featured?>
+
 				<?php
 			} // endwhile
 
@@ -8555,21 +8558,20 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					$no_thumb_class = '';
 				} ?>
 
+					<?php 
+					//$is_featured = '';
+					$is_featured = types_render_field('featured-posts', array('post_id'=>$post->ID, 'output'=>'raw'));
+					//print_r($is_featured);
+
+					if($is_featured != 1)://not featured
+					?>
+
 					<!-- blog posts -->
 					<?php if (strpos($module_class,'list-team-member') !== false) { 
 						echo '<div class="full-row">';
 					}
 					?>
 					<?php if(strpos($module_class,'carousel') !== false) echo '<div>';?>
-
-					<?php 
-					//featured posts not working
-					//$is_featured = '';
-					$is_featured = types_render_field('featured-posts', array('post_id'=>$post->ID, 'output'=>'raw'));
-					//print_r($is_featured);
-
-					if($is_featured != 1):
-					?>
 
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $no_thumb_class ); ?>>
 						<?php
@@ -8766,7 +8768,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 							}
 							
 							//source link and source text for current studies template 3
-							if(strpos($module_class,'show-image-and-text') !== false) {
+							if(strpos($module_class,'show-source') !== false) {
 								echo '<div class="source">';
 								$source_link = types_render_field('source-link', array('post_id'=>$post->ID));
 								$source_copy = types_render_field('source-copy', array('post_id'=>$post->ID));
@@ -8824,8 +8826,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 					</article>
 
-					<?php endif;?>
-
 
 					<?php if(strpos($module_class,'carousel') !== false) echo '</div>';?>
 					<?php 
@@ -8833,6 +8833,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 						echo '</div>';//end profile-detail || list-news-detail
 					}
 					?>
+
+					<?php endif;//end not-featured?>
 				<?php
 			} // endwhile
 
