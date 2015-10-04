@@ -7942,6 +7942,11 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				),
 				'description'      => __( 'Choose which categories you would like to include in the feed.', 'et_builder' ),
 			),
+			'module_id' => array(
+				'label'       => __( 'Tag', 'et_builder' ),
+				'type'        => 'text',
+				'description' => __( 'Enter the tag seperated by comma.', 'et_builder' ),
+			),
 			'meta_date' => array(
 				'label'             => __( 'Meta Date Format', 'et_builder' ),
 				'type'              => 'text',
@@ -8039,11 +8044,6 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				'type'        => 'text',
 				'description' => __( 'Enter an optional CSS ID to be used for this module. An ID can be used to create custom CSS styling, or to create links to particular sections of your page.', 'et_builder' ),
 			),*/
-			'module_id' => array(
-				'label'       => __( 'Tag', 'et_builder' ),
-				'type'        => 'text',
-				'description' => __( 'Enter the tag seperated by comma.', 'et_builder' ),
-			),
 			'module_class' => array(
 				'label'       => __( 'CSS Class', 'et_builder' ),
 				'type'        => 'text',
