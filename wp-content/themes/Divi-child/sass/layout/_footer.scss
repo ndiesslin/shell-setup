@@ -2,6 +2,7 @@
   background-color: $white;
   a{
     color: $black;
+    @include font-size(16px);
     font-weight: 400;
   }
 }
@@ -38,6 +39,8 @@
       margin: 0 0 0.25em 0;
       display: block;
       font-weight: bold !important;
+      @include font-size(16px);
+      font-weight: 400;
     }
   }
 }

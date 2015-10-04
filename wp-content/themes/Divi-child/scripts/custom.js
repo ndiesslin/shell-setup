@@ -2487,7 +2487,7 @@
 					$this_menu.trigger( 'click' );
 				} );
 
-				//Custom Selector added because old code was selecting the whole menu 
+				//Custom Selector added because old code was selecting the whole menu
 				$('.mobile_menu_bar').addClass('closed');
 				$('.mobile_menu_bar').on( 'click', function(){
 					if ( $(this).hasClass('closed') ){
