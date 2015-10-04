@@ -845,6 +845,14 @@ body.home .et_pb_row {
     float: left;
     margin-right: 1.5%;
 }
+.show-image-and-text .source {
+    min-height: 72px;
+}
+.show-image-and-text .source p {
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
 .icon-top-right h4 a {
     color: #2b266d;
     text-decoration: underline;
