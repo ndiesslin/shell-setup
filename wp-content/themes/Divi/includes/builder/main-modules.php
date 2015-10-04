@@ -8034,10 +8034,15 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 				'type'        => 'text',
 				'description' => __( 'This will change the label of the module in the builder for easy identification.', 'et_builder' ),
 			),
-			'module_id' => array(
+			/*'module_id' => array(
 				'label'       => __( 'CSS ID', 'et_builder' ),
 				'type'        => 'text',
 				'description' => __( 'Enter an optional CSS ID to be used for this module. An ID can be used to create custom CSS styling, or to create links to particular sections of your page.', 'et_builder' ),
+			),*/
+			'module_id' => array(
+				'label'       => __( 'Tag', 'et_builder' ),
+				'type'        => 'text',
+				'description' => __( 'Enter the tag seperated by comma.', 'et_builder' ),
 			),
 			'module_class' => array(
 				'label'       => __( 'CSS Class', 'et_builder' ),
@@ -8121,6 +8126,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args['cat'] = $include_categories;
 
 			//$args['tag'] = 'first, second';
+		}
+
+		if ( '' !== $module_id ) {//fetched tag instead of module_id 
+			$args['tag'] = $module_id;
 		}		
 
 		/*$args['tax_query'] => array(
