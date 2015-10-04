@@ -1160,7 +1160,11 @@ body.home .et_pb_row {
         height: auto;
     }
 }
-
+@media(min-width: 480px){
+    .et_pb_row .et_pb_column .et_pb_module:last-child{
+        text-align: left;
+    }
+}
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img {
     display: none;
