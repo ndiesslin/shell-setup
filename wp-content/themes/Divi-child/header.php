@@ -115,15 +115,24 @@
 
 		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
 			<div class="container clearfix et_menu_container">
-			<?php
-				$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
-					? $user_logo
-					: $template_directory_uri . '/images/logo.png';
-			?>
+				<div class="logo-lg">
+					<?php
+						$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
+							? $user_logo
+							: $template_directory_uri . '/images/logo.png';
+					?>
+				</div> <!-- /.logo-lg -->
+				<!-- <div class="logo-sm">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="">
+					</a>
+				</div> -->
+
 				<div class="logo_container">
 					<span class="logo_helper"></span>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" />
+						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" class="logo-lg" />
+						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo-sm" class="logo-sm" />
 					</a>
 				</div>
 				<div id="et-top-navigation">
