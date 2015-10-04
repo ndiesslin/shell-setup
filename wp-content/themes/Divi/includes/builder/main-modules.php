@@ -8448,6 +8448,21 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								if($time != '') echo $time;
 								else echo '<span class="time">Time</span>';
 							}
+
+							//source link and source text for current studies template 3
+							if(strpos($module_class,'show-image-and-text') !== false) {
+								echo '<div class="source">';
+								$source_link = types_render_field('source-link', array('post_id'=>$post->ID));
+								$source_copy = types_render_field('source-copy', array('post_id'=>$post->ID));
+								if($source_link != '') {
+									echo '<a href="' . $source_link . '" target="_blank">'.$source_link.'</a>';
+								}
+								if($source_copy != '') {
+									echo $source_copy;
+								}
+								echo '</div>';//end .source
+							}
+
 							//excerpt or content
 							if (strpos($module_class,'stories-of-gratitude-two') === false && strpos($module_class,'list-title') === false && strpos($module_class,'show-image-and-text') === false && strpos($module_class,'carousel') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
 
@@ -8749,6 +8764,21 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								if($time != '') echo $time;
 								else echo '<span class="time">Time</span>';
 							}
+							
+							//source link and source text for current studies template 3
+							if(strpos($module_class,'show-image-and-text') !== false) {
+								echo '<div class="source">';
+								$source_link = types_render_field('source-link', array('post_id'=>$post->ID));
+								$source_copy = types_render_field('source-copy', array('post_id'=>$post->ID));
+								if($source_link != '') {
+									echo '<a href="' . $source_link . '" target="_blank">'.$source_link.'</a>';
+								}
+								if($source_copy != '') {
+									echo $source_copy;
+								}
+								echo '</div>';//end .source
+							}
+
 							//excerpt or content
 							if (strpos($module_class,'stories-of-gratitude-two') === false && strpos($module_class,'list-title') === false && strpos($module_class,'show-image-and-text') === false && strpos($module_class,'carousel') === false) { //don't show excerpt or content if there is stories-of-gratitide, list-title, show-image-and-text class added.
 
