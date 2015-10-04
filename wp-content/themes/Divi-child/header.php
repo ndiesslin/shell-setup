@@ -192,9 +192,9 @@
 					<span class="et_close_search_field"></span>
 				</div>
 			</div>
-			<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ) {
+		</header> <!-- #main-header -->
+		<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ) {
 				yoast_breadcrumb( '<p id="breadcrumbs" class="container clearfix et_menu_container"">','</p>' );
 			} ?>
-		</header> <!-- #main-header -->
 
 		<div id="et-main-area">
