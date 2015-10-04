@@ -77,7 +77,7 @@ display: none !important;
   opacity: 1 !important;
   pointer-events: none !important;
 }*/
-.et-pb-main-settings.et-pb-all-modules-tab {
+.et-pb-main-settings.et-pb-all-modules-tab .et-pb-load-layouts {
 display: none !important;
 }
   </style>';
