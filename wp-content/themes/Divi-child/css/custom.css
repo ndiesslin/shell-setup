@@ -959,6 +959,9 @@ body.home .et_pb_row {
     .et_fixed_nav #main-header.et-fixed-header .container:not(#breadcrumbs) {
         min-height: 75px;
     }
+    #et_mobile_nav_menu{
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 991px){
@@ -1450,4 +1453,7 @@ p:empty {
 }
 .search .search-items {
     margin-bottom: 40px;
+}
+.et-fixed-header .et-search-form, .et-fixed-header span.et_close_search_field{
+    padding-top: 20px;
 }
