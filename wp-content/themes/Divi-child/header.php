@@ -20,6 +20,7 @@
 	<?php elegant_canonical(); ?>
 
 	<?php do_action( 'et_head_meta' ); ?>
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon48.png" />
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
