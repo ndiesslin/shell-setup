@@ -1053,10 +1053,13 @@ body.home .et_pb_row {
         display: none !important;
         visibility: hidden;
     }
-    /* commented for http://mhif/news-events/whats-new/ footer sapce
+    .heading-secondary{
+        margin-top: 5px;
+    }
+     /*commented for http://mhif/news-events/whats-new/ footer sapce*/
     .et_pb_section{
-        padding: 0;
-    }*/
+        padding-top: 10px;
+    }
     .circleimage .et_pb_column{
         margin-bottom: 20px;
     }
@@ -1140,6 +1143,9 @@ body.home .et_pb_row {
     }
     article.news-event{
         margin-bottom: 10px;
+    }
+    .box-row-module .newsletter-box, .box-row-module .icon-top-right .et_pb_main_blurb_image img{
+        height: auto;
     }
 }
 
