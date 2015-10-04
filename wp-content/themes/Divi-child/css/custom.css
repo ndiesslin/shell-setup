@@ -1161,7 +1161,7 @@ body.home .et_pb_row {
     }
 }
 @media(min-width: 480px){
-    .et_pb_row .et_pb_column .et_pb_module:last-child{
+    .img-text-left .et_pb_row .et_pb_column .et_pb_module:last-child{
         text-align: left;
     }
 }
