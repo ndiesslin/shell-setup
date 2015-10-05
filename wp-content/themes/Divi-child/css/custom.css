@@ -952,15 +952,18 @@ body.home .et_pb_row {
 }
 
 @media (max-width: 1200px){
-    .et-search-form, span.et_close_search_field{
-        padding-top: 110px;
-    }
     .et_fixed_nav #main-header.et-fixed-header,
     .et_fixed_nav #main-header.et-fixed-header .container:not(#breadcrumbs) {
         min-height: 75px;
     }
     #et_mobile_nav_menu{
         margin-top: 50px;
+    }
+    .et-search-form{
+        max-width: 35% !important;
+    }
+    .et_header_style_left .et-fixed-header #et_top_search{
+        margin-top: 11px;
     }
 }
 
@@ -976,6 +979,9 @@ body.home .et_pb_row {
     /*.box-row-module .icon-top-right .et_pb_main_blurb_image img{
         height: 303px;
     }*/
+    .et_header_style_left .et-fixed-header #et_top_search{
+        margin-top: 7px;
+    }
 }
 @media (max-width: 767px){
     .bottom-nav > li {
@@ -1060,6 +1066,9 @@ body.home .et_pb_row {
         display: inline-block;
         float: none;
         vertical-align: middle;
+    }
+    .et_header_style_left .et-search-form, .et_header_style_split .et-search-form{
+        max-width: 25% !important;
     }
     .logo-lg{
         display: none !important;
@@ -1183,6 +1192,9 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     display: none !important;
 }
 @media (max-width: 767px) {
+    .et_header_style_left .et-search-form, .et_header_style_split .et-search-form{
+        max-width: 40% !important;
+    }
     .visible-xs {
         display: block;
     }
@@ -1309,7 +1321,15 @@ a:hover,
 @media (max-width: 1200px) {
     /* Correcting as in design of mobile site */
     #et_top_search {
-        display: none;
+        /*display: none;*/
+        margin-top: -36px;
+        margin-right: 35px;
+    }
+    .et-search-form, span.et_close_search_field{
+        padding-top: 70px;
+    }
+    span.et_close_search_field {
+        margin: auto 2.3em auto 0;
     }
     .logo_container {
         text-align: center;
@@ -1325,6 +1345,12 @@ a:hover,
         z-index: 999;
     }
 }
+@media (max-width: 767px) {
+    .logo_container {
+        text-align: left;
+    }
+}
+
 @media (max-width: 600px) {
     #breadcrumbs{
         margin-bottom: 0.2em;
@@ -1417,6 +1443,15 @@ a:hover,
     }
 }
 
+@media (max-width: 479px) {
+    #et_top_search{
+        margin-top: -7px;
+        margin-right: 20px;
+    }
+    .et-search-form, span.et_close_search_field{
+        padding-top: 40px;
+    }
+}
 
 /* Nav fixes */
 .nav li ul {
