@@ -55,7 +55,7 @@
       $month_years = getMonthYearSplitsOfPosts($args_for_date);
 
       //$link = get_permalink();
-      $link = site_url() . '/blog/';
+      $link = site_url() . '/' . $post_type . '/';
       
       //print dates
       echo '<div class="clear"></div>';
