@@ -13,6 +13,8 @@ function home_slide_img_width() {
 }
 
 $(document).ready(function() {
+	//blog 
+	$('body.archive article').addClass('clearfix');
 	//blog comment reply
 	$('.comment-reply-link').removeClass('et_pb_button');
 	$('.comment-reply-link').parent().removeClass('reply');
