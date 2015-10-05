@@ -1167,7 +1167,7 @@ body.home .et_pb_row {
 }
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img,
-.single-blog .has-post-thumbnail .et_post_meta_wrapper img {
+.single .has-post-thumbnail .et_post_meta_wrapper img {
     display: none;
 }
 
