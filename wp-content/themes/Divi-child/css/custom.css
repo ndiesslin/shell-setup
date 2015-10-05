@@ -1404,6 +1404,12 @@ a:hover,
     /*left: -150px; making center on hover */
 }
 
+/* visible md only */
+@media (min-width: 992px) and (max-width: 1199px){
+    .medium-thumb{
+        height: 190px !important;
+    }
+}
 
 
 /* Nav fixes */
