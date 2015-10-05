@@ -60,14 +60,18 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 <?php 
 $post_type = get_post_type(get_the_ID());//news-blog
 
-if($post_type == 'news-blog')
+global $wp_post_types;
+$obj = $wp_post_types[$post_type];
+$page_title = $obj->labels->singular_name; 
+
+/*if($post_type == 'news-blog')
 	$page_title = 'Blog';
 if($post_type == 'internship-blog')
 	$page_title = 'Internship Blog';
 if($post_type == 'heart-health-blog')
 	$page_title = 'Heart Health Blog';
 if($post_type == 'research-intern-blog')
-	$page_title = 'Research Internship Blog';
+	$page_title = 'Research Internship Blog';*/
 
 $taxonomy = $post_type . 's';//just s added in post-type slug
 $tax_term = $wp_query->query_vars[$taxonomy];
