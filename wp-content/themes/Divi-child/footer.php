@@ -64,6 +64,10 @@ if($post_type == 'news-blog')
 	$page_title = 'Blog';
 if($post_type == 'internship-blog')
 	$page_title = 'Internship Blog';
+if($post_type == 'heart-health-blog')
+	$page_title = 'Heart Health Blog';
+if($post_type == 'research-intern-blog')
+	$page_title = 'Research Internship Blog';
 
 $taxonomy = $post_type . 's';//just s added in post-type slug
 $tax_term = $wp_query->query_vars[$taxonomy];
