@@ -2480,7 +2480,11 @@ span.et_close_search_field {
     top: 0;
     width: 30%;
     height: 100%;
-    transform: skewX(-25deg); }
+    -webkit-transform: skewX(-25deg);
+    -ms-transform: skewX(-25deg);
+    -o-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
     @media (max-width: 768px) {
       .page-title:after {
         display: none; } }
