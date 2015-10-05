@@ -3,11 +3,18 @@
 
 	/*$year = $_GET['y'] ? $_GET['y'] : date("Y");*/
 
+	//$post_type = 'news-blog';
+	$post_type = get_post_type(get_the_ID());//news-blog
+
+
+	//$taxonomy = 'news-blogs';//for categories
+	$taxonomy = $post_type . 's';//just s added in post-type slug
+
   $args = array(
 		'order'=> 'DESC', 
 		//‘orderby’ => ‘title’,//for alphabetically order, rand for random
 		'numberposts'=> '5', //-1 for all, 1 for listing only one, 2 for listing 2
-		'post_type' => 'blog',
+		'post_type' => $post_type,
 		/*'date_query' => array(
 								      array(
 								      'year'      => $year,
@@ -43,7 +50,7 @@
 			$args_for_date = array(
           'post_status' => 'publish',
           'posts_per_page'=> '-1', 
-          'post_type' => 'blog',
+          'post_type' => $post_type,
       );
       $month_years = getMonthYearSplitsOfPosts($args_for_date);
 
@@ -65,7 +72,6 @@
 
 <?php
 	echo '<h2>Categories</h2>';
-	$taxonomy = 'blogs';
 
 	$args = array(
   'orderby'           => 'name', //alphabetically
