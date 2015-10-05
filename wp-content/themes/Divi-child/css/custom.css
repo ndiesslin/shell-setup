@@ -1511,7 +1511,7 @@ p:empty {
 }
 
 /* blog */
-.single-blog .entry-content.et_pb_row .et_pb_row {
+.single .entry-content.et_pb_row .et_pb_row {
     margin: 0;
     width: 100%;
 }

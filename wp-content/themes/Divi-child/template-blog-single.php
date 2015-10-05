@@ -1,11 +1,4 @@
 <?php
-//for single blog with sidebar
-get_header();
-
-?>
-
-<?php get_template_part('template-title');?>
-<?php
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 ?>
 
@@ -83,5 +76,3 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 	<?php endif; ?>
 
 </div> <!-- #main-content -->
-
-<?php get_footer(); ?>
