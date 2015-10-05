@@ -1058,6 +1058,9 @@ body.home .et_pb_row {
     }
 }
 @media (max-width: 980px){
+    .et_always_center_on_mobile {
+        text-align: left !important;
+    }
     .logo-sm{
         display: block;
         max-width: 50%;
