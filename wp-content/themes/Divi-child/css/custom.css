@@ -994,6 +994,12 @@ body.home .et_pb_row {
     .no-margin-top-mobile{
         margin-top: 0 !important;
     }
+    .no-padding-bottom-mobile{
+        padding-bottom: 0 !important;
+    }
+    .no-padding-top-mobile{
+        padding-top: 0 !important;
+    }
     .bottom-nav > li {
         width: 100%;
         margin-right: 0%;
@@ -1005,6 +1011,12 @@ body.home .et_pb_row {
     }
     .no-margin-top{
         margin-top: 0 !important;
+    }
+    .no-padding-bottom{
+        padding-bottom: 0 !important;
+    }
+    .no-padding-top{
+        padding-top: 0 !important;
     }
     .large-hover-img:last-child.active{
         padding-right: 7%;
