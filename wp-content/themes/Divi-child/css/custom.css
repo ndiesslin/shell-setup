@@ -405,6 +405,7 @@ a.jcarousel-control-next{
 }
 .carousel-section {
     padding-bottom: 23px;
+	margin-top: 30px;
 }
 .carousel-section .view-all {
     margin-top: 43px;
@@ -1554,6 +1555,7 @@ body.archive .has-post-thumbnail img {
     width: 30%;
     float: left;
     margin-right: 30px;
+	margin-bottom: 30px;
 }
 /* comments */
 .comment-author img {
@@ -1564,8 +1566,14 @@ body.archive .has-post-thumbnail img {
     position: inherit;
     display: inline;
 }
-.commentlist li.comment {
+.commentlist .comment {
     margin-bottom: 20px;
+}
+.submit {
+    background-color: #2b266d;
+    color: #fff !important;
+    border: 0;
+    padding: 8px 10px;
 }
 
 /* No result found */
