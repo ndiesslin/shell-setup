@@ -56,5 +56,19 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.jcarousel.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jcarousel.responsive.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/custom.js"></script>
+
+<?php 
+$taxonomy = 'blogs';
+$tax_term = $wp_query->query_vars[$taxonomy];
+//$terms = get_terms( $taxonomy, array('hide_empty'=>false, 'parent'=>0, 'orderby'=>'ID') );
+$details = get_term_by('slug', $tax_term, $taxonomy);
+$page_title = $details->name;
+
+if($page_title == '')
+$page_title = 'Blog';
+?>
+<script>
+	$('body.post-type-archive-blog #et-main-area, body.tax-blogs #et-main-area').prepend('<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0"><div class="et_pb_fullwidth_header_container left"><div class="header-content-container center"><div class="header-content"><h1><?php echo $page_title;?></h1></div></div></div></div>');
+</script>
 </body>
 </html>

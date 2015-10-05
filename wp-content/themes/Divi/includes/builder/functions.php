@@ -2871,6 +2871,20 @@ function getYearSplitsOfPosts($args){
     array_push($filtered, array_unique_by_key($year,'publish')); //find distinct years
   return $filtered;                   
 }
+function getMonthYearSplitsOfPosts($args){
+  $month_years = array();
+  $postslist = get_posts($args);
+  foreach($postslist as $post) {
+    $month_year = date('M Y', strtotime($post->post_date));
+    $month_years[$month_year][]= array('publish' => $month_year);
+  }
+  wp_reset_postdata();
+  krsort($month_years);
+  $filtered = array();
+  foreach ($month_years as $month_year ) 
+    array_push($filtered, array_unique_by_key($month_year,'publish')); //find distinct month_years
+  return $filtered;                   
+}
 
 /* 
  * Helper function to return the theme option value. If no value has been saved, it returns $default.
