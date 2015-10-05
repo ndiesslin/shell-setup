@@ -1135,6 +1135,9 @@ body.home .et_pb_row {
     .et_pb_row .et_pb_column .et_pb_module:last-child{
         text-align: left;
     }
+    .call-to-action-wrap .et_pb_row .et_pb_column .et_pb_module:last-child{
+        text-align: center;
+    }
     .box-row-module .newsletter-box {
         margin-bottom: 20px !important;
     }
