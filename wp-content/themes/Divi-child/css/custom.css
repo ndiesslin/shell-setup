@@ -383,6 +383,9 @@ a.jcarousel-control-prev, a.jcarousel-control-next{
     left: -45px;
     margin-top: -65px;
 }
+a.jcarousel-control-prev:active, a.jcarousel-control-next:active{
+    background: no-repeat;
+}
 a.jcarousel-control-next{
     left: auto;
     right: -35px
@@ -1130,7 +1133,7 @@ body.home .et_pb_row {
         width: 100%;
     }
     .et_pb_row .et_pb_column .et_pb_module:last-child{
-        text-align: center;
+        text-align: left;
     }
     .box-row-module .newsletter-box {
         margin-bottom: 20px !important;
