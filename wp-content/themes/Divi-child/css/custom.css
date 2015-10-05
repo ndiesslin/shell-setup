@@ -987,12 +987,24 @@ body.home .et_pb_row {
     }
 }
 @media (max-width: 767px){
+    .no-margin-bottom-mobile{
+        margin-bottom: 0 !important;
+    }
+    .no-margin-top-mobile{
+        margin-top: 0 !important;
+    }
     .bottom-nav > li {
         width: 100%;
         margin-right: 0%;
     }
 }
 @media(min-width: 769px){
+    .no-margin-bottom{
+        margin-bottom: 0 !important;
+    }
+    .no-margin-top{
+        margin-top: 0 !important;
+    }
     .large-hover-img:last-child.active{
         padding-right: 7%;
     }
