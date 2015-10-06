@@ -381,5 +381,5 @@ error_reporting(E_ALL);
 } 
 else {     
 //error_reporting(E_ALL ^ E_NOTICE ^ E_USER_NOTICE);     
-//error_reporting(0); //hides warnings
+error_reporting(0); //hides warnings
 }
