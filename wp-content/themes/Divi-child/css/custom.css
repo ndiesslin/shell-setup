@@ -1606,7 +1606,7 @@ input, textarea, button {
 .wpcf7-form input,
 .wpcf7-form textarea {
     font-family: 'din_mediumregular';
-    font-size: 16px;
+    font-size: 15px;/*16px appears bold*/
 }
 .wpcf7-form input[type=text],
 .wpcf7-form input[type=email] {
@@ -1640,18 +1640,22 @@ input, textarea, button {
 .wpcf7-form input[type=submit], .btn {   
     background-color: #2b266d;
     color: #ffffff;
+	display: inline-block;
     height: 39px;
     left: 0;
     line-height: 39px;
-    margin-top: 5px;
+    margin-top: 10px;
     padding: 0 28px;
     text-align: center;
+	text-decoration: underline;
     text-transform: uppercase;
     /* width: 120px; */
 }
+.btn a {
+	color: #fff;	
+}
 .wpcf7-form input[type=submit]:hover, .btn:hover {
     /* background-color: #ab1f2d; */
-    text-decoration: underline;
     -webkit-transition: all 500ms ease-in-out;  
     -moz-transition:    all 500ms ease-in-out;
     -ms-transition:     all 500ms ease-in-out; 
