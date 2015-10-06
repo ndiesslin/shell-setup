@@ -1592,3 +1592,8 @@ body.archive .has-post-thumbnail img {
 .archive .entry {
     padding: 27px 0;
 }
+
+/*Contact*/
+.gm-style {
+	display: none;/*blue background in map*/
+}
