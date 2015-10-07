@@ -1722,7 +1722,7 @@ input, textarea, button {
     height: 44px;
     line-height: 44px;
 }
-.wpcf7-form input[type=submit], .btn {   
+.wpcf7-form input[type=submit], .btn, .button {   
     background-color: #2b266d;
     color: #ffffff;
 	display: inline-block;
@@ -1768,4 +1768,9 @@ input, textarea, button {
     border: 2px solid #dcdcdc;
     background-color: #fff;
     width: 276px;
+}
+
+/*Gravity form*/
+.gform_title {
+	display: none;
 }
