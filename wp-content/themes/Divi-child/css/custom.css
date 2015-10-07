@@ -214,7 +214,7 @@ footer ul.sub-menu {
         margin-right: 130px;
         font-size: 30px;
     }
-    .heading-module h3{
+    .heading-module h3, .heading-row h3{
         font-size: 29px;
     }
     .video-post .et_pb_video{
@@ -939,6 +939,14 @@ body.home .et_pb_row {
 .box-row-module .et_pb_column:first-child .bottom-link{
  margin-left: -20px;
 }
+/*t5 style*/
+.t5{
+    margin-top: 20px;
+}
+.t5 p, .t5 .et_pb_post p{
+    font-size: 16px;
+}
+
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
