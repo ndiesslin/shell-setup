@@ -422,6 +422,15 @@ a.jcarousel-control-next{
 .carousel-section .view-all {
     margin-top: 43px;
 }
+.carousel h2 {
+    clear: both;
+    margin-top: 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+.carousel h2 a{
+    text-decoration: none;
+}
 /*general dashboard*/
 .top-intro.general-dashbord{
     margin-bottom: 69px;
