@@ -1596,3 +1596,95 @@ body.archive .has-post-thumbnail img {
 .archive .entry {
     padding: 27px 0;
 }
+
+/*Contact*/
+.gm-style {
+	/*display: none;*//*blue background in map*/
+}
+/* contact form css */
+input, textarea, button {
+    border: 0;
+    outline: none;
+}
+.wpcf7-form,
+.wpcf7-form input,
+.wpcf7-form textarea {
+    font-family: 'din_mediumregular';
+    font-size: 15px;/*16px appears bold*/
+}
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email] {
+    width: 280px;
+}
+.wpcf7-form textarea {
+    width: 100%;
+}
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form textarea {
+    border: 0;
+    background-color: #e9e8e7;
+}
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form textarea,
+.wpcf7-form input[type=file] {
+    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.wpcf7-form textarea {
+    padding: 15px;
+    height: 100px;
+}
+.wpcf7-form input {
+    height: 44px;
+    line-height: 44px;
+}
+.wpcf7-form input[type=submit], .btn {   
+    background-color: #2b266d;
+    color: #ffffff;
+	display: inline-block;
+    height: 39px;
+    left: 0;
+    line-height: 39px;
+    margin-top: 10px;
+    padding: 0 28px;
+    text-align: center;
+	text-decoration: underline;
+    text-transform: uppercase;
+    /* width: 120px; */
+}
+.btn a {
+	color: #fff;	
+}
+.wpcf7-form input[type=submit]:hover, .btn:hover {
+    /* background-color: #ab1f2d; */
+    -webkit-transition: all 500ms ease-in-out;  
+    -moz-transition:    all 500ms ease-in-out;
+    -ms-transition:     all 500ms ease-in-out; 
+    -o-transition:      all 500ms ease-in-out; 
+}
+::-webkit-input-placeholder {
+   color: #2d2d2d;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #2d2d2d;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #2d2d2d;  
+}
+
+:-ms-input-placeholder {  
+   color: #2d2d2d;  
+}
+.captcha {
+    width: auto;
+}
+.wpcf7-form input.captcha-text {
+    border: 2px solid #dcdcdc;
+    background-color: #fff;
+    width: 276px;
+}
