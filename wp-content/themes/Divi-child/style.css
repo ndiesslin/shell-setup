@@ -1,13 +1,5 @@
 @charset "UTF-8";
 /*!
-Theme Name: Divi Child
-Theme URI: http://www.elegantthemes.com/gallery/divi/
-Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
-Template: Divi
-Author: Augeo+Greer
-Author URI: http://www.elegantthemes.com
-*/
-/*!
  *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -2031,6 +2023,7 @@ body {
   font-size: 0.875em; }
 
 a {
+  font-weight: inherit;
   color: #250670;
   text-decoration: underline; }
 
@@ -2052,9 +2045,25 @@ a {
       font-size: 19px;
       font-size: 1.1875rem; } }
 
-p {
-  font-size: 16px;
-  font-size: 1rem; }
+h1, .et_pb_post h1 {
+  font-size: 32px;
+  font-size: 2rem; }
+
+h2, .et_pb_post h2 {
+  font-size: 32px;
+  font-size: 2rem; }
+
+h3, .et_pb_post h3 {
+  font-size: 22px;
+  font-size: 1.375rem; }
+
+h4, .et_pb_post h4 {
+  font-size: 22px;
+  font-size: 1.375rem; }
+
+p, .et_pb_post p {
+  font-size: 18px;
+  font-size: 1.125rem; }
 
 .font-small {
   font-size: 12px;
@@ -2082,7 +2091,9 @@ p {
     font-size: 12px;
     font-size: 0.75rem; }
   #breadcrumbs a {
-    color: #250670; }
+    color: #250670;
+    font-size: inherit;
+    font-weight: inherit; }
 
 .container.et_menu_container {
   z-index: auto; }
@@ -2228,6 +2239,8 @@ span.et_close_search_field {
   background-color: #ffffff; }
   #main-footer a {
     color: #474647;
+    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400; }
 
 .bottom-nav ul, .bottom-nav li {
@@ -2259,7 +2272,10 @@ span.et_close_search_field {
   .bottom-nav > li > a {
     margin: 0 0 0.25em 0;
     display: block;
-    font-weight: bold !important; }
+    font-weight: bold !important;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 400; }
 
 #footer-bottom {
   background-color: #ffffff; }
@@ -2320,7 +2336,7 @@ span.et_close_search_field {
         -ms-transform: none;
         -webkit-transform: none;
         transform: none;
-        width: 100% !important; }
+        width: 50% !important; }
         .elem-large-hover .large-hover-img:first-child {
           width: 100% !important; } }
     @media (max-width: 480px) {
@@ -2419,9 +2435,6 @@ span.et_close_search_field {
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale; }
-      .elem-large-hover .open .lh-click:after{
-        content: "\f056";
-      }
       @media (max-width: 768px) {
         .elem-large-hover .lh-click:after {
           display: none; } }
@@ -2479,12 +2492,8 @@ span.et_close_search_field {
     right: -10%;
     top: 0;
     width: 30%;
-    height: 100%;
-    -webkit-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    transform: skewX(-25deg);
-  }
+    height: 105%;
+    transform: skewX(-25deg); }
     @media (max-width: 768px) {
       .page-title:after {
         display: none; } }
