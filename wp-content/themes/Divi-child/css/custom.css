@@ -691,6 +691,9 @@ ul.awDatesUL li:last-child::after {
     .box-row-module .et_pb_column{
         height: 280px;
     }
+    .call-to-action-wrap .blue-btn a {
+        font-size: 32px;
+    }
 }
 .row-spaced {
     padding: 40px 0;
@@ -1009,6 +1012,9 @@ body.home .et_pb_row {
     .bottom-nav > li {
         width: 100%;
         margin-right: 0%;
+    }
+    .call-to-action-wrap .blue-btn a {
+        font-size: 25px;
     }
 }
 @media(min-width: 769px){
