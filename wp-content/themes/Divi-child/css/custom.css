@@ -551,6 +551,9 @@ ul.awDatesUL li:last-child::after {
     .et_pb_gutters3 .et_pb_column, .et_pb_gutters3.et_pb_row .et_pb_column{
         margin-right: 1.3%;
     }
+    .circleimage{
+        margin-top: 70px;
+    }
     .circleimage .et_pb_column{
         margin-right: 1.3%;
     }
@@ -1195,6 +1198,9 @@ body.home .et_pb_row {
     }
     .box-row-module .newsletter-box {
         margin-bottom: 20px !important;
+    }
+    .circleimage{
+        margin-top: 30px;
     }
 }
 @media(max-width: 479px){
