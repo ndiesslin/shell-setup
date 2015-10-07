@@ -214,7 +214,7 @@ footer ul.sub-menu {
         margin-right: 130px;
         font-size: 30px;
     }
-    .heading-module h3{
+    .heading-module h3, .heading-row h3{
         font-size: 29px;
     }
     .video-post .et_pb_video{
@@ -264,7 +264,7 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     max-width: 1040px;
 }
 .circleimage .et_pb_main_blurb_image {
-    margin-bottom: 12px;
+    margin-bottom: 17px;
 }
 .circleimage .et_pb_blurb_container i, .circleimage .et_pb_blurb_container a{
     font-size: 30px;
@@ -362,9 +362,9 @@ body h3{
     text-transform: uppercase;
 }
 .et_pb_post h2{
-    margin-top: 20px;
+    margin-top: 18px;
     font-size: 22px;
-    font-size: 1.375rem;
+    font-size: 25px;
     color: #2b266d;
     line-height: 28px;
     padding-bottom: 6px;
@@ -421,6 +421,15 @@ a.jcarousel-control-next{
 }
 .carousel-section .view-all {
     margin-top: 43px;
+}
+.carousel h2 {
+    clear: both;
+    margin-top: 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+.carousel h2 a{
+    text-decoration: none;
 }
 /*general dashboard*/
 .top-intro.general-dashbord{
@@ -551,6 +560,9 @@ ul.awDatesUL li:last-child::after {
     .et_pb_gutters3 .et_pb_column, .et_pb_gutters3.et_pb_row .et_pb_column{
         margin-right: 1.3%;
     }
+    .circleimage{
+        margin-top: 70px;
+    }
     .circleimage .et_pb_column{
         margin-right: 1.3%;
     }
@@ -627,8 +639,8 @@ ul.awDatesUL li:last-child::after {
 }
 /*call to action button*/
 .call-to-action-wrap {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 .call-to-action-wrap .blue-btn a {
     font-size: 30px;
@@ -687,6 +699,9 @@ ul.awDatesUL li:last-child::after {
     }
     .box-row-module .et_pb_column{
         height: 280px;
+    }
+    .call-to-action-wrap .blue-btn a {
+        font-size: 32px;
     }
 }
 .row-spaced {
@@ -933,6 +948,14 @@ body.home .et_pb_row {
 .box-row-module .et_pb_column:first-child .bottom-link{
  margin-left: -20px;
 }
+/*t5 style*/
+.t5{
+    margin-top: 20px;
+}
+.t5 p, .t5 .et_pb_post p{
+    font-size: 16px;
+}
+
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
@@ -1006,6 +1029,9 @@ body.home .et_pb_row {
     .bottom-nav > li {
         width: 100%;
         margin-right: 0%;
+    }
+    .call-to-action-wrap .blue-btn a {
+        font-size: 25px;
     }
 }
 @media(min-width: 769px){
@@ -1091,7 +1117,7 @@ body.home .et_pb_row {
         float: left;
     }
     .show-image-and-text article.et_pb_post {
-        margin-bottom: 60px;
+        margin-bottom: 45px;
     }
 }
 @media (max-width: 980px){
@@ -1195,6 +1221,9 @@ body.home .et_pb_row {
     }
     .box-row-module .newsletter-box {
         margin-bottom: 20px !important;
+    }
+    .circleimage{
+        margin-top: 30px;
     }
 }
 @media(max-width: 479px){
@@ -1670,7 +1699,7 @@ input, textarea, button {
     height: 44px;
     line-height: 44px;
 }
-.wpcf7-form input[type=submit], .btn {   
+.wpcf7-form input[type=submit], .btn, .button {   
     background-color: #2b266d;
     color: #ffffff;
 	display: inline-block;
@@ -1716,4 +1745,9 @@ input, textarea, button {
     border: 2px solid #dcdcdc;
     background-color: #fff;
     width: 276px;
+}
+
+/*Gravity form*/
+.gform_title {
+	display: none;
 }

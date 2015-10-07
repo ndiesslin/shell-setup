@@ -199,3 +199,11 @@ function shape_comment( $comment, $args, $depth ) {
     endswitch;
 }
 endif; // ends check for shape_comment()
+
+// add editor the privilege to edit theme
+
+// get the the role object
+$role_object = get_role( 'editor' );
+
+// add $cap capability to this role object
+$role_object->add_cap( 'edit_theme_options' );
