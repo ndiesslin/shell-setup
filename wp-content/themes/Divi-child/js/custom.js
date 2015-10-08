@@ -37,9 +37,9 @@ $(document).ready(function() {
       input_9: {//city
           required: true,
       },
-      input_10: {//state
+      /*input_10: {//state
           required: true,
-      },
+      },*/
       input_14: {//phone
           required: true,
       },
@@ -52,6 +52,7 @@ $(document).ready(function() {
       input_17: {//gift?
           required: true,
       },
+      
       /*input_23.1: {//card number
           required: true,
       },
@@ -73,6 +74,7 @@ $(document).ready(function() {
         return false; // for demo
     }*/
   });
+	$('#gform_1 select').prop('required',true);
 
 	//blog 
 	$('body.archive article').addClass('clearfix');
