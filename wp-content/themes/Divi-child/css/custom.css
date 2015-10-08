@@ -861,6 +861,9 @@ body.home .et_pb_row {
 .wp-pagenavi{
     border-top: none;
 }
+.team-template{
+    padding-top: 0;
+}
 .team-template .wp-pagenavi {
     max-width: 1160px;
     margin: 0 auto;
