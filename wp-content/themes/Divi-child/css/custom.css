@@ -1814,3 +1814,22 @@ input, textarea, button {
 .gform_title {
 	display: none;
 }
+.error {
+    color: red;
+}
+.block {
+    display: block;
+}
+form#gform_1 label.error {
+    display: none;
+}
+form#gform_1 input,
+form#gform_1 select {
+    margin-right: 10px;
+}
+.gfield_creditcard_warning .ginput_complex {
+    padding: 10px;
+}
+.gfield_creditcard_warning label.gfield_label {
+    padding-left: 10px;
+}

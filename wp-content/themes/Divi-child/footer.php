@@ -61,7 +61,8 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
   iFrameResize({log:false});
   </script>
   
-
+	<script src="http://localhost/nike/jquery/jquery-validation/dist/jquery.validate.js"></script>
+	<!--<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>-->
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/custom.js"></script>
 
 <?php 
