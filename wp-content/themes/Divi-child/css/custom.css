@@ -954,6 +954,7 @@ body.home .et_pb_row {
 }
 .t5 p, .t5 .et_pb_post p{
     font-size: 16px;
+    line-height: 27px;
 }
 .t5 .contact-info{
     margin-top: 20px;
@@ -965,6 +966,20 @@ body.home .et_pb_row {
 }
 .t5 .contact-address p{
     padding-bottom: 7px;
+}
+.list-with-dot li {
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 13px;
+}
+
+.list-with-dot p {
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+.list-with-dot ul {
+    margin-top: 5px;
 }
 /* form style */
 .ginput_container ul.gfield_radio li {
