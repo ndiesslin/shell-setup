@@ -1008,6 +1008,16 @@ body.home .et_pb_row {
 .icon-top-right{
     margin-bottom: 95px;
 }
+.show-image-and-text .source a {
+    font-size: 14px;
+}
+
+.show-image-and-text .source p {
+    font-size: 14px;
+    line-height: 22px;
+    padding-top: 3px;
+}
+
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
