@@ -539,6 +539,14 @@ ul.awDatesUL li:last-child::after {
     margin-right: 2%;
     margin-top: 25px;
 }
+.news-events-page article h2{
+    font-size: 20px;
+}
+.news-events-page article {
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 92px;
+}
 @media (min-width: 981px){
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary,
     .et_pb_gutters3.et_pb_row .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary
