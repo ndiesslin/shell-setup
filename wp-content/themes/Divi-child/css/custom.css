@@ -827,6 +827,7 @@ body.home .et_pb_row {
 .show-image-and-text .et_pb_post h2 {
     /*margin: 0 -20px;*/
     text-transform: uppercase;
+    font-size: 24px;
 }
 .show-image-and-text article.et_pb_post:nth-child(4n) {
     margin-right: 0;
@@ -997,18 +998,16 @@ body.home .et_pb_row {
     float: left;
     width: 200px;
 }
-.post-list-grid{
-
-}
-.post-list-grid article h2{
-    font-size: 24px;
-}
 /*.half-col {
     width: 45%;
     float: left;
     clear: none !important;
 }
 */
+
+.icon-top-right{
+    margin-bottom: 95px;
+}
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
@@ -1170,7 +1169,7 @@ body.home .et_pb_row {
         float: left;
     }
     .show-image-and-text article.et_pb_post {
-        margin-bottom: 45px;
+        margin-bottom: 48px;
     }
 }
 @media (max-width: 980px){
