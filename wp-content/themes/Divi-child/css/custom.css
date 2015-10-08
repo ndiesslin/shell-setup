@@ -997,7 +997,12 @@ body.home .et_pb_row {
     float: left;
     width: 200px;
 }
+.post-list-grid{
 
+}
+.post-list-grid article h2{
+    font-size: 24px;
+}
 /*.half-col {
     width: 45%;
     float: left;
