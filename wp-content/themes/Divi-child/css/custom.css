@@ -54,7 +54,7 @@ h4, .et_pb_post h4 {
 }
 p, .et_pb_post p {
   font-size: 18px;
-  font-size: 1.125rem;
+  /*font-size: 1.125rem;*/
   font-weight: 400;
 }
 .heading-row{
@@ -1272,6 +1272,13 @@ body.home .et_pb_row {
     }
     .circleimage{
         margin-top: 30px;
+    }
+    .t5{
+        margin-top: 0;
+        padding-top: 0;
+    }
+    .full-width-img img{
+        width: 100%;
     }
 }
 @media(max-width: 479px){
