@@ -45,9 +45,11 @@ $(document).ready(function() {
       },
       input_16: {//email
           required: true,
+          email: true,
       },
       input_16_2: {//email
           required: true,
+          email: true,
       },
       input_17: {//gift?
           required: true,
@@ -74,7 +76,6 @@ $(document).ready(function() {
         return false; // for demo
     }*/
   });
-	$('#gform_1 select').prop('required',true);
 
 	//blog 
 	$('body.archive article').addClass('clearfix');
