@@ -11,8 +11,72 @@ function home_slide_img_width() {
 		$('.elem-large-hover .lh-background').css({'width':'100%'})
 	}
 }
-
+//gravity form validation
+/*$.validator.setDefaults({
+  submitHandler: function() {
+		alert("submitted!");
+	}
+});*/
 $(document).ready(function() {
+	//gravity form validation	
+	$('#gform_1').validate({ // initialize the plugin
+    rules: {
+      input_2: {//amount
+          required: true,
+      },
+      input_5: {//first name
+          required: true,
+          //minlength: 5
+      },
+      input_6: {//last name
+          required: true,
+      },
+      input_7: {//address
+          required: true,
+      },
+      input_9: {//city
+          required: true,
+      },
+      /*input_10: {//state
+          required: true,
+      },*/
+      input_14: {//phone
+          required: true,
+      },
+      input_16: {//email
+          required: true,
+          email: true,
+      },
+      input_16_2: {//email
+          required: true,
+          email: true,
+      },
+      input_17: {//gift?
+          required: true,
+      },
+      
+      /*input_23.1: {//card number
+          required: true,
+      },
+      input_23.2[]: {//expiration date: month year
+          required: true,
+      },
+      input_23.3: {//verification security number
+          required: true,
+      },
+      input_23.5: {//name on card
+          required: true,
+      },
+      input_24.1: {//I under stand
+          required: true,
+      },*/
+    },
+    /*submitHandler: function (form) { // for demo
+        alert('valid form submitted'); // for demo
+        return false; // for demo
+    }*/
+  });
+
 	//blog 
 	$('body.archive article').addClass('clearfix');
 	//blog comment reply
@@ -66,6 +130,8 @@ $(window).resize(function() {
 	//console.log(vph);
 	home_slide_img_width();
 });
+
+
 
 // For equal height
 function eq_height_div(){

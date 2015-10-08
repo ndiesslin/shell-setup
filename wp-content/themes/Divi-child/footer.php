@@ -61,7 +61,8 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
   iFrameResize({log:false});
   </script>
   
-
+	<script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.validate.min.js"></script>
+	<!--<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>-->
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/custom.js"></script>
 
 <?php 
@@ -90,6 +91,18 @@ if($details->name != '')
 ?>
 <script>
 	$('body.post-type-archive-<?php echo $post_type;?> #et-main-area, body.tax-<?php echo $taxonomy;?> #et-main-area').prepend('<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0"><div class="et_pb_fullwidth_header_container left"><div class="header-content-container center"><div class="header-content"><h1><?php echo $page_title;?></h1></div></div></div></div>');
+</script>
+
+<script>
+	//google analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16556369-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
 </body>
 </html>
