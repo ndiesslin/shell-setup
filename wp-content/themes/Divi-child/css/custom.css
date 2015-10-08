@@ -113,7 +113,14 @@ p, .et_pb_post p {
     color: #474647 !important;
 }
 .wp-pagenavi a, .wp-pagenavi span{
-    font-size: 17px !important;
+    font-size: 19px !important;
+    margin: 0 1px;
+}
+.team-template .wp-pagenavi{
+        margin-top: 30px;
+}
+.wp-pagenavi .extend {
+    display: none;
 }
 .wp-pagenavi span.current{
     text-decoration: underline;
