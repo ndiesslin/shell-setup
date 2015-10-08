@@ -1122,7 +1122,7 @@ body.home .et_pb_row {
     }
 }
 @media(min-width: 981px){
-    .bottom-space{
+    .bottom-space-lg{
         margin-bottom: 170px;
     }
     .no-margin-bottom{
