@@ -524,8 +524,8 @@ article.news-event{
     margin-bottom: 30px;
 }
 ul.awDatesUL {
-    padding-top: 70px;
-    padding-bottom: 75px;
+    padding-top: 65px;
+    padding-bottom: 65px;
     text-align: center;
     list-style: none;
 }
@@ -1049,7 +1049,9 @@ body.home .et_pb_row {
     line-height: 22px;
     padding-top: 3px;
 }
-
+ul.awDatesUL li a{
+    font-size: 30px;
+}
 /*responsive*/
 
 @media only screen and (min-width: 1350px){
@@ -1735,8 +1737,9 @@ p:empty {
 #sidebar li {
     list-style: none;
     /* border-bottom: 1px solid #d3d3d3; */
-    margin-bottom: 5px;
     padding-bottom: 5px;
+    line-height: 20px;
+    margin-bottom: 3px;
 }
 
 .entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
