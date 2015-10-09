@@ -53,8 +53,8 @@ h4, .et_pb_post h4 {
   font-size: 1.375rem;
 }
 p, .et_pb_post p {
-  font-size: 16px;
-  /*font-size: 1.125rem;*/
+  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
 }
 .heading-row{
@@ -113,7 +113,11 @@ p, .et_pb_post p {
     color: #474647 !important;
 }
 .wp-pagenavi a, .wp-pagenavi span{
-    font-size: 17px !important;
+    font-size: 19px !important;
+    margin: 0 1px;
+}
+.wp-pagenavi .extend {
+    display: none;
 }
 .wp-pagenavi span.current{
     text-decoration: underline;
@@ -375,7 +379,7 @@ body h3{
     text-decoration: underline;
 }
 .et_pb_bg_layout_light .et_pb_post .post-meta, .et_pb_post {
-    font-size: 18px;
+    font-size: 16px;
     color: #2d2d2d;
     line-height: 24px;
 }
@@ -383,7 +387,7 @@ body h3{
     margin-bottom: 35px;
 }
 .two-col-sec p {
-    font-size: 18px;
+    font-size: 16px;
 }
 /*jcarousel*/
 a.jcarousel-control-prev, a.jcarousel-control-next{
@@ -538,6 +542,14 @@ ul.awDatesUL li:last-child::after {
     width: 30%;
     margin-right: 2%;
     margin-top: 25px;
+}
+.news-events-page article h2{
+    font-size: 20px;
+}
+.news-events-page article {
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 92px;
 }
 @media (min-width: 981px){
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.heading-row.heading-secondary,
@@ -853,10 +865,14 @@ body.home .et_pb_row {
 .wp-pagenavi{
     border-top: none;
 }
+.team-template{
+    padding-top: 0;
+}
 .team-template .wp-pagenavi {
     max-width: 1160px;
     margin: 0 auto;
     border-top: none;
+    margin-top: 30px;
 }
 /* single team */
 .single-team h5{
@@ -954,7 +970,8 @@ body.home .et_pb_row {
     margin-top: 20px;
 }
 .t5 p, .t5 .et_pb_post p{
-    font-size: 16px;
+    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 27px;
 }
 .t5 .contact-info{
@@ -1106,6 +1123,9 @@ body.home .et_pb_row {
     }
 }
 @media(min-width: 981px){
+    .bottom-space-lg{
+        margin-bottom: 170px;
+    }
     .no-margin-bottom{
         margin-bottom: 0 !important;
     }
@@ -1656,7 +1676,8 @@ a:hover,
 /*current studies list*/
 .research-coordinator {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    margin-top: 5px;
 }
 
 /* Removing mint green line under stories of gratitude video in general dashboard */
@@ -1694,11 +1715,8 @@ p:empty {
     padding-bottom: 5px;
 }
 
-.entry-content ul {
-  font-size: 1.125rem;
-}
-
-.entry-content ol {
+.entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
+  font-size: 18px;
   font-size: 1.125rem;
 }
 
