@@ -1789,7 +1789,7 @@ input, textarea, button {
 .wpcf7-form,
 .wpcf7-form input,
 .wpcf7-form textarea {
-    font-family: 'din_mediumregular';
+    /*font-family: 'din_mediumregular';*/
     font-size: 15px;/*16px appears bold*/
 }
 .wpcf7-form input[type=text],
