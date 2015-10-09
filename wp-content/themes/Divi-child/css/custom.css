@@ -226,9 +226,7 @@ footer ul.sub-menu {
         max-height: 250px;
         overflow: hidden;
     }
-    .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed{
-        max-height: 250px;
-    }
+
 }
 #breadcrumbs{
     margin-bottom: 10px;

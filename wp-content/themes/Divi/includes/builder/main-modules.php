@@ -8184,6 +8184,14 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args['category__not_in'] = $child_cats;
 		}
 
+		if(strpos($module_class,'list-team-member') !== false) {
+			//order by lastname - custom field not working
+			/*$args['orderby'] = 'meta_value';
+			$args['meta_key'] = 'last-name';*/
+			$args['orderby'] = 'title';//using the title
+			$args['order'] = 'ASC';
+		}
+
 		//2015, 2016 in news and events
 		if (strpos($module_class,'news-events-page') !== false) {
    		$year = $_GET['y'] ? $_GET['y'] : date("Y");
@@ -8679,7 +8687,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								}
 								else {
 								?>
-								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> </a>
+								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php echo types_render_field('first-name', array('post_id'=>$post->ID));?> <?php the_title(); ?> </a>
 									<?php if(types_render_field('team-title', array()) != '') { ?>
 									<span><?php echo types_render_field('team-title', array());?></span>
 									<?php } ?>
