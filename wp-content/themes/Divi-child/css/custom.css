@@ -223,6 +223,7 @@ footer ul.sub-menu {
     }
     .video-post .et_pb_video{
         max-height: 250px;
+        overflow: hidden;
     }
 
 }
