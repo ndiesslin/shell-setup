@@ -53,9 +53,10 @@ h4, .et_pb_post h4 {
   font-size: 1.375rem;
 }
 p, .et_pb_post p {
-  font-size: 16px;
-  line-height: 22px;
-  /*font-size: 1.125rem;*/
+  font-size: 18px;
+  line-height: 28px;
+  font-size: 1.125rem;
+  line-height: 28px;
   font-weight: 400;
 }
 .heading-row{
@@ -149,19 +150,25 @@ p, .et_pb_post p {
 
 .box-row-module .et_pb_column:first-child article h2 {
     margin-top: 2px;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
+    line-height: 28px;
     font-weight: bold;
     padding-bottom: 0;
 }
 
 .box-row-module .et_pb_column:first-child article p {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
     color: #2d2d2d;
     line-height: 21px;
 }
 .box-row-module .et_pb_column:first-child article{
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
     line-height: 21px;
     margin-bottom: 20px;
 }
@@ -245,6 +252,7 @@ footer ul.sub-menu {
 }
 .view-all p{
     font-size: 18px;
+    line-height: 28px;
 }
 .view-all-row{
 	padding-top: 0;
@@ -390,7 +398,9 @@ body h3{
     text-decoration: underline;
 }
 .et_pb_bg_layout_light .et_pb_post .post-meta, .et_pb_post {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
     color: #2d2d2d;
     line-height: 24px;
 }
@@ -398,7 +408,9 @@ body h3{
     margin-bottom: 35px;
 }
 .two-col-sec p {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
 }
 /*jcarousel*/
 a.jcarousel-control-prev, a.jcarousel-control-next{
@@ -420,6 +432,7 @@ a.jcarousel-control-next{
 .jcarousel h2 {
     margin-top: 15px;
     font-size: 18px;
+    line-height: 28px;
     font-weight: bold;
     color: #2b266d;
     padding-bottom: 5px;
@@ -427,6 +440,7 @@ a.jcarousel-control-next{
 
 .jcarousel p {
     font-size: 18px;
+    line-height: 28px;
     color: #2b266d;
     text-decoration: underline;
 }
@@ -496,6 +510,7 @@ opacity: 0;
 }
 .news-event {
     font-size: 18px;
+    line-height: 28px;
     line-height: 27px;
 }
 .news-event h2 {
@@ -558,7 +573,9 @@ ul.awDatesUL li:last-child::after {
     font-size: 20px;
 }
 .news-events-page article {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
     line-height: 27px;
     margin-bottom: 92px;
 }
@@ -871,7 +888,7 @@ body.home .et_pb_row {
     width: 90%;
 }
 .list-team-member .full-row{
-    overflow: hidden;   
+    overflow: hidden;
 }
 .team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
     background-color: #f3f1ed;
@@ -942,6 +959,7 @@ body.home .et_pb_row {
 }
 .box-row-module .bottom-link p{
     font-size: 18px;
+    line-height: 28px;
 }
 .box-row-module .icon-top-right .et_pb_main_blurb_image {
     margin-bottom: 12px;
@@ -949,6 +967,7 @@ body.home .et_pb_row {
 .box-row-module .et_pb_blurb_container p,
 .box-row-module .et_pb_text.et_pb_module.et_pb_bg_layout_light.et_pb_text_align_left.et_pb_text_10 p {
     font-size: 18px;
+    line-height: 28px;
 }
 /*toggle */
 .et_pb_toggle_close{
@@ -959,6 +978,7 @@ body.home .et_pb_row {
 }
 .et_pb_toggle_open h5.et_pb_toggle_title, .et_pb_toggle_close h5.et_pb_toggle_title{
     font-size: 18px;
+    line-height: 28px;
     color: #AB162B;
 }
 .et_pb_toggle_title:before {
@@ -984,8 +1004,10 @@ body.home .et_pb_row {
     margin-top: 20px;
 }
 .t5 p, .t5 .et_pb_post p{
-    font-size: 16px; /*fontsize as in psd*/
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem; /*fontsize as in psd*/
+    line-height: 28px;
     /*font-size: 1.125rem;
     line-height: 27px;*/
 }
@@ -1001,14 +1023,18 @@ body.home .et_pb_row {
     padding-bottom: 7px;
 }
 .list-with-dot li {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
     line-height: 28px;
     margin-bottom: 13px;
 }
 
 .list-with-dot p {
     padding-bottom: 0;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    font-size: 1.125rem;
 }
 
 .list-with-dot ul {
@@ -1046,7 +1072,7 @@ body.home .et_pb_row {
 
 .show-image-and-text .source p {
     font-size: 14px;
-    line-height: 22px;
+    line-height: 28px;
     padding-top: 3px;
 }
 ul.awDatesUL li a{
@@ -1743,8 +1769,9 @@ p:empty {
 }
 
 .entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
-  font-size: 16px;
-  line-height: 27px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 28px;
 }
 
 body.archive .has-post-thumbnail img {
