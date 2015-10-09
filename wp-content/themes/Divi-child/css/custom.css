@@ -859,6 +859,9 @@ body.home .et_pb_row {
     padding: 27px 0;
     width: 90%;
 }
+.list-team-member .full-row{
+    overflow: hidden;
+}
 .team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
     background-color: #f3f1ed;
 }
