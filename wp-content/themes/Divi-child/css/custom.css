@@ -210,6 +210,12 @@ footer ul.sub-menu {
 	background: #ab1f2d;
     padding: 1.1em 0;
 }
+.page-title:after{
+    -webkit-transform: skewX(-25deg);
+    -ms-transform: skewX(-25deg);
+    -o-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+}
 .page-title h1 {
     text-transform: uppercase;
     line-height: 32px;
@@ -253,6 +259,9 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
 }
 .lh-table {
     text-shadow: 1px 2px 2px #000;
+}
+.elem-large-hover .lh-click:after{
+
 }
 .call-to-action-row{
     overflow: hidden;
