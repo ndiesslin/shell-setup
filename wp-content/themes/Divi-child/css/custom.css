@@ -684,6 +684,9 @@ ul.awDatesUL li:last-child::after {
         height: 280px;
     }
 @media (min-width: 768px) {
+    .et_pb_column_4_4 .et_pb_video_play, .et_pb_column_3_4 .et_pb_video_play, .et_pb_column_2_3 .et_pb_video_play, .et_pb_column_1_2 .et_pb_video_play{
+        margin-top: -2rem;
+    }
     .two-column {
         -webkit-column-count: 2;
         -moz-column-count: 2;
