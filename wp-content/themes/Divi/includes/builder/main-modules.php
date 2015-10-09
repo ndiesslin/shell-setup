@@ -8184,12 +8184,12 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args['category__not_in'] = $child_cats;
 		}
 
-		if(strpos($module_class,'list-team-member') !== false)) {
+		/*if(strpos($module_class,'list-team-member') !== false)) {
 			//order by lastname
 			$args['meta_key'] = 'last-name';
 			$args['orderby'] = 'meta_value';
 			$args['order'] = 'ASC';
-		}
+		}*/
 
 		//2015, 2016 in news and events
 		if (strpos($module_class,'news-events-page') !== false) {
