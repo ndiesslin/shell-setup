@@ -224,9 +224,7 @@ footer ul.sub-menu {
     .video-post .et_pb_video{
         max-height: 250px;
     }
-    .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed{
-        max-height: 250px;
-    }
+
 }
 #breadcrumbs{
     margin-bottom: 10px;
