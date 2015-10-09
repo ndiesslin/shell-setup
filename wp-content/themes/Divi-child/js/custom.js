@@ -17,7 +17,24 @@ function home_slide_img_width() {
 		alert("submitted!");
 	}
 });*/
+
+//homepage slider close on tapping outside 
+$(document).on('touchstart', function (e) {
+var container = $(".elem-large-hover");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+    && container.has(e.target).length === 0) // ... nor a descendant of the container
+        {
+            //container.hide();
+		$('.large-hover-img').removeClass('active');
+		$('.large-hover-img').removeClass('condense');
+		$('.lh-reveal').hide();
+        }
+});
+
 $(document).ready(function() {
+//alert('test');
+	
 	//gravity form validation	
 	$('#gform_1').validate({ // initialize the plugin
     rules: {
