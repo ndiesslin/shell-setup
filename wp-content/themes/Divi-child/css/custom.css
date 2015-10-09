@@ -1868,7 +1868,9 @@ input, textarea, button {
     background-color: #fff;
     width: 276px;
 }
-
+.btn.newsletter-btn p {
+    padding-top: 8px;
+}
 /*Gravity form*/
 .gform_title {
 	display: none;
