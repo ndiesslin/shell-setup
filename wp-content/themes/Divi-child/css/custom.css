@@ -226,7 +226,9 @@ footer ul.sub-menu {
         max-height: 250px;
         overflow: hidden;
     }
-
+    .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed{
+        max-height: 250px;
+    }
 }
 #breadcrumbs{
     margin-bottom: 10px;
@@ -1730,7 +1732,7 @@ p:empty {
 
 .entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
   font-size: 16px;
-  font-size: 27px;
+  line-height: 27px;
 }
 
 body.archive .has-post-thumbnail img {
