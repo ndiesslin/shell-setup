@@ -8188,6 +8188,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			//order by lastname
 			$args['meta_key'] = 'last-name';
 			$args['orderby'] = 'meta_value';
+			$args['order'] = 'DESC';
 		}
 
 		//2015, 2016 in news and events
