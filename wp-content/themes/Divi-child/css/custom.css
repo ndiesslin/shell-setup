@@ -970,9 +970,10 @@ body.home .et_pb_row {
     margin-top: 20px;
 }
 .t5 p, .t5 .et_pb_post p{
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 27px;
+    font-size: 16px; /*fontsize as in psd*/
+    line-height: 22px;
+    /*font-size: 1.125rem;
+    line-height: 27px;*/
 }
 .t5 .contact-info{
     margin-top: 20px;
