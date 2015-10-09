@@ -38,6 +38,14 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 					<div class="entry-content et_pb_row">
 						<div id="left-area">
 							<?php
+								//featured image
+								$disable_featured_image = types_render_field('disable-featured-image', array('post_id'=>$post->ID, 'output'=>'raw'));
+								if($disable_featured_image != '1') {
+									echo '<div class="et_pb_row no-padding-bottom">';
+									the_post_thumbnail('large');
+									echo '</div>';
+								}
+
 								the_content();
 
 								if ( ! $is_page_builder_used )
