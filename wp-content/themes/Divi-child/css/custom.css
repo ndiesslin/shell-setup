@@ -53,8 +53,8 @@ h4, .et_pb_post h4 {
   font-size: 1.375rem;
 }
 p, .et_pb_post p {
-  font-size: 16px;
-  /*font-size: 1.125rem;*/
+  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
 }
 .heading-row{
@@ -971,7 +971,8 @@ body.home .et_pb_row {
     margin-top: 20px;
 }
 .t5 p, .t5 .et_pb_post p{
-    font-size: 16px;
+    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 27px;
 }
 .t5 .contact-info{
@@ -1715,11 +1716,8 @@ p:empty {
     padding-bottom: 5px;
 }
 
-.entry-content ul {
-  font-size: 1.125rem;
-}
-
-.entry-content ol {
+.entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
+  font-size: 18px;
   font-size: 1.125rem;
 }
 
