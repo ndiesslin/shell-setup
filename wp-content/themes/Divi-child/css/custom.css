@@ -935,6 +935,7 @@ body.home .et_pb_row {
 .icon-top-right h4 a {
     color: #2b266d;
     text-decoration: underline;
+    text-transform: capitalize;
 }
 
 .icon-top-right .et_pb_main_blurb_image {
