@@ -1673,9 +1673,6 @@ a:hover,
     .medium-thumb{
         height: 190px !important
     }
-    span.mobile_menu_bar{
-        margin-top: -10px;
-    }
 }
 /* visible-sm only */
 @media (min-width: 768px) and (max-width: 991px){
@@ -1691,6 +1688,11 @@ a:hover,
     }
     .et-search-form, span.et_close_search_field{
         padding-top: 40px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px){
+    span.mobile_menu_bar{
+        margin-top: -12px;
     }
 }
 
@@ -1781,7 +1783,7 @@ body.archive .has-post-thumbnail img {
     width: 30%;
     float: left;
     margin-right: 30px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 /* comments */
 .comment-author img {
@@ -1809,7 +1811,7 @@ body.archive .has-post-thumbnail img {
 
 /*Contact*/
 .gm-style {
-	/*display: none;*//*blue background in map*/
+    /*display: none;*//*blue background in map*/
 }
 /* contact form css */
 input, textarea, button {
@@ -1854,19 +1856,19 @@ input, textarea, button {
 .wpcf7-form input[type=submit], .btn, .button {
     background-color: #2b266d;
     color: #ffffff;
-	display: inline-block;
+    display: inline-block;
     height: 39px;
     left: 0;
     line-height: 39px;
     margin-top: 10px;
     padding: 0 28px;
     text-align: center;
-	text-decoration: underline;
+    text-decoration: underline;
     text-transform: uppercase;
     /* width: 120px; */
 }
 .btn a {
-	color: #fff;
+    color: #fff;
 }
 .wpcf7-form input[type=submit]:hover, .btn:hover {
     /* background-color: #ab1f2d; */
@@ -1903,7 +1905,7 @@ input, textarea, button {
 }
 /*Gravity form*/
 .gform_title {
-	display: none;
+    display: none;
 }
 .error {
     color: red;
