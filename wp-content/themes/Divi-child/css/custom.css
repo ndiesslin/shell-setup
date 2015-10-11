@@ -1447,6 +1447,12 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     .et_pb_section .et_pb_column .et_pb_module{
         margin-bottom: 5px;
     }
+    .et_pb_section .icon-top-right .et_pb_column .et_pb_module{
+        margin-bottom: 30px;
+    }
+    .et_pb_section .icon-top-right.et_pb_row .et_pb_column.et_pb_column_1_4 {
+        margin-bottom: 0;
+    }
     .et-pb-icon{
         font-size: 45px;
     }
