@@ -1673,6 +1673,9 @@ a:hover,
     .medium-thumb{
         height: 190px !important
     }
+    span.mobile_menu_bar{
+        margin-top: -10px;
+    }
 }
 /* visible-sm only */
 @media (min-width: 768px) and (max-width: 991px){
