@@ -1692,7 +1692,7 @@ a:hover,
 }
 @media (min-width: 992px) and (max-width: 1200px){
     span.mobile_menu_bar{
-        margin-top: -12px;
+        margin-top: -10px;
     }
 }
 
