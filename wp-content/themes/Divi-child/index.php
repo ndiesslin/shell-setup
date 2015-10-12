@@ -1,5 +1,17 @@
+<?php
+//archive page
+?>
 <?php get_header(); ?>
-<div id="main-content">
+
+<?php
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//print_r($url);
+if (strpos($url,'post_type') !== false) {
+	//echo 'post_type page';
+	echo '<div class="et_pb_row">Sorry, the page you requested is not found.</div>';
+}
+?>
+<div id="main-content" class="<?php if (strpos($url,'post_type') !== false) echo 'hidden';?>">
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
