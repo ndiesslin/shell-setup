@@ -3594,6 +3594,8 @@
 
 		$( '.et_close_search_field' ).click( function() {
 			et_hide_search();
+			$('.et_search_form_container').height(1);
+			//$('.et_search_form_container').css({'min-height': '1px'});
 		});
 
 		$( document ).mouseup( function(e) {

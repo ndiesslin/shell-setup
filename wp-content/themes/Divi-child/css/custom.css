@@ -1612,6 +1612,9 @@ a:hover,
     header#main-header .container:not(#breadcrumbs) {
         min-height: 80px;
     }
+    header#main-header .container.et_search_form_container {
+        min-height: 1px !important;
+    }
 
     .et_mobile_menu {
         top: 90px;
