@@ -1775,6 +1775,9 @@ p:empty {
 #sidebar {
     padding: 27px 0;
 }
+.news-blog h2 {
+    text-transform: capitalize;
+}
 #sidebar ul {
     padding: 0;
     margin-bottom: 30px;
