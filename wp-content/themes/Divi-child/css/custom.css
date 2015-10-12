@@ -1396,6 +1396,9 @@ ul.awDatesUL li a{
     .img-text-left .et_pb_row .et_pb_column .et_pb_module:last-child{
         text-align: left;
     }
+    .list-news-thumb{
+        min-height: 185px;
+    }
 }
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img,
