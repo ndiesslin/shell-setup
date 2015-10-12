@@ -8253,7 +8253,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 					$is_featured = types_render_field('featured-posts', array('post_id'=>$post->ID, 'output'=>'raw'));
 					//print_r($is_featured);
 
-					if($is_featured == 1 && $i == 0):
+					if($is_featured == 1):// && $i == 0
 						$i++;
 					?>
 
