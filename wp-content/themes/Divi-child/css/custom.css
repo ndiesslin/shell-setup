@@ -710,7 +710,7 @@ ul.awDatesUL li:last-child::after {
     padding-top: 0;
 }
 .box-row-module .newsletter-box, .box-row-module .icon-top-right .et_pb_main_blurb_image img{
-        height: 280px;
+        /*height: 280px;*/
     }
 @media (min-width: 768px) {
     .two-column {
@@ -738,7 +738,7 @@ ul.awDatesUL li:last-child::after {
         column-gap: 60px;
     }
     .box-row-module .et_pb_column{
-        height: 280px;
+        /*height: 310px;*/
     }
     .call-to-action-wrap .blue-btn a {
         font-size: 32px;
@@ -1247,6 +1247,10 @@ ul.awDatesUL li a{
     }
 }
 @media (max-width: 980px){
+    .view-all-module p{
+        clear: both;
+        text-align: left !important;
+    }
     .no-margin-bottom-mobile{
         margin-bottom: 0 !important;
     }
