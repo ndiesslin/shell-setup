@@ -80,6 +80,12 @@ display: none !important;
 .et-pb-main-settings.et-pb-all-modules-tab .et-pb-load-layouts {
 display: none !important;
 }
+.themes .theme {
+  display: none !important;
+}
+.themes .theme.active {
+  display: block !important;
+}
   </style>';
 }
 
