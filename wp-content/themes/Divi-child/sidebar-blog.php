@@ -1,19 +1,17 @@
 <?php //if ( is_active_sidebar() ) : ?>
-  <!-- <div id="sidebar"> -->
-    <?php //dynamic_sidebar( 'sidebar-1' ); ?>
     <?php dynamic_sidebar();?>
-  <!-- </div> --> <!-- end #sidebar -->
 <?php //endif; ?>
 
 <?php
-  $taxonomy = 'news-blogs';
 
 	$post_id = $post->ID;
+
+  /*$taxonomy = 'blogs';//used for page slug
   //$page_slug = the_slug();
   $tax_term = $wp_query->query_vars[$taxonomy];
   $current_term = get_term_by('slug', $tax_term, $taxonomy);
   //print_r($current_term);
-  $page_slug = $current_term->slug;
+  $page_slug = $current_term->slug;*/
 
 	/*$year = $_GET['y'] ? $_GET['y'] : date("Y");*/
 
