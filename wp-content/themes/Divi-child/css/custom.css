@@ -1936,3 +1936,8 @@ form#gform_1 select {
 .gfield_creditcard_warning label.gfield_label {
     padding-left: 10px;
 }
+
+/*remove animation*/
+#page-container.et-animated-content {
+    margin-top: -1px !important;
+}
