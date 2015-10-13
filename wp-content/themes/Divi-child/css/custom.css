@@ -1784,7 +1784,7 @@ p:empty {
 .news-blog h2 {
     text-transform: capitalize;
 }
-#sidebar ul {
+#sidebar ul, #sidebar select {
     padding: 0;
     margin-bottom: 30px;
 }
