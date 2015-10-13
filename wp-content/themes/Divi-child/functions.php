@@ -213,3 +213,10 @@ $role_object = get_role( 'editor' );
 
 // add $cap capability to this role object
 $role_object->add_cap( 'edit_theme_options' );
+
+// add editor the privilede to edit gravity forms
+function add_grav_forms(){
+    $role = get_role('editor');
+    $role->add_cap('gform_full_access');
+}
+add_action('admin_init','add_grav_forms');
