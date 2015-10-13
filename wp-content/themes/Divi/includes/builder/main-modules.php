@@ -8207,10 +8207,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 												      'compare'   => '<',
 												        )
 												    );
-			if($year != '') {
-   		// echo "<script> var year = ' ' + $year; </script>";
-			}
-		}//end if news-event page		
+		}//end if news-event page	
 
 		query_posts( $args );
 
@@ -8870,12 +8867,14 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
           'posts_per_page'=> '-1', 
           'post_type' => 'news-event',
       );
+
       $years = getYearSplitsOfPosts($args_for_date);
 
       $link = get_permalink();
       
       //print dates
-      echo '<div class="clear"></div><ul class="awDatesUL">';  
+      echo '<div class="clear"></div>
+      				<ul class="awDatesUL">';  
       foreach ( $years as $year ) {
         echo '<li ';               
           if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
