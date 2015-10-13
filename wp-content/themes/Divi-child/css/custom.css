@@ -1808,6 +1808,13 @@ p:empty {
     line-height: 20px;
     margin-bottom: 3px;
 }
+#sidebar .metro-social {
+    margin-bottom: 30px;
+}
+#sidebar .metro-social li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
 .entry-content ul, .entry-content ul a, .entry-content ol, .entry-content ol a {
   font-size: 18px;
