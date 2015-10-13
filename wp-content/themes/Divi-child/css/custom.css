@@ -228,6 +228,9 @@ footer ul.sub-menu {
     line-height: 32px;
 }
 @media (min-width: 769px) {
+    .lh-background{
+      height: 500px !important;       
+    }
     .page-title h1 {
         margin-right: 130px;
         font-size: 30px;
@@ -1960,9 +1963,6 @@ form#gform_1 select {
 /*ie style 10 and above */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
-    .lh-background{
-      height: 500px !important;       
-    }
     .call-to-action-row{
         width: 100%;
         max-width: 100%;
@@ -1971,6 +1971,9 @@ form#gform_1 select {
     }
     .home.et_pb_section{
         padding: 0 !important;
+    }
+    #et-top-navigation{
+        /*margin-right: 30px !important;*/
     }
 }
 
