@@ -181,22 +181,22 @@ function findMaxValue(element){
 }
 
 // parent height
-function parentHeight(){
-	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
-	var childHeight = $('.list-news-thumb').height();
-	if (parentHeight > childHeight ) {
-		$('.list-news-thumb').css({
-			'min-height': parentHeight
-		})
-		// height(parentHeight);
-	};
-}
+// function parentHeight(){
+// 	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
+// 	var childHeight = $('.list-news-thumb').height();
+// 	if (parentHeight > childHeight ) {
+// 		$('.list-news-thumb').css({
+// 			'min-height': parentHeight
+// 		})
+// 		// height(parentHeight);
+// 	};
+// }
 $(document).ready(function(){
-	parentHeight();
+	// parentHeight();
 	windowHeight();
 });
 $(window).resize(function(){
-	parentHeight();
+	// parentHeight();
 	windowHeight();
 });
 
