@@ -1,3 +1,10 @@
+<?php //if ( is_active_sidebar() ) : ?>
+  <!-- <div id="sidebar"> -->
+    <?php //dynamic_sidebar( 'sidebar-1' ); ?>
+    <?php dynamic_sidebar();?>
+  <!-- </div> --> <!-- end #sidebar -->
+<?php //endif; ?>
+
 <?php
   $taxonomy = 'news-blogs';
 
