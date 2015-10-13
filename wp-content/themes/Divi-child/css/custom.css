@@ -1615,6 +1615,9 @@ a:hover,
     header#main-header .container:not(#breadcrumbs) {
         min-height: 80px;
     }
+    header#main-header .container.et_search_form_container {
+        min-height: 1px !important;
+    }
 
     .et_mobile_menu {
         top: 90px;
@@ -1945,4 +1948,9 @@ form#gform_1 select {
 }
 .gfield_creditcard_warning label.gfield_label {
     padding-left: 10px;
+}
+
+/*remove animation*/
+#page-container.et-animated-content {
+    margin-top: -1px !important;
 }
