@@ -646,6 +646,10 @@ ul.awDatesUL li:last-child::after {
     padding: 20px 15px;
     color: #FFF;
 }
+.newsletter-box p {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
 /*current studies section */
 .current-studies-section .et_pb_row.et_pb_row_8.et_pb_row_4col {
     padding-top: 10px;
