@@ -2038,3 +2038,55 @@ form#gform_1 select {
 #page-container.et-animated-content {
     margin-top: -1px !important;
 }
+
+/* customSel */
+.customSel {
+    background: #ffffff;
+    border: 1px solid #d3d3d3;
+    height: 25px;
+    line-height: 18px;
+    margin-top: 5px;
+    margin-right: 10px;
+    position: relative;
+    /* width: 200px; */
+    width: 100%;
+    margin-bottom: 30px;
+    }
+@media (max-width: 980px) {
+    .customSel {
+        width: 200px;
+    }
+}
+
+    .customSel select {
+        background: #ffffff;
+        border: 0;
+        height: 100%;
+        line-height: 23px;
+        outline: 0;
+        width: 100%;
+        }
+
+    .customSel select:hover {
+        }
+
+.customSel label:after {
+    content: '';
+    width: 25px;
+    height: 23px;
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    right: 0px;
+    background: url(../images/custom_sel.png) no-repeat right center white;
+    pointer-events: none;
+
+}
+
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+
+@media screen and (min-width:0\0) { 
+    .customSel label:after {
+        display:none;
+    }
+}

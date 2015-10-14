@@ -15,8 +15,8 @@
 
 	/*$year = $_GET['y'] ? $_GET['y'] : date("Y");*/
 
-	//$post_type = 'news-blog';
-	$post_type = get_post_type(get_the_ID());//news-blog
+	$post_type = 'blog';
+	//$post_type = get_post_type(get_the_ID());
 
 
 	//$taxonomy = 'news-blogs';//for categories
@@ -85,7 +85,7 @@
    		echo '</ul>';*/
 
       //dropdown
-      echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
+      /*echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
               <option value="">Select Month</option>';
 
       foreach ( $month_years as $month_year ):
@@ -93,7 +93,21 @@
         echo $month_year[0]['publish'];
         echo '</option>';
       endforeach;
-      echo '</select>';
+      echo '</select>';*/
+
+
+
+        
+        //listing all the months that works
+
+
+        echo '<div class="customSel">
+          <label>
+          <select onchange="document.location.href=this.options[this.selectedIndex].value;">';
+        echo '<option>Select Month</option>';
+        echo cpt_wp_get_archives('blog');
+        echo '</select></label></div>';
+        
 ?>
 
 <?php
@@ -121,7 +135,8 @@
     echo '</ul>';*/
 
     //dropdown
-    echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
+    echo '<div class="customSel">
+          <label><select onchange="document.location.href=this.options[this.selectedIndex].value;">
             <option value="">Select Categories</option>';
 
     foreach ($tax_terms as $tax_term): 
@@ -134,6 +149,6 @@
       echo $tax_term->name;
       echo '</option>';
     endforeach;
-    echo '</select>';
+    echo '</select></label></div>';
 
 ?>
