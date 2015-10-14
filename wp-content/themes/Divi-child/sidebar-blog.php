@@ -15,7 +15,7 @@
 
 	/*$year = $_GET['y'] ? $_GET['y'] : date("Y");*/
 
-	$post_type = 'news-blog';
+	$post_type = 'blog';
 	//$post_type = get_post_type(get_the_ID());
 
 
