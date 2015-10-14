@@ -1177,9 +1177,9 @@ ul.awDatesUL li a{
     }
 }
 @media(min-width: 769px){
-    .large-hover-img:last-child.active{
+    /*.large-hover-img:last-child.active{
         padding-right: 7%;
-    }
+    }*/
     .homepage-slider {
         padding-left: 20px;
         padding-right: 60px;
