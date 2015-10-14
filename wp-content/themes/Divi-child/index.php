@@ -6,7 +6,7 @@
 <?php
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //print_r($url);
-if (strpos($url,'post_type') !== false) {
+if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 	//echo 'post_type page';
 	echo '<div class="et_pb_row">Sorry, the page you requested is not found.</div>';
 }
@@ -16,6 +16,7 @@ if (strpos($url,'post_type') !== false) {
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
 		<?php
+		//print_r($posts);exit();
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
 					$post_format = et_pb_post_format(); ?>

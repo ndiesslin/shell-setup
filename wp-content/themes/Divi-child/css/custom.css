@@ -654,6 +654,10 @@ ul.awDatesUL li:last-child::after {
     padding: 20px 15px;
     color: #FFF;
 }
+.newsletter-box p {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
 /*current studies section */
 .current-studies-section .et_pb_row.et_pb_row_8.et_pb_row_4col {
     padding-top: 10px;
@@ -1683,7 +1687,7 @@ a:hover,
         width: 160%;
     }
 }
-/* ipad Portrait  */
+/* ipad Potrait  */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){
     .elem-large-hover .large-hover-img {
         width: 100% !important;
@@ -1726,6 +1730,15 @@ a:hover,
         clear: both;
         text-align: left !important;
     }
+}
+
+/* Landscape */
+@media (max-width: 736px) and (orientation: landscape) {
+    .jcarousel .news-event{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
 }
 
 /* Nav fixes */

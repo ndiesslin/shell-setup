@@ -34,6 +34,8 @@ var container = $(".elem-large-hover");
 
 $(document).ready(function() {
 //alert('test');
+	//removing first link of menu and breadcrumb
+	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a').attr('href','#');
 	
 	//gravity form validation	
 	$('#gform_1').validate({ // initialize the plugin
