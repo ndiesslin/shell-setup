@@ -68,7 +68,7 @@
       $month_years = getMonthYearSplitsOfPosts($args_for_date);
 
       //$link = get_permalink();
-      $link = site_url() . '/blog/' . $post_type . '/';// /blog appearing - don't know how?
+      $link = site_url() . '/' . $post_type . '/';
       
       //print dates
       echo '<div class="clear"></div>';
@@ -126,7 +126,7 @@
 
     foreach ($tax_terms as $tax_term): 
       $tax_slug = $tax_term->slug;
-      $tax_link = site_url() . '/blog/' . $taxonomy . '/' . $tax_slug . '/';// /blog 
+      $tax_link = site_url() . '/' . $taxonomy . '/' . $tax_slug . '/';
       echo '<option value="'.$tax_link.'"';
       //if($page_slug == $tax_slug) echo 'selected="selected"'; //can not say it can be done in case of date archive
       echo '>';
