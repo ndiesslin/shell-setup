@@ -38,7 +38,7 @@ $(document).ready(function() {
 	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a').attr('href','#');
 	
 	//gravity form validation	
-	$('#gform_1').validate({ // initialize the plugin
+	/*$('#gform_1').validate({ // initialize the plugin
     rules: {
       input_2: {//amount
           required: true,
@@ -56,9 +56,6 @@ $(document).ready(function() {
       input_9: {//city
           required: true,
       },
-      /*input_10: {//state
-          required: true,
-      },*/
       input_14: {//phone
           required: true,
       },
@@ -73,28 +70,11 @@ $(document).ready(function() {
       input_17: {//gift?
           required: true,
       },
-      
-      /*input_23.1: {//card number
-          required: true,
-      },
-      input_23.2[]: {//expiration date: month year
-          required: true,
-      },
-      input_23.3: {//verification security number
-          required: true,
-      },
-      input_23.5: {//name on card
-          required: true,
-      },
-      input_24.1: {//I under stand
-          required: true,
-      },*/
-    },
-    /*submitHandler: function (form) { // for demo
-        alert('valid form submitted'); // for demo
-        return false; // for demo
-    }*/
-  });
+      //form.submit();//submits the form even if no information is added.
+    }
+  });*/
+
+
 
 	//blog 
 	$('body.archive article').addClass('clearfix');
