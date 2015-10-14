@@ -233,9 +233,8 @@ function the_slug($echo=true){
 }
 
 //archives list for custom post type
-$post_type = 'news-blog';
 function my_custom_post_type_archive_where($where,$args){  
-    $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'news-blog';  
+    $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'blog';  
     $where = "WHERE post_type = '$post_type' AND post_status = 'publish'";
     return $where;  
 }
@@ -249,7 +248,7 @@ add_filter( 'getarchives_where','my_custom_post_type_archive_where',10,2);
 function cpt_rewrite_rules($wp_rewrite)
 {
     // Here we're hardcoding the CPT in, article in this case
-    $rules = cpt_generate_date_archives('news-blog', $wp_rewrite);
+    $rules = cpt_generate_date_archives('blog', $wp_rewrite);
     $wp_rewrite->rules = $rules + $wp_rewrite->rules;
     return $wp_rewrite;
 }
@@ -311,7 +310,7 @@ function cpt_generate_date_archives($cpt, $wp_rewrite)
 
 function example_getarchives_where($where)
 {
-    return str_replace("WHERE post_type = 'post'", "WHERE post_type IN ('news-blog')", $where);
+    return str_replace("WHERE post_type = 'post'", "WHERE post_type IN ('blog')", $where);
 }
 add_filter('getarchives_where', 'example_getarchives_where');
 

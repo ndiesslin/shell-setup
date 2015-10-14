@@ -101,7 +101,7 @@
         //listing all the months that works
         echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">';
         echo '<option>Select Month</option>';
-        echo cpt_wp_get_archives('news-blog');
+        echo cpt_wp_get_archives('blog');
         echo '</select>';
         
 ?>
