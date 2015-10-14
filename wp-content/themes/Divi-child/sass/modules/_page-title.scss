@@ -10,9 +10,9 @@
     background: $white;
     position: absolute;
     right: -10%;
-    top: 0;
+    top: -5%;
     width: 30%;
-    height: 105%;
+    height: 110%;
     transform: skewX(-25deg);
     @include breakpoint (medium) {
       display: none;
