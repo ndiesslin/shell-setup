@@ -1287,6 +1287,9 @@ ul.awDatesUL li a{
     .events-list-gird article{
         margin-bottom: 25px;
     }
+    .box-row-module .icon-top-right p{
+        text-align: left !important;
+    }
     .logo-sm{
         display: block;
         max-width: 50%;
