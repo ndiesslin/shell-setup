@@ -59,6 +59,10 @@ p, .et_pb_post p {
   line-height: 28px;
   font-weight: 400;
 }
+.newsletter-box p {
+    font-size: 1.1rem;
+    line-height: 22px;
+}
 .heading-row{
     padding-top: 0;
     padding-bottom: 0;
@@ -789,6 +793,10 @@ ul.awDatesUL li:last-child::after {
 }
 .profile-intro .more-link {
     display: block;
+}
+
+a.more-link {
+  padding: 0 10px;
 }
 
 /* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
@@ -1994,4 +2002,3 @@ form#gform_1 select {
 #page-container.et-animated-content {
     margin-top: -1px !important;
 }
-
