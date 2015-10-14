@@ -8865,7 +8865,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args_for_date = array(
           'post_status' => 'publish',
           'posts_per_page'=> '-1', 
-          'post_type' => 'news-event',
+          'post_type' => array('news-events','page'),//news-events
+          'cat' => $include_categories,
       );
 
       $years = getYearSplitsOfPosts($args_for_date);
@@ -8876,6 +8877,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
       echo '<div class="clear"></div>
       				<ul class="awDatesUL">';  
       foreach ( $years as $year ) {
+      	//print_r($year);
         echo '<li ';               
           if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
         echo '>';
