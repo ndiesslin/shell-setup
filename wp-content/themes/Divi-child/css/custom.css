@@ -1281,6 +1281,9 @@ ul.awDatesUL li a{
     .et_always_center_on_mobile {
         text-align: left !important;
     }
+    .events-list-gird article{
+        margin-bottom: 25px;
+    }
     .logo-sm{
         display: block;
         max-width: 50%;
