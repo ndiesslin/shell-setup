@@ -8444,15 +8444,15 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									$start_date = types_render_field('date-and-time', array('format'=>'F:j:Y H:i'));
 									$start_date = parseDate($start_date) ; 
 
-									$date = '<span class="date">' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '</span>';
-									$time = '<span class="time">' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
+									$date = ' <span class="date"> ' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . ' </span> ';
+									$time = ' <span class="time"> ' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
 								}
 
 								if($date != '') echo $date;	
-								else echo '<span class="date">Date</span>';
+								else echo ' <span class="date"> Date </span> ';
 
 								if($time != '') echo $time;
-								else echo '<span class="time">Time</span>';
+								else echo ' <span class="time"> Time </span> ';
 							}
 
 							//source link and source text for current studies template 3
@@ -8761,15 +8761,15 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 									$start_date = types_render_field('date-and-time', array('format'=>'F:j:Y H:i'));
 									$start_date = parseDate($start_date) ; 
 
-									$date = '<span class="date">' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . '</span>';
-									$time = '<span class="time">' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
+									$date = '<span class="date"> ' . $start_date[1] . ' ' . $start_date[0] . ' '. $start_date[2] . ' </span>';
+									$time = '<span class="time"> ' . $start_date[3] . ':' . $start_date[4] . ' hrs </span>';
 								}
 
 								if($date != '') echo $date;	
-								else echo '<span class="date">Date</span>';
+								else echo '<span class="date"> Date </span>';
 
 								if($time != '') echo $time;
-								else echo '<span class="time">Time</span>';
+								else echo '<span class="time"> Time </span>';
 							}
 							
 							//source link and source text for current studies template 3
@@ -8865,7 +8865,8 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$args_for_date = array(
           'post_status' => 'publish',
           'posts_per_page'=> '-1', 
-          'post_type' => 'news-event',
+          'post_type' => array('news-events','page'),//news-events
+          'cat' => $include_categories,
       );
 
       $years = getYearSplitsOfPosts($args_for_date);
@@ -8876,6 +8877,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
       echo '<div class="clear"></div>
       				<ul class="awDatesUL">';  
       foreach ( $years as $year ) {
+      	//print_r($year);
         echo '<li ';               
           if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
         echo '>';

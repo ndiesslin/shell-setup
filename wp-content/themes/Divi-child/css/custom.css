@@ -59,6 +59,10 @@ p, .et_pb_post p {
   line-height: 28px;
   font-weight: 400;
 }
+.newsletter-box p {
+    font-size: 1.1rem;
+    line-height: 22px;
+}
 .heading-row{
     padding-top: 0;
     padding-bottom: 0;
@@ -791,6 +795,10 @@ ul.awDatesUL li:last-child::after {
     display: block;
 }
 
+a.more-link {
+  padding: 0 10px;
+}
+
 /* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
 .single-team article.team.has-post-thumbnail .et_post_meta_wrapper img {
     display: none;
@@ -1008,6 +1016,9 @@ body.home .et_pb_row {
 .box-row-module .et_pb_column:first-child .bottom-link{
  margin-left: -20px;
 }
+.box-row-module .et_pb_column:first-child article .more-link{
+    padding-left: 0;
+}
 /*t5 style*/
 .t5{
     margin-top: 20px;
@@ -1208,6 +1219,9 @@ ul.awDatesUL li a{
     .et_pb_section .et_pb_row .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_row_inner .et_pb_column .view-all-module:last-child{
     margin-bottom: 35px;
     }
+    .view-all-module{
+        clear: both;
+    }
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.et_pb_toggle{
         margin-bottom: 0;
     }
@@ -1268,6 +1282,12 @@ ul.awDatesUL li a{
         padding-top: 0 !important;
     }
     .et_always_center_on_mobile {
+        text-align: left !important;
+    }
+    .events-list-gird article{
+        margin-bottom: 25px;
+    }
+    .box-row-module .icon-top-right p{
         text-align: left !important;
     }
     .logo-sm{
@@ -1722,8 +1742,18 @@ a:hover,
         clear: both;
         text-align: left !important;
     }
-}
 
+}
+/*ipad landscape only*/
+@media (max-width: 1024px) and (min-width: 769px) {
+    .box-row-module .et_pb_column:first-child{
+        width: 100%;
+    }
+    .box-row-module .et_pb_column{
+        width: 47.25%;
+        margin-right: 5.5%;
+    }
+}
 /* Landscape */
 @media (max-width: 736px) and (orientation: landscape) {
     .jcarousel .news-event{
@@ -1857,8 +1887,8 @@ body.archive .has-post-thumbnail img {
 }
 
 /*Contact*/
-.gm-style {
-    /*display: none;*//*blue background in map*/
+.gm-style:last-child {
+    display: none;/*blue background in map*/
 }
 /* contact form css */
 input, textarea, button {
@@ -1976,6 +2006,12 @@ form#gform_1 select {
 /*ie style 10 and above */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
+    header .et-search-field{
+        margin-top: 125px;
+    }
+    span.et_close_search_field{
+        margin-top: 2px;
+    }
     .call-to-action-row{
         width: 100%;
         max-width: 100%;
@@ -1989,8 +2025,68 @@ form#gform_1 select {
         /*margin-right: 30px !important;*/
     }
 }
-
+@media (max-width: 1200px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    header #et_top_search{
+        right: 0px;
+    }
+    header .et-search-field{
+        margin-top: 80px;
+    }
+}
 /*remove animation*/
 #page-container.et-animated-content {
     margin-top: -1px !important;
+}
+
+/* customSel */
+.customSel {
+    background: #ffffff;
+    border: 1px solid #d3d3d3;
+    height: 25px;
+    line-height: 18px;
+    margin-top: 5px;
+    margin-right: 10px;
+    position: relative;
+    /* width: 200px; */
+    width: 100%;
+    margin-bottom: 30px;
+    }
+@media (max-width: 980px) {
+    .customSel {
+        width: 200px;
+    }
+}
+
+    .customSel select {
+        background: #ffffff;
+        border: 0;
+        height: 100%;
+        line-height: 23px;
+        outline: 0;
+        width: 100%;
+        }
+
+    .customSel select:hover {
+        }
+
+.customSel label:after {
+    content: '';
+    width: 25px;
+    height: 23px;
+    position: absolute;
+    display: inline-block;
+    top: 0px;
+    right: 0px;
+    background: url(../images/custom_sel.png) no-repeat right center white;
+    pointer-events: none;
+
+}
+
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+
+@media screen and (min-width:0\0) { 
+    .customSel label:after {
+        display:none;
+    }
 }

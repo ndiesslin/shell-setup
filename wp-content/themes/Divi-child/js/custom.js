@@ -34,9 +34,11 @@ var container = $(".elem-large-hover");
 
 $(document).ready(function() {
 //alert('test');
+	//removing first link of menu and breadcrumb
+	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a').attr('href','#');
 	
 	//gravity form validation	
-	$('#gform_1').validate({ // initialize the plugin
+	/*$('#gform_1').validate({ // initialize the plugin
     rules: {
       input_2: {//amount
           required: true,
@@ -54,9 +56,6 @@ $(document).ready(function() {
       input_9: {//city
           required: true,
       },
-      /*input_10: {//state
-          required: true,
-      },*/
       input_14: {//phone
           required: true,
       },
@@ -71,28 +70,11 @@ $(document).ready(function() {
       input_17: {//gift?
           required: true,
       },
-      
-      /*input_23.1: {//card number
-          required: true,
-      },
-      input_23.2[]: {//expiration date: month year
-          required: true,
-      },
-      input_23.3: {//verification security number
-          required: true,
-      },
-      input_23.5: {//name on card
-          required: true,
-      },
-      input_24.1: {//I under stand
-          required: true,
-      },*/
-    },
-    /*submitHandler: function (form) { // for demo
-        alert('valid form submitted'); // for demo
-        return false; // for demo
-    }*/
-  });
+      //form.submit();//submits the form even if no information is added.
+    }
+  });*/
+
+
 
 	//blog 
 	$('body.archive article').addClass('clearfix');
@@ -222,3 +204,24 @@ $('#homepage-slider').on('click', function(e) {
 $(document).on('click', function (e) {
     // $(e.target).children('.large-hover-img').removeClass('active');
 });	
+
+// for whats-new bottom boxes equal size
+$(document).ready(function(){
+	var winWidth = $(window).width();
+	if (winWidth > 480) {
+		var blogH = $('.blog-box').parent('.et_pb_column').height();
+		$('.newsletter-box').height(blogH);
+		$('.box-icon-top-right .et_pb_main_blurb_image img').height(blogH + 40);
+		$('.box-icon-top-right .et_pb_main_blurb_image').height(blogH + 40);
+	};
+});
+$(window).resize(function(){
+	var winWidth = $(window).width();
+	if (winWidth > 480) {
+		var blogH = $('.blog-box').parent('.et_pb_column').height();
+		$('.newsletter-box').height(blogH);
+		$('.box-icon-top-right .et_pb_main_blurb_image img').height(blogH + 40);
+		$('.box-icon-top-right .et_pb_main_blurb_image').height(blogH + 40);
+	};
+});
+// for whats-new bottom boxes equal size ends.

@@ -2861,6 +2861,7 @@ function getYearSplitsOfPosts($args){
   $years = array();
   $postslist = get_posts($args);
   foreach($postslist as $post) {
+  	//print_r($post);exit();
     $year = date('Y', strtotime($post->post_date));
     $years[$year][]= array('publish' => $year);
   }

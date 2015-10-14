@@ -15,8 +15,8 @@
 
 	/*$year = $_GET['y'] ? $_GET['y'] : date("Y");*/
 
-	//$post_type = 'news-blog';
-	$post_type = get_post_type(get_the_ID());//news-blog
+	$post_type = 'blog';
+	//$post_type = get_post_type(get_the_ID());
 
 
 	//$taxonomy = 'news-blogs';//for categories
@@ -68,7 +68,7 @@
       $month_years = getMonthYearSplitsOfPosts($args_for_date);
 
       //$link = get_permalink();
-      $link = site_url() . '/blog/' . $post_type . '/';// /blog appearing - don't know how?
+      $link = site_url() . '/' . $post_type . '/';
       
       //print dates
       echo '<div class="clear"></div>';
@@ -85,7 +85,7 @@
    		echo '</ul>';*/
 
       //dropdown
-      echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
+      /*echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
               <option value="">Select Month</option>';
 
       foreach ( $month_years as $month_year ):
@@ -93,7 +93,21 @@
         echo $month_year[0]['publish'];
         echo '</option>';
       endforeach;
-      echo '</select>';
+      echo '</select>';*/
+
+
+
+        
+        //listing all the months that works
+
+
+        echo '<div class="customSel">
+          <label>
+          <select onchange="document.location.href=this.options[this.selectedIndex].value;">';
+        echo '<option>Select Month</option>';
+        echo cpt_wp_get_archives('blog');
+        echo '</select></label></div>';
+        
 ?>
 
 <?php
@@ -121,12 +135,13 @@
     echo '</ul>';*/
 
     //dropdown
-    echo '<select onchange="document.location.href=this.options[this.selectedIndex].value;">
+    echo '<div class="customSel">
+          <label><select onchange="document.location.href=this.options[this.selectedIndex].value;">
             <option value="">Select Categories</option>';
 
     foreach ($tax_terms as $tax_term): 
       $tax_slug = $tax_term->slug;
-      $tax_link = site_url() . '/blog/' . $taxonomy . '/' . $tax_slug . '/';// /blog 
+      $tax_link = site_url() . '/' . $taxonomy . '/' . $tax_slug . '/';
       echo '<option value="'.$tax_link.'"';
       //if($page_slug == $tax_slug) echo 'selected="selected"'; //can not say it can be done in case of date archive
       echo '>';
@@ -134,6 +149,6 @@
       echo $tax_term->name;
       echo '</option>';
     endforeach;
-    echo '</select>';
+    echo '</select></label></div>';
 
 ?>
