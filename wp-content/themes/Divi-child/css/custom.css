@@ -1216,6 +1216,9 @@ ul.awDatesUL li a{
     .et_pb_section .et_pb_row .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_column .view-all-module:last-child, .et_pb_section.et_section_specialty .et_pb_row .et_pb_column .et_pb_row_inner .et_pb_column .view-all-module:last-child{
     margin-bottom: 35px;
     }
+    .view-all-module{
+        clear: both;
+    }
     .et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.et_pb_toggle{
         margin-bottom: 0;
     }
