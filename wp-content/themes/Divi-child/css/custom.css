@@ -1871,8 +1871,8 @@ body.archive .has-post-thumbnail img {
 }
 
 /*Contact*/
-.gm-style {
-    /*display: none;*//*blue background in map*/
+.gm-style:last-child {
+    display: none;/*blue background in map*/
 }
 /* contact form css */
 input, textarea, button {
