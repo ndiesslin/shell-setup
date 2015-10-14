@@ -1016,6 +1016,9 @@ body.home .et_pb_row {
 .box-row-module .et_pb_column:first-child .bottom-link{
  margin-left: -20px;
 }
+.box-row-module .et_pb_column:first-child article .more-link{
+    padding-left: 0;
+}
 /*t5 style*/
 .t5{
     margin-top: 20px;
