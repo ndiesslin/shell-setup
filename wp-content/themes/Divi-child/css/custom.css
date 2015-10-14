@@ -1739,8 +1739,18 @@ a:hover,
         clear: both;
         text-align: left !important;
     }
-}
 
+}
+/*ipad landscape only*/
+@media (max-width: 1024px) and (min-width: 769px) {
+    .box-row-module .et_pb_column:first-child{
+        width: 100%;
+    }
+    .box-row-module .et_pb_column{
+        width: 47.25%;
+        margin-right: 5.5%;
+    }
+}
 /* Landscape */
 @media (max-width: 736px) and (orientation: landscape) {
     .jcarousel .news-event{
