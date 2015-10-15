@@ -2065,6 +2065,11 @@ p, .et_pb_post p {
   font-size: 18px;
   font-size: 1.125rem; }
 
+.single-blog .et_pb_text {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 28px; }
+
 .font-small {
   font-size: 12px;
   font-size: 0.75rem; }
@@ -2380,15 +2385,19 @@ span.et_close_search_field {
       @media (max-width: 768px) {
         .elem-large-hover .lh-table.img-last {
           right: initial; } }
+    .elem-large-hover .lh-table.img-first .caption-head, .elem-large-hover .lh-table.img-last .caption-head {
+      margin: 0 -5% 0 0; }
+    .elem-large-hover .lh-table.img-first .lh-click, .elem-large-hover .lh-table.img-last .lh-click {
+      margin: 0 -5% 0 0; }
     .elem-large-hover .lh-table.img-first p.lh-reveal, .elem-large-hover .lh-table.img-last p.lh-reveal {
-      margin: 0.5em 30% 0; }
+      margin: 0.5em 27% 0 32%; }
       @media (max-width: 768px) {
         .elem-large-hover .lh-table.img-first p.lh-reveal, .elem-large-hover .lh-table.img-last p.lh-reveal {
           margin: 0.5em 10%; } }
   .elem-large-hover .lh-container {
     display: block;
     width: 160%;
-    margin: 0 0 0 -30%;
+    margin: 0 0 0 -40%;
     margin-top: 250px;
     vertical-align: middle;
     text-align: center;
@@ -2440,8 +2449,9 @@ span.et_close_search_field {
         .elem-large-hover .lh-click:after {
           display: none; } }
   .elem-large-hover .lh-reveal {
-    font-size: 14px;
-    font-size: 0.875rem;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    line-height: 1.25;
     margin: 0.5em 25% 1em; }
     @media (max-width: 768px) {
       .elem-large-hover .lh-reveal {
@@ -2491,9 +2501,9 @@ span.et_close_search_field {
     background: #ffffff;
     position: absolute;
     right: -10%;
-    top: 0;
+    top: -5%;
     width: 30%;
-    height: 105%;
+    height: 110%;
     transform: skewX(-25deg); }
     @media (max-width: 768px) {
       .page-title:after {

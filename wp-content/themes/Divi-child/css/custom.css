@@ -1177,9 +1177,9 @@ ul.awDatesUL li a{
     }
 }
 @media(min-width: 769px){
-    .large-hover-img:last-child.active{
+    /*.large-hover-img:last-child.active{
         padding-right: 7%;
-    }
+    }*/
     .homepage-slider {
         padding-left: 20px;
         padding-right: 60px;
@@ -2006,6 +2006,12 @@ form#gform_1 select {
 /*ie style 10 and above */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
+    header .et-search-field{
+        margin-top: 125px;
+    }
+    span.et_close_search_field{
+        margin-top: 2px;
+    }
     .call-to-action-row{
         width: 100%;
         max-width: 100%;
@@ -2019,7 +2025,15 @@ form#gform_1 select {
         /*margin-right: 30px !important;*/
     }
 }
-
+@media (max-width: 1200px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    header #et_top_search{
+        right: 0px;
+    }
+    header .et-search-field{
+        margin-top: 80px;
+    }
+}
 /*remove animation*/
 #page-container.et-animated-content {
     margin-top: -1px !important;
