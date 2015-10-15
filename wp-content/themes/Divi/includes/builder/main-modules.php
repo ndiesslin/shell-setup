@@ -8186,8 +8186,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 
 		if(strpos($module_class,'list-team-member') !== false) {
 			//order by lastname - custom field not working
-			/*$args['orderby'] = 'meta_value';
-			$args['meta_key'] = 'last-name';*/
+			
+			/*$args['meta_key'] = 'last-name';
+			$args['orderby'] = 'meta_value_num';//meta_value*/
+
 			$args['orderby'] = 'title';//using the title
 			$args['order'] = 'ASC';
 		}

@@ -7,10 +7,13 @@
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 //print_r($url);
 if (strpos($url,'post_type') !== false) {//if the url contains post_type word
+	echo '<style>
+	body {display: none;}
+	</style>';
 	echo '<div class="et_pb_row">Sorry, the page you requested is not found.</div>';
-}
+} else {//if ther url doesn't contain post_type word
 ?>
-<div id="main-content" class="<?php if (strpos($url,'post_type') !== false) echo 'hidden';?>">
+<div id="main-content" class="<?php //if (strpos($url,'post_type') !== false) echo 'hidden';?>">
 	<div class="container">
 		<div id="content-area" class="clearfix">
 			<div id="left-area">
@@ -86,5 +89,7 @@ if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
+<?php }//end if
+?>
 
 <?php get_footer(); ?>
