@@ -2117,3 +2117,7 @@ form#gform_1 select {
 #breadcrumbs > span > span > span > a {
     text-decoration: none !important;
 }
+.home{
+    width: 100%;
+    overflow-x: hidden !important;
+}
