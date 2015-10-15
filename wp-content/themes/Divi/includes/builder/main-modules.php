@@ -8185,12 +8185,11 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		}
 
 		if(strpos($module_class,'list-team-member') !== false) {
-			//order by lastname - custom field not working
-			
-			/*$args['meta_key'] = 'last-name';
-			$args['orderby'] = 'meta_value_num';//meta_value*/
+			//order by lastname
+			$args['orderby'] = 'meta_value';//meta_value
+			$args['meta_key'] = 'wpcf-last-name';//wpcf-last-name found in wp_postmeta
 
-			$args['orderby'] = 'title';//using the title
+			//$args['orderby'] = 'title';//for order by the title or first name
 			$args['order'] = 'ASC';
 		}
 
@@ -8217,6 +8216,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 			$i = 0;
 			while ( have_posts() ) {
 				the_post();
+				//echo types_render_field('last-name', array($post->ID));
 
 				$post_format = et_pb_post_format();
 
