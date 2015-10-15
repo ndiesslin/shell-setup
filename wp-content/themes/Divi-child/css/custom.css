@@ -817,9 +817,6 @@ img.full-width {
 }
 
 /* homepage-slider */
-.homepage-slider {
-    height: 500px;
-}
 .homepage-slider .caption-head {
     font-size: 1.25rem;
 }
@@ -1177,6 +1174,9 @@ ul.awDatesUL li a{
     }
 }
 @media(min-width: 769px){
+    .homepage-slider {
+        height: 500px;
+    }
     .large-hover-img:last-child.active{
         padding-right: 7%;
     }
@@ -1630,6 +1630,9 @@ a:hover,
 @media (max-width: 600px) {
     #breadcrumbs{
         margin-bottom: 0.2em;
+    }
+    body.home .et_pb_row{
+        min-height: 60px;
     }
 }
 @media (max-width: 479px) {
