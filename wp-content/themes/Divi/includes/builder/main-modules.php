@@ -8187,7 +8187,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		if(strpos($module_class,'list-team-member') !== false) {
 			//order by lastname
 			$args['orderby'] = 'meta_value';//meta_value
-			$args['meta_key'] = 'wpcf-last-name';//wpcf-last-name found in wp_postmeta
+			$args['meta_key'] = 'wpcf-team-last-name';//wpcf-last-name found in wp_postmeta
 
 			//$args['orderby'] = 'title';//for order by the title or first name
 			$args['order'] = 'ASC';
@@ -8686,7 +8686,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								}
 								else {
 								?>
-								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> <?php echo types_render_field('last-name', array('post_id'=>$post->ID));?> </a>
+								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> <?php echo types_render_field('team-last-name', array('post_id'=>$post->ID));?> </a>
 									<?php if(types_render_field('team-title', array()) != '') { ?>
 									<span><?php echo types_render_field('team-title', array());?></span>
 									<?php } ?>
