@@ -93,6 +93,22 @@ if($details->name != '')
 	$('body.post-type-archive-<?php echo $post_type;?> #et-main-area, body.tax-<?php echo $taxonomy;?> #et-main-area').prepend('<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0"><div class="et_pb_fullwidth_header_container left"><div class="header-content-container center"><div class="header-content"><h1><?php echo $page_title;?></h1></div></div></div></div>');
 </script>
 
+<?php
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if (strpos($url,'post_type') !== false) {//if the url contains post_type word
+?>
+<script>
+	$(document).ready(function() {
+		//$("body").addClass("page-not-found");
+		$('.page-title h1').text('Page Not Found');
+		$('#breadcrumbs .breadcrumb_last').text('Error 404: Page not found');
+		$('body').css({'display':'block'});
+	});	
+</script>
+<?php
+}
+?>
+
 <script>
 	//google analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

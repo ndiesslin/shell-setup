@@ -791,12 +791,16 @@ ul.awDatesUL li:last-child::after {
     text-decoration: underline;
     font-weight: normal;
 }
-.profile-intro .more-link {
-    display: block;
-}
 
 a.more-link {
   padding: 0 10px;
+}
+.profile-intro p {
+    margin-bottom: 10px;
+}
+.profile-intro a.more-link {
+    display: block;
+    padding: 0;
 }
 
 /* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
@@ -1177,9 +1181,9 @@ ul.awDatesUL li a{
     .homepage-slider {
         height: 500px;
     }
-    .large-hover-img:last-child.active{
+    /*.large-hover-img:last-child.active{
         padding-right: 7%;
-    }
+    }*/
     .homepage-slider {
         padding-left: 20px;
         padding-right: 60px;
@@ -1678,7 +1682,7 @@ a:hover,
 }
 
 .elem-large-hover .lh-background {
-    background-position: 0 0;
+    background-position: 0 center;/* 0 0 */
 }
 
 @media (max-width: 1290px) and (min-width: 870px) {
@@ -1697,13 +1701,28 @@ a:hover,
     }
     .large-hover-img:last-child .lh-container {
         width: 140%;
+        -webkit-transition: 0.3s all ease;
+        -moz-transition: 0.3s all ease;
+        transition: 0.3s all ease;
     }
     .large-hover-img:last-child.active .lh-container {
         width: 160%;
     }
 }
+@media (min-width: 2560px) {
+    .homepage-slider,
+    .elem-large-hover .large-hover-img,
+    .lh-background {
+        height: 800px !important;
+    }
+}
 /* ipad Potrait  */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){
+    .elem-large-hover .large-hover-img {
+        width: 100% !important;
+    }
+}
+@media (max-width: 768px) {
     .elem-large-hover .large-hover-img {
         width: 100% !important;
     }
@@ -2092,4 +2111,9 @@ form#gform_1 select {
     .customSel label:after {
         display:none;
     }
+}
+
+/* breadcrumb underline */
+#breadcrumbs > span > span > span > a {
+    text-decoration: none !important;
 }
