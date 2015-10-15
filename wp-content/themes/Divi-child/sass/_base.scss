@@ -48,6 +48,12 @@ p, .et_pb_post p {
   @include font-size(18px);
 }
 
+// font setting for blog posts
+.single-blog .et_pb_text {
+  @include font-size(18px);
+  line-height: 28px;
+}
+
 .font-small {
   @include font-size(12px);
 }
