@@ -8686,7 +8686,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 								}
 								else {
 								?>
-								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php echo types_render_field('first-name', array('post_id'=>$post->ID));?> <?php the_title(); ?> </a>
+								<h2><a href="<?php the_permalink(); ?>" class="name"><?php if('on' === $show_date) echo get_the_date( $meta_date ) . ':'; ?> <?php the_title(); ?> <?php echo types_render_field('last-name', array('post_id'=>$post->ID));?> </a>
 									<?php if(types_render_field('team-title', array()) != '') { ?>
 									<span><?php echo types_render_field('team-title', array());?></span>
 									<?php } ?>
