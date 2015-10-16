@@ -32,6 +32,87 @@ var container = $(".elem-large-hover");
         }
 });
 
+function FormContact_Validator(Form){
+ 	if (Form.input_1_5.value == "") { 
+		alert("Please enter your First Name"); 
+		Form.input_1_5.focus(); 	
+	 	//$( "#gform_submit_button_1" ).bind( "click", function() {
+	  //alert( "User clicked on 'submit.'" );
+		//});
+		return (false); 
+	}
+ 	if (Form.input_1_6.value == "") { 
+		alert("Please enter your Last Name"); 
+		Form.input_1_6.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_7.value == "") { 
+		alert("Please enter your Address"); 
+		Form.input_1_7.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_9.value == "") { 
+		alert("Please enter your City"); 
+		Form.input_1_9.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_14.value == "") { 
+		alert("Please enter your Phone Number"); 
+		Form.input_1_14.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_16.value == "") { 
+		alert("Please enter your Email"); 
+		Form.input_1_16.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_16_2.value == "") { 
+		alert("Please enter your Email"); 
+		Form.input_1_16_2.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_16_2.value != Form.input_1_16) { 
+		alert("Entered email mismatched"); 
+		Form.input_1_16_2.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_17.value == "" || Form.input_1_17.value != "Yes" || Form.input_1_17.value != "No") { 
+		alert("Please enter Yes/No"); 
+		Form.input_1_17.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_23_1.value == "") { 
+		alert("Please enter your Credit Card Number"); 
+		Form.input_1_23_1.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_23_3.value == "") { 
+		alert("Please enter your Verification Security Number"); 
+		Form.input_1_23_3.focus(); 	
+		return (false); 
+	}
+ 	if (Form.input_1_23_5.value == "") { 
+		alert("Please enter your Name on Card"); 
+		Form.input_1_23_5.focus(); 	
+		return (false); 
+	}
+	
+	//else {
+	$('#gform_1').submit();
+		//return (true);
+	//}
+ 
+}
+
+$(document).ready(function() {
+ 
+$("#gform_submit_button_1").click(function() {
+    return FormContact_Validator(gform_1);
+   });
+ 
+});
+ 
+
 $(document).ready(function() {
 //alert('test');
 	//removing first link of menu and breadcrumb
