@@ -2190,5 +2190,11 @@ form#gform_1 select {
 
 /* Gravity form styles */
 .gfield_radio input {
-  margin-left: 0.75em;
+    margin-left: 0.75em;
+}
+
+/* Disable Image Animation Globally */
+.et-waypoint {
+    opacity: 1 !important;
+    animation: none !important;
 }
