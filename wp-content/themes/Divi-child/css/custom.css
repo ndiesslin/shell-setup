@@ -794,6 +794,8 @@ ul.awDatesUL li:last-child::after {
 .profile-intro h2 .name{
     text-decoration: underline;
     font-weight: normal;
+    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 a.more-link {
