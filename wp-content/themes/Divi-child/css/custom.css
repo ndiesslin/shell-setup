@@ -617,6 +617,9 @@ ul.awDatesUL li:last-child::after {
     .circleimage .et_pb_column{
         width: 32.466%;
     }
+    .list-news-two article{
+        margin-bottom: 50px;
+    }
 }
 .two-column .column:nth-child(3){
 	/*display: none;*/
