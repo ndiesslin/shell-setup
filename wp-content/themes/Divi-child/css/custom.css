@@ -2104,6 +2104,9 @@ form#gform_1 select {
     .customSel {
         width: 200px;
     }
+   .two-col-sec .list-news article:last-child {
+        margin-bottom: 0;
+    } 
 }
 
     .customSel select {
