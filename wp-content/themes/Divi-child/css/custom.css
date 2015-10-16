@@ -242,13 +242,13 @@ footer ul.sub-menu {
     .heading-module h3, .heading-row h3{
         font-size: 29px;
     }
-    .video-post .et_pb_video{
+    /*.video-post .et_pb_video{
         max-height: 250px;
         overflow: hidden;
     }
     .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed{
         max-height: 250px;
-    }
+    }*/
 }
 #breadcrumbs{
     margin-bottom: 10px;
@@ -1638,6 +1638,10 @@ a:hover,
     body.home .et_pb_row{
         min-height: 60px;
     }
+    body.home .call-to-action-row{
+        min-height: 135px;
+    }
+
 }
 @media (max-width: 479px) {
     header#main-header {
@@ -2120,4 +2124,10 @@ form#gform_1 select {
 .home{
     width: 100%;
     overflow-x: hidden !important;
+}
+.homepage-slider{
+    clear: both;
+}
+.home .call-to-action-row{
+    min-height: 135px;
 }

@@ -2146,7 +2146,7 @@ p, .et_pb_post p {
 
 #top-menu li {
   font-size: 1em;
-  padding-right: 1em; }
+  line-height: 1.5; }
 
 #top-menu a, #mobile_menu a {
   color: #250670; }
