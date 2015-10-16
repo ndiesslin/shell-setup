@@ -1456,6 +1456,11 @@ ul.awDatesUL li a.active {
         right: -30px;
     }
 }
+@media(min-width: 667px) and (max-width: 880px){
+    .medium-thumb{
+        height: 230px;
+    }
+}
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img,
 .single .has-post-thumbnail .et_post_meta_wrapper img {
