@@ -2126,6 +2126,7 @@ form#gform_1 select {
     overflow-x: hidden !important;
 }
 .homepage-slider{
+    overflow: hidden;
     clear: both;
 }
 .home .call-to-action-row{
