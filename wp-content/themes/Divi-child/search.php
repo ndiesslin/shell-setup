@@ -12,7 +12,8 @@ get_header(); ?>
 <?php 
 //title
 $title = 'Search Results for ' . get_search_query();
-$title_icon = do_shortcode(types_render_field('title-icon', array()));
+//$title_icon = do_shortcode(types_render_field('title-icon', array()));
+$title_icon = '';
 $team_title = types_render_field('team-title', array());
 page_title($title, $title_icon, $team_title);
 ?>
