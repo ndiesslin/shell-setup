@@ -1638,6 +1638,10 @@ a:hover,
     body.home .et_pb_row{
         min-height: 60px;
     }
+    body.home .call-to-action-row{
+        min-height: 135px;
+    }
+
 }
 @media (max-width: 479px) {
     header#main-header {
@@ -2120,4 +2124,10 @@ form#gform_1 select {
 .home{
     width: 100%;
     overflow-x: hidden !important;
+}
+.homepage-slider{
+    clear: both;
+}
+.home .call-to-action-row{
+    min-height: 135px;
 }
