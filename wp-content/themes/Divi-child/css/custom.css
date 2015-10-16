@@ -1950,6 +1950,7 @@ input, textarea, button {
     margin-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
+    border-radius: 0;
 }
 .wpcf7-form textarea {
     padding: 15px;
@@ -1960,6 +1961,7 @@ input, textarea, button {
     line-height: 44px;
 }
 .wpcf7-form input[type=submit], .btn, .button {
+    border-radius: 0;
     background-color: #2b266d;
     color: #ffffff;
     display: inline-block;
@@ -2002,6 +2004,7 @@ input, textarea, button {
     width: auto;
 }
 .wpcf7-form input.captcha-text {
+    border-radius: 0;
     border: 2px solid #dcdcdc;
     background-color: #fff;
     width: 276px;
