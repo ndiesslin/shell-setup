@@ -2185,3 +2185,8 @@ form#gform_1 select {
 .img-as-bg .et_pb_main_blurb_image img{
     opacity: 0;
 }
+
+/* Gravity form styles */
+.gfield_radio input {
+  margin-left: 0.75em;
+}
