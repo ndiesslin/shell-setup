@@ -8196,6 +8196,7 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
 		//2015, 2016 in news and events
 		if (strpos($module_class,'news-events-page') !== false) {
    		$year = $_GET['y'] ? $_GET['y'] : date("Y");
+   		$current_year = $year;
 
    		//$args['orderby'] = 'date';
    		$args['date_query'] = array(
@@ -8884,7 +8885,10 @@ class ET_Builder_Module_Blog extends ET_Builder_Module {
           if($yearSel==$year[0]['publish'] ) echo ' class="current_page_item" ';
         echo '>';
 
-      echo  '<a href="'. $link. '?y=' . $year[0]['publish'] . '">'.  $year[0]['publish'] .'</a></li>';
+      echo  '<a href="'. $link. '?y=' . $year[0]['publish'] . '" class="';
+      	//if($current_year == date('Y')) echo 'active';
+      	if($current_year == $year[0]['publish']) echo 'active';
+      echo'">'.  $year[0]['publish'] .'</a></li>';
   		}
    		echo '</ul>';
    	}
