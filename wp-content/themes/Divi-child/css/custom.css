@@ -2181,3 +2181,6 @@ form#gform_1 select {
 .home .call-to-action-row{
     min-height: 135px;
 }
+.img-as-bg .et_pb_main_blurb_image img{
+    opacity: 0;
+}
