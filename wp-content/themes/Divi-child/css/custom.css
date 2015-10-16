@@ -1445,6 +1445,11 @@ ul.awDatesUL li a.active {
         min-height: 185px;
     }
 }
+@media(min-width: 480px) and (max-width: 980px){
+    .list-news-thumb{
+        min-height: 145px;
+    }
+}
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img,
 .single .has-post-thumbnail .et_post_meta_wrapper img {
@@ -2107,6 +2112,12 @@ form#gform_1 select {
    .two-col-sec .list-news article:last-child {
         margin-bottom: 0;
     } 
+    .two-col-sec .list-news{
+        margin-bottom: 20px;
+    }
+    .two-row-module .et_pb_column .view-all-module{
+        margin-bottom: 60px !important;
+    }
 }
 
     .customSel select {
