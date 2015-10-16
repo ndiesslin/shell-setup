@@ -1639,7 +1639,7 @@ a:hover,
         min-height: 60px;
     }
     body.home .call-to-action-row{
-        min-height: 135px;
+        min-height: 175px;
     }
 
 }
@@ -1682,6 +1682,9 @@ a:hover,
     a.jcarousel-control-next{
         right: 15px;
         left: auto;
+    }
+    body.home .call-to-action-row{
+        min-height: 120px;
     }
 }
 
