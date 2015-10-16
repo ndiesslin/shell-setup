@@ -1449,6 +1449,12 @@ ul.awDatesUL li a.active {
     .list-news-thumb{
         min-height: 145px;
     }
+    a.jcarousel-control-prev{
+        left: -30px;
+    }
+    a.jcarousel-control-next{
+        right: -30px;
+    }
 }
 /* Temporarily hiding featured image of news-event */
 .single-news-event .has-post-thumbnail .et_post_meta_wrapper img,
