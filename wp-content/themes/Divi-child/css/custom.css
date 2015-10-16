@@ -1426,6 +1426,12 @@ ul.awDatesUL li a{
     .box-row-module .newsletter-box, .box-row-module .icon-top-right .et_pb_main_blurb_image img{
         height: auto;
     }
+    .list-news-two-row .et_pb_blog_grid_wrapper{
+        overflow: hidden;
+    }
+    .list-news-two-row .view-all{
+        margin-top: 27px;
+    }
 }
 @media(min-width: 480px){
     .img-text-left .et_pb_row .et_pb_column .et_pb_module:last-child{
