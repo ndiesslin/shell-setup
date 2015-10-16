@@ -233,7 +233,7 @@ footer ul.sub-menu {
 }
 @media (min-width: 769px) {
     .lh-background{
-      height: 500px !important;       
+      height: 500px !important;
     }
     .page-title h1 {
         margin-right: 130px;
@@ -267,6 +267,7 @@ footer ul.sub-menu {
 }
 header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
 	top: auto;
+  line-height: 1.25;
 }
 /*banner*/
 .lh-click{
@@ -2124,7 +2125,7 @@ form#gform_1 select {
     }
    .two-col-sec .list-news article:last-child {
         margin-bottom: 0;
-    } 
+    }
     .two-col-sec .list-news{
         margin-bottom: 20px;
     }
@@ -2160,7 +2161,7 @@ form#gform_1 select {
 
 /*target Internet Explorer 9 and Internet Explorer 10:*/
 
-@media screen and (min-width:0\0) { 
+@media screen and (min-width:0\0) {
     .customSel label:after {
         display:none;
     }
