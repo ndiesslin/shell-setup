@@ -86,6 +86,10 @@ display: none !important;
 .themes .theme.active {
   display: block !important;
 }
+/* custom-menu */
+#toplevel_page_myplugin-myplugin-admin {
+  display: none;
+}
   </style>';
 }
 
