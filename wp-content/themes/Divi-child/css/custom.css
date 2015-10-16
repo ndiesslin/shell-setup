@@ -1854,7 +1854,7 @@ a:hover,
 }
 @media(min-width: 667px) and (max-width: 880px){
     .medium-thumb{
-        height: 230px;
+        height: 225px;
     }
 }
 /*current studies list*/
