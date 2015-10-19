@@ -71,7 +71,7 @@ function FormContact_Validator(Form){
 		Form.input_1_16_2.focus(); 	
 		return (false); 
 	}
- 	if (Form.input_1_16_2.value != Form.input_1_16) { 
+ 	if (Form.input_1_16_2.value != Form.input_1_16.value) { 
 		alert("Entered email mismatched"); 
 		Form.input_1_16_2.focus(); 	
 		return (false); 
