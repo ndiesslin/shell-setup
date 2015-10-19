@@ -306,3 +306,10 @@ $(window).resize(function(){
 	};
 });
 // for whats-new bottom boxes equal size ends.
+
+// image as background
+$(document).ready(function(){
+	var img_url = $('.img-as-bg .et_pb_blurb_content .et_pb_main_blurb_image img').attr('src');
+	var img_url_link = 'url('+ img_url + ')';
+	$('.img-as-bg .et_pb_blurb_content .et_pb_main_blurb_image').css({'background-image': img_url_link});
+});

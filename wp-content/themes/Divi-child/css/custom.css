@@ -233,7 +233,7 @@ footer ul.sub-menu {
 }
 @media (min-width: 769px) {
     .lh-background{
-      height: 500px !important;       
+      height: 500px !important;
     }
     .page-title h1 {
         margin-right: 130px;
@@ -267,6 +267,7 @@ footer ul.sub-menu {
 }
 header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
 	top: auto;
+  line-height: 1.25;
 }
 /*banner*/
 .lh-click{
@@ -793,6 +794,8 @@ ul.awDatesUL li:last-child::after {
 .profile-intro h2 .name{
     text-decoration: underline;
     font-weight: normal;
+    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 a.more-link {
@@ -2124,7 +2127,7 @@ form#gform_1 select {
     }
    .two-col-sec .list-news article:last-child {
         margin-bottom: 0;
-    } 
+    }
     .two-col-sec .list-news{
         margin-bottom: 20px;
     }
@@ -2160,7 +2163,7 @@ form#gform_1 select {
 
 /*target Internet Explorer 9 and Internet Explorer 10:*/
 
-@media screen and (min-width:0\0) { 
+@media screen and (min-width:0\0) {
     .customSel label:after {
         display:none;
     }
@@ -2180,4 +2183,23 @@ form#gform_1 select {
 }
 .home .call-to-action-row{
     min-height: 135px;
+}
+.img-as-bg .et_pb_main_blurb_image{
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: 20%;
+}
+.img-as-bg .et_pb_main_blurb_image img{
+    opacity: 0 !important;
+}
+
+/* Gravity form styles */
+.gfield_radio input {
+    margin-left: 0.75em;
+}
+
+/* Disable Image Animation Globally */
+.et-waypoint {
+    opacity: 1 !important;
+    animation: none !important;
 }
