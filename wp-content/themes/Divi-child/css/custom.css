@@ -2187,6 +2187,7 @@ form#gform_1 select {
 .img-as-bg .et_pb_main_blurb_image{
     background-repeat: repeat;
     background-size: cover;
+    background-position: 20%;
 }
 .img-as-bg .et_pb_main_blurb_image img{
     opacity: 0 !important;
