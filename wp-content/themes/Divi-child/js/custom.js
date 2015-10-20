@@ -288,6 +288,7 @@ $(document).on('click', function (e) {
 });	
 
 // for whats-new bottom boxes equal size
+/* rhs I think this may be causing more problems than it fixes
 $(document).ready(function(){
 	var winWidth = $(window).width();
 	if (winWidth > 480) {
@@ -307,7 +308,7 @@ $(window).resize(function(){
 	};
 });
 // for whats-new bottom boxes equal size ends.
-
+*/
 // image as background
 $(document).ready(function(){
 	var img_url = $('.img-as-bg .et_pb_blurb_content .et_pb_main_blurb_image img').attr('src');
