@@ -1450,7 +1450,7 @@ ul.awDatesUL li a.active {
         min-height: 185px;
     }
     .box-row-module .et_pb_column:first-child{
-        min-height: 250px;
+        min-height: 280px;
     }
 }
 @media(min-width: 480px) and (max-width: 980px){
