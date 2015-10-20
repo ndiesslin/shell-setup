@@ -52,7 +52,7 @@ h4, .et_pb_post h4 {
   font-size: 22px;
   font-size: 1.375rem;
 }
-p, .et_pb_post p {
+p, .et_pb_post p, .et_pb_text {
   font-size: 18px;
   line-height: 28px;
   font-size: 1.125rem;
