@@ -817,6 +817,8 @@ a.more-link {
     float: left;
     margin-right: 20px;
     border-radius: 50%;
+    height: 216px;  /* rhs force the team page images to be a square so the radius makes a circle */
+    width: 216px;
 }
 .page .et_pb_posts article.team.has-post-thumbnail a.more-link {
     display: inline-block;
