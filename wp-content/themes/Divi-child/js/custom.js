@@ -76,11 +76,12 @@ function FormContact_Validator(Form){
 		Form.input_1_16_2.focus(); 	
 		return (false); 
 	}
- 	if (Form.input_1_17.value == "" || Form.input_1_17.value != "Yes" || Form.input_1_17.value != "No") { 
-		alert("Please enter Yes/No"); 
-		Form.input_1_17.focus(); 	
-		return (false); 
-	}
+	if (Form.input_1_34.value == "" || Form.input_1_34.value != "Yes" || Form.input_1_34.value != "No") {
+                console.log(Form.input_1_34);
+                alert("Please enter Yes/No");
+                Form.input_1_34.focus();
+                return (false);
+        }
  	if (Form.input_1_23_1.value == "") { 
 		alert("Please enter your Credit Card Number"); 
 		Form.input_1_23_1.focus(); 	
