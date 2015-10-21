@@ -1325,6 +1325,12 @@ ul.awDatesUL li a.active {
     .et_header_style_left .et-search-form, .et_header_style_split .et-search-form{
         max-width: 25% !important;
     }
+    .et_mobile_menu {
+        max-height: 300px;
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling:touch; // mobile safari
+    }
     .logo-lg{
         display: none !important;
         visibility: hidden;
@@ -1693,12 +1699,6 @@ a:hover,
 
     .et_mobile_menu {
         top: 90px;
-        height: 300px;
-        height: 80vh;
-        max-height: 300px;
-        max-height: 80vh;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling:touch; // mobile safari
     }
     .logo_container #logo {
         min-height: 60px;
