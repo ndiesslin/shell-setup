@@ -55,7 +55,7 @@ page_title($title, $title_icon, $team_title);
 			<?php 
 			endif;
 			?>
-	</div> <!-- /.container -->
+	
 	
 	<?php
 global $wp_query;
@@ -69,5 +69,5 @@ echo paginate_links( array(
 	'total' => $wp_query->max_num_pages
 ) );
 ?>
-
+</div> <!-- /.container -->
 <?php get_footer(); ?>
