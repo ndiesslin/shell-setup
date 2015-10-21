@@ -78,7 +78,7 @@ function FormContact_Validator(Form){
 	}
  	if (Form.input_1_34_1.value == "" || Form.input_1_34_1.value != "Yes" || Form.input_1_34_1.value != "No") {
 		alert("Please enter Yes/No");
-		Form.input_1_34_1.focus(); 	
+		Form.input_1_34_1.focus();
 		return (false);
 	}
  	if (Form.input_1_23_1.value == "") {
