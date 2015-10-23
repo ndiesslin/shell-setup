@@ -1179,6 +1179,9 @@ ul.awDatesUL li a.active {
     /*.box-row-module .icon-top-right .et_pb_main_blurb_image img{
         height: 303px;
     }*/
+    .icon-top-right {
+      margin-left: -110px;
+    }
     .et_header_style_left .et-fixed-header #et_top_search{
         margin-top: 7px;
     }
@@ -1381,7 +1384,7 @@ ul.awDatesUL li a.active {
         margin-right: 0;
     }
     .icon-top-right i:before{
-        margin-left: -110px;
+        margin-left: -65px;
     }
     .et_pb_row .et_pb_column .et_pb_module:last-child, .et_section_specialty .et_pb_row .et_pb_column .et_pb_module:last-child{
         margin-bottom: 30px;
