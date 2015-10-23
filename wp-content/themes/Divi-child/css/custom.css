@@ -656,9 +656,9 @@ ul.awDatesUL li:last-child::after {
     background: #ab1f2d;
     padding: 20px 15px;
     color: #FFF;
-    /* width: 93.5%;
+    width: 93.5%;
     height: 0;
-    padding-bottom: 93.5% */
+    padding-bottom: 93.5%
 }
 /* rhs
 .newsletter-box p {
