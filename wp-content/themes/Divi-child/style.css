@@ -2104,10 +2104,21 @@ p, .et_pb_post p {
   z-index: auto; }
 
 .et_fixed_nav #main-header {
+  height: 172px;
   position: relative; }
+  @media (max-width: 1200px) {
+    .et_fixed_nav #main-header {
+      height: auto; } }
 
-.et_fixed_nav #main-header.et-fixed-header {
-  position: fixed; }
+@media (max-width: 1200px) {
+  .et_fixed_nav #main-header.et-fixed-header {
+    position: fixed; } }
+
+.logo_container, .logo_container * {
+  transition: none !important; }
+
+#main-header, #main-header * {
+  transition: none !important; }
 
 #et-top-navigation {
   text-transform: uppercase; }
@@ -2144,7 +2155,7 @@ p, .et_pb_post p {
 #top-menu .sub-menu .menu-item-has-children a:after {
   content: "5"; }
 
-#top-menu li {
+#top-menu li > li {
   font-size: 1em;
   line-height: 1.5; }
 

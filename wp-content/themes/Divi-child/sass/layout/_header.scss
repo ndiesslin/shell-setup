@@ -21,9 +21,23 @@
 }
 
 .et_fixed_nav #main-header {
+  height: 172px; // Disables page just on scroll
   position: relative;
+  @include breakpoint (large) {
+    height: auto;
+  }
 }
 
 .et_fixed_nav #main-header.et-fixed-header {
-  position: fixed;
+  @include breakpoint (large) {
+    position: fixed;
+  }
+}
+
+.logo_container, .logo_container * {
+  transition: none !important; // Disables animation transition
+}
+
+#main-header, #main-header * {
+  transition: none !important; // Disables animation transition
 }

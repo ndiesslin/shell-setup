@@ -43,18 +43,18 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('scripts', function() {
-  var scriptSrc = "./wp-content/themes/Divi-child/scripts/"
-  return gulp.src([scriptSrc + 'custom.js', scriptSrc + 'plugin-ex.js', scriptSrc + 'scripts.js', scriptSrc + 'nav.js', scriptSrc + 'large-hover.js' ])
-    .pipe(concat('./all.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./wp-content/themes/Divi-child/js/'));
+  // var scriptSrc = "./wp-content/themes/Divi-child/scripts/"
+  // return gulp.src([scriptSrc + 'custom.js', scriptSrc + 'plugin-ex.js', scriptSrc + 'scripts.js', scriptSrc + 'nav.js', scriptSrc + 'large-hover.js' ])
+  //   .pipe(concat('./all.js'))
+  //   .pipe(uglify())
+  //   .pipe(gulp.dest('./wp-content/themes/Divi-child/js/'));
 });
 
 // All watch tasks
 gulp.task('watch', function () {
   gulp.watch('./wp-content/themes/Divi-child/sass/**/*.scss', ['sass']);
   gulp.watch((mainDir + 'scripts/coffee/*.coffee'), ['coffee']);
-  gulp.watch('./wp-content/themes/Divi-child/scripts/**/*.js', ['scripts']);
+  //gulp.watch('./wp-content/themes/Divi-child/scripts/**/*.js', ['scripts']);
 });
 
 gulp.task('default', ['sass', 'coffee', 'scripts', 'watch', 'browser-sync']);

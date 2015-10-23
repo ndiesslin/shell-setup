@@ -48,7 +48,7 @@
       }
     }
   }
-  li {
+  li > li {
     font-size: 1em;
     line-height: 1.5;
   }
@@ -141,7 +141,7 @@ span.et_close_search_field {
     visibility: initial !important;
     display: initial !important;
   }
-  li { 
+  li {
     a {
       text-decoration: none;
     }

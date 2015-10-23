@@ -267,7 +267,6 @@ footer ul.sub-menu {
 }
 header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwidth-menu .menu-item-has-children > a:first-child:after, header #et-secondary-nav .menu-item-has-children > a:first-child:after{
 	top: auto;
-  line-height: 1.25;
 }
 /*banner*/
 .lh-click{
