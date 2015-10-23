@@ -2,7 +2,7 @@ $=jQuery;
 
 
 function home_slide_img_width() {
-	var vpw = $(document).width();//window
+	var vpw = window.innerWidth;//window
 	//console.log(vpw);
 	if(vpw >= 769) {//769 and above
 		$('.elem-large-hover .lh-background').css({'width':2*vpw/3+'px'})
