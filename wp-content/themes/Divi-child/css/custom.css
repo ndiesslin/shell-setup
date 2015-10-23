@@ -1179,7 +1179,7 @@ ul.awDatesUL li a.active {
     /*.box-row-module .icon-top-right .et_pb_main_blurb_image img{
         height: 303px;
     }*/
-    .icon-top-right {
+    .icon-top-right i:before {
       margin-left: -110px;
     }
     .et_header_style_left .et-fixed-header #et_top_search{
