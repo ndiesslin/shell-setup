@@ -1383,9 +1383,9 @@ ul.awDatesUL li a.active {
         width: 47.25%;
         margin-right: 0;
     }
-    .icon-top-right i:before{
+    /*.icon-top-right i:before{
         margin-left: -65px;
-    }
+    }*/
     .et_pb_row .et_pb_column .et_pb_module:last-child, .et_section_specialty .et_pb_row .et_pb_column .et_pb_module:last-child{
         margin-bottom: 30px;
     }
