@@ -1819,11 +1819,11 @@ a:hover,
 }
 /*ipad landscape only*/
 @media (max-width: 1024px) and (min-width: 769px) {
-    .box-row-module {
+    .box-row-module .et_pb_column:first-child{
         width: 100%;
     }
     .box-row-module .et_pb_column{
-        width: 31%;
+        width: 47.25%;
         margin-right: 5.5%;
     }
 }
