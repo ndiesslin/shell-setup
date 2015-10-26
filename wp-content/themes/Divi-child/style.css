@@ -2130,7 +2130,7 @@ p, .et_pb_post p {
       padding-top: 33px; } }
 
 .nav li.slide-left li ul {
-  left: initial;
+  left: auto;
   right: 240px; }
 
 .nav li.mega-menu li ul {
