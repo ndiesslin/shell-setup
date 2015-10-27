@@ -48,9 +48,12 @@
       }
     }
   }
-  li > li {
+  ul > li {
     font-size: 1em;
     line-height: 1.5;
+    a:after {
+      line-height: 1.25;
+    }
   }
 }
 
