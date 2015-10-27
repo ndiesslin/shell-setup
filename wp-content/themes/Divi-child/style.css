@@ -2036,7 +2036,6 @@ a {
   font-size: 35px;
   font-size: 2.1875rem;
   text-transform: uppercase;
-  text-decoration: underline;
   padding: 1.75em 1em;
   margin: 0 0 0.75em 0;
   line-height: 1.5; }
@@ -2155,9 +2154,11 @@ p, .et_pb_post p {
 #top-menu .sub-menu .menu-item-has-children a:after {
   content: "5"; }
 
-#top-menu li > li {
+#top-menu ul > li {
   font-size: 1em;
   line-height: 1.5; }
+  #top-menu ul > li a:after {
+    line-height: 1.25; }
 
 #top-menu a, #mobile_menu a {
   color: #250670; }
