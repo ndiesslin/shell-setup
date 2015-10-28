@@ -22,56 +22,133 @@ if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 		<?php
 		//print_r($posts);exit();
 			if ( have_posts() ) :
+				$i = 0;
 				while ( have_posts() ) : the_post();
 					$post_format = et_pb_post_format(); ?>
 
+					<?php 
+					//print_r($post->ID);
+					$post_id = $post->ID;
+					$featured_id = types_render_field('featured-posts', array('post_id'=>$post_id, 'output'=>'raw'));
+					if($featured_id == 1):
+						$i++;
+					?>
+
 					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
 
-				<?php
-					$thumb = '';
+						<?php
+							$thumb = '';
 
-					$width = (int) apply_filters( 'et_pb_index_blog_image_width', 1080 );
+							$width = (int) apply_filters( 'et_pb_index_blog_image_width', 1080 );
 
-					$height = (int) apply_filters( 'et_pb_index_blog_image_height', 675 );
-					$classtext = 'et_pb_post_main_image';
-					$titletext = get_the_title();
-					$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
-					$thumb = $thumbnail["thumb"];
+							$height = (int) apply_filters( 'et_pb_index_blog_image_height', 675 );
+							$classtext = 'et_pb_post_main_image';
+							$titletext = get_the_title();
+							$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+							$thumb = $thumbnail["thumb"];
 
-					et_divi_post_format_content();
+							et_divi_post_format_content();
 
-					if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) {
-						if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
-							printf(
-								'<div class="et_main_video_container">
-									%1$s
-								</div>',
-								$first_video
-							);
-						elseif ( 'on' == et_get_option( 'divi_thumbnails_index', 'on' ) && '' !== $thumb  ) : ?>
-							<a href="<?php the_permalink(); ?>">
-								<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
-							</a>
-					<?php
-						endif;
-					} ?>
+							if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) {
+								if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
+									printf(
+										'<div class="et_main_video_container">
+											%1$s
+										</div>',
+										$first_video
+									);
+								elseif ( 'on' == et_get_option( 'divi_thumbnails_index', 'on' ) && '' !== $thumb  ) : ?>
+									<a href="<?php the_permalink(); ?>">
+										<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
+									</a>
+							<?php
+								endif;
+							} ?>
 
-				<?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) : ?>
-					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
-						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-					<?php endif; ?>
+						<?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) : ?>
+							<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
+								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							<?php endif; ?>
 
-					<?php
-						et_divi_post_meta();
+							<?php
+								et_divi_post_meta();
 
-						if ( 'on' !== et_get_option( 'divi_blog_style', 'false' ) || ( is_search() && ( 'on' === get_post_meta( get_the_ID(), '_et_pb_use_builder', true ) ) ) )
-							truncate_post( 270 );
-						else
-							the_content();
-					?>
-				<?php endif; ?>
+								if ( 'on' !== et_get_option( 'divi_blog_style', 'false' ) || ( is_search() && ( 'on' === get_post_meta( get_the_ID(), '_et_pb_use_builder', true ) ) ) )
+									truncate_post( 270 );
+								else
+									the_content();
+							?>
+						<?php endif; ?>
 
 					</article> <!-- .et_pb_post -->
+					<?php endif;//$featured?>
+
+			<?php
+					endwhile;
+
+
+
+
+					while ( have_posts() ) : the_post();
+					$post_format = et_pb_post_format(); ?>
+
+					<?php 
+					//print_r($post->ID);
+					$post_id = $post->ID;
+					$featured_id = types_render_field('featured-posts', array('post_id'=>$post_id, 'output'=>'raw'));
+					if($featured_id != 1):
+						$i++;
+					?>
+
+					<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
+
+						<?php
+							$thumb = '';
+
+							$width = (int) apply_filters( 'et_pb_index_blog_image_width', 1080 );
+
+							$height = (int) apply_filters( 'et_pb_index_blog_image_height', 675 );
+							$classtext = 'et_pb_post_main_image';
+							$titletext = get_the_title();
+							$thumbnail = get_thumbnail( $width, $height, $classtext, $titletext, $titletext, false, 'Blogimage' );
+							$thumb = $thumbnail["thumb"];
+
+							et_divi_post_format_content();
+
+							if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) {
+								if ( 'video' === $post_format && false !== ( $first_video = et_get_first_video() ) ) :
+									printf(
+										'<div class="et_main_video_container">
+											%1$s
+										</div>',
+										$first_video
+									);
+								elseif ( 'on' == et_get_option( 'divi_thumbnails_index', 'on' ) && '' !== $thumb  ) : ?>
+									<a href="<?php the_permalink(); ?>">
+										<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
+									</a>
+							<?php
+								endif;
+							} ?>
+
+						<?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote', 'gallery' ) ) ) : ?>
+							<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
+								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							<?php endif; ?>
+
+							<?php
+								et_divi_post_meta();
+
+								if ( 'on' !== et_get_option( 'divi_blog_style', 'false' ) || ( is_search() && ( 'on' === get_post_meta( get_the_ID(), '_et_pb_use_builder', true ) ) ) )
+									truncate_post( 270 );
+								else
+									the_content();
+							?>
+						<?php endif; ?>
+
+					</article> <!-- .et_pb_post -->
+					<?php endif;//$featured?>
+
 			<?php
 					endwhile;
 
