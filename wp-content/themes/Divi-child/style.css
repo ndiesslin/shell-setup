@@ -2211,7 +2211,7 @@ p, .et_pb_post p {
     width: 100%;
     position: initial;
     border: none;
-    background: #D1E0D7;
+    background-color: #D1E0D7;
     border-radius: 10px;
     padding: 0.5em;
     color: #474647; }
