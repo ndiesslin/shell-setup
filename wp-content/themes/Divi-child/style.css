@@ -2201,7 +2201,7 @@ p, .et_pb_post p {
     opacity: 0.7; }
 
 .et-search-form {
-  padding-top: 123px; }
+  padding-top: 120px; }
   @media (max-width: 1200px) {
     .et-search-form {
       padding-top: 33px;
@@ -2210,11 +2210,18 @@ p, .et_pb_post p {
   .et-search-form input {
     width: 100%;
     position: initial;
-    border: solid 1px #474647; }
+    border: none;
+    background: #D1E0D7;
+    border-radius: 10px;
+    padding: 0.5em;
+    color: #474647; }
     @media (max-width: 1200px) {
       .et-search-form input {
-        width: 60%;
-        margin: 0.45em 0 0; } }
+        width: 70%;
+        margin: 0; } }
+    @media (max-width: 480px) {
+      .et-search-form input {
+        width: 60%; } }
 
 span.et_close_search_field {
   color: #250670;
