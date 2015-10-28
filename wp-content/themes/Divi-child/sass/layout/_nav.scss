@@ -109,7 +109,7 @@
 }
 
 .et-search-form {
-  padding-top: 123px;
+  padding-top: 120px;
   @include breakpoint (large) {
     padding-top: 33px;
     max-width: 50% !important;
@@ -118,10 +118,18 @@
   input {
     width: 100%;
     position: initial;
-    border: solid 1px $black;
+    //border: solid 1px $black;
+    border: none;
+    background: $mint;
+    border-radius: 10px;
+    padding: 0.5em;
+    color: $black;
     @include breakpoint (large) {
+      width: 70%;
+      margin: 0;
+    }
+    @include breakpoint (small) {
       width: 60%;
-      margin: 0.45em 0 0;
     }
   }
 }
