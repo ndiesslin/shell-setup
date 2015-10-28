@@ -1652,9 +1652,9 @@ a:hover,
     .et-search-form, span.et_close_search_field{
         padding-top: 70px;
     }
-    span.et_close_search_field {
+    /*span.et_close_search_field {
         margin: auto 2.3em auto 0;
-    }
+    }*/
     .logo_container {
         text-align: center;
     }
@@ -1804,11 +1804,11 @@ a:hover,
         padding-top: 40px;
     }
 }
-@media (min-width: 992px) and (max-width: 1200px){
+/*@media (min-width: 992px) and (max-width: 1200px){
     span.mobile_menu_bar{
         margin-top: -10px;
     }
-}
+}*/
 /*up to ipad landscape*/
 @media (max-width: 1024px) {
     .view-all-module p{

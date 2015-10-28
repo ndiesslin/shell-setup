@@ -1,5 +1,12 @@
 #et-top-navigation {
   text-transform: uppercase;
+  -moz-transition-property: all;
+	-moz-transition-duration: 2s;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 2s;
+	transition-property: all;
+	transition-duration: 2s;
+  transition: all !important;
 }
 
 .et_header_style_left #et-top-navigation {
@@ -87,15 +94,6 @@
   }
 }
 
-span.et_close_search_field {
-  margin: 0;
-  padding: 119px 0 0 0;
-  height: initial;
-  @include breakpoint (large) {
-    padding: 29px 0 0 0;
-  }
-}
-
 #et_search_icon {
   color: $purple;
   -moz-transition: all 0.4s ease-in-out;
@@ -115,17 +113,27 @@ span.et_close_search_field {
   @include breakpoint (large) {
     padding-top: 33px;
     max-width: 50% !important;
+    padding: 0 0 0 1em;
   }
   input {
+    width: 100%;
     position: initial;
+    border: solid 1px $black;
+    @include breakpoint (large) {
+      width: 60%;
+      margin: 0.45em 0 0;
+    }
   }
 }
 
 span.et_close_search_field {
   color: $purple;
   margin: auto -3em auto 0;
+  padding: 119px 0 0 0;
+  height: initial;
   @include breakpoint (large) {
-    margin: auto 3em auto 0;
+    padding: 29px 0 0 0;
+    margin: auto 1em auto 0;
   }
   &:after {
     -moz-transition: all 0.4s ease-in-out;
@@ -151,8 +159,11 @@ span.et_close_search_field {
   }
 }
 
-.mobile_menu_bar:before {
-  color: $red;
+.mobile_menu_bar {
+  margin-top: -14px;
+  &:before {
+    color: $red;
+  }
 }
 
 .menu-item-has-children.ui-accordion {
@@ -160,7 +171,7 @@ span.et_close_search_field {
     display: none !important;
   }
   ul.ui-accordion-content-active {
-    display: initial !important;
+    display: inline !important;
   }
 }
 

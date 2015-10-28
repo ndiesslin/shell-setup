@@ -2120,7 +2120,14 @@ p, .et_pb_post p {
   transition: none !important; }
 
 #et-top-navigation {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -moz-transition-property: all;
+  -moz-transition-duration: 2s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 2s;
+  transition-property: all;
+  transition-duration: 2s;
+  transition: all !important; }
 
 .et_header_style_left #et-top-navigation {
   padding-top: 123px; }
@@ -2182,14 +2189,6 @@ p, .et_pb_post p {
       float: left;
       right: initial; } }
 
-span.et_close_search_field {
-  margin: 0;
-  padding: 119px 0 0 0;
-  height: initial; }
-  @media (max-width: 1200px) {
-    span.et_close_search_field {
-      padding: 29px 0 0 0; } }
-
 #et_search_icon {
   color: #250670;
   -moz-transition: all 0.4s ease-in-out;
@@ -2206,16 +2205,26 @@ span.et_close_search_field {
   @media (max-width: 1200px) {
     .et-search-form {
       padding-top: 33px;
-      max-width: 50% !important; } }
+      max-width: 50% !important;
+      padding: 0 0 0 1em; } }
   .et-search-form input {
-    position: initial; }
+    width: 100%;
+    position: initial;
+    border: solid 1px #474647; }
+    @media (max-width: 1200px) {
+      .et-search-form input {
+        width: 60%;
+        margin: 0.45em 0 0; } }
 
 span.et_close_search_field {
   color: #250670;
-  margin: auto -3em auto 0; }
+  margin: auto -3em auto 0;
+  padding: 119px 0 0 0;
+  height: initial; }
   @media (max-width: 1200px) {
     span.et_close_search_field {
-      margin: auto 3em auto 0; } }
+      padding: 29px 0 0 0;
+      margin: auto 1em auto 0; } }
   span.et_close_search_field:after {
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
@@ -2231,14 +2240,16 @@ span.et_close_search_field {
   .et_mobile_menu li a {
     text-decoration: none; }
 
-.mobile_menu_bar:before {
-  color: #AB162B; }
+.mobile_menu_bar {
+  margin-top: -14px; }
+  .mobile_menu_bar:before {
+    color: #AB162B; }
 
 .menu-item-has-children.ui-accordion ul {
   display: none !important; }
 
 .menu-item-has-children.ui-accordion ul.ui-accordion-content-active {
-  display: initial !important; }
+  display: inline !important; }
 
 .ui-accordion-icons::after {
   font-family: 'ETmodules';
