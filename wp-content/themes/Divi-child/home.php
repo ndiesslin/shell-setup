@@ -41,14 +41,14 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 			<div class="large-hover-img">
 				<div class="lh-table <?php echo ($i == 1 ? 'img-first': '');?>">
 					<div class="lh-container <?php echo $color;?>">
-						<a class="caption-head" href="<?php echo $page_link;?>"><?php the_title();?></a>
+						<a class="caption-head"><?php the_title();?></a>
 						<p class="lh-click"></p>
-						<p class="lh-reveal"><a href="<?php echo $page_link;?>"><?php echo $post->post_content;?></a></p>
+						<p class="lh-reveal"><?php echo $post->post_content;?></p>
 					</div>
 					<div class="lh-background" style="background-image: url(<?php echo $banner_url;?>);"> </div></div>
 			</div>
-  		
-  		<?php 
+
+  		<?php
 	    	$i++;
 	    endforeach;
 	  endif;
