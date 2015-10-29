@@ -90,13 +90,13 @@
     &.img-first {
       left: 10%;
       @include breakpoint (medium) {
-        left: initial;
+        left: auto;
       }
     }
     &.img-last {
       right: 10%;
       @include breakpoint (medium) {
-        right: initial;
+        right: auto;
       }
     }
     &.img-first, &.img-last {
@@ -195,6 +195,7 @@
     @include breakpoint (medium) {
       left: 0;
       width: 100%;
+      position: relative;
     }
   }
 }

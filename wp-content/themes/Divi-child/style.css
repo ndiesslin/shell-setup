@@ -2411,12 +2411,12 @@ span.et_close_search_field {
       left: 10%; }
       @media (max-width: 768px) {
         .elem-large-hover .lh-table.img-first {
-          left: initial; } }
+          left: auto; } }
     .elem-large-hover .lh-table.img-last {
       right: 10%; }
       @media (max-width: 768px) {
         .elem-large-hover .lh-table.img-last {
-          right: initial; } }
+          right: auto; } }
     .elem-large-hover .lh-table.img-first .caption-head, .elem-large-hover .lh-table.img-last .caption-head {
       margin: 0 -5% 0 0; }
     .elem-large-hover .lh-table.img-first .lh-click, .elem-large-hover .lh-table.img-last .lh-click {
@@ -2505,7 +2505,8 @@ span.et_close_search_field {
     @media (max-width: 768px) {
       .elem-large-hover .lh-background {
         left: 0;
-        width: 100%; } }
+        width: 100%;
+        position: relative; } }
 
 .lh-container p {
   margin: 0.5em 25%;
