@@ -2214,11 +2214,13 @@ p, .et_pb_post p {
     background-color: #D1E0D7;
     border-radius: 10px;
     padding: 0.5em;
-    color: #474647; }
+    color: #474647;
+    right: initial;
+    left: 0; }
     @media (max-width: 1200px) {
       .et-search-form input {
         width: 70%;
-        margin: 0; } }
+        margin: 0 30% 0 0; } }
     @media (max-width: 480px) {
       .et-search-form input {
         width: 60%; } }
