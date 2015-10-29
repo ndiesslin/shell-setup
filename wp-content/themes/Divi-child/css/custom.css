@@ -741,12 +741,12 @@ ul.awDatesUL li:last-child::after {
         column-gap: 60px;
     }
     .et_pb_toggle.two-column {
-        -webkit-column-count: auto;
-        -moz-column-count: auto;
-        column-count: auto;
-        -webkit-column-gap: auto;
-        -moz-column-gap: auto;
-        column-gap: auto;
+        -webkit-column-count: normal;
+        -moz-column-count: normal;
+        column-count: normal;
+        -webkit-column-gap: normal;
+        -moz-column-gap: normal;
+        column-gap: normal;
     }
     .et_pb_toggle.two-column .et_pb_toggle_content{
         -webkit-column-count: 2;
@@ -1334,7 +1334,7 @@ ul.awDatesUL li a.active {
         max-height: 300px;
         max-height: 80vh;
         overflow-y: auto;
-        -webkit-overflow-scrolling:touch; // mobile safari
+        -webkit-overflow-scrolling: touch;
     }
     .logo-lg{
         display: none !important;
@@ -2168,9 +2168,6 @@ form#gform_1 select {
         width: 100%;
         }
 
-    .customSel select:hover {
-        }
-
 .customSel label:after {
     content: '';
     width: 25px;
@@ -2181,7 +2178,6 @@ form#gform_1 select {
     right: 0px;
     background: url(../images/custom_sel.png) no-repeat right center white;
     pointer-events: none;
-
 }
 
 /*target Internet Explorer 9 and Internet Explorer 10:*/
