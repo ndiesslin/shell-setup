@@ -2120,6 +2120,12 @@ form#gform_1 select {
         margin-top: 72px;
     }
 }
+@media (max-width: 480px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    header .et-search-field{
+        margin-top: 42px;
+    }
+}
 /*remove animation*/
 #page-container.et-animated-content {
     margin-top: -1px !important;

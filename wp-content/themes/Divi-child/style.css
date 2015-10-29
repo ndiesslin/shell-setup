@@ -2215,7 +2215,7 @@ p, .et_pb_post p {
     border-radius: 10px;
     padding: 0.5em;
     color: #474647;
-    right: initial;
+    right: auto;
     left: 0; }
     @media (max-width: 1200px) {
       .et-search-form input {
