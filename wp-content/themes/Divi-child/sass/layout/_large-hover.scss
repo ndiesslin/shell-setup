@@ -90,13 +90,13 @@
     &.img-first {
       left: 10%;
       @include breakpoint (medium) {
-        left: initial;
+        left: auto;
       }
     }
     &.img-last {
       right: 10%;
       @include breakpoint (medium) {
-        right: initial;
+        right: auto;
       }
     }
     &.img-first, &.img-last {
@@ -142,6 +142,11 @@
     &.purple {
       background: $purple;
       @include opacity(0.8);
+    }
+    &.open {
+      .lh-click:after {
+        content: "\f056";
+      }
     }
   }
   .lh-click {
@@ -190,6 +195,7 @@
     @include breakpoint (medium) {
       left: 0;
       width: 100%;
+      position: relative;
     }
   }
 }

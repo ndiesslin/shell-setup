@@ -2117,7 +2117,13 @@ form#gform_1 select {
         right: 0px;
     }
     header .et-search-field{
-        margin-top: 80px;
+        margin-top: 72px;
+    }
+}
+@media (max-width: 480px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    header .et-search-field{
+        margin-top: 42px;
     }
 }
 /*remove animation*/
