@@ -2454,6 +2454,8 @@ span.et_close_search_field {
       background: #250670;
       opacity: 0.8;
       filter: alpha(opacity=80); }
+    .elem-large-hover .lh-container.open .lh-click:after {
+      content: "\f056"; }
   .elem-large-hover .lh-click {
     font-size: 20px;
     font-size: 1.25rem;
