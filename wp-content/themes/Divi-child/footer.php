@@ -106,7 +106,16 @@ if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 	});	
 </script>
 <?php
-}
+}  //end if post_type
+
+if (strpos($url,'/team/') !== false) {//if the url contains post_type word
+?>
+<script>
+	$(document).ready(function() {
+		$('#breadcrumbs > span > span > span').prepend('About Us › ');
+	});	
+</script>
+<?php }//end team 
 ?>
 
 <script>
