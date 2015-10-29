@@ -741,9 +741,9 @@ ul.awDatesUL li:last-child::after {
         column-gap: 60px;
     }
     .et_pb_toggle.two-column {
-        -webkit-column-count: normal;
-        -moz-column-count: normal;
-        column-count: normal;
+        -webkit-column-count: auto;
+        -moz-column-count: auto;
+        column-count: auto;
         -webkit-column-gap: normal;
         -moz-column-gap: normal;
         column-gap: normal;
