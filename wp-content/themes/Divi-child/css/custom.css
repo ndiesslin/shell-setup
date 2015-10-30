@@ -660,6 +660,11 @@ ul.awDatesUL li:last-child::after {
     height: 0;
     padding-bottom: 93.5%
 }
+@media(max-width: 480px){
+    .newsletter-box {
+        padding-bottom: 1em;
+    }
+}
 /* rhs
 .newsletter-box p {
   font-size: 14px;
