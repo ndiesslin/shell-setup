@@ -101,10 +101,20 @@
     }
     &.img-first, &.img-last {
       .caption-head {
-        margin: 0 -5% 0 0;
+        margin: 0 -15% 0 0;
+        -webkit-transition: 0.25s all;
+        -moz-transition: 0.25s all;
+        -ms-transition: 0.25s all;
+        -o-transition: 0.25s all;
+        transition: 0.25s all;
       }
       .lh-click {
-        margin: 0 -5% 0 0;
+        margin: 0 -15% 0 0;
+        -webkit-transition: 0.25s all;
+        -moz-transition: 0.25s all;
+        -ms-transition: 0.25s all;
+        -o-transition: 0.25s all;
+        transition: 0.25s all;
       }
       p.lh-reveal {
         margin: 0.5em 27% 0 32%;
@@ -197,6 +207,15 @@
       width: 100%;
       position: relative;
     }
+  }
+}
+// This section is for the first child hover to correct the widths
+.elem-large-hover .active .lh-table.img-first {
+  .caption-head {
+    margin: 0 -5% 0 0;
+  }
+  .lh-click {
+    margin: 0 -5% 0 0;
   }
 }
 .lh-container {
