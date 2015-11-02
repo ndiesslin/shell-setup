@@ -8664,26 +8664,25 @@ function et_modify_canonical_redirect( $redirect_url, $requested_url ) {
 }
 add_filter( 'redirect_canonical', 'et_modify_canonical_redirect', 10, 2 );
 
-/** 
+/**
 Advanced feature requests required modifying core divi files that could not be extended
 Core files edited:
   Divi/options.php
   Divi/includes/builder/functions.php
   Divi/includes/builder/main-modules.php
-  
-Multiple attempts were made to extend the core, we are not happy about making it difficult to upgrade divi in the future. 
- At launch no issues are caused by this decision. 
-**/
-function et_divi_hidden_them_12345( $r, $url ) {
-    if ( 0 !== strpos( $url, 'http://api.wordpress.org/themes/update-check' ) )
-        return $r; // Not a theme update request. Bail immediately.
- 
-    $themes = unserialize( $r['body']['themes'] );
-    unset( $themes[ get_option( 'template' ) ] );
-    unset( $themes[ get_option( 'stylesheet' ) ] );
-    $r['body']['themes'] = serialize( $themes );
-    return $r;
-}
- 
-add_filter( 'http_request_args', 'et_divi_hidden_theme_12345', 5, 2 );
 
+Multiple attempts were made to extend the core, we are not happy about making it difficult to upgrade divi in the future.
+ At launch no issues are caused by this decision.
+**/
+// function et_divi_hidden_them_12345( $r, $url ) {
+//     if ( 0 !== strpos( $url, 'http://api.wordpress.org/themes/update-check' ) )
+//         return $r; // Not a theme update request. Bail immediately.
+//
+//     $themes = unserialize( $r['body']['themes'] );
+//     unset( $themes[ get_option( 'template' ) ] );
+//     unset( $themes[ get_option( 'stylesheet' ) ] );
+//     $r['body']['themes'] = serialize( $themes );
+//     return $r;
+// }
+//
+// add_filter( 'http_request_args', 'et_divi_hidden_theme_12345', 5, 2 );
