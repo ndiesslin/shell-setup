@@ -107,6 +107,9 @@
         -ms-transition: 0.25s all;
         -o-transition: 0.25s all;
         transition: 0.25s all;
+        @include breakpoint (medium) {
+          margin: 0;
+        }
       }
       .lh-click {
         margin: 0 -15% 0 0;
@@ -115,6 +118,9 @@
         -ms-transition: 0.25s all;
         -o-transition: 0.25s all;
         transition: 0.25s all;
+        @include breakpoint (medium) {
+          margin: 0;
+        }
       }
       p.lh-reveal {
         margin: 0.5em 27% 0 32%;
@@ -213,9 +219,15 @@
 .elem-large-hover .active .lh-table.img-first {
   .caption-head {
     margin: 0 -5% 0 0;
+    @include breakpoint (medium) {
+      margin: 0;
+    }
   }
   .lh-click {
     margin: 0 -5% 0 0;
+    @include breakpoint (medium) {
+      margin: 0;
+    }
   }
 }
 .lh-container {
