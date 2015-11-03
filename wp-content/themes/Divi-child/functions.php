@@ -12,6 +12,14 @@ function dequeue_parent_script() {
 }
 add_action( 'wp_enqueue_scripts', 'dequeue_parent_script', 20 );
 
+function move_jquery_to_footer() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, NULL, true );
+    wp_register_script( 'jquery-migrate', '/wp-includes/js/jquery/jquery-migrate.js', false, NULL, true );
+    wp_enqueue_script( 'jquery-migrate' );
+}
+add_action( 'wp_enqueue_scripts', 'move_jquery_to_footer' );
+
 function named_scripts() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('jquery-ui-accordion');
