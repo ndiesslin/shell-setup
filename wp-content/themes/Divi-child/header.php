@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<title><?php 
+	<title><?php
 	$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 		echo 'Page not found - Minneapolis Heart Institute Foundation';
@@ -26,7 +26,6 @@
 
 	<?php do_action( 'et_head_meta' ); ?>
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon48.png" />
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
