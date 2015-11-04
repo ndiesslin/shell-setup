@@ -51,7 +51,7 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 	<?php wp_footer(); ?>
 
-
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/jcarousel.responsive.css">
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.jcarousel.min.js"></script>
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jcarousel.responsive.js"></script>
@@ -60,17 +60,17 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
   <script type="text/javascript">
   iFrameResize({log:false});
   </script>
-  
+
 	<script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.validate.min.js"></script>
 	<!--<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>-->
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/custom.js"></script>
 
-<?php 
+<?php
 $post_type = get_post_type(get_the_ID());//news-blog
 
 global $wp_post_types;
 $obj = $wp_post_types[$post_type];
-$page_title = $obj->labels->singular_name; 
+$page_title = $obj->labels->singular_name;
 
 /*if($post_type == 'news-blog')
 	$page_title = 'Blog';
@@ -103,7 +103,7 @@ if (strpos($url,'post_type') !== false) {//if the url contains post_type word
 		$('.page-title h1').text('Page Not Found');
 		$('#breadcrumbs .breadcrumb_last').text('Error 404: Page not found');
 		$('body').css({'display':'block'});
-	});	
+	});
 </script>
 <?php
 }  //end if post_type

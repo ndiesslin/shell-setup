@@ -354,3 +354,32 @@ function cpt_wp_get_archives($cpt)
 
     return $output;
 }
+
+// Disable open sans from loading
+if ( ! function_exists( 'et_divi_fonts_url' ) ) :
+function et_divi_fonts_url() {
+	$fonts_url = '';
+
+	/* Translators: If there are characters in your language that are not
+	 * supported by Open Sans, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$open_sans = _x( 'off', 'Open Sans font: on or off', 'Divi' );
+
+	if ( 'off' !== $open_sans ) {
+		$font_families = array();
+
+		if ( 'off' !== $open_sans )
+			$font_families[] = 'Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800';
+
+		$protocol = is_ssl() ? 'https' : 'http';
+		$query_args = array(
+			'family' => implode( '%7C', $font_families ),
+			'subset' => 'latin,latin-ext',
+		);
+		$fonts_url = add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" );
+	}
+
+	return $fonts_url;
+}
+endif;
