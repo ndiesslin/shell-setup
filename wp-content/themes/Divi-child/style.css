@@ -2076,6 +2076,11 @@ p, .et_pb_post p {
 .left-align {
   text-align: left !important; }
 
+.et_pb_text ul li > ul {
+  list-style-type: circle; }
+  .et_pb_text ul li > ul li ul {
+    list-style-type: square; }
+
 #main-content .container {
   padding: 0; }
 
@@ -2098,6 +2103,9 @@ p, .et_pb_post p {
     color: #250670;
     font-size: inherit;
     font-weight: inherit; }
+  @media (max-width: 480px) {
+    #breadcrumbs {
+      display: none; } }
 
 .container.et_menu_container {
   z-index: auto; }

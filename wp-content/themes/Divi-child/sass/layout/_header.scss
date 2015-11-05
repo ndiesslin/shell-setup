@@ -14,6 +14,9 @@
     font-size: inherit;
     font-weight: inherit;
   }
+  @include breakpoint (small) {
+    display: none;
+  }
 }
 
 .container.et_menu_container {
