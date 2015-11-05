@@ -2560,6 +2560,9 @@ span.et_close_search_field {
 .single .post {
   padding: 0; }
 
+#left-area .post-meta {
+  display: none; }
+
 .page-title {
   background: #AB162B;
   padding: 3em 0;
