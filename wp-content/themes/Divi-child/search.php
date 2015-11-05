@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<?php 
+<?php
 //title
 $title = 'Search Results for ' . get_search_query();
 //$title_icon = do_shortcode(types_render_field('title-icon', array()));
@@ -46,29 +46,18 @@ page_title($title, $title_icon, $team_title);
 					<a href="<?php the_permalink();?>" class="read-more-btn">Read More</a>
 				</div>
 
-			<?php 
+			<?php
 				endwhile;
 			else :?>
 
 						<h3><?php echo wpautop( 'Sorry, no posts were found' );?></h3>
 
-			<?php 
+			<?php
 			endif;
 			?>
-	
+
 	<div class="search wp-pagenavi">
-	<?php
-global $wp_query;
-
-$big = 999999999; // need an unlikely integer
-
-echo paginate_links( array(
-	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-	'format' => '?paged=%#%',
-	'current' => max( 1, get_query_var('paged') ),
-	'total' => $wp_query->max_num_pages
-) );
-?>
+	<?php wp_pagenavi(); ?>
 </div>
 </div> <!-- /.container -->
 <?php get_footer(); ?>
