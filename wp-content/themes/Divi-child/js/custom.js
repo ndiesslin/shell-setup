@@ -309,3 +309,17 @@ $(document).ready(function(){
 	var img_url_link = 'url('+ img_url + ')';
 	$('.img-as-bg .et_pb_blurb_content .et_pb_main_blurb_image').css({'background-image': img_url_link});
 });
+
+// Set blog link in breadcrumb
+$(document).ready(function(){
+	breadCrumbWrite( 'blog' );
+});
+
+function breadCrumbWrite( linkText ) {
+	$( '#breadcrumbs a' ).each( function() {
+		if ( this.text.toLowerCase() == linkText ) {
+			this.setAttribute( 'href', '/' + linkText );
+			this.setAttribute( 'style', 'text-decoration: underline !important;' );
+		}
+	});
+};
