@@ -312,7 +312,7 @@ $(document).ready(function(){
 
 // Set blog link in breadcrumb
 $(document).ready(function(){
-	breadCrumbWrite( 'Blog Posts' );
+	breadCrumbWrite( 'blog' );
 });
 
 function breadCrumbWrite( linkText ) {
