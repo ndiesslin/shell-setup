@@ -1,5 +1,4 @@
 <?php
-
 get_header();
 
 $show_default_title = get_post_meta( get_the_ID(), '_et_pb_show_title', true );
@@ -9,6 +8,50 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 ?>
 
 <?php get_template_part('template-title');?>
+
+<!-- Begin Grand Rounds Entry Template Code -->
+
+<?php  if(get_post_type() == 'grand-rounds-lecture'): ?>
+<div id="main-content">
+
+	<?php while ( have_posts() ) : the_post(); ?>
+				<article id="post-15197" class="post-15197 page type-page status-publish hentry">				
+					
+						<div class="et_pb_row">
+
+							<div class="entry-content">
+<ul>
+								<li><strong><a href="<?php the_field('flier'); ?>" target="_blank"><?php echo the_title().' '.the_ID(); ?></a> </strong> <?php if(get_field('flier')){?>(<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">MP4</a>)<?php }else{echo '';} ?><br />
+
+						<?php //if(get_field('lecturer')):
+							the_field('lecturer'); //endif;?>
+					
+				</li></ul>
+					<div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_0">
+
+
+
+<p><a href="http://mplsheart.org/news-event/grand-rounds-listing/?grvar=time_and_date"> See All Grand Rounds Listings </a></p>
+				
+<p><strong>Physician:</strong> This activity has been planned and implemented in accordance with the accreditation requirements and policies of the Accreditation Council for Continuing Medical Education (ACCME) through the joint providership of Allina Health and Minneapolis Heart Institute Foundation. Allina Health is accredited by the ACCME to provide continuing medical education for physicians. Allina Health designates this live activity for a maximum of 1.0 AMA PRA Category 1 Credit(s)TM. Physicians should claim only the credit commensurate with the extent of their participation in the activity.</p>
+<p><strong>Nurse:</strong> This activity has been designed to meet the Minnesota Board of Nursing continuing education requirements for 1.2 hours of credit. However, the nurse is responsible for determining whether this activity meets the requirements for acceptable continuing education.</p>
+<p><strong>Planning Committee:</strong> Dr. JoEllyn Abraham, Dr. Alex Campbell, Dr. Kevin Harris, Rebecca Lindberg, Dr. Michael Miedema, Dr. Scott Sharkey, Eva Zewdie and Jolene Bell Makowesky have declared that they do not have any conflicts of interest associated with the planning of this activity. Dr. David Hurrell declares the following relationship – honoraria: Boston Scientific.</p>
+
+			</div> 
+
+						</div>
+				
+				</article> 	
+				<?php endwhile; ?>			
+</div> 
+
+<?php elseif(get_the_ID() == 19505): ?>
+<?php get_template_part('template-grandrounds-table');?>
+
+<?php else:?>
+
+
+<!-- End Grand Rounds Entry Template Code -->
 
 <div id="main-content">
 	
@@ -134,5 +177,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 </div> <!-- #main-content -->
+
+<?php endif; ?>
 
 <?php get_footer(); ?>

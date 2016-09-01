@@ -2559,6 +2559,8 @@ span.et_close_search_field {
 
 .single .post {
   padding: 0; }
+  
+  sup{font-size: small!important;bottom:.8em;}
 
 #left-area .post-meta {
   display: none; }
@@ -2585,3 +2587,20 @@ span.et_close_search_field {
   .page-title h1 {
     color: white;
     padding: 0; }
+
+/* Advance Custom Field Renders */ 
+    .show{
+      display: block;
+    }
+    .hide{
+      display:none;
+    }
+
+    .acf-field textarea {
+      border: 1px solid #bbb;
+    }
+    ul.mhi-posts{
+      margin: 23px 0px -30px -16px
+    }
+
+ 

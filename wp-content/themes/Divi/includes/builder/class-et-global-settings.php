@@ -22,7 +22,6 @@ class ET_Global_Settings {
 
 		$defaults = array(
 			'et_pb_image-animation'                           => 'left',
-			'et_pb_gallery-zoom_icon_color'                   => et_get_option( 'accent_color', '#2EA3F2' ),
 			'et_pb_gallery-hover_overlay_color'               => 'rgba(255,255,255,0.9)',
 			'et_pb_gallery-title_font_size'                   => '16',
 			'et_pb_gallery-title_color'                       => '#333333',
@@ -34,9 +33,11 @@ class ET_Global_Settings {
 			'et_pb_gallery-caption_color'                     => '#f3f3f3',
 			'et_pb_gallery-caption_line_height'               => '18px',
 			'et_pb_gallery-caption_letter_spacing'            => $font_defaults['letter_spacing'],
+
 			'et_pb_tabs-tab_font_size'                        => $font_defaults['size'],
 			'et_pb_tabs-tab_line_height'                      => $font_defaults['line_height'],
 			'et_pb_tabs-tab_letter_spacing'                   => $font_defaults['letter_spacing'],
+			'et_pb_tabs-title_font_size'                      => $font_defaults['size'],
 			'et_pb_tabs-body_font_size'                       => $font_defaults['size'],
 			'et_pb_tabs-body_line_height'                     => $font_defaults['line_height'],
 			'et_pb_tabs-body_letter_spacing'                  => $font_defaults['letter_spacing'],
@@ -64,7 +65,7 @@ class ET_Global_Settings {
 			'et_pb_testimonial-border_color'                  => '#ffffff',
 			'et_pb_testimonial-border_width'                  => '1px',
 			'et_pb_testimonial-body_font_size'                => $font_defaults['size'],
-			'et_pb_testimonial-body_line_height'              => '1.5',
+			'et_pb_testimonial-body_line_height'              => '1.5em',
 			'et_pb_testimonial-body_letter_spacing'           => $font_defaults['letter_spacing'],
 
 			'et_pb_pricing_tables-header_font_size'           => '22',
@@ -76,9 +77,14 @@ class ET_Global_Settings {
 			'et_pb_pricing_tables-header_color'               => '#ffffff',
 			'et_pb_pricing_tables-header_line_height'         => '1em',
 			'et_pb_pricing_tables-subheader_color'            => '#ffffff',
+			'et_pb_pricing_tables-currency_frequency_font_size' => '16px',
+			'et_pb_pricing_tables-currency_frequency_letter_spacing' => '0px',
+			'et_pb_pricing_tables-currency_frequency_line_height' => '1.7em',
+			'et_pb_pricing_tables-price_letter_spacing'       => '0px',
 			'et_pb_pricing_tables-price_color'                => '#2EA3F2',
 			'et_pb_pricing_tables-price_line_height'          => '82px',
 			'et_pb_pricing_tables-body_line_height'           => '24px',
+
 			'et_pb_fullwidth_post_title-title_font_size'      => '26px',
 			'et_pb_fullwidth_post_title-title_line_height'    => '1em',
 			'et_pb_fullwidth_post_title-title_letter_spacing' => $font_defaults['letter_spacing'],
@@ -165,7 +171,6 @@ class ET_Global_Settings {
 			'et_pb_login-header_font_style'                   => '',
 			'et_pb_login-custom_padding'                      => '40',
 			'et_pb_login-focus_border_color'                  => '#ffffff',
-			'et_pb_portfolio-zoom_icon_color'                 => et_get_option( 'accent_color', '#2EA3F2' ),
 			'et_pb_portfolio-hover_overlay_color'             => 'rgba(255,255,255,0.9)',
 			'et_pb_portfolio-title_font_size'                 => '18',
 			'et_pb_portfolio-title_letter_spacing'            => $font_defaults['letter_spacing'],
@@ -176,7 +181,6 @@ class ET_Global_Settings {
 			'et_pb_portfolio-caption_line_height'             => $font_defaults['line_height'],
 			'et_pb_portfolio-caption_font_style'              => '',
 			'et_pb_portfolio-title_color'                     => '#333333',
-			'et_pb_filterable_portfolio-zoom_icon_color'      => et_get_option( 'accent_color', '#2EA3F2' ),
 			'et_pb_filterable_portfolio-hover_overlay_color'  => 'rgba(255,255,255,0.9)',
 			'et_pb_filterable_portfolio-title_font_size'      => '18',
 			'et_pb_filterable_portfolio-title_letter_spacing' => $font_defaults['letter_spacing'],
@@ -343,13 +347,19 @@ class ET_Global_Settings {
 			'all_buttons_spacing_hover'                       => '0',
 		);
 
+		if ( ! et_is_builder_plugin_active() ) {
+			$defaults['et_pb_gallery-zoom_icon_color']              = et_get_option( 'accent_color', '#2EA3F2' );
+			$defaults['et_pb_portfolio-zoom_icon_color']            = et_get_option( 'accent_color', '#2EA3F2' );
+			$defaults['et_pb_filterable_portfolio-zoom_icon_color'] = et_get_option( 'accent_color', '#2EA3F2' );
+		}
+
 		// reformat defaults array and add actual values to it
 		foreach( $defaults as $setting_name => $default_value ) {
 			$defaults[ $setting_name ] = array(
 				'default' => $default_value,
 			);
 
-			$actual_value = et_get_option( $setting_name, '', '', true );
+			$actual_value = ! et_is_builder_plugin_active() ? et_get_option( $setting_name, '', '', true ) : '';
 			if ( '' !== $actual_value ) {
 				$defaults[ $setting_name ]['actual']  = $actual_value;
 			}

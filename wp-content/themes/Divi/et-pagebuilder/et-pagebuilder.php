@@ -11,5 +11,7 @@ function et_setup_builder() {
 
 	load_theme_textdomain( 'et_builder', ET_BUILDER_DIR . 'languages' );
 	require ET_BUILDER_DIR . 'framework.php';
+
+	et_pb_register_posttypes();
 }
-add_action( 'init', 'et_setup_builder' );
+add_action( 'init', 'et_setup_builder', 0 );

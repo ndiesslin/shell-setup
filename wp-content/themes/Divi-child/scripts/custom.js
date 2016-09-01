@@ -3407,24 +3407,24 @@
 			$( 'html, body' ).animate( { scrollTop :  $scroll_position }, speed, easing );
 		}
 
-		$( 'a[href*=#]:not([href=#])' ).click( function() {
-			if ( ( location.pathname.replace( /^\//,'' ) == this.pathname.replace( /^\//,'' ) && location.hostname == this.hostname ) && ! ( $( this ).closest( '.woocommerce-tabs' ).length && $( this ).closest( '.tabs' ).length ) ) {
-				var target = $( this.hash );
-				target = target.length ? target : $( '[name=' + this.hash.slice(1) +']' );
-				if ( target.length ) {
-
-					et_pb_smooth_scroll( target, false, 800 );
-
-					if ( ! $( '#main-header' ).hasClass( 'et-fixed-header' ) && $( 'body' ).hasClass( 'et_fixed_nav' ) && $( window ).width() > 980 ) {
-						setTimeout(function(){
-							et_pb_smooth_scroll( target, false, 40, 'linear' );
-						}, 780 );
-					}
-
-					return false;
-				}
-			}
-		});
+		// $( 'a[href*=#]:not([href=#])' ).click( function() {
+		// 	if ( ( location.pathname.replace( /^\//,'' ) == this.pathname.replace( /^\//,'' ) && location.hostname == this.hostname ) && ! ( $( this ).closest( '.woocommerce-tabs' ).length && $( this ).closest( '.tabs' ).length ) ) {
+		// 		var target = $( this.hash );
+		// 		target = target.length ? target : $( '[name=' + this.hash.slice(1) +']' );
+		// 		if ( target.length ) {
+		//
+		// 			et_pb_smooth_scroll( target, false, 800 );
+		//
+		// 			if ( ! $( '#main-header' ).hasClass( 'et-fixed-header' ) && $( 'body' ).hasClass( 'et_fixed_nav' ) && $( window ).width() > 980 ) {
+		// 				setTimeout(function(){
+		// 					et_pb_smooth_scroll( target, false, 40, 'linear' );
+		// 				}, 780 );
+		// 			}
+		//
+		// 			return false;
+		// 		}
+		// 	}
+		// });
 
 		if ( $( '.et_pb_section' ).length > 1 && $( '.et_pb_side_nav_page' ).length ) {
 			var $i=0;

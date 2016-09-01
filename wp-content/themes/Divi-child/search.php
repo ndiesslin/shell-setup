@@ -40,11 +40,33 @@ page_title($title, $title_icon, $team_title);
 				while ( have_posts() ) : the_post();
 					// Your loop code
 			?>
+
+<?php  if(get_post_type() == 'grand-rounds-lecture'): ?>
+			<?php if(get_field('status') == 'publish'):?><div class="search-items"><h3><strong>Grand Rounds Lecture:</strong> <a href="<?php the_field('flier'); ?>" target="_blank"><?php echo the_title();?></a></h3><?php if(get_field('flier')){?>(<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">MP4</a>)<?php }else{echo '';} ?><br />
+
+						<?php //if(get_field('lecturer')):
+							the_field('lecturer'); //endif;?>
+					
+				</div><?php endif; ?>
+
+
+			<?php else: ?>
+
+
+
 				<div class="search-items">
 					<h3><?php search_title_highlight(); ?></h3>
 					<?php search_excerpt_highlight();?>
 					<a href="<?php the_permalink();?>" class="read-more-btn">Read More</a>
 				</div>
+
+<?php endif ?>
+
+
+
+
+
+
 
 			<?php
 				endwhile;

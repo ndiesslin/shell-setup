@@ -9,6 +9,17 @@
 			this.options = jQuery.extend({}, this.defaults, options);
 
 			this.create_dropdown();
+		},
+		$iframe_preview = 'old' === et_divi_customizer_data.is_old_wp ? $( '#customize-preview' ) : $( '.wp-full-overlay' ),
+		all_device_classes = 'old' === et_divi_customizer_data.is_old_wp ? 'et_divi_phone et_divi_tablet' : 'preview-tablet preview-mobile preview-desktop',
+		tablet_class = 'old' === et_divi_customizer_data.is_old_wp ? 'et_divi_tablet' : 'preview-tablet';
+		phone_class = 'old' === et_divi_customizer_data.is_old_wp ? 'et_divi_phone' : 'preview-mobile';
+		desktop_class = 'old' === et_divi_customizer_data.is_old_wp ? '' : 'preview-desktop';
+
+		if ( typeof window.location.search !== 'undefined' && window.location.search.search( 'et_customizer_option_set=module' ) !== -1 ) {
+			$( 'body' ).addClass( 'et_modules_customizer_option_set' );
+		} else {
+			$( 'body' ).addClass( 'et_theme_customizer_option_set' );
 		}
 
 		ET_Select_Image.prototype = {
@@ -151,36 +162,86 @@
 		});
 
 		$( '#accordion-section-et_divi_mobile_tablet h3, #accordion-panel-et_divi_mobile h3' ).click( function () {
-			var $iframe_preview = $( '#customize-preview' );
-				$iframe_preview.removeClass( 'et_divi_phone et_divi_tablet' );
-				$iframe_preview.addClass( 'et_divi_tablet' );
+			$iframe_preview.removeClass( all_device_classes ).addClass( tablet_class );
+
+			if ( 'old' !== et_divi_customizer_data.is_old_wp ) {
+				$( '#customize-footer-actions .devices' ).css( { display: 'none' } );
+			}
 		});
 
 		$( '#accordion-section-et_divi_mobile_phone h3, #accordion-section-et_divi_mobile_menu h3' ).click( function () {
-			var $iframe_preview = $( '#customize-preview' );
-				$iframe_preview.removeClass( 'et_divi_phone et_divi_tablet' );
-				$iframe_preview.addClass( 'et_divi_phone' );
+			$iframe_preview.removeClass( all_device_classes ).addClass( phone_class );
+
+			if ( 'old' !== et_divi_customizer_data.is_old_wp ) {
+				$( '#customize-footer-actions .devices' ).css( { display: 'none' } );
+			}
 		});
 
-		$( '.control-panel-back' ).click( function () {
-			var $iframe_preview = $( '#customize-preview' );
-				$iframe_preview.removeClass( 'et_divi_phone et_divi_tablet' );
+		$( '.control-panel-back, .customize-panel-back' ).click( function () {
+			$iframe_preview.removeClass( all_device_classes ).addClass( desktop_class );
+
+			if ( 'old' !== et_divi_customizer_data.is_old_wp ) {
+				$( '#customize-footer-actions .devices' ).css( { display: 'block' } );
+			}
 		});
 
 		$( 'input[type=range]' ).on( 'mousedown', function() {
-			$( '.et_pb_range_tooltip' ).remove();
+			var $range = $(this),
+				$range_input = $range.parent().children( '.et-pb-range-input' );
+
 			value = $( this ).attr( 'value' );
-			$( this ).parent().append( '<div class="et_pb_range_tooltip">' + value + '</div> ' );
+			$range_input.val( value );
+
 			$( this ).mousemove(function() {
 				value = $( this ).attr( 'value' );
-				$( '.et_pb_range_tooltip' ).text( value );
+				$range_input.val( value );
 			});
-			$( this ).mouseup(function() {
-				$( '.et_pb_range_tooltip' ).fadeOut( 'fast' );
-			});
-			$( this ).mousedown(function() {
-				$( '.et_pb_range_tooltip' ).fadeIn( 'fast' );
-			});
+		});
+
+		var et_range_input_number_timeout;
+
+		function et_autocorrect_range_input_number( input_number, timeout ) {
+			$range_input = input_number,
+			$range       = $range_input.parent().find('input[type="range"]'),
+			value        = parseFloat( $range_input.val() ),
+			reset        = parseFloat( $range.attr('data-reset_value') ),
+			step         = parseFloat( $range_input.attr('step') ),
+			min          = parseFloat( $range_input.attr('min') ),
+			max          = parseFloat( $range_input.attr('max') );
+
+			clearTimeout( et_range_input_number_timeout );
+
+			et_range_input_number_timeout = setTimeout( function() {
+				if ( isNaN( value ) ) {
+					$range_input.val( reset );
+					$range.val( reset ).trigger( 'change' );
+					return;
+				}
+
+				if ( step >= 1 && value % 1 !== 0 ) {
+					value = Math.round( value );
+					$range_input.val( value );
+					$range.val( value );
+				}
+
+				if ( value > max ) {
+					$range_input.val( max );
+					$range.val( max ).trigger( 'change' );
+				}
+
+				if ( value < min ) {
+					$range_input.val( min );
+					$range.val( min ).trigger( 'change' );
+				}
+			}, timeout );
+
+			$range.val( value ).trigger( 'change' );
+		}
+
+		$('input.et-pb-range-input').on( 'change keyup', function() {
+			et_autocorrect_range_input_number( $(this), 1000 );
+		}).on( 'focusout', function() {
+			et_autocorrect_range_input_number( $(this), 0 );
 		});
 
 		$('input.et_font_style_checkbox[type=checkbox]').live('change', function(){
@@ -235,13 +296,56 @@
 			style_checkbox.change();
 		});
 
-		var $vertical_nav_input = $( '#customize-control-et_divi-vertical_nav input[type=checkbox]' ),
-			$nav_fullwidth_control = $( '#customize-control-et_divi-nav_fullwidth' );
+		var $vertical_nav_option                  = $( '#customize-control-et_divi-vertical_nav' )
+			$vertical_nav_input                   = $vertical_nav_option.find( 'input[type=checkbox]' ),
+			$nav_fullwidth_control                = $( '#customize-control-et_divi-nav_fullwidth' ),
+			$hide_navigation_until_scroll_control = $('#customize-control-et_divi-hide_nav'),
+			$header_style_option                  = $( '#customize-control-et_divi-header_style select' ),
+			$secondary_menu_options               = $( '#accordion-section-et_divi_header_secondary' ),
+			$slide_header_section                 = $( '#accordion-section-et_divi_header_slide' ),
+			$show_top_bar_input                   = $( '#customize-control-et_divi-slide_nav_show_top_bar input[type=checkbox]' ),
+			$top_bar_related_options              = $( '#customize-control-et_divi-slide_nav_bg_top, #customize-control-et_divi-slide_nav_top_color, #customize-control-et_divi-slide_nav_search, #customize-control-et_divi-slide_nav_search_bg'),
+			$primary_header_options               = $( '#customize-control-et_divi-primary_nav_font_size, #customize-control-et_divi-primary_nav_font_spacing, #customize-control-et_divi-primary_nav_font, #customize-control-et_divi-primary_nav_font_style, #customize-control-et_divi-menu_link_active, #customize-control-et_divi-primary_nav_dropdown_bg, #customize-control-et_divi-primary_nav_dropdown_line_color, #customize-control-et_divi-primary_nav_dropdown_link_color, #customize-control-et_divi-primary_nav_dropdown_animation, #customize-control-et_divi-fixed_primary_nav_font_size, #customize-control-et_divi-fixed_secondary_nav_bg, #customize-control-et_divi-fixed_menu_link, #customize-control-et_divi-fixed_secondary_menu_link, #customize-control-et_divi-fixed_menu_link_active' ),
+			$slide_only_options                   = $( '#customize-control-et_divi-slide_nav_width, #customize-control-et_divi-slide_nav_search, #customize-control-et_divi-slide_nav_search_bg, #customize-control-et_divi-slide_nav_font_size, #customize-control-et_divi-slide_nav_top_font_size' ),
+			$fullscreen_only_options              = $( '#customize-control-et_divi-fullscreen_nav_font_size, #customize-control-et_divi-fullscreen_nav_top_font_size' ),
+			$vertical_orientation                 = $( '#customize-control-et_divi-vertical_nav_orientation' );
 
 		if ( $vertical_nav_input.is( ':checked') ) {
 			$nav_fullwidth_control.hide();
+			$hide_navigation_until_scroll_control.hide();
+			$vertical_orientation.show();
 		} else {
 			$nav_fullwidth_control.show();
+			$hide_navigation_until_scroll_control.show();
+			$vertical_orientation.hide();
+		}
+
+		if ( 'slide' === $header_style_option.val() || 'fullscreen' === $header_style_option.val() ) {
+			$vertical_nav_option.hide();
+			$vertical_nav_input.attr( 'checked', false );
+			$vertical_nav_input.change();
+			$secondary_menu_options.addClass( 'et_hidden_section' );
+			$primary_header_options.hide();
+			$slide_header_section.removeClass( 'et_hidden_section' );
+
+			if ( 'slide' === $header_style_option.val() ) {
+				$slide_only_options.removeClass( 'et_hidden_section' );
+				$fullscreen_only_options.addClass( 'et_hidden_section' );
+			} else {
+				$slide_only_options.addClass( 'et_hidden_section' );
+				$fullscreen_only_options.removeClass( 'et_hidden_section' );
+			}
+		} else {
+			$vertical_nav_option.show();
+			$secondary_menu_options.removeClass( 'et_hidden_section' );
+			$primary_header_options.show();
+			$slide_header_section.addClass( 'et_hidden_section' );
+		}
+
+		if ( $show_top_bar_input.is( ':checked' ) ) {
+			$top_bar_related_options.show();
+		} else {
+			$top_bar_related_options.hide();
 		}
 
 		$('#customize-theme-controls').on( 'change', '#customize-control-et_divi-vertical_nav input[type=checkbox]', function(){
@@ -249,8 +353,48 @@
 
 			if ( $input.is(':checked') ) {
 				$nav_fullwidth_control.hide();
+				$hide_navigation_until_scroll_control.hide();
+				$vertical_orientation.show();
 			} else {
 				$nav_fullwidth_control.show();
+				$hide_navigation_until_scroll_control.show();
+				$vertical_orientation.hide();
+			}
+		});
+
+		$( '#customize-theme-controls' ).on( 'change', '#customize-control-et_divi-header_style select', function(){
+			$input = $(this);
+
+			if ( 'slide' === $input.val() || 'fullscreen' === $input.val() ) {
+				$vertical_nav_option.hide();
+				$vertical_nav_input.attr( 'checked', false );
+				$vertical_nav_input.change();
+				$secondary_menu_options.addClass( 'et_hidden_section' );
+				$primary_header_options.hide();
+				$slide_header_section.removeClass( 'et_hidden_section' );
+
+				if ( 'slide' === $header_style_option.val() ) {
+					$slide_only_options.removeClass( 'et_hidden_section' );
+					$fullscreen_only_options.addClass( 'et_hidden_section' );
+				} else {
+					$slide_only_options.addClass( 'et_hidden_section' );
+					$fullscreen_only_options.removeClass( 'et_hidden_section' );
+				}
+			} else {
+				$vertical_nav_option.show();
+				$secondary_menu_options.removeClass( 'et_hidden_section' );
+				$primary_header_options.show();
+				$slide_header_section.addClass( 'et_hidden_section' );
+			}
+		});
+
+		$( '#customize-theme-controls' ).on( 'change', '#customize-control-et_divi-slide_nav_show_top_bar input[type=checkbox]', function(){
+			$input = $(this);
+
+			if ( $input.is( ':checked' ) ) {
+				$top_bar_related_options.show();
+			} else {
+				$top_bar_related_options.hide();
 			}
 		});
 
