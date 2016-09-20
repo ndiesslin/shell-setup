@@ -103,28 +103,28 @@ display: none !important;
 
 //title
 function page_title($title, $title_icon, $team_title) {
-  echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular"> 
+  echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular">
     <section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0">
-    
+
       <div class="et_pb_fullwidth_header_container left">
         <div class="header-content-container center">
         <div class="header-content">
           <h1>';
           if($title_icon != '')
             echo $title_icon;
-          
+
           echo $title;
 
           if($team_title != '')
             echo ', ' . $team_title;
-          echo '</h1>        
+          echo '</h1>
         </div>
       </div>
-        
+
       </div>
       <div class="et_pb_fullwidth_header_overlay"></div>
       <div class="et_pb_fullwidth_header_scroll"></div>
-    </section>    
+    </section>
   </div>';
 }
 
@@ -193,7 +193,7 @@ function shape_comment( $comment, $args, $depth ) {
                     <em><?php _e( 'Your comment is awaiting moderation.', 'shape' ); ?></em>
                     <br />
                 <?php endif; ?>
- 
+
                 <div class="comment-meta commentmetadata">
                    <time pubdate datetime="<?php comment_time( 'c' ); ?>">
                     <?php
@@ -204,14 +204,14 @@ function shape_comment( $comment, $args, $depth ) {
                     ?>
                 </div><!-- .comment-meta .commentmetadata -->
             </footer>
- 
+
             <div class="comment-content"><?php comment_text(); ?></div>
- 
+
             <div class="reply">
                 <?php comment_reply_link( array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
             </div><!-- .reply -->
         </article><!-- #comment-## -->
- 
+
     <?php
             break;
     endswitch;
@@ -245,10 +245,10 @@ function the_slug($echo=true){
 }
 
 //archives list for custom post type
-function my_custom_post_type_archive_where($where,$args){  
-    $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'blog';  
+function my_custom_post_type_archive_where($where,$args){
+    $post_type  = isset($args['post_type'])  ? $args['post_type']  : 'blog';
     $where = "WHERE post_type = '$post_type' AND post_status = 'publish'";
-    return $where;  
+    return $where;
 }
 add_filter( 'getarchives_where','my_custom_post_type_archive_where',10,2);
 
@@ -345,7 +345,7 @@ function cpt_wp_get_archives($cpt)
     $post_type_obj = get_post_type_object($cpt);
     // Slug might not be the cpt name, it might have custom slug, so get it
     $post_type_slug = $post_type_obj->rewrite['slug'];
-    
+
     // Domain of the current site
     $host = $_SERVER['HTTP_HOST'];
     // Replace `domain.tld` with `domain.tdl/{cpt-slug}`
@@ -403,25 +403,25 @@ function list_searcheable_acf(){
  */
 function advanced_custom_search( $where, &$wp_query ) {
     global $wpdb;
- 
+
     if ( empty( $where ))
         return $where;
- 
+
     // get search expression
     $terms = $wp_query->query_vars[ 's' ];
-    
+
     // explode search expression to get search terms
     $exploded = explode( ' ', $terms );
     if( $exploded === FALSE || count( $exploded ) == 0 )
         $exploded = array( 0 => $terms );
-         
+
     // reset search in order to rebuilt it as we whish
     $where = '';
-    
+
     // get searcheable_acf, a list of advanced custom fields you want to search content in
     $list_searcheable_acf = list_searcheable_acf();
     foreach( $exploded as $tag ) :
-        $where .= " 
+        $where .= "
           AND (
             (wp_posts.post_title LIKE '%$tag%')
             OR (wp_posts.post_content LIKE '%$tag%')
@@ -451,7 +451,7 @@ function advanced_custom_search( $where, &$wp_query ) {
                 ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
               WHERE (
               taxonomy = 'post_tag'
-                OR taxonomy = 'category'              
+                OR taxonomy = 'category'
                 OR taxonomy = 'myCustomTax'
               )
                 AND object_id = wp_posts.ID
@@ -461,7 +461,7 @@ function advanced_custom_search( $where, &$wp_query ) {
     endforeach;
     return $where;
 }
- 
+
 add_filter( 'posts_search', 'advanced_custom_search', 500, 2 );
 
 //Make WPCF_TYPE in REST CALL
@@ -473,3 +473,11 @@ function add_show_in_rest_func($data, $post_type) {
     return $data;
 }
 
+// Disable redirect canoical for post types that need to use list template on single page
+function custom_disable_redirect_canonical( $redirect_url ){
+    global $post;
+    $ptype = get_post_type( $post );
+    if ( $ptype == 'team' ) $redirect_url = false;
+    return $redirect_url;
+}
+add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
