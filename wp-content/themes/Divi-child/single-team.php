@@ -2,32 +2,85 @@
   /**
   * Template Name: Sort Template
   */
-  get_header(); 
-  echo "single template";
+  get_header();
 ?>
 
 <?php get_template_part('template-title');?>
 
 <?php the_meta(); ?>
 
-<?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array( 
-  'post_type' => 'team',
-  'meta_key' => 'wpcf-team-last-name',
-  'category_name' => 'research-physicians',
-  'orderby' => 'meta_value',
-  'order' => 'ASC',
-  'posts_per_page' => 6, 
-  'paged' => $paged 
-);
+<?php
+  // Loop through options for template
+  $checkboxes = get_post_meta( get_the_ID(), 'wpcf-list-template-options', true );
+  $optionsArray = array();
+  //$options = "";
 
-$wp_query = new WP_Query($args);
-while ( have_posts() ) : the_post(); ?>
+  foreach ($checkboxes as $checkbox) {
+    $optionsArray[] = $checkbox[0];
+  }
+
+  //$options = implode(",", $optionsArray);
+  echo $optionsArray[0];
+
+  // If use template is not checked then show default page content.
+  if ( $optionsArray[0] != 'use-team-template' ) :
+
+    get_template_part('template-divi-code');
+
+  // If use template is checked then do listing and sorting accordingly.
+  elseif( $optionsArray[0] == 'use-team-template' ) :
+
+  // Setup loop parameters
+  $categoryName = get_post_meta( get_the_ID(), 'wpcf-list-template-category', true );
+  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+  $args = array(
+    'post_type' => 'team',
+    'meta_key' => 'wpcf-team-last-name',
+    'category_name' => $categoryName,
+    'meta_query' => array(
+      'relation' => 'OR',
+      // TODO: figure out how to get featured query to work correctly
+      // Check if featured and list.
+      // array(
+      //   'relation' => 'AND',
+      //   array(
+      //     'key' => 'wpcf-featured-posts',
+      //     'compare' => '='
+      //   ),
+      //   'team-last-name' => array(
+      //     'key' => 'wpcf-team-last-name',
+      //   )
+      // ),
+      // //list any non featured.
+      // array(
+      //   'relation' => 'AND',
+      //   array(
+      //     'key' => 'wpcf-featured-posts',
+      //     'compare' => 'NOT EXISTS'
+      //   ),
+      //   'team-last-name' => array(
+      //     'key' => 'wpcf-team-last-name',
+      //   ),
+      // ),
+      'team-last-name' => array(
+        'key' => 'wpcf-team-last-name',
+      ),
+     ),
+    'orderby' => array(
+      'team-last-name' => 'ASC'
+    ),
+    'order' => 'ASC',
+    'posts_per_page' => 6,
+    'paged' => $paged
+  );
+
+  $wp_query = new WP_Query($args);
+  while ( have_posts() ) : the_post(); ?>
   <h2><?php the_title() ?></h2>
-  <?php 
+  <?php
     // Get thumbnail
-    the_post_thumbnail(); 
-  
+    the_post_thumbnail();
+
     // Get permalink
     the_permalink();
     permalink_anchor($post->ID);
@@ -37,65 +90,32 @@ while ( have_posts() ) : the_post(); ?>
     $content = get_the_content(); // Get post content in $content
     $content = preg_replace("/\[(.*?)\]/i", '', $content);
     $content = strip_tags($content);
-    $content = wp_trim_words($content, 27, '...'); 
+    $content = wp_trim_words($content, 27, '...');
     echo $content;
-    //wp_trim_words(the_content('test', true), 40, '...'); 
-?> 
+    //wp_trim_words(the_content('test', true), 40, '...');
+?>
   <?php //get_post_meta($post->ID, '', true);
     echo $post->ID;
     get_post_meta($post->ID, 'wpcf-team-last-name', true);
     get_field('team-last-name');
-    the_meta(); 
-    echo(types_render_field('team-last-name')); 
+    the_meta();
+    echo(types_render_field('team-last-name'));
   ?>
 <?php endwhile; ?>
 
 <!-- then the pagination links -->
 <?php
-/*$maxnum = 999999999; // need an unlikely integer*/
+  echo wp_pagenavi();
 
-//echo paginate_links( array(
-    //'base' => str_replace( $maxnum, '%#%', esc_url( get_pagenum_link( $maxnum ) ) ),
-    //'format' => '?paged=%#%',
-    //'current' => max( 1, get_query_var('paged') ),
-    //'total' => $wp_query->max_num_pages,
-    ////'end_size' => 4,    
-    //'next_or_number'=>'next'
-/*) );*/
-
-echo wp_pagenavi();
+  // Restore to default loop.
+  wp_reset_query();
 ?>
 
-<?php $Disclaimer = get_post_meta($post->ID, 'Disclaimer', true); ?>
-<div id="content">
-  <?php
-		$args=array(
-			'name' => 'specials',
-			'post_type' => 'page',
-			'post_status' => 'publish',
-			'posts_per_page' => 1,
-			'ignore_sticky_posts'=> 1
-		);
-		$my_query = null;
-		$my_query = new WP_Query($args);
-		if( $my_query->have_posts() ) {
-		while ($my_query->have_posts()) : $my_query->the_post();
-			the_content();
-		endwhile;
-		}
-		wp_reset_query();  // Restore global post data stomped by the_post().
-	?>
-  <div class="container et_pb_section clearfix">
-    <?php
-      /*$post_type = 'special';*/
-      //include(locate_template('includes/loops/category-loop.php'));
-      /*include(locate_template('includes/loops/specials-loop.php'));*/
-    ?>
-    <!-- Disclaimer -->
-    <p class="disclaimer"><?php echo $Disclaimer ?></p>
-  </div>
-</div>
+<?php
+  // Get rest of template, this will include everything below list.
+  get_template_part('template-divi-code');
 
-<?php get_template_part('template-divi-code');?>
+  endif;
+?>
 
 <?php get_footer(); ?>
