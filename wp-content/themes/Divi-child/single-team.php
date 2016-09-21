@@ -33,30 +33,6 @@
       'meta_key' => 'wpcf-team-last-name',
       'category_name' => $categoryName,
       'meta_query' => array(
-        'relation' => 'OR',
-        // TODO: figure out how to get featured query to work correctly
-        // //Check if featured and list.
-        // array(
-        //   'relation' => 'AND',
-        //   array(
-        //     'key' => 'wpcf-featured-posts',
-        //     'compare' => '='
-        //   ),
-        //   'team-last-name' => array(
-        //     'key' => 'wpcf-team-last-name',
-        //   )
-        // ),
-        // //list any non featured.
-        // array(
-        //   'relation' => 'AND',
-        //   array(
-        //     'key' => 'wpcf-featured-posts',
-        //     'compare' => 'NOT EXISTS'
-        //   ),
-        //   'team-last-name' => array(
-        //     'key' => 'wpcf-team-last-name',
-        //   ),
-        // ),
         'team-last-name' => array(
           'key' => 'wpcf-team-last-name',
         ),
