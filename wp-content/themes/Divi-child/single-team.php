@@ -26,12 +26,15 @@
   elseif( $optionsArray[0] == 'use-team-template' ) :
 
     // Setup loop parameters
-    $categoryName = get_post_meta( get_the_ID(), 'wpcf-list-template-category', true );
+    // Get category Ids this is important in case we add pages with multiple categories or all categories.
+    $categoryIds = get_post_meta( get_the_ID(), 'wpcf-list-template-category', true );
+    $categoryArray = explode(',',$categoryIds);
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
       'post_type' => 'team',
       'meta_key' => 'wpcf-team-last-name',
-      'category_name' => $categoryName,
+      //'category_name' => $categoryName,
+      'category__in' => $categoryArray,
       'meta_query' => array(
         'team-last-name' => array(
           'key' => 'wpcf-team-last-name',
@@ -48,54 +51,52 @@
     $wp_query = new WP_Query($args);
     if ( have_posts() ) :
       ?>
-      <div class="et_pb_section page et_pb_section_0 et_section_regular">
-        <div class="et_pb_row et_pb_row_0 full-width-row team-template">
-          <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
-            <div class="et_pb_posts et_pb_module et_pb_bg_layout_light list-team-member et_pb_blog_0">
-              <?php
-                while ( have_posts() ) : the_post(); ?>
-                  <article class="et_pb_post team type-team status-publish has-post-thumbnail hentry category-research-physicians category-team clearfix">
-                    <a href="<?php the_permalink(); ?>" class="entry-featured-image-url">
-                      <?php the_post_thumbnail('et-pb-post-main-image-thumbnail'); ?>
-                    </a>
-                    <h2 class="entry-title">
-                      <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                      </a>
-                    </h2>
-                    <p>
-                      <?php
-                        // Check for excerpt first.
-                        if (has_excerpt()) {
-                          echo get_the_excerpt();
-                        }
-                        // If there is no excerpt, grab the content
-                        else {
-                          // Get content and strip all shortcodes.
-                          $content = get_the_content(); // Get post content in $content
-                          $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
-                          $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
-                          $content = trim($content); // Remove whitespace in begining and end.
-                          $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
-                          echo $content;
-                        }
-                      ?>
-                    </p>
-                    <a href="<?php the_permalink(); ?>" class="more-link">
-                      View Profile
-                    </a>
-                  </article>
+        <div class="et_pb_section page et_pb_section_0 et_section_regular">
+          <div class="et_pb_row et_pb_row_0 full-width-row team-template">
+            <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
+              <div class="et_pb_posts et_pb_module et_pb_bg_layout_light list-team-member et_pb_blog_0">
                 <?php
-                endwhile;
+                  while ( have_posts() ) : the_post(); ?>
+                    <article class="et_pb_post team type-team status-publish has-post-thumbnail hentry category-research-physicians category-team clearfix">
+                      <a href="<?php the_permalink(); ?>" class="entry-featured-image-url">
+                        <?php the_post_thumbnail('et-pb-post-main-image-thumbnail'); ?>
+                      </a>
+                      <h2 class="entry-title">
+                        <a href="<?php the_permalink(); ?>">
+                          <?php the_title(); ?>
+                        </a>
+                      </h2>
+                      <p>
+                        <?php
+                          // Check for excerpt first.
+                          if (has_excerpt()) {
+                            echo get_the_excerpt();
+                          }
+                          // If there is no excerpt, grab the content
+                          else {
+                            // Get content and strip all shortcodes.
+                            $content = get_the_content(); // Get post content in $content
+                            $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
+                            $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
+                            $content = trim($content); // Remove whitespace in begining and end.
+                            $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
+                            echo $content;
+                          }
+                        ?>
+                      </p>
+                      <a href="<?php the_permalink(); ?>" class="more-link">
+                        View Profile
+                      </a>
+                    </article>
+                  <?php endwhile; ?>
+              </div>
+              <?php
+                //Add pagination.
+                echo wp_pagenavi();
               ?>
             </div>
-            <?php
-              //Add pagination.
-              echo wp_pagenavi();
-            ?>
           </div>
         </div>
-      </div>
     <?php endif;
 
     // Restore to default loop.
