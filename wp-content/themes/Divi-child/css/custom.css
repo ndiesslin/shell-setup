@@ -804,6 +804,7 @@ a.more-link {
 }
 .page .et_pb_posts article.team.has-post-thumbnail a.more-link {
     display: inline-block;
+    padding: 0;
 }
 img.full-width {
     height: auto;

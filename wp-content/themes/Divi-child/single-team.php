@@ -5,12 +5,14 @@
 
   get_header();
 
+  // Get title section
   get_template_part('template-title');
 
-  // Loop through options for template
+  // Loop through checkbox options for template
   $checkboxes = get_post_meta( get_the_ID(), 'wpcf-list-template-options', true );
   $optionsArray = array();
 
+  // Add checkbox options to array to validate
   foreach ($checkboxes as $checkbox) {
     $optionsArray[] = $checkbox[0];
   }
@@ -33,7 +35,7 @@
       'meta_query' => array(
         'relation' => 'OR',
         // TODO: figure out how to get featured query to work correctly
-        // Check if featured and list.
+        // //Check if featured and list.
         // array(
         //   'relation' => 'AND',
         //   array(
@@ -85,15 +87,24 @@
                         <?php the_title(); ?>
                       </a>
                     </h2>
-                    <?php
-                      // Get content and strip all shortcodes.
-                      $content = get_the_content(); // Get post content in $content
-                      $content = preg_replace("/\[(.*?)\]/i", '', $content);
-                      $content = strip_tags($content);
-                      $content = trim($content); // Remove whitespace in begining and end.
-                      $content = wp_trim_words($content, 27, '...');
-                      echo $content;
-                    ?>
+                    <p>
+                      <?php
+                        // Check for excerpt first.
+                        if (has_excerpt()) {
+                          echo get_the_excerpt();
+                        }
+                        // If there is no excerpt, grab the content
+                        else {
+                          // Get content and strip all shortcodes.
+                          $content = get_the_content(); // Get post content in $content
+                          $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
+                          $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
+                          $content = trim($content); // Remove whitespace in begining and end.
+                          $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
+                          echo $content;
+                        }
+                      ?>
+                    </p>
                     <a href="<?php the_permalink(); ?>" class="more-link">
                       View Profile
                     </a>
