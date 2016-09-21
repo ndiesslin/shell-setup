@@ -33,7 +33,6 @@
     $args = array(
       'post_type' => 'team',
       'meta_key' => 'wpcf-team-last-name',
-      //'category_name' => $categoryName,
       'category__in' => $categoryArray,
       'meta_query' => array(
         'team-last-name' => array(
