@@ -43,20 +43,36 @@ add_action( 'init', 'register_secondary_footer' );
 
 include( 'shortcodes.php' );
 
+// Set custom post image sizes for team pages
+function team_featured_width( ) { return 216; /* Custom featured post image width */ }
+add_filter( 'et_pb_blog_image_width', 'team_featured_width');
 
-
-function mycustom_featured_width( ) { return 320; /* Custom featured post image width */ }
-add_filter( 'et_pb_blog_image_width', 'mycustom_featured_width');
-
-function mycustom_featured_height( ) { return 260; /* Custom featured post image height */ }
-add_filter( 'et_pb_blog_image_height', 'mycustom_featured_height');
+function team_featured_height( ) { return 216; /* Custom featured post image height */ }
+add_filter( 'et_pb_blog_image_height', 'team_featured_height');
 
 function mycustom_featured_size( $image_sizes ) {
-$custom_size = mycustom_featured_width() . 'x' . mycustom_featured_height();
-$image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
+$custom_size = team_featured_width() . 'x' . team_featured_height();
+$image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
 return $image_sizes;
 }
 add_filter( 'et_theme_image_sizes', 'mycustom_featured_size' );
+
+// Set custom post image sizes for blog module pages
+function blog_featured_width( ) { return 338; /* Custom featured post image width */ }
+add_filter( 'et_pb_blog_image_width', 'blog_featured_width');
+
+function blog_featured_height( ) { return 338; /* Custom featured post image height */ }
+add_filter( 'et_pb_blog_image_height', 'blog_featured_height');
+
+function blog_featured_size( $image_sizes ) {
+$custom_size = blog_featured_width() . 'x' . blog_featured_height();
+$image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
+return $image_sizes;
+}
+add_filter( 'et_theme_image_sizes', 'blog_featured_size' );
+
+//for admin style
+add_action('admin_head', 'admin_style');
 
 //for admin style
 add_action('admin_head', 'admin_style');
