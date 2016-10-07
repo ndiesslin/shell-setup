@@ -44,6 +44,18 @@ add_action( 'init', 'register_secondary_footer' );
 include( 'shortcodes.php' );
 
 // Set custom post image sizes for team pages
+function team_featured_width( ) { return 216; /* Custom featured post image width */ }
+add_filter( 'et_pb_blog_image_width', 'team_featured_width');
+
+function team_featured_height( ) { return 216; /* Custom featured post image height */ }
+add_filter( 'et_pb_blog_image_height', 'team_featured_height');
+
+function mycustom_featured_size( $image_sizes ) {
+$custom_size = team_featured_width() . 'x' . team_featured_height();
+$image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
+return $image_sizes;
+}
+
 add_image_size( 'team-thumbnail', 216, 216, true );
 
 // Set custom post image sizes for blog module pages
