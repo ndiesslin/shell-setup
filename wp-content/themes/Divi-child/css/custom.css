@@ -2204,5 +2204,10 @@ form#gform_1 select {
 }
 
 .acf-field .acf-label #label{
-      font-size: 18px!important;
-    }
+    font-size: 18px!important;
+}
+
+.flex-columns {
+    display: flex;
+    flex-wrap: wrap;
+}

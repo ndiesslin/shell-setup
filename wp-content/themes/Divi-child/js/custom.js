@@ -210,7 +210,7 @@ $(window).resize(function() {
 
 // For equal height
 function eq_height_div(){
-	$listItem = $('.eq-height div article');
+	$listItem = $('.eq-height article');
 	maxValue = findMaxValue($listItem);
 	$listItemImg = $('img',$listItem);
 	maxImgHeight = findMaxValue($listItemImg);
@@ -221,12 +221,6 @@ function eq_height_div(){
 		$('img',this).css("margin-bottom",imageMargin);
 	});
 }
-jQuery(document).ready(function (){
-	eq_height_div();
-});
-jQuery(window).resize(function (){
-	eq_height_div();
-});
 function findMaxValue(element){
 	var maxValue = undefined;
 	$(element).each(function(){
@@ -237,6 +231,12 @@ function findMaxValue(element){
 	});
 	return maxValue;
 }
+jQuery(document).ready(function (){
+	eq_height_div();
+});
+jQuery(window).resize(function (){
+	eq_height_div();
+});
 
 // parent height
 // function parentHeight(){
