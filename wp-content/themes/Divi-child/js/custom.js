@@ -206,38 +206,6 @@ $(window).resize(function() {
 	home_slide_img_width();
 });
 
-
-
-// For equal height
-function eq_height_div(){
-	$listItem = $('.eq-height article');
-	maxValue = findMaxValue($listItem);
-	$listItemImg = $('img',$listItem);
-	maxImgHeight = findMaxValue($listItemImg);
-	$listItem.each(function(){
-		$(this).css("height",maxValue);
-		var imageHeight = $('img',this).height();
-		var imageMargin = maxImgHeight - imageHeight;
-		$('img',this).css("margin-bottom",imageMargin);
-	});
-}
-function findMaxValue(element){
-	var maxValue = undefined;
-	$(element).each(function(){
-		var val = parseInt($(this).height());
-		if (maxValue === undefined || maxValue < val) {
-			maxValue = val;
-		}
-	});
-	return maxValue;
-}
-jQuery(document).ready(function (){
-	eq_height_div();
-});
-jQuery(window).resize(function (){
-	eq_height_div();
-});
-
 // parent height
 // function parentHeight(){
 // 	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
