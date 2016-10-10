@@ -58,7 +58,7 @@
                   while ( have_posts() ) : the_post(); ?>
                     <article class="et_pb_post team type-team status-publish has-post-thumbnail hentry category-research-physicians category-team clearfix">
                       <a href="<?php the_permalink(); ?>" class="entry-featured-image-url">
-                        <?php the_post_thumbnail('et-pb-post-team-image-thumbnail'); ?>
+                        <?php the_post_thumbnail('team-thumbnail'); ?>
                       </a>
                       <h2 class="entry-title">
                         <a href="<?php the_permalink(); ?>">
