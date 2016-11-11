@@ -2214,3 +2214,9 @@ form#gform_1 select {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 }
+
+.eq-height article .entry-featured-image-url {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
