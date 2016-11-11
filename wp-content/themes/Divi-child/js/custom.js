@@ -322,7 +322,7 @@ equalheight = function(container){
   });
 }
 
-$(document).ready(function() {
+$(window).on("load", function() {
   equalheight('.eq-height article .entry-featured-image-url');
 });
 
