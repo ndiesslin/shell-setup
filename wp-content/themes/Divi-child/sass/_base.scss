@@ -62,6 +62,14 @@ p, .et_pb_post p {
   text-align: left !important;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
+.text--purple {
+  color: $purple;
+}
+
 .et_pb_text {
   ul {
     li > ul {
@@ -71,4 +79,12 @@ p, .et_pb_post p {
       }
     }
   }
+}
+
+sup{
+  font-size: small;
+}
+
+.display-inline {
+  display: inline;
 }
