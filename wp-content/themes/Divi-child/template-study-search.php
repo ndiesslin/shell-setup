@@ -80,8 +80,11 @@ Template Name: Study search page
       }
     }
   }
-  // Run query function
-  queryParameters();
+
+  // Run query function if any parameters are set
+  if(count($_GET)) {
+    queryParameters();
+  }
 
   // Send key and value for query options
   function setQueryValue($key, $value) {
@@ -144,10 +147,10 @@ Template Name: Study search page
 
     // If items are set push to array to filter by them
     // url to test filter http://mhif-staging.local/our-studies-page/?cs='test'&wpcf-status=Open
-    if(isset($_GET['wpcf-status']) && !empty($_GET['wpcf-status'])){
-      $status = $_GET['wpcf-status'];
-      array_push($args, array('key' => 'wpcf-status', 'value' => $status));
-    }
+    // if(isset($_GET['wpcf-status']) && !empty($_GET['wpcf-status'])){
+    //   $status = $_GET['wpcf-status'];
+    //   array_push($args, array('key' => 'wpcf-status', 'value' => $status));
+    // }
 
     return $args;
   }
