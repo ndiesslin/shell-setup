@@ -56,8 +56,6 @@ $image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
 return $image_sizes;
 }
 
-add_image_size( 'team-thumbnail', 216, 216, true );
-
 // Set custom post image sizes for blog module pages
 function blog_featured_width( ) { return 345; /* Custom featured post image width */ }
 add_filter( 'et_pb_blog_image_width', 'blog_featured_width');
@@ -71,6 +69,11 @@ $image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
 return $image_sizes;
 }
 add_filter( 'et_theme_image_sizes', 'blog_featured_size' );
+
+// Default WordPress style images
+add_image_size( 'team-thumbnail', 216, 216, true );
+
+add_image_size( 'homepage-slider', 2500, 800, true );
 
 //for admin style
 add_action('admin_head', 'admin_style');
@@ -490,11 +493,20 @@ function add_show_in_rest_func($data, $post_type) {
     return $data;
 }
 
-// Disable redirect canoical for post types that need to use list template on single page
-function custom_disable_redirect_canonical( $redirect_url ){
-    global $post;
-    $ptype = get_post_type( $post );
-    if ( $ptype == 'team' ) $redirect_url = false;
-    return $redirect_url;
+// // Disable redirect canoical for post types that need to use list template on single page
+// function custom_disable_redirect_canonical( $redirect_url ){
+//     global $post;
+//     $ptype = get_post_type( $post );
+//     if ( $ptype == 'team' ) $redirect_url = false;
+//     return $redirect_url;
+// }
+// add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
+
+include('includes/get-post.php'); // Shortcode for getting specific posts
+
+// Fix for seach and yoast working together see this for more info http://www.relevanssi.com/knowledge-base/yoast-local-seo-compatibility-issues/
+add_filter('relevanssi_modify_wp_query', 'rlv_meta_fix', 99);
+function rlv_meta_fix($q) {
+	$q->set('meta_query', '');
+	return $q;
 }
-add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );

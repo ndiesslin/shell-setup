@@ -5,10 +5,13 @@ function home_slide_img_width() {
 	var vpw = window.innerWidth;//window
 	//console.log(vpw);
 	if(vpw >= 769) {//769 and above
-		$('.elem-large-hover .lh-background').css({'width':2*vpw/3+'px'})
+    var imageWidth = ((2*vpw/3)*1.45)
+		$('.elem-large-hover .lh-background').css({'width':imageWidth+'px'})
+    //$('.elem-large-hover .lh-background').css({'background-position':'-'+(imageWidth/6)+'px'})
 	}
 	else {
 		$('.elem-large-hover .lh-background').css({'width':'100%'})
+    //$('.elem-large-hover .lh-background').css({'background-position':0})
 	}
 }
 //gravity form validation

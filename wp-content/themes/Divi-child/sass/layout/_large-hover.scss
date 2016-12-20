@@ -37,7 +37,7 @@
     display: table;
     overflow: hidden;
     background-color: #8A908A;
-    width: 20%;
+    width: 50%;
     float: left;
     height: 500px;
     -ms-transform: skewX(165deg);
@@ -66,15 +66,15 @@
       }
     }
     &.active {
-      width: 40%;
+      width: 60%;
     }
     &.condense {
-      width: 15%;
+      width: 40%;
     }
   }
   .lh-table {
     display: table-cell;
-    vertical-align: middle;
+    vertical-align: bottom;
     height: 100%;
     width: 100%;
     -ms-transform: skewX(-165deg);
@@ -99,36 +99,6 @@
         right: auto;
       }
     }
-    &.img-first, &.img-last {
-      .caption-head {
-        margin: 0 -15% 0 0;
-        -webkit-transition: 0.25s all;
-        -moz-transition: 0.25s all;
-        -ms-transition: 0.25s all;
-        -o-transition: 0.25s all;
-        transition: 0.25s all;
-        @include breakpoint (medium) {
-          margin: 0;
-        }
-      }
-      .lh-click {
-        margin: 0 -15% 0 0;
-        -webkit-transition: 0.25s all;
-        -moz-transition: 0.25s all;
-        -ms-transition: 0.25s all;
-        -o-transition: 0.25s all;
-        transition: 0.25s all;
-        @include breakpoint (medium) {
-          margin: 0;
-        }
-      }
-      p.lh-reveal {
-        margin: 0.5em 27% 0 32%;
-        @include breakpoint (medium) {
-          margin: 0.5em 10%;
-        }
-      }
-    }
   }
   .lh-container {
     display: block;
@@ -139,7 +109,7 @@
     text-align: center;
     background: #525252;
     background: rgba(84, 82, 82, 0.89);
-    padding: 1em 0;
+    padding: 2.5em 0;
     color: $white;
     cursor: pointer;
     position: relative;
@@ -163,6 +133,10 @@
       .lh-click:after {
         content: "\f056";
       }
+    }
+    a {
+        color: $white;
+        text-decoration: none;
     }
   }
   .lh-click {
@@ -200,33 +174,20 @@
   }
   .lh-background {
     background: url(assets/1.jpg);
-    background-position: 0 center;
+    background-position: center;
     background-size: cover;
     position: absolute;
     width: 200%;
     height: 100%;
     z-index: 1;
     top: 0;
-    left: -50%;
+    left: -40%;
+    animation: transition 200ms;
+    transition: transform 0.25s;
     @include breakpoint (medium) {
       left: 0;
       width: 100%;
       position: relative;
-    }
-  }
-}
-// This section is for the first child hover to correct the widths
-.elem-large-hover .active .lh-table.img-first {
-  .caption-head {
-    margin: 0 -5% 0 0;
-    @include breakpoint (medium) {
-      margin: 0;
-    }
-  }
-  .lh-click {
-    margin: 0 -5% 0 0;
-    @include breakpoint (medium) {
-      margin: 0;
     }
   }
 }
@@ -236,6 +197,32 @@
     padding-bottom: initial;
     @include breakpoint (medium) {
       margin: 0.5em 10%;
+    }
+  }
+}
+.lh-body {
+  line-height: 1.125;
+}
+.lh-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.active {
+  .lh-background {
+    transform: translateX(10%);
+    @include breakpoint (medium) {
+      transform: initial;
+    }
+  }
+}
+.condense {
+  .lh-background {
+    transform: translateX(-10%);
+    @include breakpoint (medium) {
+      transform: initial;
     }
   }
 }

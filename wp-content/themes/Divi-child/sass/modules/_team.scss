@@ -1,0 +1,50 @@
+/* team tempalte */
+.et_pb_row.full-width-row {
+    max-width: 100%;
+    width: 100%;
+}
+
+.full-width-row .list-team-member article {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 27px 0;
+    width: 90%;
+}
+
+.list-team-member .full-row{
+    overflow: hidden;
+}
+
+.team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section{
+    background-color: #f3f1ed;
+}
+
+.wp-pagenavi{
+    border-top: none;
+}
+
+.team-template{
+    padding-top: 0;
+}
+
+.team-template .wp-pagenavi {
+    max-width: 1160px;
+    margin: 0 auto;
+    border-top: none;
+    margin-top: 30px;
+}
+
+/* single team */
+.single-team h5{
+    color: #2b266d;
+    text-decoration: underline;
+}
+
+.full-widht-sec{
+    font-weight: 300;
+}
+
+.full-widht-sec h2{
+    margin-bottom: 20px;
+    font-weight: bold;
+}

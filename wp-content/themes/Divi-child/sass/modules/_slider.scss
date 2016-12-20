@@ -1,0 +1,19 @@
+.et_pb_slider--short {
+  .et_pb_slide_description {
+    padding: 0;
+  }
+  .et-pb-controllers {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  p {
+    line-height: 1.125;
+  }
+  &.text--purple {
+    h2, p, a, .et-pb-slider-arrows {
+      color: $purple;
+    }
+  }
+}

@@ -5,6 +5,8 @@
 @import "site-settings";
 @import "base";
 
+@import "tools/divi-overrides";
+
 // Layout
 @import "layout/grid";
 @import "layout/page";
@@ -17,3 +19,4 @@
 @import "modules/post";
 @import "modules/page-title";
 @import "modules/acf";
+@import "modules/slider";

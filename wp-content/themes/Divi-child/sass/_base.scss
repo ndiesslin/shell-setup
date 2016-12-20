@@ -66,7 +66,11 @@ p, .et_pb_post p {
   font-weight: bold;
 }
 
-.text--purple {
+.text-lead {
+  font-size: 1.5rem;
+}
+
+.text-purple, .text--purple {
   color: $purple;
 }
 
@@ -87,4 +91,30 @@ sup{
 
 .display-inline {
   display: inline;
+}
+
+.fa.fa--small {
+  font-size: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.padding--64-64 {
+  padding: 64px;
+}
+
+.padding--64-0 {
+  padding: 64px 0;
+}
+
+.padding--35-0 {
+  padding: 35px 0;
+}
+
+body.home .et_pb_row {
+    position: initial;
+    min-height: 174px;
+    padding: 0;
 }
