@@ -2111,6 +2111,14 @@ sup {
 .padding--35-0 {
   padding: 35px 0; }
 
+body.home .et_pb_row {
+  position: initial;
+  min-height: 174px;
+  padding: 0; }
+
+.form-input.form-input--full-width {
+  width: 100%; }
+
 .et_pb_bg_layout_dark .et_pb_slide_description {
   text-shadow: initial; }
 
@@ -2488,6 +2496,9 @@ span.et_close_search_field {
       filter: alpha(opacity=80); }
     .elem-large-hover .lh-container.open .lh-click:after {
       content: "\f056"; }
+    .elem-large-hover .lh-container a {
+      color: #ffffff;
+      text-decoration: none; }
   .elem-large-hover .lh-click {
     font-size: 20px;
     font-size: 1.25rem;
@@ -2571,6 +2582,47 @@ span.et_close_search_field {
     .condense .lh-background {
       transform: initial; } }
 
+/* team tempalte */
+.et_pb_row.full-width-row {
+  max-width: 100%;
+  width: 100%; }
+
+.full-width-row .list-team-member article {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 27px 0;
+  width: 90%; }
+
+.list-team-member .full-row {
+  overflow: hidden; }
+
+.team-template .full-row:nth-child(even), .team-template .full-row:nth-child(even) .et_pb_section {
+  background-color: #f3f1ed; }
+
+.wp-pagenavi {
+  border-top: none; }
+
+.team-template {
+  padding-top: 0; }
+
+.team-template .wp-pagenavi {
+  max-width: 1160px;
+  margin: 0 auto;
+  border-top: none;
+  margin-top: 30px; }
+
+/* single team */
+.single-team h5 {
+  color: #2b266d;
+  text-decoration: underline; }
+
+.full-widht-sec {
+  font-weight: 300; }
+
+.full-widht-sec h2 {
+  margin-bottom: 20px;
+  font-weight: bold; }
+
 #main-content .container:before {
   display: none; }
 
@@ -2633,3 +2685,134 @@ ul.mhi-posts {
 
 .et_pb_slider--short.text--purple h2, .et_pb_slider--short.text--purple p, .et_pb_slider--short.text--purple a, .et_pb_slider--short.text--purple .et-pb-slider-arrows {
   color: #250670; }
+
+/*Contact*/
+.gm-style:last-child {
+  display: none;
+  /*blue background in map*/ }
+
+/* contact form css */
+input, textarea, button {
+  border: 0;
+  outline: none; }
+
+.wpcf7-form,
+.wpcf7-form input,
+.wpcf7-form textarea {
+  /*font-family: 'din_mediumregular';*/
+  font-size: 15px;
+  /*16px appears bold*/ }
+
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email] {
+  width: 280px; }
+
+.wpcf7-form textarea {
+  width: 100%; }
+
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form textarea {
+  border: 0;
+  background-color: #e9e8e7; }
+
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form textarea,
+.wpcf7-form input[type=file] {
+  margin-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 0; }
+
+.wpcf7-form textarea {
+  padding: 15px;
+  height: 100px; }
+
+.wpcf7-form input {
+  height: 44px;
+  line-height: 44px; }
+
+.wpcf7-form input[type=submit], .btn, .button {
+  border-radius: 0;
+  background-color: #2b266d;
+  color: #ffffff;
+  display: inline-block;
+  height: 39px;
+  left: 0;
+  line-height: 39px;
+  margin-top: 10px;
+  padding: 0 28px;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+  /* width: 120px; */ }
+
+.btn a {
+  color: #fff; }
+
+.wpcf7-form input[type=submit]:hover, .btn:hover {
+  /* background-color: #ab1f2d; */
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out; }
+
+.wpcf7-form .form-input.form-input--full-width {
+  width: 100%; }
+
+::-webkit-input-placeholder {
+  color: #2d2d2d; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #2d2d2d; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #2d2d2d; }
+
+:-ms-input-placeholder {
+  color: #2d2d2d; }
+
+.captcha {
+  width: auto; }
+
+.wpcf7-form input.captcha-text {
+  border-radius: 0;
+  border: 2px solid #dcdcdc;
+  background-color: #fff;
+  width: 276px; }
+
+.btn.newsletter-btn p {
+  padding-top: 8px; }
+
+.group-toggle-target.group-toggle-target--toggled {
+  display: none; }
+
+.group-toggle {
+  display: block;
+  width: 100%;
+  border-top: solid 1px; }
+  .group-toggle--toggled .group-toggle__tab:after {
+    content: "\f078"; }
+
+.group-toggle__tab {
+  display: block;
+  text-align: center;
+  width: 75px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: #474647; }
+  .group-toggle__tab:after {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f077";
+    display: block;
+    color: #ffffff;
+    width: 75px;
+    height: 50px;
+    line-height: 3; }

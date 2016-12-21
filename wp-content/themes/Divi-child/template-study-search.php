@@ -24,49 +24,8 @@ Template Name: Study search page
 <?php // echo 'Relevanssi found ' . $wp_query->found_posts . ' hits'; ?>
 
 <?php
-  // Build query array with default options
-  // $query_array = array(
-  //   'post_type' => 'our-studies',
-  //   'relation' => 'AND',
-  //   array(
-  //       'key' => 'wpcf-condition',
-  //       'value' => 'Arrhythmia', 'Heart Failure',
-  //       'compare' => 'LIKE',
-  //   ),
-  //   array(
-  //       'key' => 'wpcf-gender',
-  //       'value' => 'Male',
-  //       'compare' => 'LIKE',
-  //   ),
-  //   array(
-  //       'key' => 'wpcf-age-range',
-  //       'value' => '18-20',
-  //       'compare' => 'LIKE',
-  //   ),
-  // );
-
-  // function getParameters($parameter) {
-  //   $array = $_GET[$parameter];
-  //   $string = rtrim(implode(', ', $array), ', ');
-  //
-  //   return $string;
-  // }
-
   // Default meta query options, we will be adding more items to this array for filtering
   $meta_query = array( 'relation' => 'AND' );
-
-  // Function to get all parameters
-  function getParameters() {
-    $query  = explode('&', $_SERVER['QUERY_STRING']);
-    $params = array();
-
-    foreach( $query as $param ) {
-      list($name, $value) = explode('=', $param, 2);
-      $params[urldecode($name)][] = urldecode($value);
-    }
-
-    return $params;
-  }
 
   // Query parameters
   function queryParameters() {
@@ -98,51 +57,15 @@ Template Name: Study search page
     );
   }
 
-  // Send array of query options to get sorted by
-  // function queryMultipleValues($array, $key) {
-  //   // Set meta query as global so it can be manipulated
-  //   global $meta_query;
-  //   foreach ($array as $value) {
-  //     $meta_query[] = array(
-  //       'key' => $key,
-  //       'value' => $value, // Print all conditions to sort by
-  //       'compare' => 'LIKE',
-  //     );
-  //   }
-  // }
-
+  // Filter items that may be set in parameters
   function filterItems() {
     // Set meta query as global so it can be manipulated
     global $meta_query;
 
-    // Query conditions
-    //queryMultipleValues($_GET['wpcf-condition'], 'wpcf-condition');
-
-    // Query conditions
-    //queryMultipleValues($_GET['wpcf-gender'], 'wpcf-gender');
-
+    // Set up arguments for query
     $args = array(
       'post_type' => 'our-studies',
       'meta_query' => $meta_query,
-      // Original Query
-      // 'meta_query' => array(
-      //   'relation' => 'AND',
-      //   // array(
-      //   //     'key' => 'wpcf-condition',
-      //   //     'value' => 'Arrhythmia', 'Heart Failure', // Print all conditions to sort by
-      //   //     'compare' => 'LIKE',
-      //   // ),
-      //   array(
-      //       'key' => 'wpcf-gender',
-      //       'value' => 'Male', // Print all conditions to sort by
-      //       'compare' => 'LIKE',
-      //   ),
-      //   array(
-      //       'key' => 'wpcf-age-range',
-      //       'value' => '18-20',
-      //       'compare' => 'LIKE',
-      //   ),
-      // ),
     );
 
     // If items are set push to array to filter by them
@@ -182,8 +105,13 @@ Template Name: Study search page
 
   // Use CS instead of s to set search
   $query->query_vars['s'] = $_GET['cs'];
-  //$query->query_vars['post_type'] = 'our-studies';
+
+  // Only search studies
+  $query->query_vars['post_type'] = 'our-studies';
+
+  // Limit post count per page
   $query->query_vars['posts_per_page'] = 10;
+
   // Build relevanssi query, may not be neccesary, but will use for not incase relevanssi has some handy search features
   relevanssi_do_query($query);
 
@@ -210,7 +138,6 @@ Template Name: Study search page
 
   // Echo all results once here
   echo $similar;
-
 ?>
 
 <?php get_footer(); ?>

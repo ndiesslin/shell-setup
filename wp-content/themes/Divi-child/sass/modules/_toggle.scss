@@ -1,0 +1,36 @@
+.group-toggle-target.group-toggle-target--toggled {
+  display: none;
+}
+
+.group-toggle {
+  display: block;
+  width: 100%;
+  border-top: solid 1px;
+
+  &--toggled {
+    .group-toggle__tab {
+      &:after {
+        content: "\f078";
+      }
+    }
+  }
+}
+
+.group-toggle__tab {
+  display: block;
+  text-align: center;
+  width: 75px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: $black;
+
+  &:after {
+    @include fontawesome();
+    content: "\f077";
+    display: block;
+    color: $white;
+    width: 75px;
+    height: 50px;
+    line-height: 3;
+  }
+}

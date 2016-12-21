@@ -104,9 +104,9 @@ function FormContact_Validator(Form){
 
 $(document).ready(function() {
 
-$("#gform_submit_button_1").click(function() {
+  $("#gform_submit_button_1").click(function() {
     return FormContact_Validator(gform_1);
-   });
+  });
 
 });
 
@@ -332,3 +332,15 @@ $(window).on("load", function() {
 $( window ).resize(function() {
   equalheight('.eq-height article .entry-featured-image-url');
 });
+
+$(document).ready(function() {
+  groupToggle();
+});
+
+function groupToggle() {
+  $('.group-toggle__tab').on( 'click', function() {
+    var targetId = $(this).data('toggle-id');
+    $('#'+targetId).toggleClass('group-toggle-target--toggled');
+    $(this).parent('.group-toggle').toggleClass('group-toggle--toggled')
+  });
+}

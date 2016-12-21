@@ -510,3 +510,32 @@ function rlv_meta_fix($q) {
 	$q->set('meta_query', '');
 	return $q;
 }
+
+// Funcitons used for study search
+
+// Function to check for keys in array and multidimenstional arrays
+// http://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array
+function in_array_r($keyword, $array, $strict = false, $search_key) {
+  foreach ($array as $key => $item) {
+    if (($strict ? $item === $keyword : $item == $keyword) || (is_array($item) && in_array_r($keyword, $item, $strict)) || (is_array($item) && in_array_r($search_key, $item, $strict))) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// Function to get all parameters in url
+function getParameters() {
+  $query  = explode('&', $_SERVER['QUERY_STRING']);
+  $params = array();
+
+  foreach( $query as $param ) {
+    list($name, $value) = explode('=', $param, 2);
+    $params[urldecode($name)][] = urldecode($value);
+  }
+
+  return $params;
+}
+
+// End functions for study search
