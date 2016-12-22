@@ -493,14 +493,14 @@ function add_show_in_rest_func($data, $post_type) {
     return $data;
 }
 
-// // Disable redirect canoical for post types that need to use list template on single page
-// function custom_disable_redirect_canonical( $redirect_url ){
-//     global $post;
-//     $ptype = get_post_type( $post );
-//     if ( $ptype == 'team' ) $redirect_url = false;
-//     return $redirect_url;
-// }
-// add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
+// Disable redirect canoical for post types that need to use list template on single page
+function custom_disable_redirect_canonical( $redirect_url ){
+    global $post;
+    $ptype = get_post_type( $post );
+    if ( $ptype == 'team' || $ptype == 'our-studies' ) $redirect_url = false;
+    return $redirect_url;
+}
+add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
 
 include('includes/get-post.php'); // Shortcode for getting specific posts
 
