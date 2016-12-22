@@ -2,6 +2,8 @@
 // Default meta query options, we will be adding more items to this array for filtering
 $meta_query = array( 'relation' => 'AND' );
 
+echo get_query_var('paged');
+
 // Query parameters
 function queryParameters() {
   // Get parameter list
@@ -95,12 +97,13 @@ relevanssi_do_query($query);
 
 // print out list of results
 // Build divs befor layout
-$similar = '
+$post_list = '
 <div class="et_pb_section page et_pb_section_0 et_section_regular">
   <div class="et_pb_row et_pb_row_0">
     <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
       <div class="et_pb_posts et_pb_module et_pb_bg_layout_light et_pb_blog_0">';
 
+// Query relevanssi search, using query->posts to prevent additional query call
 foreach ($query->posts as $r_post) {
   if ($r_post->ID == $post->ID) continue;
   // Set varaibles for posts
@@ -117,16 +120,16 @@ foreach ($query->posts as $r_post) {
   $snippetLink = 'Read More <i class="fa fa-chevron-right fa--small" aria-hidden="true"></i>';
 
   // Build each post
-  $similar .= '<div>';
+  $post_list .= '<div>';
   // Post Title
-  $similar .= '<h3 class="text--purple display-inline text-bold"><a href='.$link.'>'.$title.'</a></h3>';
+  $post_list .= '<h3 class="text--purple display-inline text-bold"><a href='.$link.'>'.$title.'</a></h3>';
   // Post identifier and status
-  $similar .= '<p>'.$studyIdentifier.': '.$status.'</p>';
+  $post_list .= '<p>'.$studyIdentifier.': '.$status.'</p>';
   // Condition[s]
-  $similar .= '<p>'.$conditions.'</p>';
+  $post_list .= '<p>'.$conditions.'</p>';
   // Post excerpt
   if (has_excerpt($r_post->ID)) {
-    $similar .= '<p>'.$excerpt.'<br><a href='.$link.'>'.$snippetLink.'</p>';
+    $post_list .= '<p>'.$excerpt.'<br><a href='.$link.'>'.$snippetLink.'</p>';
   } else {
     // Get content and strip all shortcodes.
     $content = get_the_content(); // Get post content in $content
@@ -134,19 +137,19 @@ foreach ($query->posts as $r_post) {
     $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
     $content = trim($content); // Remove whitespace in begining and end.
     $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
-    $similar .= $content;
+    $post_list .= $content;
   }
-  $similar .= '</div>';
+  $post_list .= '</div>';
 }
 
 // Close wrapper around posts
-$similar .= '</div>';
-$similar .= wp_pagenavi();
+$post_list .= '</div>';
+$post_list .= wp_pagenavi();
 // TODO: figure out page navigation
 //printf(wp_pagenavi());
 //print_r(wp_pagenavi( array( 'query' => $query->posts ) ));
 //printf(wp_pagenavi( array( 'query' => $query ) ));
-$similar .= '</div></div></div>';
+$post_list .= '</div></div></div>';
 
 // Echo all results once here
-echo $similar;
+echo $post_list;
