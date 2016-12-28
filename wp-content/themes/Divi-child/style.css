@@ -2044,6 +2044,11 @@ a {
       font-size: 19px;
       font-size: 1.1875rem; } }
 
+.a--hover {
+  text-decoration: none; }
+  .a--hover:hover {
+    text-decoration: underline; }
+
 h1, .et_pb_post h1 {
   font-size: 32px;
   font-size: 2rem; }
@@ -2101,15 +2106,6 @@ sup {
 
 .text-center {
   text-align: center; }
-
-.padding--64-64 {
-  padding: 64px; }
-
-.padding--64-0 {
-  padding: 64px 0; }
-
-.padding--35-0 {
-  padding: 35px 0; }
 
 body.home .et_pb_row {
   position: initial;
@@ -2622,6 +2618,27 @@ span.et_close_search_field {
 .full-widht-sec h2 {
   margin-bottom: 20px;
   font-weight: bold; }
+
+.margin-bottom--12 {
+  margin-bottom: 12px; }
+
+.margin-bottom--25 {
+  margin-bottom: 25px; }
+
+.margin-bottom--50 {
+  margin-bottom: 50px; }
+
+.padding-bottom--8 {
+  padding-bottom: 8px; }
+
+.padding--64-64 {
+  padding: 64px; }
+
+.padding--64-0 {
+  padding: 64px 0; }
+
+.padding--35-0 {
+  padding: 35px 0; }
 
 #main-content .container:before {
   display: none; }

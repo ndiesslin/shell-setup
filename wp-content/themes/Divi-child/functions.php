@@ -513,6 +513,19 @@ function rlv_meta_fix($q) {
 
 // Funcitons used for study search
 
+// Strip shortcodes from relevanssi results
+add_filter('relevanssi_excerpt_content', 'rlv_strip_shortcodes');
+function rlv_strip_shortcodes($excerpt) {
+    return preg_replace('~\\[[^]]*\\]~', '', $excerpt);
+}
+
+// Change ellipses at begining and end of search results
+add_filter('relevanssi_ellipsis', 'excerpt_function', 10, 3);
+function excerpt_function($content) {
+  $content = "..."; // This can be whatever is needed for beginning and end ellipses
+	return $content;
+}
+
 // Function to check for keys in array and multidimenstional arrays
 // http://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array
 function in_array_r($keyword, $array, $strict = false, $search_key) {

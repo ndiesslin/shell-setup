@@ -25,15 +25,6 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">STATUS:</h3>
-      <p class="display-inline">
-        <?php
-          // Get Status
-          echo(get_post_meta( get_the_ID(), 'wpcf-status', true ));
-        ?>
-      </p>
-    </div>
-    <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">CONDITION:</h3>
       <p class="display-inline">
         <?php
@@ -49,6 +40,18 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
+      <h3 class="text--purple display-inline text-bold">CONTACT INFO:</h3>
+      <p class="display-inline">
+        <a href="tel:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>"><?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-name', true )); ?></a>
+        &nbsp;
+        |
+        &nbsp;
+        <a href="mailto:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>">
+          <?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>
+        </a>
+      </p>
+    </div>
+    <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">DESCRIPTION:</h3>
       <p class="display-inline">
         <?php
@@ -59,7 +62,7 @@
     </div>
     <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">CRITERIA LIST/ QUALIFICATIONS:</h3>
-      <p class="display-inline">
+      <p>
         <?php
           // Get Qualifications
           echo(get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ));
@@ -85,15 +88,17 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">CONTACT INFO:</h3>
+      <h3 class="text--purple display-inline text-bold">STATUS:</h3>
       <p class="display-inline">
-        <a href="tel:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>"><?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-name', true )); ?></a>
-        &nbsp;
-        |
-        &nbsp;
-        <a href="mailto:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>">
-          <?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>
-        </a>
+        <?php
+          // Get Status
+          echo(get_post_meta( get_the_ID(), 'wpcf-status', true ));
+        ?>
+      </p>
+    </div>
+    <div class=" et_pb_row et_pb_row_0">
+      <p class="wpcf7-form">
+        <input type="submit" value="GET MORE INFORMATION" class="wpcf7-form-control wpcf7-submit">
       </p>
     </div>
 <?php

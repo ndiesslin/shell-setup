@@ -1465,7 +1465,7 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
 a:hover,
 .full-width-link:hover,
 .jcarousel p:hover {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 .jcarousel .news-event{
     margin-bottom: 0;

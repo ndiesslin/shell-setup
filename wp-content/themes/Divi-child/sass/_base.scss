@@ -27,6 +27,14 @@ a {
   }
 }
 
+.a--hover {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // Font Styles
 h1, .et_pb_post h1 {
   @include font-size(32px);
@@ -99,18 +107,6 @@ sup{
 
 .text-center {
   text-align: center;
-}
-
-.padding--64-64 {
-  padding: 64px;
-}
-
-.padding--64-0 {
-  padding: 64px 0;
-}
-
-.padding--35-0 {
-  padding: 35px 0;
 }
 
 body.home .et_pb_row {

@@ -11,47 +11,61 @@ function queryParameters() {
   $params = getParameters();
 
   // Loop through parameter list
-  foreach ($params as $key => $parameterGroup) {
-    //printf($key); //TODO: make grouped queries possible to setQueryValues for each group like gender
-    foreach ($parameterGroup as $parameter) {
-      // Make sure we aren't parsing the custom search CS
-      if ( $key != 'cs' ) {
-        setQueryValue($key, $parameter);
-      }
+  foreach ($params as $key => $parameter_group) {
+    // Make sure we aren't parsing the custom search CS
+    if ( $key != 'cs' ) {
+      // Call function to put grouped items in an array. We want each group to be seperate for the AND relation
+      setQueryValue($key, $parameter_group);
     }
   }
 }
 
 // Run query function if any parameters are set
-if(count($_GET)) {
+if (count($_GET)) {
   queryParameters();
 }
 
 // Send key and value for query options
-function setQueryValue($key, $value) {
+function setQueryValue($key, $parameter_group) {
+  // Set or relation inside of query group
+  $query_group = array( 'relation' => 'OR' );
+
+  foreach ($parameter_group as $parameter) {
+    if ( $key != 'cs' ) {
+      // Add item to query
+      $query_group[] = array(
+        'key' => $key,
+        'value' => $parameter, // Print all conditions to sort by
+        'compare' => 'LIKE',
+      );
+    }
+  }
+
   // Set meta query as global so it can be manipulated
   global $meta_query;
-  // Add item to query
-  $meta_query[] = array(
-    'key' => $key,
-    'value' => $value, // Print all conditions to sort by
-    'compare' => 'LIKE',
-  );
+
+  // Add query group to main query
+  $meta_query[] = $query_group;
 }
 
 // Search query to get search array
-function setSearchValue($query) {
-  // Set page id as global so filterItems gets correct id to hide
-  global $pageId;
+function setSearchValue() {
+  // Return if no search value is set otherwise return search query
+  if (!isset($_GET['cs']) || empty($_GET['cs'])) {
+    return;
+  } else {
+    // Set page id as global so filterItems gets correct id to hide
+    global $pageId;
 
-  $args = array(
-    // Exclude page listing posts
-    'post__not_in' => array($pageId),
-    'post_type' => 'our-studies',
-    's' => $query,
-  );
+    $args = array(
+      // Exclude page listing posts
+      'post__not_in' => array($pageId),
+      'post_type' => 'our-studies',
+      's' => $_GET['cs'],
+    );
 
-  return $args;
+    return $args;
+  }
 }
 
 // Filter items that may be set in parameters
@@ -62,16 +76,12 @@ function filterItems() {
   // Set page id as global so filterItems gets correct id to hide
   global $pageId;
 
-  // Check for paged
-  //$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
   // Set up arguments for query
   $args = array(
     // Exclude page listing posts
     'post__not_in' => array($pageId),
     'post_type' => 'our-studies',
     'meta_query' => $meta_query,
-    //'paged' => $paged,
     // TODO: figure out what to order things by
     // 'orderby' => array(
     //   'team-last-name' => 'ASC'
@@ -83,36 +93,37 @@ function filterItems() {
   return $args;
 }
 
-
 //Allow searching without terms https://www.relevanssi.com/knowledge-base/using-relevanssi-without-a-search-term/
 add_filter('relevanssi_hits_filter', 'rlv_hits_filter');
 function rlv_hits_filter($hits) {
 
   // Get meta fiters from filter items array
-  $args = filterItems();
+  $meta_args = filterItems();
+
+  // Get search query
+  $search_args = setSearchValue();
+
+  //Merge arguments for meta query filter and search filter if search is not empty otherwise just use meta query
+  if (!empty($search_args) && !empty($meta_args)) {
+    $final_query_args = array_merge( $meta_args, $search_args );
+  }
+  // There should always be meta query args available for sort order and relations, but we check if they are available
+  elseif (!empty($meta_args)) {
+    $final_query_args = $meta_args;
+  }
 
   if ($hits[0] == null) {
     // no search hits, so must create new
-    $hits[0] = get_posts($args);
+    $hits[0] = get_posts($final_query_args);
   }
   else {
-    // posts available, take only those that match the conditions
-    $ok = array();
-    foreach ($hits[0] as $hit) {
-      array_push($ok, $hit);
-    }
-    $hits[0] = $ok;
+    return;
   }
   return $hits;
 }
 
 // Initialize default query, Relevanssi builds off of this
 $query = new WP_Query();
-
-//Use CS instead of s to set search
-if (isset($_GET['cs']) && !empty($_GET['cs'])) {
-  $query->query_vars['s'] = $_GET['cs'];
-}
 
 // Only search studies
 $query->query_vars['post_type'] = 'our-studies';
@@ -143,139 +154,58 @@ foreach ($query->posts as $r_post) {
   $title = get_the_title($r_post->ID);
   $excerpt = get_the_excerpt($r_post->ID);
   $status = get_post_meta( $r_post->ID, 'wpcf-status', true );
-  $studyIdentifier = get_post_meta( $r_post->ID, 'wpcf-study-identifier', true );
-  $conditionsArray = get_post_meta( $r_post->ID, 'wpcf-condition', true );
+  $study_identifier = get_post_meta( $r_post->ID, 'wpcf-study-identifier', true );
+  $conditions_array = get_post_meta( $r_post->ID, 'wpcf-condition', true );
   $conditions = "";
-  foreach ($conditionsArray as $value) {
-    $conditions .= $value[0].(($value === end($conditionsArray)) ? '' : ', ');
+  foreach ($conditions_array as $value) {
+    $conditions .= $value[0].(($value === end($conditions_array)) ? '' : ', ');
   }
-  $snippetLink = 'Read More <i class="fa fa-chevron-right fa--small" aria-hidden="true"></i>';
+  $description = get_post_meta( $r_post->ID, 'wpcf-description', true );
+  $snippet_link = 'Read More <i class="fa fa-chevron-right fa--small" aria-hidden="true"></i>';
 
   // Build each post
-  $post_list .= '<div>';
+  $post_list .= '<div class="margin-bottom--50">';
   // Post Title
-  $post_list .= '<h3 class="text--purple display-inline text-bold"><a href='.$link.'>'.$title.'</a></h3>';
+  $post_list .= '<h3 class="text--purple margin-bottom--12 text-bold"><a href='.$link.' class="a--hover">'.$title.'</a></h3>';
   // Post identifier and status
-  $post_list .= '<p>'.$studyIdentifier.': '.$status.'</p>';
+  $post_list .= '<p class="padding-bottom--8">'.$study_identifier.': '.$status.'</p>';
   // Condition[s]
-  $post_list .= '<p>'.$conditions.'</p>';
-  // Post excerpt
+  $post_list .= '<p class="padding-bottom--8">'.$conditions.'</p>';
+  // Post excerpt/ description/ or content
   if (has_excerpt($r_post->ID)) {
-    $post_list .= '<p>'.$excerpt.'<br><a href='.$link.'>'.$snippetLink.'</a></p>';
-  } else {
+    $post_list .= '<p class="padding-bottom--8">'.$excerpt.'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
+  }
+  elseif($description) {
+    $post_list .= '<p class="padding-bottom--8">'.wp_trim_words($description, 27, '...').'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
+  }
+  else {
     // Get content and strip all shortcodes.
     $content = get_the_content(); // Get post content in $content
     $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
     $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
     $content = trim($content); // Remove whitespace in begining and end.
     $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
-    $post_list .= $content;
+    $post_list .= '<p class="padding-bottom--8">'.$content.'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
   }
   $post_list .= '</div>';
   //$post_list .= wp_pagenavi(array( 'query' => $query ));
 }
 
 // Post count
-$post_list .= '<br><br><p>Found '.$query->found_posts.' hits.</p>';
+if ($query->found_posts == 0) {
+  $post_list .= '<br><br><p>'.$query->found_posts.' results found.</p>';
+}
 
 // Close wrapper around posts
 $post_list .= '</div></div></div>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* WP query without plugin
-$meta_args = filterItems();
-
-
-// if (isset($_GET['cs']) && !empty($_GET['cs'])) {
-//   $search_args = setSearchValue($_GET['cs']);
-// } else {
-//   $search_args = '';
-// }
-
-//Merge arguments for meta query filter and search filter
-$merged_query_args = array_merge( $meta_args, $meta_args );
-
-// Create empty query and populate with both results
-$wp_query = new WP_Query($merged_query_args);
-if ( have_posts() ) :
-  ?>
-  <div class="et_pb_section page et_pb_section_0 et_section_regular">
-    <div class="et_pb_row et_pb_row_0">
-      <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
-        <div class="et_pb_posts et_pb_module et_pb_bg_layout_light et_pb_blog_0">
-          <?php
-            while ( have_posts() ) : the_post(); ?>
-              <article class="et_pb_post team type-team status-publish has-post-thumbnail hentry category-research-physicians category-team clearfix">
-                <a href="<?php the_permalink(); ?>" class="entry-featured-image-url">
-                  <?php the_post_thumbnail('team-thumbnail'); ?>
-                </a>
-                <h2 class="entry-title">
-                  <a href="<?php the_permalink(); ?>">
-                    <?php the_title(); ?>
-                  </a>
-                </h2>
-                <p>
-                  <?php
-                    // Check for excerpt first.
-                    if (has_excerpt()) {
-                      echo get_the_excerpt();
-                    }
-                    // If there is no excerpt, grab the content
-                    else {
-                      // Get content and strip all shortcodes.
-                      $content = get_the_content(); // Get post content in $content
-                      $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
-                      $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
-                      $content = trim($content); // Remove whitespace in begining and end.
-                      $content = wp_trim_words($content, 27, '...'); // Trim content to 27 words and end with ...
-                      echo $content;
-                    }
-                  ?>
-                </p>
-                <a href="<?php the_permalink(); ?>" class="more-link">
-                  View Profile
-                </a>
-              </article>
-            <?php endwhile; ?>
-        </div>
-        <?php
-          //Add pagination.
-          echo wp_pagenavi();
-        ?>
-      </div>
-    </div>
-  </div>
-<?php endif;
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Echo all results once here
 echo $post_list;
 
 // Pagination section
+
 ?>
+
 <div class="et_pb_section page et_pb_section_0 et_section_regular">
   <div class="et_pb_row et_pb_row_0">
     <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
@@ -285,3 +215,6 @@ echo $post_list;
     </div>
   </div>
 </div>
+
+<?php
+wp_reset_postdata(); // avoid errors further down the page
