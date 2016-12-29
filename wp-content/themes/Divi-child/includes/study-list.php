@@ -216,5 +216,24 @@ echo $post_list;
   </div>
 </div>
 
+<script>
+  jQuery( function() {
+    correctPagination();
+  });
+
+  // Rewrite page navi urls to include all parameters, we are unable to manipulate them through wp_pagenavi's php
+  function correctPagination() {
+    jQuery('.wp-pagenavi a').each( function() {
+      var linkUrl = jQuery(this).attr('href').split('?')[0],
+          parameters = '?'+window.location.href.split('?')[1],
+          combinedUrl = linkUrl+parameters;
+
+      console.log(combinedUrl);
+      jQuery(this).attr('href', combinedUrl);
+    });
+  }
+</script>
+
+
 <?php
 wp_reset_postdata(); // avoid errors further down the page
