@@ -227,8 +227,7 @@ echo $post_list;
       var linkUrl = jQuery(this).attr('href').split('?')[0],
           parameters = '?'+window.location.href.split('?')[1],
           combinedUrl = linkUrl+parameters;
-
-      console.log(combinedUrl);
+          
       jQuery(this).attr('href', combinedUrl);
     });
   }
