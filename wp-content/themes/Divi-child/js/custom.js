@@ -3,23 +3,14 @@ $=jQuery;
 
 function home_slide_img_width() {
 	var vpw = window.innerWidth;//window
-	//console.log(vpw);
 	if(vpw >= 769) {//769 and above
     var imageWidth = ((2*vpw/3)*1.45)
 		$('.elem-large-hover .lh-background').css({'width':imageWidth+'px'})
-    //$('.elem-large-hover .lh-background').css({'background-position':'-'+(imageWidth/6)+'px'})
 	}
 	else {
 		$('.elem-large-hover .lh-background').css({'width':'100%'})
-    //$('.elem-large-hover .lh-background').css({'background-position':0})
 	}
 }
-//gravity form validation
-/*$.validator.setDefaults({
-  submitHandler: function() {
-		alert("submitted!");
-	}
-});*/
 
 //homepage slider close on tapping outside
 $(document).on('touchstart', function (e) {
@@ -39,9 +30,6 @@ function FormContact_Validator(Form){
  	if (Form.input_1_5.value == "") {
 		alert("Please enter your First Name");
 		Form.input_1_5.focus();
-	 	//$( "#gform_submit_button_1" ).bind( "click", function() {
-	  //alert( "User clicked on 'submit.'" );
-		//});
 		return (false);
 	}
  	if (Form.input_1_6.value == "") {
@@ -112,48 +100,8 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-//alert('test');
 	//removing first link of menu and breadcrumb
 	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a').attr('href','#');
-
-	//gravity form validation
-	/*$('#gform_1').validate({ // initialize the plugin
-    rules: {
-      input_2: {//amount
-          required: true,
-      },
-      input_5: {//first name
-          required: true,
-          //minlength: 5
-      },
-      input_6: {//last name
-          required: true,
-      },
-      input_7: {//address
-          required: true,
-      },
-      input_9: {//city
-          required: true,
-      },
-      input_14: {//phone
-          required: true,
-      },
-      input_16: {//email
-          required: true,
-          email: true,
-      },
-      input_16_2: {//email
-          required: true,
-          email: true,
-      },
-      input_17: {//gift?
-          required: true,
-      },
-      //form.submit();//submits the form even if no information is added.
-    }
-  });*/
-
-
 
 	//blog
 	$('body.archive article').addClass('clearfix');
@@ -162,8 +110,6 @@ $(document).ready(function() {
 	$('.comment-reply-link').parent().removeClass('reply');
 	$('.comment-reply-link').removeAttr('onclick')
 	$('.comment-reply-link').attr({'target':'_blank'});
-
-	//$('.top-stories h2').append(year);
 
 	//team page
 	$('.list-team-member').parent().parent().addClass('full-width-row team-template');
@@ -177,26 +123,8 @@ $(document).ready(function() {
 	$('article.team .more-link').text('View Profile');
 
 	//homepage-slider
-	if($(window).width() >= 768) {
-		//$('.jssor-slider').css({'display':'block !important'});
-	}
 	$('.homepage-slider').show();
 	home_slide_img_width();
-	/*$('.lh-container').click(function() {
-		$('.lh-click').css({'opacity':'0'});
-	});
-	$('.large-hover-img').hover(function() {
-	}, function() {
-		$('.lh-click').css({'opacity':'1'});
-	}
-	);*/
-
-	//professional dashboard
-	// var top_intro_box_width = $('.top-intro h4').innerWidth();
-	// $('.top-intro h4').css({
-	// 	'margin-left': '-'+top_intro_box_width/2+'px',
-	// 	'display': 'block'
-	// });
 
 	//stories of gratitude
 	$('.et_pb_video_play').html('<span class="et-pb-icon et-waypoint et_pb_animation_top et-animated"></span>');
@@ -209,41 +137,6 @@ $(window).resize(function() {
 	home_slide_img_width();
 });
 
-// parent height
-// function parentHeight(){
-// 	var parentHeight = $('#img-wrap-has-parent-heigh .news-event').height();
-// 	var childHeight = $('.list-news-thumb').height();
-// 	if (parentHeight > childHeight ) {
-// 		$('.list-news-thumb').css({
-// 			'min-height': parentHeight
-// 		})
-// 		// height(parentHeight);
-// 	};
-// }
-$(document).ready(function(){
-	// parentHeight();
-	windowHeight();
-});
-$(window).resize(function(){
-	// parentHeight();
-	windowHeight();
-});
-
-// calculate window height for banner
-function windowHeight(){
-	// var windowHeight = $(window).height();
-
-	// if (windowHeight > 1000) {
-	// 	$('.homepage-slider').height(windowHeight/100*70);
-	// 	$('.elem-large-hover .large-hover-img').height(windowHeight/100*70);
-	// }
-	// else if(windowHeight < 700){
-	// 	$('.homepage-slider').height(500);
-	// 	$('.elem-large-hover .large-hover-img').height(500);
-	// }
-
-}
-
 $('#homepage-slider').on('click', function(e) {
     e.stopPropagation();
 });
@@ -252,28 +145,6 @@ $(document).on('click', function (e) {
     // $(e.target).children('.large-hover-img').removeClass('active');
 });
 
-// for whats-new bottom boxes equal size
-/* rhs I think this may be causing more problems than it fixes
-$(document).ready(function(){
-	var winWidth = $(window).width();
-	if (winWidth > 480) {
-		var blogH = $('.blog-box').parent('.et_pb_column').height();
-		$('.newsletter-box').height(blogH);
-		$('.box-icon-top-right .et_pb_main_blurb_image img').height(blogH + 40);
-		$('.box-icon-top-right .et_pb_main_blurb_image').height(blogH + 40);
-	};
-});
-$(window).resize(function(){
-	var winWidth = $(window).width();
-	if (winWidth > 480) {
-		var blogH = $('.blog-box').parent('.et_pb_column').height();
-		$('.newsletter-box').height(blogH);
-		$('.box-icon-top-right .et_pb_main_blurb_image img').height(blogH + 40);
-		$('.box-icon-top-right .et_pb_main_blurb_image').height(blogH + 40);
-	};
-});
-// for whats-new bottom boxes equal size ends.
-*/
 // image as background
 $(document).ready(function(){
 	var img_url = $('.img-as-bg .et_pb_blurb_content .et_pb_main_blurb_image img').attr('src');
