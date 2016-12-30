@@ -48,26 +48,6 @@ function setQueryValue($key, $parameter_group) {
   $meta_query[] = $query_group;
 }
 
-// Search query to get search array
-function setSearchValue() {
-  // Return if no search value is set otherwise return search query
-  if (!isset($_GET['cs']) || empty($_GET['cs'])) {
-    return;
-  } else {
-    // Set page id as global so filterItems gets correct id to hide
-    global $pageId;
-
-    $args = array(
-      // Exclude page listing posts
-      'post__not_in' => array($pageId),
-      'post_type' => 'our-studies',
-      's' => $_GET['cs'],
-    );
-
-    return $args;
-  }
-}
-
 // Filter items that may be set in parameters
 function filterItems() {
   // Set meta query as global so it can be manipulated
@@ -87,43 +67,41 @@ function filterItems() {
     //   'team-last-name' => 'ASC'
     // ),
     'order' => 'ASC',
-    //'posts_per_page' => 1,
   );
 
   return $args;
 }
 
 //Allow searching without terms https://www.relevanssi.com/knowledge-base/using-relevanssi-without-a-search-term/
+
+// First allow searching by meta query
+add_filter('relevanssi_search_ok', 'search_trigger');
+function search_trigger($search_ok) {
+	global $query;
+	if (!empty($query->query_vars['meta_query'])) {
+		$search_ok = true;
+	}
+	return $search_ok;
+}
+
+// Then send variables to search by
 add_filter('relevanssi_hits_filter', 'rlv_hits_filter');
 function rlv_hits_filter($hits) {
-
-  // Get meta fiters from filter items array
-  $meta_args = filterItems();
-
-  // Get search query
-  $search_args = setSearchValue();
-
-  //Merge arguments for meta query filter and search filter if search is not empty otherwise just use meta query
-  if (!empty($search_args) && !empty($meta_args)) {
-    $final_query_args = array_merge( $meta_args, $search_args );
-  }
-  // There should always be meta query args available for sort order and relations, but we check if they are available
-  elseif (!empty($meta_args)) {
-    $final_query_args = $meta_args;
-  }
-
   if ($hits[0] == null) {
-    // no search hits, so must create new
-    $hits[0] = get_posts($final_query_args);
-  }
-  else {
-    return;
+  	// no search hits, so must create new
+    $args = filterItems();
+  	$hits[0] = get_posts($args);
   }
   return $hits;
 }
+// End search without terms
 
 // Initialize default query, Relevanssi builds off of this
 $query = new WP_Query();
+
+// Order TODO: figure out what this should be and if it's needed, WordPress defaults to post_date which should be fine
+// $query->query_vars['order'] = 'ASC';
+// $query->query_vars['orderby'] = 'title';
 
 // Only search studies
 $query->query_vars['post_type'] = 'our-studies';
@@ -131,9 +109,20 @@ $query->query_vars['post_type'] = 'our-studies';
 // Limit post count per page
 $query->query_vars['posts_per_page'] = 1;
 
+// Get meta query
+$meta_args = filterItems();
+$query->query_vars['meta_query'] = $meta_args;
+
+// Only use search if it is defined
+if (isset($_GET['cs']) && !empty($_GET['cs'])) {
+  $query->query_vars['s'] = $_GET['cs'];
+}
+
 // Enable paged for relevanssi
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $query->query_vars['paged'] = $paged;
+
+print_r($query);
 
 // Build relevanssi query, may not be neccesary, but will use for not incase relevanssi has some handy search features
 relevanssi_do_query($query);
@@ -203,7 +192,6 @@ $post_list .= '</div></div></div>';
 echo $post_list;
 
 // Pagination section
-
 ?>
 
 <div class="et_pb_section page et_pb_section_0 et_section_regular">

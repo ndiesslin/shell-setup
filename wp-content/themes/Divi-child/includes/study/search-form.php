@@ -3,7 +3,8 @@
     <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
       <div role="form" lang="en-US" dir="ltr">
         <div class="screen-reader-response"></div>
-        <form action="" method="get">
+        <?php //set form action to locatin of search page, this is needed for when a user searches on a paginated page ?>
+        <form action="/our-studies/all-studies" method="get">
           <div class="wpcf7-form margin-bottom--25">
             <h3 class="text--purple display-inline text-bold">Search By Keyword</h3><br>
             <div class="clearfix">
