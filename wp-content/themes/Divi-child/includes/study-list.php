@@ -223,13 +223,17 @@ echo $post_list;
 
   // Rewrite page navi urls to include all parameters, we are unable to manipulate them through wp_pagenavi's php
   function correctPagination() {
-    jQuery('.wp-pagenavi a').each( function() {
-      var linkUrl = jQuery(this).attr('href').split('?')[0],
-          parameters = '?'+window.location.href.split('?')[1],
-          combinedUrl = linkUrl+parameters;
-          
-      jQuery(this).attr('href', combinedUrl);
-    });
+    // Check if url has parameters
+    var windowUrl = window.location.href;
+    if (windowUrl.includes('?')) {
+      jQuery('.wp-pagenavi a').each( function() {
+        var linkUrl = jQuery(this).attr('href').split('?')[0],
+            parameters = '?'+windowUrl.split('?')[1],
+            combinedUrl = linkUrl+parameters;
+
+        jQuery(this).attr('href', combinedUrl);
+      });
+    }
   }
 </script>
 
