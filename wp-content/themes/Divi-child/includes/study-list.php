@@ -107,7 +107,7 @@ $query = new WP_Query();
 $query->query_vars['post_type'] = 'our-studies';
 
 // Limit post count per page
-$query->query_vars['posts_per_page'] = 1;
+$query->query_vars['posts_per_page'] = 4;
 
 // Get meta query
 $meta_args = filterItems();
