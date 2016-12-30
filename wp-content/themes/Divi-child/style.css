@@ -147,6 +147,7 @@
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
+  -webkit-filter: none;
   filter: none; }
 
 .fa-stack {
@@ -2159,9 +2160,11 @@ body.home .et_pb_row {
     position: fixed; } }
 
 .logo_container, .logo_container * {
+  -webkit-transition: none !important;
   transition: none !important; }
 
 #main-header, #main-header * {
+  -webkit-transition: none !important;
   transition: none !important; }
 
 #et-top-navigation {
@@ -2172,6 +2175,7 @@ body.home .et_pb_row {
   -webkit-transition-duration: 2s;
   transition-property: all;
   transition-duration: 2s;
+  -webkit-transition: all !important;
   transition: all !important; }
 
 .et_header_style_left #et-top-navigation {
@@ -2236,7 +2240,6 @@ body.home .et_pb_row {
 
 #et_search_icon {
   color: #250670;
-  -moz-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out; }
   #et_search_icon:before {
@@ -2280,7 +2283,6 @@ span.et_close_search_field {
       padding: 29px 0 0 0;
       margin: auto 1em auto 0; } }
   span.et_close_search_field:after {
-    -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out; }
   span.et_close_search_field:hover:after {
@@ -2404,16 +2406,10 @@ span.et_close_search_field {
     -webkit-transform: skewX(165deg);
     transform: skewX(165deg);
     -webkit-transition: 0.25s all;
-    -moz-transition: 0.25s all;
-    -ms-transition: 0.25s all;
-    -o-transition: 0.25s all;
     transition: 0.25s all; }
     @media (max-width: 768px) {
       .elem-large-hover .large-hover-img {
         -webkit-transition: none;
-        -moz-transition: none;
-        -ms-transition: none;
-        -o-transition: none;
         transition: none;
         -ms-transform: none;
         -webkit-transform: none;
@@ -2424,9 +2420,6 @@ span.et_close_search_field {
     @media (max-width: 480px) {
       .elem-large-hover .large-hover-img {
         -webkit-transition: none;
-        -moz-transition: none;
-        -ms-transition: none;
-        -o-transition: none;
         transition: none;
         -ms-transform: none;
         -webkit-transform: none;
@@ -2541,8 +2534,12 @@ span.et_close_search_field {
     z-index: 1;
     top: 0;
     left: -40%;
+    -webkit-animation: transition 200ms;
     animation: transition 200ms;
-    transition: transform 0.25s; }
+    -webkit-transition: -webkit-transform 0.25s;
+    transition: -webkit-transform 0.25s;
+    transition: transform 0.25s;
+    transition: transform 0.25s, -webkit-transform 0.25s; }
     @media (max-width: 768px) {
       .elem-large-hover .lh-background {
         left: 0;
@@ -2567,15 +2564,23 @@ span.et_close_search_field {
   left: 0; }
 
 .active .lh-background {
+  -webkit-transform: translateX(10%);
+  -ms-transform: translateX(10%);
   transform: translateX(10%); }
   @media (max-width: 768px) {
     .active .lh-background {
+      -webkit-transform: initial;
+      -ms-transform: initial;
       transform: initial; } }
 
 .condense .lh-background {
+  -webkit-transform: translateX(-10%);
+  -ms-transform: translateX(-10%);
   transform: translateX(-10%); }
   @media (max-width: 768px) {
     .condense .lh-background {
+      -webkit-transform: initial;
+      -ms-transform: initial;
       transform: initial; } }
 
 /* team tempalte */
@@ -2670,6 +2675,8 @@ span.et_close_search_field {
     top: -5%;
     width: 30%;
     height: 110%;
+    -webkit-transform: skewX(-25deg);
+    -ms-transform: skewX(-25deg);
     transform: skewX(-25deg); }
     @media (max-width: 768px) {
       .page-title:after {

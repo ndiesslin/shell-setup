@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    autoprefixer = require('gulp-autoprefixer'),
     coffee = require('gulp-coffee');
 
 var mainDir = './wp-content/themes/Divi-child/'
@@ -33,6 +34,10 @@ gulp.task('sass', function () {
       ],
       outputStyle: 'nested'
     }).on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 8 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('./wp-content/themes/Divi-child/'));
 });
 
