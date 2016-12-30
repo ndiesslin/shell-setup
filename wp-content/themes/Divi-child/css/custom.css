@@ -186,27 +186,9 @@ p, .et_pb_post p, .et_pb_text, .et_pb_toggle_content {
 footer ul.sub-menu {
     margin-top: 15px;
 }
-.page-title{
-	background: #ab1f2d;
-    padding: 1.1em 0;
-}
-.page-title:after{
-    -webkit-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    transform: skewX(-25deg);
-}
-.page-title h1 {
-    text-transform: uppercase;
-    line-height: 32px;
-}
 @media (min-width: 769px) {
     .lh-background{
       height: 500px !important;
-    }
-    .page-title h1 {
-        margin-right: 130px;
-        font-size: 30px;
     }
     .heading-module h3, .heading-row h3{
         font-size: 29px;
@@ -669,9 +651,6 @@ ul.awDatesUL li:last-child::after {
 .call-to-action-wrap .et_pb_button:after{
     display: none;
 }
-.page-title.et_pb_fullwidth_header p{
-    margin-bottom: 0;
-}
 .et_pb_fullwidth_header p{
     line-height: 28px;
     font-size: 20px;
@@ -976,9 +955,6 @@ ul.awDatesUL li a.active {
 @media only screen and (min-width: 1350px){
     .et_pb_section {
         padding: 0px 0;
-    }
-    .page-title{
-        padding: 30px 0;
     }
     .circleimage .et_pb_row.et_pb_row_0{
         margin-bottom: 0;
@@ -1343,10 +1319,6 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     ul.awDatesUL {
         padding-top: 20px;
         padding-bottom: 20px;
-    }
-    .page-title{
-        padding-top: 5px;
-        padding-bottom: 5px;
     }
     .et_pb_fullwidth_header .et_pb_fullwidth_header_container.left .header-content{
         margin-top: 5px;

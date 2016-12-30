@@ -2654,11 +2654,14 @@ span.et_close_search_field {
 
 .page-title {
   background: #AB162B;
-  padding: 3em 0;
+  padding: 30px 0;
   overflow: hidden; }
+  @media (max-width: 1200px) {
+    .page-title {
+      padding: 1.1em 0; } }
   @media (max-width: 768px) {
     .page-title {
-      padding: 1.5em 0; } }
+      padding: 5px 0; } }
   .page-title:after {
     content: "";
     background: #ffffff;
@@ -2673,7 +2676,17 @@ span.et_close_search_field {
         display: none; } }
   .page-title h1 {
     color: white;
-    padding: 0; }
+    padding: 0;
+    text-transform: uppercase;
+    line-height: 32px;
+    margin-right: 185px;
+    font-size: 30px; }
+    @media (max-width: 768px) {
+      .page-title h1 {
+        font-size: 2rem;
+        margin-right: 0; } }
+  .page-title.et_pb_fullwidth_header p {
+    margin-bottom: 0; }
 
 /* Advance Custom Field Renders */
 .show {
