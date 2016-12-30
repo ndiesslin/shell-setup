@@ -340,7 +340,7 @@ $(document).ready(function() {
 function groupToggle() {
   $('.group-toggle__tab').on( 'click', function() {
     var targetId = $(this).data('toggle-id');
-    $('#'+targetId).toggleClass('group-toggle-target--toggled');
+    $('#'+targetId).slideToggle();
     $(this).parent('.group-toggle').toggleClass('group-toggle--toggled');
 
     // Test if local storage is available

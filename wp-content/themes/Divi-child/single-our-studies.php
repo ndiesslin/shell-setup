@@ -98,7 +98,8 @@
     </div>
     <div class=" et_pb_row et_pb_row_0">
       <p class="wpcf7-form">
-        <input type="submit" value="GET MORE INFORMATION" class="wpcf7-form-control wpcf7-submit">
+        <a target="_blank" href=
+        "<?php echo(get_post_meta( get_the_ID(), 'wpcf-study-url', true )); ?>" class="btn">Get More Information</a>
       </p>
     </div>
 <?php
