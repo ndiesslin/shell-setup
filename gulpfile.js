@@ -32,7 +32,7 @@ gulp.task('sass', function () {
       includePaths: [
         'node_modules/susy/sass'
       ],
-      outputStyle: 'nested'
+      outputStyle: 'compressed'
     }).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 8 versions'],
