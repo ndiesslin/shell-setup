@@ -122,8 +122,6 @@ if (isset($_GET['cs']) && !empty($_GET['cs'])) {
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $query->query_vars['paged'] = $paged;
 
-print_r($query);
-
 // Build relevanssi query, may not be neccesary, but will use for not incase relevanssi has some handy search features
 relevanssi_do_query($query);
 
