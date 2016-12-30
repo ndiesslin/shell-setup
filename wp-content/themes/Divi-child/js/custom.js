@@ -341,6 +341,43 @@ function groupToggle() {
   $('.group-toggle__tab').on( 'click', function() {
     var targetId = $(this).data('toggle-id');
     $('#'+targetId).toggleClass('group-toggle-target--toggled');
-    $(this).parent('.group-toggle').toggleClass('group-toggle--toggled')
+    $(this).parent('.group-toggle').toggleClass('group-toggle--toggled');
+
+    // Test if local storage is available
+    if (typeof(Storage) !== 'undefined') {
+      // Store if the form is toggled or not
+      if (localStorage.getItem('study-form-toggle') == 'closed') {
+        localStorage.setItem('study-form-toggle', 'open');
+      } else {
+        localStorage.setItem('study-form-toggle', 'closed');
+      }
+    }
   });
+}
+
+$(document).ready(function() {
+  loadToggled();
+});
+
+// If toggled, load toggled on next pages
+function loadToggled() {
+  // Test if local storage is available
+  if (typeof(Storage) !== 'undefined') {
+    // If user has never been on this page default to toggle open
+    if (localStorage.getItem('study-form-toggle') == null) {
+      $('.group-toggle__tab').each( function() {
+        var targetId = $(this).data('toggle-id');
+        $('#'+targetId).addClass('group-toggle-target--toggled');
+        $(this).parent('.group-toggle').addClass('group-toggle--toggled');
+      });
+    }
+    // If toggle is set to open add class
+    if (localStorage.getItem('study-form-toggle') == 'open') {
+      $('.group-toggle__tab').each( function() {
+        var targetId = $(this).data('toggle-id');
+        $('#'+targetId).removeClass('group-toggle-target--toggled');
+        $(this).parent('.group-toggle').removeClass('group-toggle--toggled');
+      });
+    }
+  }
 }

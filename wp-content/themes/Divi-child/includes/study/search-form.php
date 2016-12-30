@@ -1,4 +1,4 @@
-<div class="page group-toggle-target" id="filter-form">
+<div class="page group-toggle-target group-toggle-target--toggled" id="filter-form">
   <div class="et_pb_row et_pb_row_0">
     <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
       <div role="form" lang="en-US" dir="ltr">
@@ -69,6 +69,6 @@
     </div>
   </div>
 </div>
-<div class="et_pb_fullwidth_section et_pb_section_1 et_pb_with_background et_section_regular group-toggle">
+<div class="et_pb_fullwidth_section et_pb_section_1 et_pb_with_background et_section_regular group-toggle group-toggle--toggled">
   <span class="group-toggle__tab" data-toggle-id="filter-form"></span>
 </div>
