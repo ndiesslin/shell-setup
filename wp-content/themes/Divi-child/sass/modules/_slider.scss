@@ -25,3 +25,7 @@
 .et-pb-arrow-prev:before, .et-pb-arrow-next:before {
   color: $purple;
 }
+
+.et_pb_slide_description, .et_pb_slider_fullwidth_off .et_pb_slide_description {
+  padding: 6% 8%;
+}
