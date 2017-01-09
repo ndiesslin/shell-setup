@@ -1,8 +1,12 @@
-.et_pb_toggle {
+.et_pb_toggle, .et_pb_toggle_close {
   background-color: $lightgray;
 }
 
-.et_pb_toggle_title {
+.et_pb_toggle {
+  padding-left: 2rem;
+}
+
+.et_pb_toggle_open h5.et_pb_toggle_title, .et_pb_toggle_close h5.et_pb_toggle_title {
   font-size: 1.375rem;
   font-weight: 700;
 }
