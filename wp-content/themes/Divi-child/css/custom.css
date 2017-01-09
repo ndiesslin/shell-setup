@@ -843,16 +843,8 @@ img.full-width {
     line-height: 28px;
 }
 /*toggle */
-.et_pb_toggle_close{
-    background: none;
-}
 .et_pb_toggle{
     border: none;
-}
-.et_pb_toggle_open h5.et_pb_toggle_title, .et_pb_toggle_close h5.et_pb_toggle_title{
-    font-size: 18px;
-    line-height: 28px;
-    color: #AB162B;
 }
 .et_pb_toggle_title:before {
     color: #AB162B;

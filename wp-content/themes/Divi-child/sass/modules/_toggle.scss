@@ -1,3 +1,5 @@
+// Start Divi toggle
+
 .et_pb_toggle, .et_pb_toggle_close {
   background-color: $lightgray;
 }
@@ -8,8 +10,43 @@
 
 .et_pb_toggle_open h5.et_pb_toggle_title, .et_pb_toggle_close h5.et_pb_toggle_title {
   font-size: 1.375rem;
+  line-height: 28px;
   font-weight: 700;
+  color: #AB162B;
 }
+
+.et_pb_toggle{
+  border: none;
+}
+
+.et_pb_toggle_title:before {
+  color: #AB162B;
+  right: auto;
+  left: -25px;
+  content: "5";
+}
+
+.et_pb_toggle_open .et_pb_toggle_title:before{
+  content: "3";
+}
+
+.landscape-img-size{
+  width: 100%;
+}
+
+.et_pb_gutters3 .et_pb_column_4_4 .et_pb_module.et_pb_toggle{
+  margin-bottom: 0;
+}
+
+.box-row-module .et_pb_column:first-child .bottom-link{
+  margin-left: -20px;
+}
+
+.box-row-module .et_pb_column:first-child article .more-link{
+  padding-left: 0;
+}
+
+// End Divi toggle
 
 .group-toggle-target.group-toggle-target--toggled {
   display: none;
