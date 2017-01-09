@@ -1,0 +1,12 @@
+#breadcrumbs {
+  margin-bottom: 10px;
+
+  @include breakpoint(medium) {
+    margin-bottom: 0.2em;
+  }
+
+  // Don't underline first item
+  > span > span > span > a {
+    text-decoration: none !important;
+  }
+}

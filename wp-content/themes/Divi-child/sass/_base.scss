@@ -1,6 +1,11 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
   color: $black;
   font-size: 0.875em;
+  font-family: 'Roboto', sans-serif;
 }
 
 // Links
@@ -33,6 +38,10 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: $red;
 }
 
 // Font Styles
