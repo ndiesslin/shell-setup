@@ -18,14 +18,10 @@
     display: block;
   }
   > li {
-    width: 18%;
+    width: 25%;
     margin-right: 2%;
     float: left;
     padding: 0;
-    @include breakpoint (very-large) {
-      width: 23%;
-      margin-right: 2%;
-    }
     @include breakpoint (medium) {
       width: 30%;
       margin-right: 3%;

@@ -965,13 +965,6 @@ ul.awDatesUL li a.active {
         padding-top: 5px;
     }
 }
-@media (max-width: 1366px){
-    .bottom-nav > li {
-        width: 18%;
-        margin-right: 2%;
-    }
-
-}
 
 @media (max-width: 1200px){
     .et_fixed_nav #main-header.et-fixed-header,
@@ -990,14 +983,6 @@ ul.awDatesUL li a.active {
 }
 
 @media (max-width: 991px){
-    .bottom-nav > li {
-        width: 31%;
-        margin-right: 2%;
-        margin-bottom: 30px;
-    }
-    .bottom-nav > li:nth-child(4) {
-        clear: left;
-    }
     .icon-top-right i:before {
       margin-left: -110px;
     }
@@ -1006,10 +991,6 @@ ul.awDatesUL li a.active {
     }
 }
 @media (max-width: 767px){
-    .bottom-nav > li {
-        width: 100%;
-        margin-right: 0%;
-    }
     .call-to-action-wrap .blue-btn a {
         font-size: 25px;
     }
