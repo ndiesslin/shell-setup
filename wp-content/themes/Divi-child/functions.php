@@ -564,6 +564,7 @@ function app_icons() {
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="120x120" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
+  $output .= '<link rel="icon" sizes="192x192" href="' . get_stylesheet_directory_uri(). '/images/touch-icons/logo-192.png">';
 
 	echo $output;
 }
