@@ -552,3 +552,18 @@ function getParameters() {
 }
 
 // End functions for study search
+
+// Add app icons to homescreen
+add_action('wp_head','app_icons');
+function app_icons() {
+  $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
+
+  $output = '';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-76.png' . '" sizes="76x76" />';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="120x120" />';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
+
+	echo $output;
+}
