@@ -557,7 +557,7 @@ function getParameters() {
 add_action('wp_head','app_icons');
 function app_icons() {
   $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
-<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+
   $output = '';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-76.png' . '" sizes="76x76" />';
