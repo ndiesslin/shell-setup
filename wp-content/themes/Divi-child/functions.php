@@ -556,7 +556,7 @@ function getParameters() {
 // Add app icons to homescreen
 add_action('wp_head','app_icons');
 function app_icons() {
-  $link_beginning = '<link rel="apple-touch-icon" href="';
+  $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
 
   $output = '';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
@@ -566,7 +566,7 @@ function app_icons() {
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
   $output .= '<link rel="icon" sizes="192x192" href="' . get_stylesheet_directory_uri(). '/images/touch-icons/logo-192.png">';
-  $output .= '<link rel="shortcut icon" href="' . get_stylesheet_directory_uri() . '/images/favicon48.png" />';
+  $output .= '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/touch-icons/logo-32.png" />';
 
 	echo $output;
 }
