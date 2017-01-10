@@ -557,11 +557,12 @@ function getParameters() {
 add_action('wp_head','app_icons');
 function app_icons() {
   $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
-
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
   $output = '';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-76.png' . '" sizes="76x76" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="120x120" />';
+  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="152x152" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
   $output .= '<link rel="icon" sizes="192x192" href="' . get_stylesheet_directory_uri(). '/images/touch-icons/logo-192.png">';
