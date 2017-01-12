@@ -559,14 +559,14 @@ function app_icons() {
   $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
 
   $output = '';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-76.png' . '" sizes="76x76" />';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="120x120" />';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-120.png' . '" sizes="152x152" />';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
-  $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
-  $output .= '<link rel="icon" sizes="192x192" href="' . get_stylesheet_directory_uri(). '/images/touch-icons/logo-192.png">';
-  $output .= '<link rel="shortcut icon" type="image/png" href="' . get_stylesheet_directory_uri() . '/images/touch-icons/logo-32.png" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-76.png' . '" sizes="76x76" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-120.png' . '" sizes="120x120" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-120.png' . '" sizes="152x152" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-180.png' . '" sizes="180x180" />';
+  $output .= $link_beginning . 'https://mplsheart.org/wp-content/themes/Divi-child/' .'/images/touch-icons/logo-192.png' . '" sizes="192x192" />';
+  $output .= '<link rel="icon" sizes="192x192" href="' . 'https://mplsheart.org/wp-content/themes/Divi-child/' . '/images/touch-icons/logo-192.png">';
+  $output .= '<link rel="shortcut icon" type="image/png" href="' . 'https://mplsheart.org/wp-content/themes/Divi-child/' . '/images/touch-icons/logo-32.png" />';
 
 	echo $output;
 }
