@@ -48,11 +48,11 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('scripts', function() {
-  // var scriptSrc = "./wp-content/themes/Divi-child/scripts/"
-  // return gulp.src([scriptSrc + 'custom.js', scriptSrc + 'plugin-ex.js', scriptSrc + 'scripts.js', scriptSrc + 'nav.js', scriptSrc + 'large-hover.js' ])
-  //   .pipe(concat('./all.js'))
-  //   .pipe(uglify())
-  //   .pipe(gulp.dest('./wp-content/themes/Divi-child/js/'));
+  var scriptSrc = "./wp-content/themes/Divi-child/scripts/"
+  return gulp.src([scriptSrc + 'plugin-ex.js', scriptSrc + 'scripts.js', scriptSrc + 'nav.js', scriptSrc + 'large-hover.js' ])
+    .pipe(concat('./all.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./wp-content/themes/Divi-child/js/'));
 });
 
 // All watch tasks
