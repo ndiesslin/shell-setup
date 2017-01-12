@@ -155,7 +155,7 @@ foreach ($query->posts as $r_post) {
   // Post Title
   $post_list .= '<h3 class="text--purple margin-bottom--12 text-bold"><a href='.$link.' class="a--hover">'.$title.'</a></h3>';
   // Post identifier and status
-  $post_list .= '<p class="padding-bottom--8">'.$study_identifier.': '.$status.'</p>';
+  //$post_list .= '<p class="padding-bottom--8">'.$study_identifier.': '.$status.'</p>';
   // Condition[s]
   $post_list .= '<p class="padding-bottom--8">'.$conditions.'</p>';
   // Post excerpt/ description/ or content
