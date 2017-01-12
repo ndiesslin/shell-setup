@@ -27,8 +27,6 @@
 	<?php elegant_keywords(); ?>
 	<?php elegant_canonical(); ?>
 
-  <?php do_action('touch_icons'); ?>
-
 	<?php do_action( 'et_head_meta' ); ?>
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />

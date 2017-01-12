@@ -554,9 +554,9 @@ function getParameters() {
 // End functions for study search
 
 // Add app icons to homescreen
-add_action('touch_icons','app_icons');
+add_action('wp_head','app_icons');
 function app_icons() {
-  $link_beginning = '<link rel="apple-touch-icon" href="';
+  $link_beginning = '<link rel="apple-touch-icon" type="image/png" href="';
 
   $output = '';
   $output .= $link_beginning . get_stylesheet_directory_uri().'/images/touch-icons/logo-57.png' . '" sizes="57x57" />';
