@@ -62,12 +62,10 @@
     </div>
     <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">CRITERIA LIST/ QUALIFICATIONS:</h3>
-      <p>
-        <?php
-          // Get Qualifications
-          echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ) );
-        ?>
-      </p>
+      <?php
+        // Get Qualifications
+        echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ) );
+      ?>
     </div>
     <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">INVESTIGATORS:</h3>
@@ -99,12 +97,10 @@
     <?php if (get_post_meta( get_the_ID(), 'wpcf-study-results', true )) : ?>
       <div class=" et_pb_row et_pb_row_0">
         <h3 class="text--purple display-inline text-bold">Results:</h3>
-        <p class="display-inline">
-          <?php
-            // Get Status
-            echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-study-results', true ) );
-          ?>
-        </p>
+        <?php
+          // Get Status
+          echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-study-results', true ) );
+        ?>
       </div>
     <?php endif ?>
     <div class=" et_pb_row et_pb_row_0">
