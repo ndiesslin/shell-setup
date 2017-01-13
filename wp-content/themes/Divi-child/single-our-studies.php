@@ -96,6 +96,17 @@
         ?>
       </p>
     </div>
+    <?php if (get_post_meta( get_the_ID(), 'wpcf-study-results', true )) : ?>
+      <div class=" et_pb_row et_pb_row_0">
+        <h3 class="text--purple display-inline text-bold">Results:</h3>
+        <p class="display-inline">
+          <?php
+            // Get Status
+            echo(get_post_meta( get_the_ID(), 'wpcf-study-results', true ));
+          ?>
+        </p>
+      </div>
+    <?php endif ?>
     <div class=" et_pb_row et_pb_row_0">
       <p class="wpcf7-form">
         <a target="_blank" href=
