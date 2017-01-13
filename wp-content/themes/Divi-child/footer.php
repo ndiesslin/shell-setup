@@ -62,8 +62,6 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
   </script>
 
 	<script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.validate.min.js"></script>
-	<!--<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>-->
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/custom.js"></script>
 
 <?php
 $post_type = get_post_type(get_the_ID());//news-blog
@@ -113,9 +111,9 @@ if (strpos($url,'/team/') !== false) {//if the url contains post_type word
 <script>
 	$(document).ready(function() {
 		$('#breadcrumbs > span > span > span').prepend('About Us › ');
-	});	
+	});
 </script>
-<?php }//end team 
+<?php }//end team
 ?>
 
 <script>
