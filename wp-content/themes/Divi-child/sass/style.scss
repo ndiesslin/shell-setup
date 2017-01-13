@@ -5,8 +5,6 @@
 @import "site-settings";
 @import "base";
 
-@import "tools/divi-overrides";
-
 // Layout
 @import "layout/grid";
 @import "layout/page";
@@ -26,3 +24,5 @@
 @import "modules/form";
 @import "modules/toggle";
 @import "modules/breadcrumbs";
+
+@import "divi-overrides";
