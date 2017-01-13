@@ -20,7 +20,7 @@
       <p class="display-inline">
         <?php
           // Get Identifier
-          echo(get_post_meta( get_the_ID(), 'wpcf-study-identifier', true ));
+          echo get_post_meta( get_the_ID(), 'wpcf-study-identifier', true );
         ?>
       </p>
     </div>
@@ -29,7 +29,7 @@
       <p class="display-inline">
         <?php
           // Get Condition
-          echo(types_render_field( "condition", array( "separator" => ", " ) )); // This is the simpler way.
+          echo types_render_field( "condition", array( "separator" => ", " ) ); // This is the simpler way.
           // This is the more complicated way, but may be more useful in the future
           // $arr = get_post_meta( get_the_ID(), 'wpcf-condition', true );
           // foreach ($arr as $value) {
@@ -42,12 +42,12 @@
     <div class=" et_pb_row et_pb_row_0">
       <h3 class="text--purple display-inline text-bold">CONTACT INFO:</h3>
       <p class="display-inline">
-        <a href="tel:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>"><?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-name', true )); ?></a>
+        <a href="tel:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>"><?php echo get_post_meta( get_the_ID(), 'wpcf-contact-name', true ); ?></a>
         &nbsp;
         |
         &nbsp;
         <a href="mailto:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>">
-          <?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>
+          <?php echo get_post_meta( get_the_ID(), 'wpcf-contact-email', true ); ?>
         </a>
       </p>
     </div>
@@ -56,7 +56,7 @@
       <p class="display-inline">
         <?php
         // Get Description
-        echo(get_post_meta( get_the_ID(), 'wpcf-description', true ));
+        echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-description', true ) );
         ?>
       </p>
     </div>
@@ -65,7 +65,7 @@
       <p>
         <?php
           // Get Qualifications
-          echo(get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ));
+          echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ) );
         ?>
       </p>
     </div>
@@ -74,7 +74,7 @@
       <p class="display-inline">
         <?php
           // Get Investigators
-          echo(get_post_meta( get_the_ID(), 'wpcf-investigators', true ));
+          echo get_post_meta( get_the_ID(), 'wpcf-investigators', true );
         ?>
       </p>
     </div>
@@ -83,7 +83,7 @@
       <p class="display-inline">
         <?php
           // Get Sponsors
-          echo(get_post_meta( get_the_ID(), 'wpcf-sponsors', true ));
+          echo get_post_meta( get_the_ID(), 'wpcf-sponsors', true );
         ?>
       </p>
     </div>
@@ -92,7 +92,7 @@
       <p class="display-inline">
         <?php
           // Get Status
-          echo(get_post_meta( get_the_ID(), 'wpcf-status', true ));
+          echo get_post_meta( get_the_ID(), 'wpcf-status', true );
         ?>
       </p>
     </div>
@@ -102,7 +102,7 @@
         <p class="display-inline">
           <?php
             // Get Status
-            echo(get_post_meta( get_the_ID(), 'wpcf-study-results', true ));
+            echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-study-results', true ) );
           ?>
         </p>
       </div>
@@ -110,7 +110,7 @@
     <div class=" et_pb_row et_pb_row_0">
       <p class="wpcf7-form">
         <a target="_blank" href=
-        "<?php echo(get_post_meta( get_the_ID(), 'wpcf-study-url', true )); ?>" class="btn">Get More Information</a>
+        "<?php echo get_post_meta( get_the_ID(), 'wpcf-study-url', true ); ?>" class="btn">Get More Information</a>
       </p>
     </div>
 <?php
