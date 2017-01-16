@@ -147,7 +147,7 @@ foreach ($query->posts as $r_post) {
   foreach ($conditions_array as $value) {
     $conditions .= $value[0].(($value === end($conditions_array)) ? '' : ', ');
   }
-  $description = get_post_meta( $r_post->ID, 'wpcf-description', true );
+  $description = do_shortcode( get_post_meta( $r_post->ID, 'wpcf-description', true ) );
   $snippet_link = 'Read More <i class="fa fa-chevron-right fa--small" aria-hidden="true"></i>';
 
   // Build each post
@@ -163,11 +163,11 @@ foreach ($query->posts as $r_post) {
     $post_list .= '<p class="padding-bottom--8">'.$excerpt.'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
   }
   elseif($description) {
-    $post_list .= '<p class="padding-bottom--8">'.wp_trim_words($description, 27, '...').'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
+    $post_list .= '<p class="padding-bottom--8">'.$description.'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
   }
   else {
     // Get content and strip all shortcodes.
-    $content = do_shortcode(get_the_content()); // Get post content in $content
+    $content = do_shortcode( get_the_content() ); // Get post content in $content
     $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
     $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
     $content = trim($content); // Remove whitespace in begining and end.
