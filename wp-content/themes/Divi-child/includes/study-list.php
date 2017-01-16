@@ -167,7 +167,7 @@ foreach ($query->posts as $r_post) {
   }
   else {
     // Get content and strip all shortcodes.
-    $content = get_the_content(); // Get post content in $content
+    $content = do_shortcode(get_the_content()); // Get post content in $content
     $content = preg_replace("/\[(.*?)\]/i", '', $content); // strip shortcodes.
     $content = str_replace("&nbsp;", '', $content); // Strip any non breaking spaces.
     $content = trim($content); // Remove whitespace in begining and end.
