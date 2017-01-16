@@ -139,7 +139,7 @@ foreach ($query->posts as $r_post) {
   // Set varaibles for posts
   $link = get_permalink($r_post->ID);
   $title = get_the_title($r_post->ID);
-  $excerpt = get_the_excerpt($r_post->ID);
+  $excerpt = do_shortcode( get_the_excerpt($r_post->ID) );
   $status = get_post_meta( $r_post->ID, 'wpcf-status', true );
   $study_identifier = get_post_meta( $r_post->ID, 'wpcf-study-identifier', true );
   $conditions_array = get_post_meta( $r_post->ID, 'wpcf-condition', true );
