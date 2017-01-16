@@ -570,6 +570,3 @@ function app_icons() {
 
 	echo $output;
 }
-
-// Strip all empty p tags
-remove_filter('the_content', 'wpautop');
