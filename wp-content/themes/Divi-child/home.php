@@ -9,6 +9,8 @@ get_header();
 
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
+var_dump( get_intermediate_image_sizes() );
+
 ?>
 
 <div class="homepage-slider elem-large-hover" id="homepage-slider" style="">
