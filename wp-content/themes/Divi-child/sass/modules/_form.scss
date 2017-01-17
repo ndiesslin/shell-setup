@@ -3,10 +3,18 @@
     display: none;/*blue background in map*/
 }
 /* contact form css */
-input, textarea, button {
+input, button {
     border: 0;
     outline: none;
 }
+
+textarea {
+  padding: 2px;
+  border: 1px solid #bbb;
+  color: #4e4e4e;
+  background-color: #fff;
+}
+
 .wpcf7-form,
 .wpcf7-form input,
 .wpcf7-form textarea {
