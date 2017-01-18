@@ -35,7 +35,7 @@
                   <input type="checkbox" name="wpcf-condition" value="High Cholesterol" id="HighCholesterol" <?php echo in_array_r('High Cholesterol', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HighCholesterol">Dyslipidemia (High Cholesterol)</label><br>
                   <input type="checkbox" name="wpcf-condition" value="Peripheral Arterial Disease" id="PeripheralArterialDisease" <?php echo in_array_r('Peripheral Arterial Disease', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="PeripheralArterialDisease">Vascular Disease (Peripheral Arterial Disease)</label><br>
                   <input type="checkbox" name="wpcf-condition" value="Sudden Cardiac Arrest" id="SuddenCardiacArrest" <?php echo in_array_r('Sudden Cardiac Arrest', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="SuddenCardiacArrest">Sudden Cardiac Arrest</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Stroke" id="Stroke" <?php echo in_array_r('Stroke', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Stroke">Cerebral vascular accident (Stroke)</label><br>
+                  <input type="checkbox" name="wpcf-condition" value="Stroke" id="Stroke" <?php echo in_array_r('Stroke', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Stroke">Cerebral Vascular Accident (Stroke)</label><br>
                 </div>
               </div>
             </div>
