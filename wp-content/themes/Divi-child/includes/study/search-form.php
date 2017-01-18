@@ -63,7 +63,9 @@
           <p class="wpcf7-form">
             <input type="submit" value="Search" class="wpcf7-form-control wpcf7-submit">
           </p>
-          <div class="wpcf7-response-output wpcf7-display-none"></div>
+          <p>
+            <a class="study-app">Click here</a> to find out how to add the app.
+          </p>
         </form>
       </div>
     </div>
