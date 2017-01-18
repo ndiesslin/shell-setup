@@ -103,12 +103,14 @@
         ?>
       </div>
     <?php endif ?>
-    <div class=" et_pb_row et_pb_row_0">
-      <p class="wpcf7-form">
-        <a target="_blank" href=
-        "<?php echo get_post_meta( get_the_ID(), 'wpcf-study-url', true ); ?>" class="btn">Get More Information</a>
-      </p>
-    </div>
+    <?php if (get_post_meta( get_the_ID(), 'wpcf-study-url', true )) : ?>
+      <div class=" et_pb_row et_pb_row_0">
+        <p class="wpcf7-form">
+          <a target="_blank" href=
+          "<?php echo get_post_meta( get_the_ID(), 'wpcf-study-url', true ); ?>" class="btn">Get More Information</a>
+        </p>
+      </div>
+    <?php endif ?>
 <?php
   endif;
 get_footer(); ?>
