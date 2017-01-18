@@ -511,7 +511,7 @@ function rlv_meta_fix($q) {
 	return $q;
 }
 
-// Funcitons used for study search
+// Functions used for study search
 
 // Strip shortcodes from relevanssi results
 add_filter('relevanssi_excerpt_content', 'rlv_strip_shortcodes');
