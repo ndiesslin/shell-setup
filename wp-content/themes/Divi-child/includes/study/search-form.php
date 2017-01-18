@@ -18,7 +18,7 @@
             <div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
               <div class="margin-bottom--25">
                 <h3 class="text--purple display-inline text-bold">I AM A PHYSICIAN</h3><br>
-                <input type="radio" name="wpcf-physician-check" value="Yes" id="physician-yes" <?php echo in_array_r('Yes', getParameters(), false, 'wpcf-physician-check') ? 'checked' : ''; ?>><label for="physician-yes">Yes</label><br>
+                <input type="radio" name="wpcf-physician-check" value="Yes" id="physician-yes" class="study-app" <?php echo in_array_r('Yes', getParameters(), false, 'wpcf-physician-check') ? 'checked' : ''; ?>><label for="physician-yes">Yes</label><br>
                 <input type="radio" name="wpcf-physician-check" value="No" id="physician-no" <?php echo in_array_r('No', getParameters(), false, 'wpcf-physician-check') ? 'checked' : ''; ?>><label for="physician-no">No</label>
               </div>
               <div class="margin-bottom--25 clearfix">
