@@ -36,3 +36,5 @@ function register_my_custom_menu_page() {
 	add_menu_page( 'custom menu title', 'custom menu', 'manage_options', 'myplugin/myplugin-admin.php', '', '', 6 );
 
 }
+
+include('includes/shortcodes/get-post.php'); // Shortcode for getting specific posts

@@ -502,8 +502,6 @@ function custom_disable_redirect_canonical( $redirect_url ){
 }
 add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
 
-include('includes/get-post.php'); // Shortcode for getting specific posts
-
 // Fix for seach and yoast working together see this for more info http://www.relevanssi.com/knowledge-base/yoast-local-seo-compatibility-issues/
 add_filter('relevanssi_modify_wp_query', 'rlv_meta_fix', 99);
 function rlv_meta_fix($q) {

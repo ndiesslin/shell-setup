@@ -52,9 +52,6 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 	<?php wp_footer(); ?>
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/jcarousel.responsive.css">
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.jcarousel.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/jcarousel.responsive.js"></script>
 
   <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/iframeResizer.min.js"></script>
   <script type="text/javascript">

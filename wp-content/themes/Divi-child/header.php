@@ -35,7 +35,6 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( $template_directory_uri . '/js/html5.js"' ); ?>" type="text/javascript"></script>
 	<![endif]-->
-	<!-- <link rel="stylesheet" href="<?php  // echo get_stylesheet_directory_uri();?>/css/bootstrap.min.css"> -->
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
 	</script>
