@@ -16,7 +16,7 @@
   else :
   ?>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">STUDY IDENTIFIER:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">STUDY IDENTIFIER:</h3>
       <p class="display-inline">
         <?php
           // Get Identifier
@@ -25,7 +25,7 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">CONDITION:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">CONDITION:</h3>
       <p class="display-inline">
         <?php
           // Get Condition
@@ -40,19 +40,26 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">CONTACT INFO:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">CONTACT INFO:</h3>
       <p class="display-inline">
-        <a href="tel:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>"><?php echo get_post_meta( get_the_ID(), 'wpcf-contact-name', true ); ?></a>
+        <?php echo get_post_meta( get_the_ID(), 'wpcf-contact-name', true ); ?>
         &nbsp;
         |
         &nbsp;
-        <a href="mailto:<?php echo(get_post_meta( get_the_ID(), 'wpcf-contact-email', true )); ?>">
+        <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'wpcf-contact-email', true ); ?>">
           <?php echo get_post_meta( get_the_ID(), 'wpcf-contact-email', true ); ?>
         </a>
+        <?php if (get_post_meta( get_the_ID(), 'wpcf-contact-number', true )) : ?>
+          &nbsp;
+          |
+          &nbsp;
+          <?php $tel = (get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>
+          <a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a>
+        <?php endif ?>
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">DESCRIPTION:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">DESCRIPTION:</h3>
       <p class="display-inline">
         <?php
         // Get Description
@@ -61,14 +68,14 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">CRITERIA LIST/ QUALIFICATIONS:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">CRITERIA LIST/ QUALIFICATIONS:</h3>
       <?php
         // Get Qualifications
         echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-criteria-list-qualifications', true ) );
       ?>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">INVESTIGATORS:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">INVESTIGATORS:</h3>
       <p class="display-inline">
         <?php
           // Get Investigators
@@ -77,7 +84,7 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">SPONSORS:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">SPONSORS:</h3>
       <p class="display-inline">
         <?php
           // Get Sponsors
@@ -86,7 +93,7 @@
       </p>
     </div>
     <div class=" et_pb_row et_pb_row_0">
-      <h3 class="text--purple display-inline text-bold">STATUS:</h3>
+      <h3 class="text--purple margin-right--8 display-inline text-bold">STATUS:</h3>
       <p class="display-inline">
         <?php
           // Get Status
@@ -96,7 +103,7 @@
     </div>
     <?php if (get_post_meta( get_the_ID(), 'wpcf-study-results', true )) : ?>
       <div class=" et_pb_row et_pb_row_0">
-        <h3 class="text--purple display-inline text-bold">Results:</h3>
+        <h3 class="text--purple margin-right--8 display-inline text-bold">Results:</h3>
         <?php
           // Get Status
           echo do_shortcode( get_post_meta( get_the_ID(), 'wpcf-study-results', true ) );
