@@ -106,3 +106,17 @@ textarea {
 .btn.newsletter-btn p {
     padding-top: 8px;
 }
+
+// Gravity forms
+
+.gform_no-margin {
+  .gform_wrapper {
+    margin: 0;
+  }
+}
+
+.gform_no-heading {
+  .gform_heading {
+    display: none;
+  }
+}
