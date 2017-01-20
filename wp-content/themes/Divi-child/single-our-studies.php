@@ -9,8 +9,8 @@
   get_template_part('template-title');
 
   //Check if list template
-  $studyListCheck = types_render_field( "study-list-template-options" );
-  if (!empty( $studyListCheck )) :
+  $study_list_check = types_render_field( "study-list-template-options" );
+  if (!empty( $study_list_check )) :
     include('includes/study/search-form.php'); // Get form for study search
     include('includes/study-list.php'); // Get study list code
   else :
@@ -29,7 +29,13 @@
       <p class="display-inline">
         <?php
           // Get Condition
-          echo types_render_field( "condition", array( "separator" => ", " ) ); // This is the simpler way.
+          $specific_condition = get_post_meta( get_the_ID(), 'specific-condition', true );
+          // Check if specific condition is specified
+          if ( $specific_condition ) {
+            echo $specific_condition;
+          } else {
+            echo types_render_field( "condition", array( "separator" => ", " ) ); // This is the simpler way.
+          }
           // This is the more complicated way, but may be more useful in the future
           // $arr = get_post_meta( get_the_ID(), 'wpcf-condition', true );
           // foreach ($arr as $value) {
@@ -49,11 +55,13 @@
         <a href="mailto:<?php echo get_post_meta( get_the_ID(), 'wpcf-contact-email', true ); ?>">
           <?php echo get_post_meta( get_the_ID(), 'wpcf-contact-email', true ); ?>
         </a>
-        <?php if (get_post_meta( get_the_ID(), 'wpcf-contact-number', true )) : ?>
+        <?php
+          $tel = get_post_meta( get_the_ID(), 'wpcf-contact-number', true );
+          if ( $tel ) :
+        ?>
           &nbsp;
           |
           &nbsp;
-          <?php $tel = (get_post_meta( get_the_ID(), 'wpcf-contact-number', true )); ?>
           <a href="tel:<?php echo $tel; ?>"><?php echo $tel; ?></a>
         <?php endif ?>
       </p>

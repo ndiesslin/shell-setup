@@ -142,6 +142,7 @@ foreach ($query->posts as $r_post) {
   $excerpt = do_shortcode( get_the_excerpt($r_post->ID) );
   $status = get_post_meta( $r_post->ID, 'wpcf-status', true );
   $study_identifier = get_post_meta( $r_post->ID, 'wpcf-study-identifier', true );
+  $specific_condition = get_post_meta( $r_post->ID, 'specific-condition', true );
   $conditions_array = get_post_meta( $r_post->ID, 'wpcf-condition', true );
   $conditions = "";
   foreach ($conditions_array as $value) {
@@ -157,7 +158,12 @@ foreach ($query->posts as $r_post) {
   // Post identifier and status
   //$post_list .= '<p class="padding-bottom--8">'.$study_identifier.': '.$status.'</p>';
   // Condition[s]
-  $post_list .= '<p class="padding-bottom--8">'.$conditions.'</p>';
+  // Check if specific condition is specified
+  if ( $specific_condition ) {
+    $post_list .= '<p class="padding-bottom--8">'.$specific_condition.'</p>';
+  } else {
+    $post_list .= '<p class="padding-bottom--8">'.$conditions.'</p>';
+  }
   // Post excerpt/ description/ or content
   if (has_excerpt($r_post->ID)) {
     $post_list .= '<p class="padding-bottom--8">'.$excerpt.'<br><a href='.$link.'>'.$snippet_link.'</a></p>';
