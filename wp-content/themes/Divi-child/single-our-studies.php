@@ -29,7 +29,7 @@
       <p class="display-inline">
         <?php
           // Get Condition
-          $specific_condition = get_post_meta( get_the_ID(), 'specific-condition', true );
+          $specific_condition = get_post_meta( get_the_ID(), 'wpcf-specific-condition', true );
           // Check if specific condition is specified
           if ( $specific_condition ) {
             echo $specific_condition;
