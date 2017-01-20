@@ -142,7 +142,7 @@ foreach ($query->posts as $r_post) {
   $excerpt = do_shortcode( get_the_excerpt($r_post->ID) );
   $status = get_post_meta( $r_post->ID, 'wpcf-status', true );
   $study_identifier = get_post_meta( $r_post->ID, 'wpcf-study-identifier', true );
-  $specific_condition = get_post_meta( $r_post->ID, 'specific-condition', true );
+  $specific_condition = get_post_meta( $r_post->ID, 'wpcf-specific-condition', true );
   $conditions_array = get_post_meta( $r_post->ID, 'wpcf-condition', true );
   $conditions = "";
   foreach ($conditions_array as $value) {
