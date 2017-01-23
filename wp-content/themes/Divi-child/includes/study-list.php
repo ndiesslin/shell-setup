@@ -66,6 +66,7 @@ function filterItems() {
     // 'orderby' => array(
     //   'team-last-name' => 'ASC'
     // ),
+    'posts_per_page' => 9000, // Set the posts to something very high, this will give relevanssi the list of all posts for this type
     'order' => 'ASC',
   );
 
