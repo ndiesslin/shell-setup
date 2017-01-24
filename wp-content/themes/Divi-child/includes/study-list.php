@@ -218,7 +218,7 @@ echo $post_list;
   function correctPagination() {
     // Check if url has parameters
     var windowUrl = window.location.href;
-    if (windowUrl.includes('?')) {
+    if (windowUrl.indexOf('?') > -1 ) {
       jQuery('.wp-pagenavi a').each( function() {
         var linkUrl = jQuery(this).attr('href').split('?')[0],
             parameters = '?'+windowUrl.split('?')[1],
