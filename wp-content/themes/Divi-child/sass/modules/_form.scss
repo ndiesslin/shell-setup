@@ -51,7 +51,7 @@ textarea {
     height: 44px;
     line-height: 44px;
 }
-.wpcf7-form input[type=submit], .btn, .button {
+.btn, .button, .wpcf7-form input[type=submit] {
     border-radius: 0;
     background-color: #2b266d;
     color: #ffffff;
@@ -63,6 +63,7 @@ textarea {
     padding: 0 28px;
     text-align: center;
     text-transform: uppercase;
+    text-decoration: none;
     /* width: 120px; */
 }
 .btn a {
