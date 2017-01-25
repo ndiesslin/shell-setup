@@ -48,3 +48,25 @@
     margin-bottom: 20px;
     font-weight: bold;
 }
+
+/* Team page: Needs featured image to be shown on Team Page but doesn't need in single page */
+.single-team article.team.has-post-thumbnail .et_post_meta_wrapper img {
+    display: none;
+}
+.page article.team.has-post-thumbnail img {
+    float: left;
+    margin-right: 20px;
+    border-radius: 50%;
+    width: 216px;
+    height: 216px;  /* rhs force the team page images to be a square so the radius makes a circle */
+
+    @include breakpoint(medium) {
+      width: 75px;
+      height: 75px;
+    }
+}
+.page .et_pb_posts article.team.has-post-thumbnail a.more-link {
+    display: inline-block;
+    padding: 0;
+}
+
