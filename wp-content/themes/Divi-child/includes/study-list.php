@@ -62,12 +62,10 @@ function filterItems() {
     'post__not_in' => array($pageId),
     'post_type' => 'our-studies',
     'meta_query' => $meta_query,
-    // TODO: figure out what to order things by
-    // 'orderby' => array(
-    //   'team-last-name' => 'ASC'
-    // ),
+    // Order by title
+    'orderby' => 'title',
+    'order' => 'ASC',
     'posts_per_page' => 9000, // Set the posts to something very high, this will give relevanssi the list of all posts for this type
-    'order' => 'DESC',
   );
 
   return $args;
@@ -101,8 +99,8 @@ function rlv_hits_filter($hits) {
 $query = new WP_Query();
 
 // Order TODO: figure out what this should be and if it's needed, WordPress defaults to post_date which should be fine
-// $query->query_vars['order'] = 'ASC';
-// $query->query_vars['orderby'] = 'title';
+//$query->query_vars['order'] = 'ASC';
+//$query->query_vars['orderby'] = 'title';
 
 // Only search studies
 $query->query_vars['post_type'] = 'our-studies';
