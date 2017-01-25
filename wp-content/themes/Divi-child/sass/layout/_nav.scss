@@ -77,6 +77,12 @@
 }
 
 #et_mobile_nav_menu {
+  list-style: none;
+
+  ul {
+    list-style: none;
+  }
+
   @include breakpoint (large) {
     display: block;
   }
