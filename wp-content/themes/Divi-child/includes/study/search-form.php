@@ -14,7 +14,7 @@
               <div class="et_pb_column_1_2  et_pb_column_4 et_pb_column_empty"></div>
             </div>
           </div>
-          <div class="clearfix margin-bottom--50">
+          <div class="clearfix">
             <div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
               <div class="margin-bottom--25">
                 <h3 class="text--purple display-inline text-bold">I AM A PHYSICIAN</h3><br>
@@ -23,20 +23,16 @@
               </div>
               <div class="margin-bottom--25 clearfix">
                 <h3 class="text--purple display-inline text-bold">CONDITIONS</h3><br>
-                <div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
-                  <input type="checkbox" name="wpcf-condition" value="Arrhythmia" id="Arrhythmia" <?php echo in_array_r('Arrhythmia', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Arrhythmia">Arrhythmia</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Cardiomyopathy" id="Cardiomyopathy" <?php echo in_array_r('Cardiomyopathy', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Cardiomyopathy">Cardiomyopathy</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Heart Attack" id="HeartAttack" <?php echo in_array_r('Heart Attack', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartAttack">Myocardial Infarction (Heart Attack)</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Heart Failure" id="HeartFailure" <?php echo in_array_r('Heart Failure', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartFailure">Heart Failure</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Heart Valve Disease" id="HeartValveDisease" <?php echo in_array_r('Heart Valve Disease', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartValveDisease">Valvular Disease (Heart Valve Disease)</label>
-                </div>
-                <div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
-                  <input type="checkbox" name="wpcf-condition" value="High Blood Pressure" id="HighBloodPressure" <?php echo in_array_r('High Blood Pressure', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HighBloodPressure">Hypertension (High Blood Pressure)</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="High Cholesterol" id="HighCholesterol" <?php echo in_array_r('High Cholesterol', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HighCholesterol">Dyslipidemia (High Cholesterol)</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Peripheral Arterial Disease" id="PeripheralArterialDisease" <?php echo in_array_r('Peripheral Arterial Disease', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="PeripheralArterialDisease">Vascular Disease (Peripheral Arterial Disease)</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Sudden Cardiac Arrest" id="SuddenCardiacArrest" <?php echo in_array_r('Sudden Cardiac Arrest', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="SuddenCardiacArrest">Sudden Cardiac Arrest</label><br>
-                  <input type="checkbox" name="wpcf-condition" value="Stroke" id="Stroke" <?php echo in_array_r('Stroke', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Stroke">Cerebral Vascular Accident (Stroke)</label><br>
-                </div>
+                <input type="checkbox" name="wpcf-condition" value="Arrhythmia" id="Arrhythmia" <?php echo in_array_r('Arrhythmia', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Arrhythmia">Arrhythmia</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Cardiomyopathy" id="Cardiomyopathy" <?php echo in_array_r('Cardiomyopathy', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Cardiomyopathy">Cardiomyopathy</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Heart Attack" id="HeartAttack" <?php echo in_array_r('Heart Attack', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartAttack">Myocardial Infarction (Heart Attack)</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Heart Failure" id="HeartFailure" <?php echo in_array_r('Heart Failure', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartFailure">Heart Failure</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Heart Valve Disease" id="HeartValveDisease" <?php echo in_array_r('Heart Valve Disease', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HeartValveDisease">Valvular Disease (Heart Valve Disease)</label><br>
+                <input type="checkbox" name="wpcf-condition" value="High Blood Pressure" id="HighBloodPressure" <?php echo in_array_r('High Blood Pressure', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HighBloodPressure">Hypertension (High Blood Pressure)</label><br>
+                <input type="checkbox" name="wpcf-condition" value="High Cholesterol" id="HighCholesterol" <?php echo in_array_r('High Cholesterol', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="HighCholesterol">Dyslipidemia (High Cholesterol)</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Peripheral Arterial Disease" id="PeripheralArterialDisease" <?php echo in_array_r('Peripheral Arterial Disease', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="PeripheralArterialDisease">Vascular Disease (Peripheral Arterial Disease)</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Sudden Cardiac Arrest" id="SuddenCardiacArrest" <?php echo in_array_r('Sudden Cardiac Arrest', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="SuddenCardiacArrest">Sudden Cardiac Arrest</label><br>
+                <input type="checkbox" name="wpcf-condition" value="Stroke" id="Stroke" <?php echo in_array_r('Stroke', getParameters(), false, 'wpcf-condition') ? 'checked' : ''; ?>><label for="Stroke">Cerebral Vascular Accident (Stroke)</label><br>
               </div>
             </div>
             <div class="et_pb_column et_pb_column_1_2  et_pb_column_1">
