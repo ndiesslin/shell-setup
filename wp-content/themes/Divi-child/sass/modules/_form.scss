@@ -62,12 +62,33 @@ textarea {
     margin-top: 10px;
     padding: 0 28px;
     text-align: center;
-    text-decoration: underline;
     text-transform: uppercase;
     /* width: 120px; */
 }
 .btn a {
     color: #fff;
+}
+.btn-donate {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: $purple;
+  color: $white;
+  text-decoration: none;
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: 700;
+  line-height: 1;
+  z-index: 9999;
+
+  @include breakpoint(large) {
+    top: 15px;
+  }
+  
+  @include breakpoint(small) {
+    right: 70px;
+    top: 30px;
+  }
 }
 .wpcf7-form input[type=submit]:hover, .btn:hover {
     /* background-color: #ab1f2d; */
