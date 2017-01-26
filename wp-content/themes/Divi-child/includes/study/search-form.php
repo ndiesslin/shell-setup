@@ -5,6 +5,7 @@
         <div class="screen-reader-response"></div>
         <?php //set form action to locatin of search page, this is needed for when a user searches on a paginated page ?>
         <form action="/our-studies/all-studies" method="get">
+          <input type="hidden" name="search-form" value="true">
           <div class="wpcf7-form margin-bottom--25">
             <h3 class="text--purple display-inline text-bold">Search By Keyword</h3><br>
             <div class="clearfix">
