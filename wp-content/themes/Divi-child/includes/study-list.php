@@ -13,10 +13,10 @@ function queryParameters() {
   // Loop through parameter list
   foreach ($params as $key => $parameter_group) {
     // Make sure we aren't parsing the custom search CS
-    if ( $key != 'cs' ) {
+    if ( $key != 'cs' & $key != 'search-form' ) {
       // Call function to put grouped items in an array. We want each group to be seperate for the AND relation
       setQueryValue($key, $parameter_group);
-    }
+    } 
   }
 }
 
@@ -31,7 +31,7 @@ function setQueryValue($key, $parameter_group) {
   $query_group = array( 'relation' => 'OR' );
 
   foreach ($parameter_group as $parameter) {
-    if ( $key != 'cs' ) {
+    if ( $key != 'cs' && $key != 'search-from' ) {
       // Add item to query
       $query_group[] = array(
         'key' => $key,
@@ -67,7 +67,7 @@ function filterItems() {
     'order' => 'ASC',
     'posts_per_page' => 9000, // Set the posts to something very high, this will give relevanssi the list of all posts for this type
   );
-
+  
   return $args;
 }
 
@@ -106,7 +106,12 @@ $query = new WP_Query();
 $query->query_vars['post_type'] = 'our-studies';
 
 // Limit post count per page
-$query->query_vars['posts_per_page'] = 4;
+if (isset($_GET['search-form']) && !empty($_GET['search-form'])) {
+  $query->query_vars['posts_per_page'] = 4;
+} 
+else {
+  $query->query_vars['posts_per_page'] = 9000; // Show all if parameter is selected
+}
 
 // Get meta query
 $meta_args = filterItems();
