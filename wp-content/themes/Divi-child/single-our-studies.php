@@ -12,19 +12,19 @@
   $study_list_check = types_render_field( "study-list-template-options" );
   if (!empty( $study_list_check )) :
     if (isset($_GET['search-form']) && !empty($_GET['search-form'])) :
-      include('includes/study/search-form.php'); // Get form for study search
       ?>
       <div class=" et_pb_row et_pb_row_0">
         <p>  
-          <a href="/our-studies/all-studies">View All Studies</a>
+          <a class="btn"  href="/our-studies/all-studies">View All Studies</a>
         </p>
       </div>
-      <?php    
+      <?php
+      include('includes/study/search-form.php'); // Get form for study search    
     else :
       ?>
       <div class=" et_pb_row et_pb_row_0">
         <p>  
-          <a href="/our-studies/all-studies?search-form=true">Search Studies</a>
+          <a class="btn" href="/our-studies/all-studies?search-form=true">Search Studies</a>
         </p>
       </div>
       <?php 
