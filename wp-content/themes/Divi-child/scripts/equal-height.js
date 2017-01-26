@@ -32,8 +32,10 @@ equalheight = function(container){
 
 $(window).on("load", function() {
   equalheight('.eq-height article .entry-featured-image-url');
+  equalheight('.eq-height .category-areas-of-focus');
 });
 
 $( window ).resize(function() {
   equalheight('.eq-height article .entry-featured-image-url');
+  equalheight('.eq-height .category-areas-of-focus');
 });
