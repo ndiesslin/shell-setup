@@ -73,3 +73,11 @@
   @include font-size(14px);
   display: inline-block;
 }
+
+#menu-main-nav > .menu-item > a {
+  text-decoration: none;
+  &:hover {
+    cursor: default;
+    opacity: 1;
+  }
+}

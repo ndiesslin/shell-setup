@@ -2,7 +2,7 @@ $=jQuery;
 
 $(document).ready(function() {
 	//removing first link of menu and breadcrumb
-	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a').attr('href','#');
+	$('#mobile_menu > li > a, #top-menu > li > a, #breadcrumbs > span > span > span > a, #menu-main-nav > .menu-item a').attr('href','#');
 
   // TODO: figure out if blog stuff is needed, currently it seems like there aren't comments on the blog so this might not be used.
 	//blog
