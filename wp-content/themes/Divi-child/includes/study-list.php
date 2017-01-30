@@ -107,12 +107,7 @@ $query = new WP_Query();
 $query->query_vars['post_type'] = 'our-studies';
 
 // Limit post count per page
-if (isset($_GET['search-form']) && !empty($_GET['search-form'])) {
-  $query->query_vars['posts_per_page'] = 4;
-} 
-else {
-  $query->query_vars['posts_per_page'] = 9000; // Show all if parameter is selected
-}
+$query->query_vars['posts_per_page'] = 9000; // Show all if parameter is selected
 
 // Get meta query
 $meta_args = filterItems();
