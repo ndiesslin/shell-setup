@@ -124,5 +124,6 @@ if (strpos($url,'/team/') !== false) {//if the url contains post_type word
   ga('send', 'pageview');
 
 </script>
+</div>
 </body>
 </html>
