@@ -211,7 +211,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			</div>
 		</header> <!-- #main-header -->
 		<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ) {
-				yoast_breadcrumb( '<p id="breadcrumbs" class="container clearfix et_menu_container"">','</p>' );
+				yoast_breadcrumb( '<p id="breadcrumbs" class="container clearfix et_menu_container">','</p>' );
 			} ?>
 
 		<div id="et-main-area">
