@@ -17,12 +17,6 @@
 
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<title><?php
-	$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	if (strpos($url,'post_type') !== false) {//if the url contains post_type word
-		echo 'Page not found - Minneapolis Heart Institute Foundation';
-	} else { wp_title(); }
-	?></title>
 	<?php elegant_description(); ?>
 	<?php elegant_keywords(); ?>
 	<?php elegant_canonical(); ?>
