@@ -509,18 +509,6 @@ function bybe_crumb_v_fix ($link_output) {
   return $link_output;
 }
 
-add_filter( 'wpseo_breadcrumb_single_link', 'bybe_crumb_fix' , 10, 2 );
-function bybe_crumb_fix( $output, $crumb ){
-  if ( is_array( $crumb ) && $crumb !== array() ) {               
-    if( strpos( $output, '<span class="breadcrumb_last"' ) !== false  ||   strpos( $output, '<strong class="breadcrumb_last"' ) !== false ) { 
-      $output = '<a property="v:title" rel="v:url" href="'. $crumb['url']. '" >';
-      $output.= $crumb['text'];
-      $output.= '</a>';
-    }
-  }
-  return $output;
-}
-
 // Fix for seach and yoast working together see this for more info http://www.relevanssi.com/knowledge-base/yoast-local-seo-compatibility-issues/
 add_filter('relevanssi_modify_wp_query', 'rlv_meta_fix', 99);
 function rlv_meta_fix($q) {
