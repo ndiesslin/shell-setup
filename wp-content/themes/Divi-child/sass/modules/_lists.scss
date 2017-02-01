@@ -7,3 +7,55 @@ ol, ul {
     padding: 0 0 0 1em;
   }
 }
+
+/* List Styles */
+#left-area ul,
+.entry-content ul,
+.comment-content ul,
+body.et-pb-preview #main-content .container ul {
+  padding: 0 0 23px 16px;
+  line-height: 26px;
+  list-style-type: disc;
+}
+
+#left-area ol,
+.entry-content ol,
+.comment-content ol,
+body.et-pb-preview #main-content .container ol {
+  padding: 0 0 23px 0;
+  line-height: 26px;
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+
+#left-area ul li ul,
+.entry-content ul li ol,
+.comment-content ul li ul,
+.comment-content ul li ol,
+body.et-pb-preview #main-content .container ul li ol {
+  padding: 2px 0 2px 20px;
+}
+
+#left-area ol li ul,
+.entry-content ol li ol,
+.comment-content ol li ul,
+.comment-content ol li ol,
+body.et-pb-preview #main-content .container ol li ol {
+  padding: 2px 0 2px 35px;
+}
+
+ol.commentlist,
+.comment .children {
+  padding: 0 !important;
+  line-height: 1.7em !important;
+  list-style: none !important;
+}
+
+.comment-content ul {
+  padding: 0 0 23px 16px !important;
+  line-height: 26px !important;
+}
+
+.comment-content ol {
+  line-height: 26px !important;
+}
