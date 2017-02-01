@@ -190,7 +190,7 @@ if ($query->found_posts == 0) {
 }
 
 // Close wrapper around posts
-$post_list .= '</div></div></div>';
+$post_list .= '</div></div></div></div>';
 
 // Echo all results once here
 echo $post_list;
