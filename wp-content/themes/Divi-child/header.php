@@ -150,7 +150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" class="logo-lg" />
 						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo-sm" class="logo-sm" />
 					</a>
-          <a class="btn-donate" href="/your-gift-matters/make-an-impact/donate-to-minneapolis-heart-institute-foundation">DONATE</a>
+          <a class="btn-donate" href="/your-gift-matters/make-an-impact/donate-to-minneapolis-heart-institute-foundation/?donation-category=Area%20of%20greatest%20need">DONATE</a>
 				</div>
 				<div id="et-top-navigation">
 					<nav id="top-menu-nav">
