@@ -128,10 +128,17 @@ relevanssi_do_query($query);
 // Build list of results
 // Build divs before layout
 $post_list = '
-<div class="et_pb_section page et_pb_section_0 et_section_regular">
+<div id="search-content" class="et_pb_section page et_pb_section_0 et_section_regular">
   <div class="et_pb_row et_pb_row_0">
     <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
       <div class="et_pb_posts et_pb_module et_pb_bg_layout_light et_pb_blog_0">';
+
+// Post count
+if (count($_GET)>1 && !$query->found_posts == 0) {
+  $post_list .= '<div class="margin-bottom--50"><p> You have '.$query->found_posts.' search results. Scroll down to view.</p></div>';
+} elseif(count($_GET)>1) {
+  $post_list .= '<br><br><p>'.$query->found_posts.' studies found.</p>';
+}
 
 // Query relevanssi search, using query->posts to prevent additional query call
 foreach ($query->posts as $r_post) {
@@ -182,11 +189,6 @@ foreach ($query->posts as $r_post) {
   }
   $post_list .= '</div>';
   //$post_list .= wp_pagenavi(array( 'query' => $query ));
-}
-
-// Post count
-if ($query->found_posts == 0) {
-  $post_list .= '<br><br><p>'.$query->found_posts.' results found.</p>';
 }
 
 // Close wrapper around posts

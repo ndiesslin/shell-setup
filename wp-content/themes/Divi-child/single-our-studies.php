@@ -12,6 +12,18 @@
   $study_list_check = types_render_field( "study-list-template-options" );
   if (!empty( $study_list_check )) :
     if (isset($_GET['search-form']) && !empty($_GET['search-form'])) :
+      // If search form is being used scroll to results
+      if (count($_GET)>1) :
+        ?>
+        <script>
+          jQuery(window).load( function() {
+            $('html, body').animate({
+              scrollTop: $("#search-content").offset().top
+            }, 600);
+           });
+        </script>
+        <?php
+      endif;
       ?>
       <div class=" et_pb_row et_pb_row_0">
         <p>  
