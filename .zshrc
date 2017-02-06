@@ -73,7 +73,7 @@ zplug "b4b4r07/emoji-cli"
 # Set the priority when loading
 # e.g., zsh-syntax-highlighting must be loaded
 # after executing compinit command and sourcing other plugins
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting" #, nice:10
 
 # Can manage local plugins
 zplug "~/.zsh", from:local
@@ -92,3 +92,8 @@ zplug load --verbose
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$PATH:/Applications/vv
+
+# Start tmux automatically # Linux
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi

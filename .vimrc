@@ -32,6 +32,7 @@ inoremap jk <esc>
 nnoremap j gj
 nnoremap k gk
 
+" Shift for colon sucks
 nnoremap ; :
 nnoremap : ;
 
