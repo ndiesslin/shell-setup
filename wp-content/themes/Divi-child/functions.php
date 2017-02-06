@@ -71,7 +71,7 @@ return $image_sizes;
 add_filter( 'et_theme_image_sizes', 'blog_featured_size' );
 
 // Default WordPress style images
-add_image_size( 'team-thumbnail', 216, 216, true );
+add_image_size( 'team-thumbnail', 216, 216, array( 'center', 'top' ) );
 
 add_image_size( 'homepage-slider', 2500, 800, true );
 
