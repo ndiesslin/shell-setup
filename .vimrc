@@ -1,5 +1,9 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off
+filetype plugin indent on                   " required
+
+" Set to auto read when a file is changed from the outside
+set autoread
 
 " Set leader key
 let mapleader=","
@@ -32,15 +36,28 @@ inoremap jk <esc>
 nnoremap j gj
 nnoremap k gk
 
-" Shift for colon sucks
 nnoremap ; :
 nnoremap : ;
+
+" Tab navigation like Chrome.
+"nnoremap <C-S-tab> :tabprevious<CR>
+"nnoremap <C-tab>   :tabnext<CR>
+"nnoremap <C><t>     :tabnew<CR>
+"inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+"inoremap <C-tab>   <Esc>:tabnext<CR>i
+"inoremap <C-t>     <Esc>:tabnew<CR>
 
 " Enable spell check
 set spell
 
-" Auto indent
-set autoindent
+set ai "Auto indent
+
+set si "Smart indent
+
+set wrap "Wrap lines
+
+" Indent correctly rather than starting new line
+set breakindent
 
 " Set file  backup directories
 set backupdir=~/.vim/backup//
@@ -49,6 +66,10 @@ set undodir=~/.vim/undo//
 
 " Set line wrapping correctly
 set whichwrap+=<,>,h,l,[,]
+
+" Set column limit number
+highlight ColorColumn ctermbg=gray
+set colorcolumn=80
 
 " Enable mouse use in all modes
 set mouse=a
@@ -59,7 +80,7 @@ set paste
 " Correct copying
 set clipboard=unnamed
 
-" set the runtime path to include Vundle and initialize
+	" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -124,6 +145,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 " HTML tag matching
 Plugin 'gregsexton/MatchTag'
+
+" Indentation
+"Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'L9'
 
