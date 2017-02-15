@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
-"filetype off
-filetype plugin indent on                   " required
+filetype plugin indent on     " required
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -8,23 +7,11 @@ set autoread
 " Set leader key
 let mapleader=","
 
-set backspace=2
-set expandtab " Spaces instead of tabs
-set tabstop=2 " Soft tab to two spaces
-set softtabstop=2 " Set stop for soft tabs
-set shiftwidth=2
-set list " set spaces as charachters
 syntax on " enable syntax hilighting
-set syntax=whitespace
-set cursorline " highlight current line
-set cursorcolumn
-set wildmenu " Autocomplete vim commands with tab
-set hlsearch " highlight matches
-set number " Add number on side of editor
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,space:. 
-
+"
+" Key Mapping 
+"
 " Key maps
 nmap <leader>l :set list!<CR> " Shortcut to rapidly toggle `set list`
 nmap <leader>k :set cursorcolumn!<CR> " Toggle cursor column
@@ -50,19 +37,16 @@ nnoremap : ;
 " Enable spell check
 set spell
 
-set ai "Auto indent
-
-set si "Smart indent
-
-set wrap "Wrap lines
-
-" Indent correctly rather than starting new line
-set breakindent
-
 " Set file  backup directories
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+"
+" Formatting
+"
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,space:. 
 
 " Set line wrapping correctly
 set whichwrap+=<,>,h,l,[,]
@@ -70,6 +54,8 @@ set whichwrap+=<,>,h,l,[,]
 " Set column limit number
 highlight ColorColumn ctermbg=gray
 set colorcolumn=80
+
+set nowrap " Wrap long lines
 
 " Enable mouse use in all modes
 set mouse=a
@@ -80,7 +66,25 @@ set paste
 " Correct copying
 set clipboard=unnamed
 
-	" set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
+set backspace=2
+set tabstop=2 " Soft tab to two spaces
+set softtabstop=2 " Set stop for soft tabs
+set shiftwidth=2
+set smarttab " Tab will match indentation line
+set list " set spaces as charachters
+set syntax=whitespace
+set cursorline " highlight current line
+set cursorcolumn
+set wildmenu " Autocomplete vim commands with tab
+set hlsearch " highlight matches
+set number " Add number on side of editor
+
+set expandtab " Spaces instead of tabs
+set ai " Auto indent
+set si " Smart indent
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -143,8 +147,11 @@ Plugin 'Raimondi/delimitMate' " Auto completion for quotes and brackets
 " Easy vim Navigation 
 Plugin 'christoomey/vim-tmux-navigator'
 
-" HTML tag matching
-Plugin 'gregsexton/MatchTag'
+"Plugin 'gregsexton/MatchTag' " HTML tag matching
+
+"Plugin 'pangloss/vim-javascript' " JavaScript indentation support
+
+"Plugin 'valloric/youcompleteme' " Autocomplete
 
 " Indentation
 "Plugin 'nathanaelkane/vim-indent-guides'
