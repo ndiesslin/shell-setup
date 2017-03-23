@@ -1014,7 +1014,7 @@ ul.awDatesUL li a.active {
     }
     .logo-sm{
         display: block;
-        max-width: 50%;
+        max-width: 40%;
         -moz-transition: all 0.4s ease-in-out;
         -webkit-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
