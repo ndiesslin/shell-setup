@@ -1,11 +1,11 @@
 <?php acf_form_head(); ?>
 <script type="text/javascript">
 (function($) {
-	
+
 	// setup fields
 	acf.do_action('append', $('#popup-id'));
-	
-})(jQuery);	
+
+})(jQuery);
 </script>
 
 <?php
@@ -14,7 +14,7 @@ Template Name: My Account
 */
 
 get_header();
-$curr_user = $current_user->user_nicename; 
+$curr_user = $current_user->user_nicename;
 $updated = $_GET["updated"];
 $show_form = 'show';
 $editpost =  $_GET["editpost"];
@@ -37,7 +37,7 @@ if($updated == 'true'): $show_form = 'hide'; endif;
 
 	<div class="container">
 		<div id="content-area" class="clearfix">
-			
+
 
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -81,7 +81,7 @@ if ( is_user_logged_in() ) { ?>
 	<h1> Account </h1>
 <?php }?>
 
-				
+
 				<p><strong>My Contents</strong> | <a href="/wordpress/my-account/?editpost=new_post&formshow=show&button=Add&#160;New">Add New Grand Rounds</a></p>
 
 				<div class="entry-content">
@@ -90,10 +90,10 @@ if ( is_user_logged_in() ) { ?>
 
 					 // Load clinical study posts with the same mhif-section term as this single post
 					if( function_exists( 'mhi_loop' ) ) {
-						mhi_loop( "grand-rounds-lecture", "", "", "100" );
+						mhi_loop( "grand-rounds-lecture", "", "", "100", "past-edit" );
 
 						//[mhi_loop cpt="grand-rounds-lecture" quantity="100"]
-					} 
+					}
 
 					?>
 				</div> <!-- .entry-content -->
@@ -108,9 +108,9 @@ if ( is_user_logged_in() ) { ?>
 
 
 
-			
 
-			
+
+
 		</div> <!-- #content-area -->
 	</div> <!-- .container -->
 

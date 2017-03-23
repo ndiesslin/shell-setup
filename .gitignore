@@ -28,3 +28,6 @@ wp-config.php
 node_modules/
 wp-config-live.php
 wp-config.php
+
+# Allow MHIF plugin
+!wp-content/plugins/mhi-functionality-plugin
