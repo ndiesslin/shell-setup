@@ -37,8 +37,8 @@
 		'post_type'      => 'grand-rounds-lecture' ,
 		$tax             => $term,
 		'posts_per_page' => $quantity,
-		'meta_key'			=> $grvar_cont,
-		'orderby' => 'time_and_date',
+		'meta_key'			=> 'time_and_date',
+		'orderby' => 'meta_value',
 		'order'				=>$sorter
 		) );
 	}
