@@ -15,12 +15,13 @@
 	//echo  $tab;
 	//$sorter = 'SSS';
 	$grvar_cont = $grvar;
-	$ordering_cont = ($_SESSION["order"])?'ASC':'DESC';
+	//$ordering_cont = ($_SESSION["order"])?'ASC':'DESC';
 
-
-	if($tab == NULL){
-		$sorter = ($tab == 'past' ? 'DESC' : ($tab == 'upcoming' ? 'ASC' : 'ASC'));
-	}
+  if ($tab == 'past' || $tab == 'past-edit') {
+    $sorter = 'DESC';
+  } else {
+    $sorter = 'ASC';
+  }
 
 	if($grvar_cont == 'title'){
 		$mhi_loop = new WP_Query( array(
@@ -28,7 +29,7 @@
 		$tax             => $term,
 		'posts_per_page' => $quantity,
 		'orderby' => 'title',
-		'order'				=>$ordering_cont
+		'order'				=>$sorter
 		) );
 	}else{
 	// Settings for MHI query
@@ -38,7 +39,7 @@
 		'posts_per_page' => $quantity,
 		'meta_key'			=> $grvar_cont,
 		'orderby' => ($grvar_cont == 'time_and_date' ? 'meta_value_num' : 'meta_value'),
-		'order'				=>$ordering_cont
+		'order'				=>$sorter
 		) );
 	}
 	// Check for posts
