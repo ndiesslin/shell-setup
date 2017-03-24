@@ -19,7 +19,7 @@
 
 
 	if($tab == NULL){
-		$sorter = ($tab == 'past' ? 'DESC' : ($tab == 'upcoming' ? 'DESC' : 'ASC'));
+		$sorter = ($tab == 'past' ? 'DESC' : ($tab == 'upcoming' ? 'ASC' : 'ASC'));
 	}
 
 	if($grvar_cont == 'title'){
