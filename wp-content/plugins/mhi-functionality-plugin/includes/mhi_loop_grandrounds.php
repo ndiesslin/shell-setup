@@ -38,7 +38,7 @@
 		$tax             => $term,
 		'posts_per_page' => $quantity,
 		'meta_key'			=> $grvar_cont,
-		'orderby' => ($grvar_cont == 'time_and_date' ? 'meta_value_num' : 'meta_value'),
+		'orderby' => 'time_and_date',
 		'order'				=>$sorter
 		) );
 	}
