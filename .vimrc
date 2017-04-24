@@ -26,6 +26,11 @@ nnoremap k gk
 nnoremap ; :
 nnoremap : ;
 
+" Format pasting indentation correctly
+:nnoremap p ]p
+" Control+p for default p
+:nnoremap <c-p> p
+
 " Tab navigation like Chrome.
 "nnoremap <C-S-tab> :tabprevious<CR>
 "nnoremap <C-tab>   :tabnext<CR>
@@ -46,16 +51,16 @@ set undodir=~/.vim/undo//
 " Formatting
 "
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,space:. 
+set listchars=tab:▸\ ,eol:¬,space:· 
 
 " Set line wrapping correctly
 set whichwrap+=<,>,h,l,[,]
 
 " Set column limit number
-highlight ColorColumn ctermbg=gray
-set colorcolumn=80
+"highlight ColorColumn ctermbg=gray
+"set colorcolumn=80
 
-set nowrap " Wrap long lines
+set wrap " Wrap long lines
 
 " Enable mouse use in all modes
 set mouse=a
