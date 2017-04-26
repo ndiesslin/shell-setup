@@ -6,3 +6,5 @@
 !.tmux.conf
 !.vimrc
 !.zshrc
+!scripts/*
+!scripts/tmux/*
