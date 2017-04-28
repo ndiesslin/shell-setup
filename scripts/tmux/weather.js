@@ -1,10 +1,23 @@
-var http = require('http');
+// Get initial weather
+getWeather();
+
+callWeatherTimer();
+
+// Call weather every hour
+function callWeatherTimer() {
+  setInterval( getWeather, 1000 * 60 * 10 );
+}
 
 function getWeather() {
-  return http.get({
+  var http = require('http');
+  var str = '';
+
+  var options = {
     host: 'api.openweathermap.org',
     path: '/data/2.5/weather?units=imperial&id=5045360&APPID=14e3df96753ec1ac143f5e11dbd7a196'
-  }, function(response) {
+  };
+
+  var callback = function(response) {
     // Continuously update stream with data
     response.on('data', function(d) {
       // Data reception is done, do whatever with it!
@@ -15,9 +28,15 @@ function getWeather() {
           wind = parsed.wind.speed,
           temp = parsed.main.temp,
           visibility = clearityIcon(parsed.clouds.all);
-      return console.log(icon+' '+temp+'°, '+description+', ☴ '+wind+', '+visibility+' '+clouds);
+      str += icon+' '+temp+'°, '+description+', ☴ '+wind+', '+visibility+' '+clouds;
     });
-  });
+
+    response.on('end', function() {
+      console.log(str);
+    }); 
+  };
+  var weather = http.request(options, callback).end();
+  weather;
 }
 
 // Get main weather icon
@@ -26,39 +45,30 @@ function getWeatherIcon(id) {
     case '01d':
     case '01n':
       return '🌣';
-      break;
     case '02d':
     case '02n':
       return '⛅';
-      break;
     case '03d':
     case '03n':
       return '⛅';
-      break;
     case '04d':
     case '04n':
       return '☁';
-      break;
     case '09d':
     case '09n':
       return '🌧';
-      break;
     case '10d':
     case '10n':
       return '🌦';
-      break;
     case '11d':
     case '11n':
       return '🌩';
-      break;
     case '13d':
     case '13n':
       return '❄';
-      break;
     case '50d':
     case '50n':
       return '🌁';
-      break;
     default:
       return '';
   }
@@ -82,12 +92,4 @@ function clearityIcon(num) {
   }
 }
 
-// Get initial weather
-getWeather();
 
-// Call weather every hour
-function callWeatherTimer() {
-  setInterval( getWeather, 1000 * 60 * 10 );
-}
-
-callWeatherTimer();
