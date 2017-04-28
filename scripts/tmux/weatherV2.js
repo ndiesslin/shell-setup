@@ -16,32 +16,23 @@ request('http://api.openweathermap.org/data/2.5/weather?units=imperial&id=504536
 // Get main weather icon
 function getWeatherIcon(id) {
   switch(id) {
-    case '01d':
-    case '01n':
-      return '🌣';
-    case '02d':
-    case '02n':
-      return '⛅';
-    case '03d':
-    case '03n':
-      return '⛅';
-    case '04d':
-    case '04n':
+    case '01d': case '01n':
+      return '☀️';
+    case '02d': case '02n':
+      return '🌤';
+    case '03d': case '03n':
+      return '🌥️';
+    case '04d': case '04n':
       return '☁';
-    case '09d':
-    case '09n':
+    case '09d': case '09n':
       return '🌧';
-    case '10d':
-    case '10n':
+    case '10d': case '10n':
       return '🌦';
-    case '11d':
-    case '11n':
+    case '11d': case '11n':
       return '🌩';
-    case '13d':
-    case '13n':
+    case '13d': case '13n':
       return '❄';
-    case '50d':
-    case '50n':
+    case '50d': case '50n':
       return '🌁';
     default:
       return '';
@@ -53,15 +44,13 @@ function clearityIcon(num) {
   switch (num) {
     case num > 75:
       return '☁';
-    case num <= 7:
-    case num >= 50:
+    case num <= 7: case num >= 50:
       return '🌥';
-    case num <= 49:
-    case num >= 25:
+    case num <= 49: case num >= 25:
       return '🌤';
     case num < 25:
-      return '🌣';
+      return '☀️';
     default:
-      return '🌣';
+      return '☀️';
   }
 }
