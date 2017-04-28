@@ -1,17 +1,22 @@
 var request = require('request');
 var str = '';
 
-request('http://api.openweathermap.org/data/2.5/weather?units=imperial&id=5045360&APPID=14e3df96753ec1ac143f5e11dbd7a196', function (error, response, body) {
-  var parsed = JSON.parse(body),
-      clouds = parsed.clouds.all,
-      description = parsed.weather[0].main,
-      icon = getWeatherIcon(parsed.weather[0].icon),
-      wind = parsed.wind.speed,
-      temp = parsed.main.temp,
-      visibility = clearityIcon(parsed.clouds.all);
-  str += icon+' '+temp+'°, '+description+', ☴ '+wind+', '+visibility+' '+clouds;
-  console.log(str);
-});
+// Call weather
+getWeather();
+
+function getWeather() {
+  request('http://api.openweathermap.org/data/2.5/weather?units=imperial&id=5045360&APPID=14e3df96753ec1ac143f5e11dbd7a196', function (error, response, body) {
+    var parsed = JSON.parse(body),
+        clouds = parsed.clouds.all,
+        description = parsed.weather[0].main,
+        icon = getWeatherIcon(parsed.weather[0].icon),
+        wind = Math.round( parsed.wind.speed ),
+        temp = Math.round( parsed.main.temp ),
+        visibility = clearityIcon( parsed.clouds.all );
+    str += icon+' '+temp+'°, '+description+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
+    console.log(str);
+  });
+}
 
 // Get main weather icon
 function getWeatherIcon(id) {
@@ -53,4 +58,15 @@ function clearityIcon(num) {
     default:
       return '☀️';
   }
+}
+
+// Are we able to fly a kite?
+function kiteCheck(wind) {
+  if ( wind >= 15 ) {
+    return '🎏';
+  } else {
+    return '☴'
+  }
+  ;
+  return;
 }
