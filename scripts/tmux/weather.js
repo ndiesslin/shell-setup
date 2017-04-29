@@ -1,3 +1,10 @@
+// App parameters
+var apiParams = {
+  units: 'imperial',
+  locationId: '5045360',
+  appId: '14e3df96753ec1ac143f5e11dbd7a196', // User API ID
+}
+
 // Get initial weather
 getWeather();
 
@@ -7,7 +14,7 @@ function getWeather() {
 
   var options = {
     host: 'api.openweathermap.org',
-    path: '/data/2.5/weather?units=imperial&id=5045360&APPID=14e3df96753ec1ac143f5e11dbd7a196'
+    path: '/data/2.5/weather?units='+apiParams.units+'&id='+apiParams.locationId+'&APPID='+apiParams.appId,
   };
 
   var callback = function(response) {
@@ -21,7 +28,7 @@ function getWeather() {
           wind = parsed.wind.speed,
           temp = parsed.main.temp,
           visibility = clearityIcon(parsed.clouds.all);
-      str += icon+' '+temp+'°, '+description+', ☴ '+wind+', '+visibility+' '+clouds;
+      str += icon+' '+temp+'°, '+description+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
     });
 
     response.on('end', function() {
@@ -72,4 +79,14 @@ function clearityIcon(num) {
     default:
       return '☀️';
   }
+}
+
+// Are we able to fly a kite?
+function kiteCheck(wind) {
+  if ( wind >= 15 ) {
+    return '🎏';
+  } else {
+    return '☴';
+  }
+  return;
 }
