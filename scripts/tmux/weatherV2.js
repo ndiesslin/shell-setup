@@ -65,8 +65,7 @@ function kiteCheck(wind) {
   if ( wind >= 15 ) {
     return '🎏';
   } else {
-    return '☴'
+    return '☴';
   }
-  ;
   return;
 }
