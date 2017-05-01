@@ -25,8 +25,8 @@ function getWeather() {
           clouds = parsed.clouds.all,
           description = parsed.weather[0].main,
           icon = getWeatherIcon(parsed.weather[0].icon),
-          wind = parsed.wind.speed,
-          temp = parsed.main.temp,
+          wind = Math.round(parsed.wind.speed),
+          temp = Math.round(parsed.main.temp),
           visibility = clearityIcon(parsed.clouds.all);
       str += icon+' '+temp+'°, '+description+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
     });
@@ -83,7 +83,7 @@ function clearityIcon(num) {
 
 // Are we able to fly a kite?
 function kiteCheck(wind) {
-  if ( wind >= 15 ) {
+  if (wind >= 15) {
     return '🎏';
   } else {
     return '☴';
