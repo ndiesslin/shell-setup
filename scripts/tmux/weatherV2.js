@@ -1,3 +1,4 @@
+console.time('test');
 var request = require('request');
 var str = '';
 
@@ -46,14 +47,14 @@ function getWeatherIcon(id) {
 
 // Get icon for visibility/ clearity
 function clearityIcon(num) {
-  switch (num) {
-    case num > 75:
+  switch (true) {
+    case (num > 75):
       return '☁';
-    case num <= 7: case num >= 50:
+    case (num <= 75 && num >= 50):
       return '🌥';
-    case num <= 49: case num >= 25:
+    case (num <= 49 && num >= 25):
       return '🌤';
-    case num < 25:
+    case (num < 25):
       return '☀️';
     default:
       return '☀️';
@@ -69,3 +70,5 @@ function kiteCheck(wind) {
   }
   return;
 }
+
+console.timeEnd('test');

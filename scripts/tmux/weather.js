@@ -1,3 +1,5 @@
+//console.time('test');
+
 // App parameters
 var apiParams = {
   units: 'imperial',
@@ -27,7 +29,7 @@ function getWeather() {
           icon = getWeatherIcon(parsed.weather[0].icon),
           wind = Math.round(parsed.wind.speed),
           temp = Math.round(parsed.main.temp),
-          visibility = clearityIcon(parsed.clouds.all);
+          visibility = clearityIcon(clouds);
       str += icon+' '+temp+'°, '+description+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
     });
 
@@ -67,14 +69,14 @@ function getWeatherIcon(id) {
 
 // Get icon for visibility/ clearity
 function clearityIcon(num) {
-  switch (num) {
-    case num > 75:
+  switch (true) {
+    case (num > 75):
       return '☁';
-    case num <= 7: case num >= 50:
+    case (num <= 75 && num >= 50):
       return '🌥';
-    case num <= 49: case num >= 25:
+    case (num <= 49 && num >= 25):
       return '🌤';
-    case num < 25:
+    case (num < 25):
       return '☀️';
     default:
       return '☀️';
@@ -90,3 +92,5 @@ function kiteCheck(wind) {
   }
   return;
 }
+
+//console.timeEnd('test');
