@@ -137,7 +137,7 @@
 
 			//types_render_field("date-and-time")
 			if($tab == 'upcoming'):
-				if($dateToday < strtotime(get_field('time_and_date')) && $stat == 'publish'):
+				if($dateToday <= strtotime(get_field('time_and_date')) && $stat == 'publish'):
 
 					if($dateVal != get_field('time_and_date')):?><h4><?php the_field('time_and_date'); ?></h4><?php  endif; ?>
 				<ul>
