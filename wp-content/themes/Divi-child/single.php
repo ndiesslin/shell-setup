@@ -7,7 +7,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 ?>
 
-<?php get_template_part('template-title');?>
+<?php    
+  $title_check = get_post_meta( get_the_ID(), 'wpcf-disable-title', true );   
+  if ( !$title_check ) :     
+    get_template_part('template-title');   
+  endif 
+?>
 
 <!-- Begin Grand Rounds Entry Template Code -->
 
