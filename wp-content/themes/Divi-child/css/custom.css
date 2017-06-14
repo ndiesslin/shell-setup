@@ -240,9 +240,6 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
-.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
-    background-color: #AB162B !important;
-}
 .top-intro section.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
     background: #d1e0d7 !important;
     padding-top: 0;
