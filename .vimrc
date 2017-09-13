@@ -80,7 +80,7 @@ set smarttab " Tab will match indentation line
 set list " set spaces as charachters
 set syntax=whitespace
 set cursorline " highlight current line
-set cursorcolumn
+"set cursorcolumn
 set wildmenu " Autocomplete vim commands with tab
 set hlsearch " highlight matches
 set number " Add number on side of editor
@@ -118,6 +118,8 @@ Plugin 'scrooloose/syntastic'
 " Cool visual bar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+"let g:airline#extensions#tabline#enabled = 1 "Default to tab buffers
+"let g:airline#extensions#tabline#left_alt_sep = '|' "Set seperator
 
 " Text abreviations
 Plugin 'mattn/emmet-vim'

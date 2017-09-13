@@ -30,7 +30,7 @@ function getWeather() {
           wind = Math.round(parsed.wind.speed),
           temp = Math.round(parsed.main.temp),
           visibility = clearityIcon(clouds);
-      str += icon+' '+temp+'°, '+description+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
+      str += icon+' '+temp+'°, '+(description=='Drizzle'?'Drizzle Fo Shizzle':description)+', '+kiteCheck(wind)+' '+wind+', '+visibility+' '+clouds;
     });
 
     response.on('end', function() {
