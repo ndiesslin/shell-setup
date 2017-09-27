@@ -141,7 +141,7 @@
 
 					if($dateVal != get_field('time_and_date')):?><h4><?php the_field('time_and_date'); ?></h4><?php  endif; ?>
 				<ul>
-					<?php if($stat == 'publish'):?><li><strong><a href="<?php the_field('flier'); ?>" target="_blank"><?php echo the_title(); ?></a> </strong> <?php if(get_field('flier')){?>(<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">MP4</a>)<?php }else{echo '';} ?><br />
+					<?php if($stat == 'publish'):?><li><strong><?php echo the_title(); ?></strong> <?php if(get_field('flier')){?> (<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">Recording</a>)<?php }else{echo '';} ?><br />
 
 						<?php //if(get_field('lecturer')):
 							the_field('lecturer'); //endif;?>
