@@ -21,7 +21,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 							<div class="entry-content">
 <ul>
-								<li><strong><a href="<?php the_field('flier'); ?>" target="_blank"><?php echo the_title().' '.the_ID(); ?></a> </strong> <?php if(get_field('flier')){?>(<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">MP4</a>)<?php }else{echo '';} ?><br />
+								<li><strong><?php echo the_title() ?></strong> <?php if(get_field('flier')){?> (<a href="<?php the_field('flier'); ?>" target="_blank">Flier</a>)<?php }else{echo '';} ?>  <?php if(get_field('slides')){?>(<a href="<?php the_field('slides'); ?>" target="_blank">Slides</a>)<?php }else{echo '';} ?>  <?php if(get_field('video_mp4')){?>(<a href="<?php the_field('video_mp4'); ?>" target="_blank">Recording</a>)<?php }else{echo '';} ?><br />
 
 						<?php //if(get_field('lecturer')):
 							the_field('lecturer'); //endif;?>
