@@ -576,5 +576,9 @@ function app_icons() {
 	echo $output;
 }
 
-// Increase memory
-add_filter('upload_size_limit', 65536000);
+//filter
+add_filter('upload_size_limit', 'mhif_increase_upload');
+
+function mhif_increase_upload($bytes) {
+    return 65536000;
+}
