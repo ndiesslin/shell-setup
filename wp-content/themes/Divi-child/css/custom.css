@@ -123,19 +123,6 @@ p, .et_pb_post p, .et_pb_text, .et_pb_toggle_content {
 
 
 /*footer*/
-#main-footer, #footer-bottom{
-    background: #d1e0d7;
-}
-#main-footer #menu-main-nav a {
-    font-size: 14px;
-}
-
-#main-footer #menu-main-nav a {
-    font-size: 14px;
-    color: #474647;
-    text-transform: uppercase;
-}
-
 #main-footer #menu-main-nav ul.sub-menu a {
     text-decoration: none;
     text-transform: none;
