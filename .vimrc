@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype plugin indent on     " required
 
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
