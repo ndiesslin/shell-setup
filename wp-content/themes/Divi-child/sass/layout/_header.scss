@@ -44,3 +44,11 @@
 #main-header, #main-header * {
   transition: none !important; // Disables animation transition
 }
+
+.logo_link {
+  @include breakpoint (small) {
+    position: absolute;
+    top: 25px;
+    left: 0;
+  }
+}

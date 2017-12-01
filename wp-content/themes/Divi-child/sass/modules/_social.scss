@@ -1,0 +1,16 @@
+.et_pb_social_media_follow {
+  width: 200px;
+  position: absolute;
+  top: 35px;
+  right: 65px;
+
+  @include breakpoint (large) {
+    top: 20px;
+    right: 40px;
+  }
+
+  @include breakpoint (small) {
+    top: 75px;
+    right: 39px;
+  }
+}

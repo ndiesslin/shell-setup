@@ -71,7 +71,7 @@ textarea {
 }
 .btn-donate {
   position: absolute;
-  right: 0;
+  right: -5px;
   top: 30px;
   background: $purple;
   color: $white;
@@ -85,10 +85,9 @@ textarea {
   @include breakpoint(large) {
     top: 15px;
   }
-  
-  @include breakpoint(small) {
-    right: 20%;
-    top: 30px;
+
+  @include breakpoint (small) {
+    top: 70px;
   }
 }
 .wpcf7-form input[type=submit]:hover, .btn:hover {
