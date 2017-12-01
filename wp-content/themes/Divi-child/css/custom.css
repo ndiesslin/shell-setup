@@ -123,19 +123,6 @@ p, .et_pb_post p, .et_pb_text, .et_pb_toggle_content {
 
 
 /*footer*/
-#main-footer, #footer-bottom{
-    background: #d1e0d7;
-}
-#main-footer #menu-main-nav a {
-    font-size: 14px;
-}
-
-#main-footer #menu-main-nav a {
-    font-size: 14px;
-    color: #474647;
-    text-transform: uppercase;
-}
-
 #main-footer #menu-main-nav ul.sub-menu a {
     text-decoration: none;
     text-transform: none;
@@ -239,9 +226,6 @@ header #top-menu .menu-item-has-children > a:first-child:after,  header .fullwid
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
-}
-.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
-    background-color: #AB162B !important;
 }
 .top-intro section.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
     background: #d1e0d7 !important;
@@ -503,12 +487,6 @@ ul.awDatesUL li:last-child::after {
     }
     .et_pb_gutters3 .et_pb_column_1_2 .et_pb_module, .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_gutters3.et_pb_row .et_pb_column_1_2 .et_pb_module, .et_section_specialty .et_pb_row .et_pb_column_1_2 .et_pb_gutters3.et_pb_row_inner .et_pb_module {
         margin-bottom: 0px;
-    }
-    .et_pb_gutters3 .et_pb_column_1_4, .et_pb_gutters3.et_pb_row .et_pb_column_1_4{
-        width: 23.975%;
-    }
-    .et_pb_gutters3 .et_pb_column, .et_pb_gutters3.et_pb_row .et_pb_column{
-        margin-right: 1.3%;
     }
     .circleimage{
         margin-top: 70px;
@@ -792,7 +770,7 @@ img.full-width {
 .t5 p, .t5 .et_pb_post p{
     font-size: 18px;
     line-height: 28px;
-    font-size: 1.125rem; /*fontsize as in psd*/
+    font-size: 1.125rem;
     line-height: 28px;
 }
 .t5 .contact-info{
@@ -1106,6 +1084,9 @@ ul.awDatesUL li a.active {
     }
 }
 @media(max-width: 479px){
+    .et_header_style_left #et-top-navigation {
+        padding-top: 80px;
+    }
     .et-search-form, span.et_close_search_field{
         padding-top: 50px;
     }
@@ -1115,9 +1096,6 @@ ul.awDatesUL li a.active {
     }
     #et_mobile_nav_menu{
         margin-left: 16px;
-    }
-    .et_header_style_left #et-top-navigation{
-       padding-top: 50px;
     }
    .stories-of-gratitude-two article.et_pb_post, .news-events-page article.et_pb_post, .list-news-two article.et_pb_post{
     width: 100%;
@@ -1331,18 +1309,11 @@ a:hover,
 @media (max-width: 1200px) {
     /* Correcting as in design of mobile site */
     #et_top_search {
-        /*display: none;*/
         margin-top: -36px;
         margin-right: 35px;
     }
     .et-search-form, span.et_close_search_field{
         padding-top: 70px;
-    }
-    /*span.et_close_search_field {
-        margin: auto 2.3em auto 0;
-    }*/
-    .logo_container {
-        text-align: center;
     }
     .mobile_menu_bar {
         color: #2b266d;
@@ -1371,6 +1342,11 @@ a:hover,
 
 }
 @media (max-width: 479px) {
+    #et_mobile_nav_menu {
+        margin-top: -125px;
+        padding-top: 173px;
+        position: relative;
+    }
     header#main-header {
         min-height: 80px !important;
         padding: 0px;
@@ -1387,6 +1363,8 @@ a:hover,
 
     .et_mobile_menu {
         top: 90px;
+        position: fixed;
+        top: 128px;
     }
     .logo_container #logo {
         min-height: 60px;
@@ -1462,11 +1440,11 @@ a:hover,
 
 @media (max-width: 479px) {
     #et_top_search{
-        margin-top: -7px;
         margin-right: 20px;
+        margin-top: -45px;
     }
     .et-search-form, span.et_close_search_field{
-        padding-top: 40px;
+        padding-top: 25px;
     }
 }
 /*up to ipad landscape*/
@@ -1670,9 +1648,6 @@ form#gform_1 select {
     .home.et_pb_section{
         padding: 0 !important;
     }
-    #et-top-navigation{
-        /*margin-right: 30px !important;*/
-    }
 }
 @media (max-width: 1200px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     /* IE10+ CSS styles go here */
@@ -1703,7 +1678,6 @@ form#gform_1 select {
     margin-top: 5px;
     margin-right: 10px;
     position: relative;
-    /* width: 200px; */
     width: 100%;
     margin-bottom: 30px;
     }

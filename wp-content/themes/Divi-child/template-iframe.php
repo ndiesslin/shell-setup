@@ -5,7 +5,13 @@ get_header();
 ?>
 
 <style> .et_pb_section_0{background-color: white !important;} </style>
-<?php get_template_part('template-title');?>
+
+<?php    
+  $title_check = get_post_meta( get_the_ID(), 'wpcf-disable-title', true );   
+  if ( !$title_check ) :     
+    get_template_part('template-title');   
+  endif
+?>
 
 <div  class="et_pb_row">
 

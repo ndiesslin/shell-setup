@@ -1,8 +1,9 @@
 #main-footer {
   padding-top: 35px;
-  background-color: $white;
+  background-color: $purple;
+  color: $white;
   a{
-    color: $black;
+    color: $white;
     @include font-size(16px);
     font-weight: 400;
   }
@@ -41,8 +42,12 @@
   }
 }
 
+#et-footer-nav {
+  background-color: transparent;
+}
+
 #footer-bottom {
-  background-color: $white;
+  background-color: $purple;
 }
 
 .menu-secondary-footer-container {

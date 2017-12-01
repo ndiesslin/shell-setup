@@ -4,7 +4,13 @@ get_header();
 
 ?>
 
-<?php get_template_part('template-title');?>
+<?php    
+  $title_check = get_post_meta( get_the_ID(), 'wpcf-disable-title', true );   
+  if ( !$title_check ) :     
+    get_template_part('template-title');   
+  endif 
+?>
+
 <?php get_template_part('template-blog-single');?>
 
 <?php get_footer(); ?>

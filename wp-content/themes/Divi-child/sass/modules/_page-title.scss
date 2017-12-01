@@ -1,5 +1,5 @@
 .page-title {
-  background: $red;
+  background: $purple !important; //overriding divi fullwidth header styles
   padding: 30px 0;
   overflow: hidden;
   @include breakpoint(large) {

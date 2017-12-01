@@ -1,11 +1,12 @@
-$white: #ffffff;
+$white:     #ffffff;
 $lightgray: #f1f1f2;
-$gray: #D6D2C4;
-$black: #474647;
-$red: #AB162B;
-$mint: #D1E0D7;
-$purple: #250670;
-$yellow: #DEDC70;
+$gray:      #D6D2C4;
+$black:     #474647;
+$red:       #AB162B;
+$mint:      #D1E0D7;
+$purple:    #250670;
+$yellow:    #DEDC70;
+$cyan:      #6AD1E3;
 
 // Font Awesome - call this mixin whenever you need fontawesome on an element
 @mixin fontawesome {

@@ -8,6 +8,7 @@ function getPost( $atts ) {
     'order' => 'DESC',
     'offset' => 1,
     'h2_class' => '',
+    'category_name' => ''
   ), $atts));
 
 
@@ -18,6 +19,7 @@ function getPost( $atts ) {
     'order' => 'DESC',
     'posts_per_page' => 1,
     'offset' => $offset,
+    'category_name' => $category_name,
   );
 
   $loop = new WP_Query($args);
