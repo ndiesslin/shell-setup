@@ -148,24 +148,26 @@ textarea {
 }
 
 // Constant Contact forms
+.ctct-form { 
+  legend {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
 
-.ctct-form-field.ctct-form-field-text label {
-  font-weight: 700;
-}
+  label {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
 
-.ctct-text, .ctct-email {
-  font-size: inherit;
-  font-family: inherit;
-  padding: 5px 4px;
-  letter-spacing: normal;
-  display: block;
-  margin-top: 8px;
-  width: 100%;
-}
-
-.ctct-form legend {
-  font-size: 1.125rem;
-  font-weight: 700;
+  .ctct-text, .ctct-email {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 5px 4px;
+    letter-spacing: normal;
+    display: block;
+    margin-top: 8px;
+    width: 100%;
+  }
 }
 
 // Hide default disclosure
