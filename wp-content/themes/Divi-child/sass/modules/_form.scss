@@ -51,7 +51,7 @@ textarea {
     height: 44px;
     line-height: 44px;
 }
-.btn, .button, .wpcf7-form input[type=submit] {
+.btn, .button, .wpcf7-form input[type=submit], .ctct-submit {
     border-radius: 0;
     background-color: #2b266d;
     color: #ffffff;
@@ -64,14 +64,14 @@ textarea {
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    /* width: 120px; */
+    font-size: 1rem;
 }
 .btn a {
     color: #fff;
 }
 .btn-donate {
   position: absolute;
-  right: 0;
+  right: -5px;
   top: 30px;
   background: $purple;
   color: $white;
@@ -85,10 +85,9 @@ textarea {
   @include breakpoint(large) {
     top: 15px;
   }
-  
-  @include breakpoint(small) {
-    right: 20%;
-    top: 30px;
+
+  @include breakpoint (small) {
+    top: 70px;
   }
 }
 .wpcf7-form input[type=submit]:hover, .btn:hover {
@@ -146,4 +145,33 @@ textarea {
 // Button styles
 .et_pb_button {
   text-decoration: none;
+}
+
+// Constant Contact forms
+.ctct-form { 
+  legend {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  label {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .ctct-text, .ctct-email {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 5px 4px;
+    letter-spacing: normal;
+    display: block;
+    margin-top: 8px;
+    width: 100%;
+    font-size: 1.125rem;
+  }
+}
+
+// Hide default disclosure
+.ctct-disclosure {
+  display: none;
 }

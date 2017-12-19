@@ -146,10 +146,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 				<div class="logo_container">
 					<span class="logo_helper"></span>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo_link">
 						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" class="logo-lg" />
 						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo-sm" class="logo-sm" />
 					</a>
+          <ul class="et_pb_social_media_follow et_pb_module et_pb_bg_layout_light center et_pb_social_media_follow_0 clearfix">
+            <li class="et_pb_social_icon et_pb_social_network_link et-social-facebook et_pb_social_media_follow_network_0">
+              <a href="https://www.facebook.com/MinneapolisHeart/" class="icon rounded_rectangle" title="facebook" target="_blank" style="background-color: #250670;"><span>facebook</span></a>
+            </li>
+            <li class="et_pb_social_icon et_pb_social_network_link et-social-twitter et_pb_social_media_follow_network_1">
+              <a href="https://twitter.com/MHIF_Heart" class="icon rounded_rectangle" title="Twitter" target="_blank" style="background-color: #6ad1e3;"><span>Twitter</span></a>
+            </li>
+            <li class="et_pb_social_icon et_pb_social_network_link et-social-instagram et_pb_social_media_follow_network_2">
+              <a href="http://instagram.com/mplsheart" class="icon rounded_rectangle" title="Instagram" target="_blank" style="background-color: #dedc70;"><span>Instagram</span></a>
+            </li>
+            <li class="et_pb_social_icon et_pb_social_network_link et-social-linkedin et_pb_social_media_follow_network_3">
+              <a href="https://www.linkedin.com/company/357676/" class="icon rounded_rectangle" title="LinkedIn" target="_blank" style="background-color: #ab162b;"><span>LinkedIn</span></a>
+            </li> 
+          </ul>
           <a class="btn-donate" href="/your-gift-matters/make-an-impact/donate-to-minneapolis-heart-institute-foundation/?donation-category=Area%20of%20greatest%20need">DONATE</a>
 				</div>
 				<div id="et-top-navigation">

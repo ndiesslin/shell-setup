@@ -576,6 +576,7 @@ function app_icons() {
 	echo $output;
 }
 
+
 //filter
 add_filter('upload_size_limit', 'mhif_increase_upload');
 
