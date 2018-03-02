@@ -733,6 +733,7 @@ img.full-width {
 
 .icon-top-right .et_pb_main_blurb_image {
     margin-bottom: 10px;
+    display: block;
 }
 .icon-top-right .et_pb_main_blurb_image a img {
     width: 100%;
@@ -879,9 +880,6 @@ ul.awDatesUL li a.active {
 }
 
 @media (max-width: 991px){
-    .icon-top-right i:before {
-      margin-left: -110px;
-    }
     .et_header_style_left .et-fixed-header #et_top_search{
         margin-top: 7px;
     }
@@ -1007,12 +1005,6 @@ ul.awDatesUL li a.active {
     }
     .et_header_style_left .et-search-form, .et_header_style_split .et-search-form{
         max-width: 25% !important;
-    }
-    .et_mobile_menu {
-        max-height: 300px;
-        max-height: 80vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
     }
     .logo-lg{
         display: none !important;
@@ -1361,11 +1353,6 @@ a:hover,
         min-height: 1px !important;
     }
 
-    .et_mobile_menu {
-        top: 90px;
-        position: fixed;
-        top: 128px;
-    }
     .logo_container #logo {
         min-height: 60px;
         max-width: 100%;
@@ -1749,11 +1736,7 @@ form#gform_1 select {
     margin-left: 0.75em;
 }
 
-/* Disable Image Animation Globally */
-.et-waypoint {
-    opacity: 1 !important;
-    animation: none !important;
-}
+/* Disable Image .container.et_menu_container Globally */
 
 .acf-field .acf-label #label{
     font-size: 18px!important;

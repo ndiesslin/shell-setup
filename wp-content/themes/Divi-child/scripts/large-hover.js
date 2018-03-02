@@ -24,6 +24,7 @@ jQuery(document).ready(function() {
   });
 });
 
+// Homepage slider close on tapping outside
 jQuery(document).on('touchstart', function(e) {
   var container;
   container = $('.elem-large-hover');
@@ -34,10 +35,13 @@ jQuery(document).on('touchstart', function(e) {
   }
 });
 
+// Set image width accordingly
 home_slide_img_width = function() {
   var imageWidth, vpw;
   vpw = window.innerWidth;
+  //window
   if (vpw >= 769) {
+    //769 and above
     imageWidth = 2 * vpw / 3 * 1.45;
     $('.elem-large-hover .lh-background').css({
       'width': imageWidth + 'px'

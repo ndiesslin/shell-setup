@@ -1,0 +1,24 @@
+{
+  "name": "minneapolis-heart-institute-foundation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/augeomarketing/minneapolis-heart-institute-foundation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/augeomarketing/minneapolis-heart-institute-foundation#readme",
+  "dependencies": {
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-coffee": "^3.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0"
+  }
+}

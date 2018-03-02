@@ -6,25 +6,22 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
-    coffee = require('gulp-coffee');
+    coffee = require('gulp-coffee'),
+    sourcemaps = require('gulp-sourcemaps');
 
 var mainDir = './wp-content/themes/Divi-child/'
 
 gulp.task('sass', function () {
-  gulp.src('./wp-content/themes/Divi-child/sass/**/*.scss')
-    .pipe(sass({
-      // Install Susy Grids
-      includePaths: [
-        'node_modules/susy/sass'
-      ],
-      outputStyle: 'compressed'
-    }).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 8 versions'],
-      cascade: false
-    }))
-    .pipe(gulp.dest('./wp-content/themes/Divi-child/'));
-});
+  return gulp.src('./wp-content/themes/Divi-child/sass/**/*.scss')
+  .pipe(sourcemaps.init())
+  .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.write())
+  .pipe(autoprefixer({
+    browsers: ['last 8 versions'],
+    cascade: false
+  }))
+  .pipe(gulp.dest('./wp-content/themes/Divi-child/'));
+ });
 
 gulp.task('coffee', function() {
   gulp.src(mainDir + 'scripts/coffee/*.coffee')

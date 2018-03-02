@@ -7,10 +7,9 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 // Default Script removed from parent since issues with mobile nav came up
 function dequeue_parent_script() {
-  #wp_deregister_script('divi-custom-script');
   wp_dequeue_script('divi-custom-script');
 }
-add_action( 'wp_enqueue_scripts', 'dequeue_parent_script', 20 );
+#add_action( 'wp_enqueue_scripts', 'dequeue_parent_script', 20 );
 
 function move_jquery_to_footer() {
     wp_deregister_script( 'jquery' );
@@ -18,7 +17,7 @@ function move_jquery_to_footer() {
     wp_register_script( 'jquery-migrate', '/wp-includes/js/jquery/jquery-migrate.js', false, NULL, true );
     wp_enqueue_script( 'jquery-migrate' );
 }
-add_action( 'wp_enqueue_scripts', 'move_jquery_to_footer' );
+#add_action( 'wp_enqueue_scripts', 'move_jquery_to_footer' );
 
 function named_scripts() {
   wp_enqueue_script('jquery');
@@ -33,7 +32,7 @@ function named_scripts() {
   #wp_register_script('default_scripts');
   wp_enqueue_script('default_scripts');
 }
-add_action( 'wp_enqueue_scripts', 'named_scripts' );
+#add_action( 'wp_enqueue_scripts', 'named_scripts' );
 
 
 function register_secondary_footer() {
@@ -480,17 +479,6 @@ function advanced_custom_search( $where, &$wp_query ) {
         )";
     endforeach;
     return $where;
-}
-
-add_filter( 'posts_search', 'advanced_custom_search', 500, 2 );
-
-//Make WPCF_TYPE in REST CALL
-add_filter( 'wpcf_type', 'add_show_in_rest_func', 510, 2);
-function add_show_in_rest_func($data, $post_type) {
-    if($post_type == 'grand-rounds-lecture'){
-        $data['show_in_rest'] = true;
-    }
-    return $data;
 }
 
 // Disable redirect canoical for post types that need to use list template on single page

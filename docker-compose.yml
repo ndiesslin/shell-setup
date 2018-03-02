@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      # any dump in the data folder will be synced
+      - ./data:/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - 8000:80
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+    volumes: # this is where we tell Docker what to pay attention to
+      - ./wp-content/themes/Divi:/var/www/html/wp-content/themes/Divi # mapping our custom theme to the container
+      - ./wp-content/themes/Divi-child:/var/www/html/wp-content/themes/Divi-child # mapping our custom theme to the container
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins # map our plugins to the container
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads # map our uploads to the container
+
+# Get zip of plugins and uploads from server
+
+#scp mplsheart:~/public_html/wp-content/plugins.zip ~/Sites/minneapolis-heart-institute-foundation/wp-content/plugins.zip
+#scp mplsheart:~/public_html/wp-content/uploads.zip ~/Sites/minneapolis-heart-institute-foundation/wp-content/uploads.zip
+
+# In the database replace mplsheart.org with localhost and https with http
+
+# Spin up server
+# docker-compose up -d # to spin up
+
+# Add these to wp-config after the install, to do this you need to run docker exec to get it running. This can go after db_collate in the config
+# define('WP_ALLOW_MULTISITE', true);
+# define('MULTISITE', true);
+# define('SUBDOMAIN_INSTALL', false);
+# define('DOMAIN_CURRENT_SITE', 'localhost');
+# define('PATH_CURRENT_SITE', '/');
+# define('SITE_ID_CURRENT_SITE', 1);
+# define('BLOG_ID_CURRENT_SITE', 1);
+
+# access at http://localhost:8000/
+
+# docker-compose down --volumes # to destroy
+# docker-compose exec web rails console # Rails console

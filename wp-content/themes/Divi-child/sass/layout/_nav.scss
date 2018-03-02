@@ -164,6 +164,18 @@ span.et_close_search_field {
 // Mobile Nav Styles
 .et_mobile_menu {
   border-color: $red;
+  @include breakpoint (large) {
+    .et_mobile_menu {
+      max-height: 300px;
+      max-height: 80vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  @include breakpoint (small) {
+    position: fixed;
+    top: 174px;
+  }
   li ul {
     visibility: initial !important;
     display: initial !important;

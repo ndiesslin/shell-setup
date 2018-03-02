@@ -147,7 +147,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<div class="logo_container">
 					<span class="logo_helper"></span>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo_link">
-						<img src="<?php echo esc_attr( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" class="logo-lg" />
+						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo.png" id="logo" class="logo-lg" />
 						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo-sm" class="logo-sm" />
 					</a>
           <ul class="et_pb_social_media_follow et_pb_module et_pb_bg_layout_light center et_pb_social_media_follow_0 clearfix">
