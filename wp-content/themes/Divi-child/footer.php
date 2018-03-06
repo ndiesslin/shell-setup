@@ -47,71 +47,20 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 <?php endif; // ! is_page_template( 'page-template-blank.php' ) ?>
 
-	</div> <!-- #page-container -->
+</div> <!-- #page-container -->
 
-	<?php wp_footer(); ?>
+<?php wp_footer(); ?>
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<?php // Google Font ?>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
-  <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/iframeResizer.min.js"></script>
-  <script type="text/javascript">
+<?php // Iframe resize ?>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/js/iframeResizer.min.js"></script>
+<script type="text/javascript">
   iFrameResize({log:false});
-  </script>
-
-	<script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.validate.min.js"></script>
-
-<?php
-$post_type = get_post_type(get_the_ID());//news-blog
-
-global $wp_post_types;
-$obj = $wp_post_types[$post_type];
-$page_title = $obj->labels->singular_name;
-
-/*if($post_type == 'news-blog')
-	$page_title = 'Blog';
-if($post_type == 'internship-blog')
-	$page_title = 'Internship Blog';
-if($post_type == 'heart-health-blog')
-	$page_title = 'Heart Health Blog';
-if($post_type == 'research-intern-blog')
-	$page_title = 'Research Internship Blog';*/
-
-$taxonomy = $post_type . 's';//just s added in post-type slug
-$tax_term = $wp_query->query_vars[$taxonomy];
-$details = get_term_by('slug', $tax_term, $taxonomy);
-
-if($details->name != '')
-	$page_title = $details->name;
-
-?>
-<script>
-	$('body.post-type-archive-<?php echo $post_type;?> #et-main-area, body.tax-<?php echo $taxonomy;?> #et-main-area').prepend('<div class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left page-title et_pb_fullwidth_header_0"><div class="et_pb_fullwidth_header_container left"><div class="header-content-container center"><div class="header-content"><h1><?php echo $page_title;?></h1></div></div></div></div>');
 </script>
 
-<?php
-$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-if (strpos($url,'post_type') !== false) {//if the url contains post_type word
-?>
-<script>
-	$(document).ready(function() {
-		//$("body").addClass("page-not-found");
-		$('.page-title h1').text('Page Not Found');
-		$('#breadcrumbs .breadcrumb_last').text('Error 404: Page not found');
-		$('body').css({'display':'block'});
-	});
-</script>
-<?php
-}  //end if post_type
-
-if (strpos($url,'/team/') !== false) {//if the url contains post_type word
-?>
-<script>
-	$(document).ready(function() {
-		$('#breadcrumbs > span > span > span').prepend('About Us › ');
-	});
-</script>
-<?php }//end team
-?>
+<script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.validate.min.js"></script>
 
 <script>
 	//google analytics
@@ -122,7 +71,7 @@ if (strpos($url,'/team/') !== false) {//if the url contains post_type word
 
   ga('create', 'UA-16556369-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+
 </body>
 </html>
