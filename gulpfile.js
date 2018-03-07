@@ -32,11 +32,11 @@ gulp.task('coffee', function() {
 gulp.task('scripts', function() {
   var scriptSrc = "./wp-content/themes/Divi-child/scripts/"
   return gulp.src([
-      scriptSrc + 'page.js',
+      //scriptSrc + 'page.js',
       scriptSrc + 'equal-height.js',
-      scriptSrc + 'breadcrumb.js',
+      //scriptSrc + 'breadcrumb.js',
       scriptSrc + 'group-toggle.js',
-      scriptSrc + 'nav.js',
+      //scriptSrc + 'nav.js',
       scriptSrc + 'large-hover.js',
       scriptSrc + 'toggle.js'
     ])

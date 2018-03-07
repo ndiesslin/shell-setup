@@ -35,10 +35,10 @@ services:
 #scp mplsheart:~/public_html/wp-content/plugins.zip ~/Sites/minneapolis-heart-institute-foundation/wp-content/plugins.zip
 #scp mplsheart:~/public_html/wp-content/uploads.zip ~/Sites/minneapolis-heart-institute-foundation/wp-content/uploads.zip
 
-# In the database replace mplsheart.org with localhost and https with http
+# In the database replace mplsheart.org with localhost:8000 and https with http
 
 # Spin up server
-# docker-compose up -d # to spin up
+# docker-compose up -d
 
 # Add these to wp-config after the install, to do this you need to run docker exec to get it running. This can go after db_collate in the config
 # define('WP_ALLOW_MULTISITE', true);
@@ -52,4 +52,3 @@ services:
 # access at http://localhost:8000/
 
 # docker-compose down --volumes # to destroy
-# docker-compose exec web rails console # Rails console

@@ -5,23 +5,7 @@ function theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
-// Default Script removed from parent since issues with mobile nav came up
-function dequeue_parent_script() {
-  wp_dequeue_script('divi-custom-script');
-}
-#add_action( 'wp_enqueue_scripts', 'dequeue_parent_script', 20 );
-
-function move_jquery_to_footer() {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, NULL, true );
-    wp_register_script( 'jquery-migrate', '/wp-includes/js/jquery/jquery-migrate.js', false, NULL, true );
-    wp_enqueue_script( 'jquery-migrate' );
-}
-#add_action( 'wp_enqueue_scripts', 'move_jquery_to_footer' );
-
 function named_scripts() {
-  wp_enqueue_script('jquery');
-  wp_enqueue_script('jquery-ui-accordion');
   wp_register_script(
     'default_scripts',
     get_stylesheet_directory_uri() . '/js/all.js',
@@ -29,10 +13,9 @@ function named_scripts() {
     false,
     true
   );
-  #wp_register_script('default_scripts');
   wp_enqueue_script('default_scripts');
 }
-#add_action( 'wp_enqueue_scripts', 'named_scripts' );
+add_action( 'wp_enqueue_scripts', 'named_scripts' );
 
 
 function register_secondary_footer() {
@@ -55,70 +38,10 @@ $image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
 return $image_sizes;
 }
 
-// Set custom post image sizes for blog module pages
-function blog_featured_width( ) { return 345; /* Custom featured post image width */ }
-add_filter( 'et_pb_blog_image_width', 'blog_featured_width');
-
-function blog_featured_height( ) { return 345; /* Custom featured post image height */ }
-add_filter( 'et_pb_blog_image_height', 'blog_featured_height');
-
-function blog_featured_size( $image_sizes ) {
-$custom_size = blog_featured_width() . 'x' . blog_featured_height();
-$image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
-return $image_sizes;
-}
-add_filter( 'et_theme_image_sizes', 'blog_featured_size' );
-
 // Default WordPress style images
 add_image_size( 'team-thumbnail', 216, 216, array( 'center', 'top' ) );
 
 add_image_size( 'homepage-slider', 2500, 800, true );
-
-//for admin style
-add_action('admin_head', 'admin_style');
-
-//for admin style
-add_action('admin_head', 'admin_style');
-
-function admin_style() {
-  echo '<style>
-    #et_pb_toggle_builder.et_pb_builder_is_used {/* use default editor */
-      display: none !important;
-    }
-    .control-section#add-page {
-      display: block !important;
-    }
-body.taxonomy-category span.view, body.taxonomy-post_tag span.view {
-display: none !important;
-}
-/* Hiding unused divi template */
-/*.et-pb-all-modules-tab, .et-pb-options-tabs-links li.et-pb-new-module {
-  display: none !important;
-  opacity: 0 !important;
-}
-.et-pb-options-tabs-links li a {
-  background-color: #8F43EC;
-}
-.et-pb-saved-modules-tab {
-  display: block !important;
-  opacity: 1 !important;
-  pointer-events: none !important;
-}*/
-.et-pb-main-settings.et-pb-all-modules-tab .et-pb-load-layouts {
-display: none !important;
-}
-.themes .theme {
-  display: none !important;
-}
-.themes .theme.active {
-  display: block !important;
-}
-/* custom-menu */
-#toplevel_page_myplugin-myplugin-admin {
-  display: none;
-}
-  </style>';
-}
 
 //title
 function page_title($title, $title_icon, $team_title) {
@@ -154,7 +77,7 @@ function get_all_posts_name() {
 
 //search
 function search_excerpt_highlight() {
- $excerpt = get_the_excerpt();
+$excerpt = get_the_excerpt();
  //for page that used divi layouts
  if($excerpt == '') {
   echo '<p>';
@@ -175,67 +98,6 @@ function search_title_highlight() {
 
  echo $title;
 }
-
-/* Function which remove Plugin Update Notices – Askimet*/
-function disable_plugin_updates( $value ) {
-   unset( $value->response['types/wpcf.php'] );
-   return $value;
-}
-add_filter( 'site_transient_update_plugins', 'disable_plugin_updates' );
-
-
-//comments
-if ( ! function_exists( 'shape_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- */
-function shape_comment( $comment, $args, $depth ) {
-    $GLOBALS['comment'] = $comment;
-    switch ( $comment->comment_type ) :
-        case 'pingback' :
-        case 'trackback' :
-    ?>
-    <li class="post pingback">
-        <p><?php _e( 'Pingback:', 'shape' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'shape' ), ' ' ); ?></p>
-    <?php
-            break;
-        default :
-    ?>
-    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-        <article id="comment-<?php comment_ID(); ?>" class="comment">
-            <footer>
-                <div class="comment-author vcard">
-                    <?php echo get_avatar( $comment, 40 ); ?>
-                    <?php printf( __( '%s <span class="says">says:</span>', 'shape' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-                </div><!-- .comment-author .vcard -->
-                <?php if ( $comment->comment_approved == '0' ) : ?>
-                    <em><?php _e( 'Your comment is awaiting moderation.', 'shape' ); ?></em>
-                    <br />
-                <?php endif; ?>
-
-                <div class="comment-meta commentmetadata">
-                   <time pubdate datetime="<?php comment_time( 'c' ); ?>">
-                    <?php
-                        /* translators: 1: date, 2: time */
-                        printf( __( '%1$s at %2$s', 'shape' ), get_comment_date(), get_comment_time() ); ?>
-                    </time>
-                    <?php edit_comment_link( __( '(Edit)', 'shape' ), ' ' );
-                    ?>
-                </div><!-- .comment-meta .commentmetadata -->
-            </footer>
-
-            <div class="comment-content"><?php comment_text(); ?></div>
-
-            <div class="reply">
-                <?php comment_reply_link( array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-            </div><!-- .reply -->
-        </article><!-- #comment-## -->
-
-    <?php
-            break;
-    endswitch;
-}
-endif; // ends check for shape_comment()
 
 // add editor the privilege to edit theme
 
@@ -287,8 +149,8 @@ add_action('generate_rewrite_rules', 'cpt_rewrite_rules');
 
 /**
  * Generate date archive rewrite rules for a given custom post type
- * @param  string $cpt slug of the custom post type
- * @return rules       returns a set of rewrite rules for WordPress to handle
+ * @param string $cpt slug of the custom post type
+ * @return rules returns a set of rewrite rules for WordPress to handle
  */
 function cpt_generate_date_archives($cpt, $wp_rewrite)
 {
