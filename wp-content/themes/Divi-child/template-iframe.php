@@ -26,6 +26,7 @@ get_header();
       //log                     : true,                  // Enable console logging
       enablePublicMethods     : true,                  // Enable methods within iframe hosted page
       heightCalculationMethod : 'lowestElement',
+      checkOrigin: false // Disabled error
     });
   </script>
 
