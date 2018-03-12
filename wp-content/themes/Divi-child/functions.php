@@ -17,7 +17,6 @@ function named_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'named_scripts' );
 
-
 function register_secondary_footer() {
   register_nav_menu('secondary-footer-menu',__( 'Secondary Footer Menu' ));
 }
@@ -33,10 +32,24 @@ function team_featured_height( ) { return 216; /* Custom featured post image hei
 add_filter( 'et_pb_blog_image_height', 'team_featured_height');
 
 function mycustom_featured_size( $image_sizes ) {
-$custom_size = team_featured_width() . 'x' . team_featured_height();
-$image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
-return $image_sizes;
+  $custom_size = team_featured_width() . 'x' . team_featured_height();
+  $image_sizes[$custom_size] = 'et-pb-post-team-image-thumbnail';
+  return $image_sizes;
 }
+
+// Set custom post image sizes for blog module pages
+function blog_featured_width( ) { return 345; /* Custom featured post image width */ }
+add_filter( 'et_pb_blog_image_width', 'blog_featured_width');
+
+function blog_featured_height( ) { return 345; /* Custom featured post image height */ }
+add_filter( 'et_pb_blog_image_height', 'blog_featured_height');
+
+function blog_featured_size( $image_sizes ) {
+  $custom_size = blog_featured_width() . 'x' . blog_featured_height();
+  $image_sizes[$custom_size] = 'et-pb-post-main-image-thumbnail';
+  return $image_sizes;
+}
+add_filter( 'et_theme_image_sizes', 'blog_featured_size' );
 
 // Default WordPress style images
 add_image_size( 'team-thumbnail', 216, 216, array( 'center', 'top' ) );
