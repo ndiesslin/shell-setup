@@ -33,9 +33,11 @@ equalheight = function(container){
 $(window).on("load", function() {
   equalheight('.eq-height article .entry-featured-image-url');
   equalheight('.eq-height .category-areas-of-focus');
+  equalheight('.eq-height .category-stories-of-gratitude');
 });
 
 $( window ).resize(function() {
   equalheight('.eq-height article .entry-featured-image-url');
   equalheight('.eq-height .category-areas-of-focus');
+  equalheight('.eq-height .category-stories-of-gratitude');
 });
