@@ -446,3 +446,17 @@ add_filter('upload_size_limit', 'mhif_increase_upload');
 function mhif_increase_upload($bytes) {
     return 65536000;
 }
+
+
+// Search by post type
+function my_pre_get_posts($query) {
+  if( is_admin() ) 
+      return;
+
+  if(isset($_GET['post-type'])) {
+    if( is_search() && $query->is_main_query() ) {
+      $query->set('post_type', $_GET['post-type']);
+    } 
+  }
+}
+add_action( 'pre_get_posts', 'my_pre_get_posts' );
