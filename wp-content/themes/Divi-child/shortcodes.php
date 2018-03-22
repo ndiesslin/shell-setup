@@ -38,3 +38,5 @@ function register_my_custom_menu_page() {
 }
 
 include('includes/shortcodes/get-post.php'); // Shortcode for getting specific posts
+
+include('includes/shortcodes/search-input.php'); // Shortcode for getting search input
