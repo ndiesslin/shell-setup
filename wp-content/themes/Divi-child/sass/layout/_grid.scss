@@ -1,0 +1,23 @@
+.grid {
+  &--15-70-15 {
+    .et_pb_column_1_4 {
+      width: 15%;
+    }
+    .et_pb_column_1_2 {
+      width: 70%;
+    }
+    .et_pb_column {
+      margin: 0;
+    }
+  }
+  &--padding-40 {
+    .et_pb_column {
+      padding: 40px;
+    }
+  }
+  &--border-radius {
+    .et_pb_column {
+      border-radius: 4px;
+    }
+  }
+}

@@ -179,3 +179,115 @@ textarea {
 .et_pb_button:hover, .et_pb_module .et_pb_button:hover {
   padding: 0.5em 1.1em;
 }
+
+// Search input form
+.search-module {
+  width: 75%;
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  display: flex;
+  flex-basis: auto;
+  flex: auto;
+
+  @include breakpoint(medium) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+    background-color: $white;
+    color: $midgray;
+    padding: 10px;
+    font-size: 15px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__input--with-select {
+    padding-right: 170px;
+  }
+
+  &__select-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 225px;
+    height: 40px;
+
+    @include breakpoint(medium) {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__select {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 0 4px 4px 0;
+    border: solid 2px #D7D2E5; 
+    background-color: #D7D2E5;
+    font-weight: 700;
+    color: $purple;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none; // remove default arrow
+    background-image: url(...); // add custom arrow
+    font-size: 15px;
+
+    &:focus {
+      color: $purple;
+    }
+
+    @include breakpoint(medium) {
+      border-radius: 4px;
+    }
+  }
+
+  &__select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: .875rem;
+    font-size: 10px !important;
+    color: $purple;
+  }
+}
+
+.search-button {
+  width: 107px;
+  height: 40px;	
+  border-radius: 4px;	
+  background-color: #46C6DF;	
+  background: linear-gradient(135deg, #81D7E8 0%, #46C6DF 100%);
+  color: $white;
+  font-size: 15px;
+
+  &:focus {
+    border: solid;
+    border-color: white;
+  }
+}
+
+// Form Accesibility
+input[type=text]:focus, input[type=search], textarea {
+  border: solid 2px $white;
+}
+
+input.text:focus, input.title:focus, input[type=text]:focus, input[type=search]:focus, select:focus, textarea:focus {
+  border: solid 2px $cyan; 
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
