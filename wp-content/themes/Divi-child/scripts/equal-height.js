@@ -34,10 +34,12 @@ $(window).on("load", function() {
   equalheight('.eq-height article .entry-featured-image-url');
   equalheight('.eq-height .category-areas-of-focus');
   equalheight('.eq-height .category-stories-of-gratitude');
+  equalheight('.eq-height .event-card');
 });
 
 $( window ).resize(function() {
   equalheight('.eq-height article .entry-featured-image-url');
   equalheight('.eq-height .category-areas-of-focus');
   equalheight('.eq-height .category-stories-of-gratitude');
+  equalheight('.eq-height .event-card');
 });

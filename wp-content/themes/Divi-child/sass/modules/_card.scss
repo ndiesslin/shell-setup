@@ -15,9 +15,6 @@
     vertical-align: top;
     float: left;
     background: #FFFFFF;
-
-    -moz-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
-    -webkit-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
     box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
 
     &--cyan {
@@ -110,7 +107,6 @@
 
 .overlay-card {
   padding: 30px;
-  height: auto;
   border-radius: 6px;
   vertical-align: top;
   float: left;
@@ -159,5 +155,64 @@
   }
   @include breakpoint(small) {
     padding-bottom: 250px;
+  }
+}
+
+.event-card {
+  padding: 20px;
+  border-radius: 6px;
+  vertical-align: top;
+  float: left;
+  background: #FFFFFF;
+  box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
+  margin-bottom: 25px;
+
+  h6 {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  &--cyan {
+    border-top: 6px solid $cyan;
+
+    h2, h6 {
+      color: $cyan;
+    }
+  }
+  &--purple {
+    border-top: 6px solid $purple;
+
+    h2, h6 {
+      color: $purple;
+    }
+  }
+  &--red {
+    border-top: 6px solid $red;
+
+    h2, h6 {
+      color: $red;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  p {
+    @include font-size(14px);
+    line-height: 1.5;
+  }
+}
+
+#main-content .event-card {
+  h2 {
+    @include font-size(20px);
+    text-transform: capitalize;
+    line-height: 1.25;
   }
 }
