@@ -52,19 +52,24 @@ textarea {
     line-height: 44px;
 }
 .btn, .button, .wpcf7-form input[type=submit], .ctct-submit {
-    border-radius: 0;
-    background-color: #2b266d;
-    color: #ffffff;
-    display: inline-block;
-    height: 39px;
-    left: 0;
-    line-height: 39px;
-    margin-top: 10px;
-    padding: 0 28px;
-    text-align: center;
-    text-transform: uppercase;
     text-decoration: none;
-    font-size: 1rem;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    min-height: 40px;
+    border-radius: 4px;
+    background-color: #46C6DF;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    transition: all 240ms ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      background-color: darken(#46C6DF, 10%);
+    }
 }
 .btn a {
     color: #fff;
@@ -89,13 +94,6 @@ textarea {
   @include breakpoint (small) {
     top: 70px;
   }
-}
-.wpcf7-form input[type=submit]:hover, .btn:hover {
-    /* background-color: #ab1f2d; */
-    -webkit-transition: all 500ms ease-in-out;
-    -moz-transition:    all 500ms ease-in-out;
-    -ms-transition:     all 500ms ease-in-out;
-    -o-transition:      all 500ms ease-in-out;
 }
 .wpcf7-form .form-input.form-input--full-width {
   width: 100%;

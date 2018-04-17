@@ -1049,9 +1049,9 @@ ul.awDatesUL li a.active {
         width: 47.25%;
         margin-right: 0;
     }
-    .et_pb_row .et_pb_column .et_pb_module:last-child, .et_section_specialty .et_pb_row .et_pb_column .et_pb_module:last-child{
+    /* .et_pb_row .et_pb_column .et_pb_module:last-child, .et_section_specialty .et_pb_row .et_pb_column .et_pb_module:last-child{
         margin-bottom: 30px;
-    }
+    } */
     .box-row-module .et_pb_column:first-child .bottom-link{
         position: absolute;
         bottom: -70px;
@@ -1164,9 +1164,9 @@ body:not(.et_pb_pagebuilder_layout) .entry-content {
     .hidden-xs {
         display: none;
     }
-    h2{
+    /* h2{
         margin-top: 30px;
-    }
+    } */
     .et_pb_column_4_4 .et_pb_video_play, .et_pb_column_3_4 .et_pb_video_play, .et_pb_column_2_3 .et_pb_video_play, .et_pb_column_1_2 .et_pb_video_play{
         margin-left: -1rem;
         margin-top: -1.7rem;
