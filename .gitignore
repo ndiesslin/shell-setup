@@ -16,9 +16,6 @@ wp-content/cache/*
 # Ignore themes except Divi child
 wp-content/themes/
 
-# Allow Divi child theme 
-!wp-content/themes/Divi-child/
-
 # no need for these #
 readme.html
 license.txt
@@ -30,7 +27,9 @@ node_modules/
 wp-config-live.php
 wp-config.php
 wp-content/plugins/
-wp-content/themes/
 
 # Allow MHIF plugin
 !wp-content/plugins/mhi-functionality-plugin
+
+# Allow Divi child theme 
+!wp-content/themes/Divi-child/
