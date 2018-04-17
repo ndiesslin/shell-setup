@@ -56,6 +56,8 @@ add_image_size( 'team-thumbnail', 216, 216, array( 'center', 'top' ) );
 
 add_image_size( 'homepage-slider', 2500, 800, true );
 
+add_image_size( 'event-card', 370, 200, array( 'center', 'top' ) );
+
 //title
 function page_title($title, $title_icon, $team_title) {
   echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular">

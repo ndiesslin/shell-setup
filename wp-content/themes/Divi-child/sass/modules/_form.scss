@@ -179,6 +179,20 @@ textarea {
 }
 
 // Search input form
+#main-content .search-container { // Move verbose to override Divi
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0) !important; // Divi override
+  padding: 0;
+
+  @include breakpoint(large) {
+    transform: translateY(0);
+  }
+
+  .et_pb_row {
+    padding: 0;
+  }
+}
+
 .search-module {
   width: 75%;
   position: relative;
