@@ -50,7 +50,6 @@
 .home-card h2 {
     text-transform: none !important;
     font-weight: 700 !important;
-    color: $cyan;
     @include font-size(22px);
 
     @media (max-width: 1000px) {
