@@ -29,7 +29,7 @@ function getEventCard( $atts ) {
     $wpseo_primary_term = $wpseo_primary_term->get_primary_term();
     $wpseo_primary_term = get_term($wpseo_primary_term);
     // Create card
-    $item_loop.='<div class="event-card ';
+    $item_loop.='<div class="event-card eq-height__target ';
     switch ($wpseo_primary_term->slug) {
       case 'news':
           $item_loop.='event-card--purple';
