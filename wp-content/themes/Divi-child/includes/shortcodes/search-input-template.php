@@ -1,6 +1,8 @@
 <form role="search" method="get" action="/" class="display-flex flex-wrap-wrap">
   <div class="search-module display-flex flex-wrap-wrap">
     <input type="search" placeholder="Enter a Keyword, topic, name, etc..." value="" name="s" title="Search for:" class="search-module__input">
+    <?php /* 
+    // Hide filter on search for now.
     <label class="search-module__select-label margin-bottom--20">
       <select name="post-type" class="search-module__select">
         <option value>Search All</option>
@@ -24,6 +26,7 @@
       </select>
       <i class="fa fa-chevron-down search-module__select-arrow"></i>
     </label>
+    */ ?>
   </div>
   <button type="submit" class="search-button">
     <i class="fa fa-search"></i> Search

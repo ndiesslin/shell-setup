@@ -450,7 +450,7 @@ function mhif_increase_upload($bytes) {
 }
 
 
-// Search by post type
+// Search in different ways
 function my_pre_get_posts($query) {
   if( is_admin() ) 
       return;

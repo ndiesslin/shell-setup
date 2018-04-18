@@ -16,7 +16,12 @@ $title = 'Search Results for ' . get_search_query();
 $title_icon = '';
 $team_title = types_render_field('team-title', array());
 page_title($title, $title_icon, $team_title);
+// Link to order by date
 ?>
+  <div class="et_pb_row">
+    <a class="btn margin-right--8" href="<?php echo get_bloginfo('url') . '?s=' . get_search_query() ?>&orderby=post_date&order=desc">Order results by Newest</a>
+    <a class="btn margin-right--8" href="<?php echo get_bloginfo('url') . '?s=' . get_search_query() ?>">Order results by Relevance</a>
+  </div>
 	<div class="et_pb_row">
 		<?php
 		// Start the loop.
@@ -33,7 +38,7 @@ page_title($title, $title_icon, $team_title);
 			$search = new WP_Query($search_query);
 
 		?>
-		<?php if ( have_posts() ) :
+    <?php if ( have_posts() ) :
       while ( have_posts() ) : the_post();
         // Your loop code 
         // Check for grand rounds types ?> 
@@ -53,6 +58,7 @@ page_title($title, $title_icon, $team_title);
         <?php else: ?>
           <div class="search-items">
             <h3><?php search_title_highlight(); ?></h3>
+            <p class="text-bold"><?php the_date(); ?></p>
             <?php search_excerpt_highlight();?>
             <a href="<?php the_permalink();?>" class="read-more-btn">Read More</a>
           </div>
