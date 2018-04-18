@@ -3,7 +3,7 @@
     <input type="search" placeholder="Enter a Keyword, topic, name, etc..." value="" name="s" title="Search for:" class="search-module__input">
     <label class="search-module__select-label margin-bottom--20">
       <select name="post-type" class="search-module__select">
-        <option>Search All</option>
+        <option value>Search All</option>
         <?php
           $args = array(
             'public'              => true,

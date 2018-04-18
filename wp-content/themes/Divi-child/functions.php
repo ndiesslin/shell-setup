@@ -442,7 +442,7 @@ function app_icons() {
 }
 
 
-//filter
+// Increase file upload size
 add_filter('upload_size_limit', 'mhif_increase_upload');
 
 function mhif_increase_upload($bytes) {
