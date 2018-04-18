@@ -183,6 +183,7 @@ textarea {
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0) !important; // Divi override
   padding: 0;
+  z-index: 2;
 
   @include breakpoint(large) {
     transform: translateY(0);
