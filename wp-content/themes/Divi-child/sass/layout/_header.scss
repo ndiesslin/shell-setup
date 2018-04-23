@@ -1,6 +1,5 @@
 #main-header {
   box-shadow: none;
-  -webkit-box-shadow: none;
 }
 
 #breadcrumbs {
@@ -33,6 +32,16 @@
   }
 }
 
+.logo_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  @include breakpoint(large) {
+    align-items: center;
+  }
+}
+
 .logo_container, .logo_container * {
   transition: none !important; // Disables animation transition
 }
@@ -41,10 +50,45 @@
   transition: none !important; // Disables animation transition
 }
 
-.logo_link {
-  @include breakpoint (small) {
-    position: absolute;
-    top: 25px;
-    left: 0;
+// .et_header_style_left #logo {
+//   max-width: none;
+// }
+
+.et_header_style_left .logo_container{
+  position: relative;
+  padding: 20px 0;
+}
+
+.et_header_style_left #logo, .et_header_style_split #logo {
+  @include breakpoint(divi-medium) {
+    max-width: none;
+    height: 50px;
   }
+}
+
+.logo_link {
+  display: inline-block;
+}
+
+.logo-lg {
+  max-width: none;
+  @include breakpoint(small) {
+    max-width: 50%;
+  }
+}
+
+.logo-sm {
+  display: none;
+  // @include breakpoint (small) {
+  //   display: block;
+  //   max-width: 40%;
+  //   -moz-transition: all 0.4s ease-in-out;
+  //   -webkit-transition: all 0.4s ease-in-out;
+  //   transition: all 0.4s ease-in-out;
+  //   margin-bottom: 0;
+  //   max-height: 90%;
+  //   display: inline-block;
+  //   float: none;
+  //   vertical-align: middle;
+  // }
 }
