@@ -86,3 +86,102 @@
     opacity: 1;
   }
 }
+
+.bottom-nav li {
+  width: auto !important;
+  white-space: nowrap !important;
+    margin: 0 20px !important;
+}
+.home-newsletter label {
+  display: none !important;
+}
+.home-newsletter {
+  padding: 0 20px 0 20px !important;
+  text-align: center !important;
+}
+.ctct-form-field-submit {
+  margin-top: 20px !important;
+  float: right !important;
+}
+.ctct-form {
+  width: 300px !important;
+  margin: 0 auto 0 auto !important;
+}
+.ctct-form-description {
+  display: none !important;
+}
+.float-left {
+  float: left;
+  margin-left: 10px;
+}
+.wrap-donate {
+  width: 400px;
+  margin: 0 auto 0 auto;
+}
+.btn-red {
+  background: #9d2830 !important;
+}
+#footer-bottom {
+  color: #707070 !important;
+}
+#et-footer-nav a {
+  text-decoration: none !important;
+}
+
+#menu-footer-menu::before {
+    width: 200px;
+    height: 85px;
+    content: "";
+    background: url("https://staging.mplsheart.org/wp-content/uploads/2018/04/Screen-Shot-2018-04-19-at-4.41.08-PM.png") no-repeat 0 0;
+    background-size: 100%;
+  float: left;
+  margin-right: 100px;
+}
+@media only screen and (max-width: 800px) {
+    #menu-footer-menu::before {
+        margin-right: 0px;
+    }
+}
+
+#menu-footer-menu li {
+  margin-top: 30px !important;
+}
+@media only screen and (max-width: 1200px) {
+    #menu-footer-menu li:last-child {
+    margin-bottom: 30px !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+    #menu-footer-menu li {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+@media only screen and (max-width: 630px) {
+    #menu-footer-menu li {
+    width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #menu-footer-menu li:last-child {
+    width: 80% !important;
+  }
+}
+#menu-footer-menu li:last-child {
+  margin-top: 20px !important;
+  text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    min-height: 40px;
+    border-radius: 4px;
+    background: #9d2830;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    -webkit-transition: all 240ms ease-in-out;
+    -o-transition: all 240ms ease-in-out;
+    transition: all 240ms ease-in-out;
+}
