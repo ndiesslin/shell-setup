@@ -43,6 +43,8 @@ function getEventCard( $atts ) {
       case 'press-releases':
           $item_loop.='event-card--red';
           break;
+      default:
+          $item_loop.='event-card--purple';
     }
     $item_loop.='">';
     $item_loop.=get_the_post_thumbnail( $post->ID, 'event-card' );
