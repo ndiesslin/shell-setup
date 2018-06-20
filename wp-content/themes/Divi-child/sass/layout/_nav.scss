@@ -172,10 +172,6 @@ span.et_close_search_field {
       -webkit-overflow-scrolling: touch;
     }
   }
-  @include breakpoint (small) {
-    position: fixed;
-    top: 127px;
-  }
   li ul {
     visibility: initial !important;
     display: initial !important;
@@ -191,6 +187,9 @@ span.et_close_search_field {
   margin-top: -14px;
   &:before {
     color: $red;
+  }
+  @include breakpoint (small) {
+    margin-top: -39px;
   }
 }
 

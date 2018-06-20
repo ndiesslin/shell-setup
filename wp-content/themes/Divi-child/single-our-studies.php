@@ -27,7 +27,7 @@
       ?>
       <div class=" et_pb_row et_pb_row_0">
         <p>  
-          <a class="btn"  href="/our-studies/all-studies">View All Studies</a>
+          <a class="btn"  href="/our-studies/featured-studies">View Featured Studies</a>
         </p>
       </div>
       <?php
@@ -36,7 +36,7 @@
       ?>
       <div class=" et_pb_row et_pb_row_0">
         <p>  
-          <a class="btn" href="/our-studies/all-studies?search-form=true">Search Studies</a>
+          <a class="btn" href="/our-studies/featured-studies?search-form=true">Search Featured Studies</a>
         </p>
       </div>
       <?php 

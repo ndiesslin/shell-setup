@@ -1310,10 +1310,8 @@ a:hover,
     .mobile_menu_bar {
         color: #2b266d;
         height: 30px;
-        margin-top: 0px;
         position: absolute;
         top: 50%;
-        margin-top: -15px;
         right: -10px;
         z-index: 999;
     }
@@ -1334,11 +1332,6 @@ a:hover,
 
 }
 @media (max-width: 479px) {
-    #et_mobile_nav_menu {
-        margin-top: -125px;
-        padding-top: 173px;
-        position: relative;
-    }
     header#main-header {
         min-height: 80px !important;
         padding: 0px;
