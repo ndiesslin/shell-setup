@@ -50,10 +50,6 @@
   transition: none !important; // Disables animation transition
 }
 
-// .et_header_style_left #logo {
-//   max-width: none;
-// }
-
 .et_header_style_left .logo_container{
   position: relative;
   padding: 20px 0;
@@ -63,6 +59,7 @@
   @include breakpoint(divi-medium) {
     max-width: none;
     height: 50px;
+    max-height: 90%;
   }
 }
 

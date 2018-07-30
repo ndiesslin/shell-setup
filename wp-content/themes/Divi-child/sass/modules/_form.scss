@@ -75,7 +75,7 @@ textarea {
     color: #fff;
 }
 .btn-donate {
-  background: $red;
+  background: $purple;
   color: $white;
   text-decoration: none;
   padding: 1em;
@@ -85,11 +85,8 @@ textarea {
   z-index: 5;
   display: inline-block;
   position: relative;
-  @include breakpoint(large) {
-    margin-right: 100px;
-  }
-  @include breakpoint(small) {
-    margin-right: 70px;
+  @include breakpoint(medium) {
+    margin-right: 0;
   }
 }
 .wpcf7-form .form-input.form-input--full-width {

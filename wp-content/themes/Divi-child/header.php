@@ -194,7 +194,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
 
           </div> <!-- #et-top-navigation -->
-          <div class="text-right">
+          <div class="text-right social-navigation-container">
             <ul class="et_pb_social_media_follow et_pb_module et_pb_bg_layout_light center et_pb_social_media_follow_0 clearfix">
               <li class="et_pb_social_icon et_pb_social_network_link et-social-facebook et_pb_social_media_follow_network_0">
                 <a href="https://www.facebook.com/MinneapolisHeart/" class="icon rounded_rectangle" title="facebook" target="_blank" style="background-color: #250670;"><span>facebook</span></a>

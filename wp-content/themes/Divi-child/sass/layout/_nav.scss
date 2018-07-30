@@ -11,7 +11,10 @@
     height: 85px;
   }
   @include breakpoint(divi-medium) {
-    height: 62px;
+    position: relative;
+    height: 75px;
+    margin-top: -40px;
+    padding-top: 0;
   }
 }
 
@@ -127,6 +130,6 @@
   }
 
   @include breakpoint(divi-medium) {
-    padding-bottom: 30px;
+    padding-bottom: 63px;
   }
 }

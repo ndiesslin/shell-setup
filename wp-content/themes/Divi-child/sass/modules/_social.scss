@@ -1,8 +1,19 @@
+.social-navigation-container {
+  margin-right: 75px;
+  @include breakpoint(divi-medium) {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    margin-right: 0;
+  }
+}
+
 .et_pb_social_media_follow {
   margin: 0;
   
   @include breakpoint(large) {
-    display: none;
+    display: inline-block;
+    margin-right: 10px;
   }
 
   li a {
