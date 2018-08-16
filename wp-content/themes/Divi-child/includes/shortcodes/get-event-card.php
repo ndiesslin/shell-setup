@@ -31,20 +31,20 @@ function getEventCard( $atts ) {
     // Create card
     $item_loop.='<div class="event-card eq-height__target ';
     switch ($wpseo_primary_term->slug) {
-      case 'news':
+      case 'featured-news':
           $item_loop.='event-card--purple';
           break;
-      case 'events':
-          $item_loop.='event-card--cyan';
-          break;
-      case 'news-events':
-          $item_loop.='event-card--cyan';
-          break;
+      // case 'events':
+      //     $item_loop.='event-card--cyan';
+      //     break;
+      // case 'news-events':
+      //     $item_loop.='event-card--cyan';
+      //     break;
       case 'press-releases':
           $item_loop.='event-card--red';
           break;
       default:
-          $item_loop.='event-card--purple';
+          $item_loop.='event-card--cyan';
     }
     $item_loop.='">';
     $item_loop.=get_the_post_thumbnail( $post->ID, 'event-card' );
