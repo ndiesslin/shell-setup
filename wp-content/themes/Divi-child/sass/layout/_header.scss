@@ -57,9 +57,7 @@
 
 .et_header_style_left #logo, .et_header_style_split #logo {
   @include breakpoint(divi-medium) {
-    max-width: none;
-    height: 50px;
-    max-height: 90%;
+    display: none;
   }
 }
 
@@ -76,16 +74,9 @@
 
 .logo-sm {
   display: none;
-  // @include breakpoint (small) {
-  //   display: block;
-  //   max-width: 40%;
-  //   -moz-transition: all 0.4s ease-in-out;
-  //   -webkit-transition: all 0.4s ease-in-out;
-  //   transition: all 0.4s ease-in-out;
-  //   margin-bottom: 0;
-  //   max-height: 90%;
-  //   display: inline-block;
-  //   float: none;
-  //   vertical-align: middle;
-  // }
+  @include breakpoint(divi-medium) {
+    display: inline-block;
+    max-width: none;
+    height: 45px;
+  }
 }

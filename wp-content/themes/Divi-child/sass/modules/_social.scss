@@ -1,14 +1,22 @@
 .social-navigation-container {
-  margin-right: 75px;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 300px;
   @include breakpoint(divi-medium) {
-    position: absolute;
-    bottom: 15px;
     right: 0;
     margin-right: 0;
+  }
+  @include breakpoint(medium) {
+    top: initial;
+    bottom: 15px;
   }
 }
 
 .et_pb_social_media_follow {
+  position: absolute;
+  top: 5px;
+  right: 115px;
   margin: 0;
   
   @include breakpoint(large) {
@@ -30,14 +38,14 @@ ul.et_pb_social_media_follow {
 }
 
 .et_pb_social_media_follow li a.icon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
 .et_pb_social_media_follow li a.icon::before {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   font-size: 12px;
 }
 
