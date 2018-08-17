@@ -13,10 +13,8 @@ wp-content/plugins/*
 #cache files
 wp-content/cache/*
 
-# Going to ignore themes until final is installed
-wp-content/themes/twentythirteen/*
-wp-content/themes/twentyfourteen/*
-#wp-content/themes/Divi/*
+# Ignore themes except Divi child
+wp-content/themes/
 
 # no need for these #
 readme.html
@@ -28,6 +26,10 @@ wp-config.php
 node_modules/
 wp-config-live.php
 wp-config.php
+wp-content/plugins/
 
 # Allow MHIF plugin
 !wp-content/plugins/mhi-functionality-plugin
+
+# Allow Divi child theme 
+!wp-content/themes/Divi-child/

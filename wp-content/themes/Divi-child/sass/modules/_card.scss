@@ -1,0 +1,215 @@
+.home-card-wrapper {
+	margin: 0 auto;
+	padding: 0 0 80px !important;
+
+	@media (max-width: 1000px) {
+		padding: 40px 0 0 !important;
+	}
+}
+
+.home-card {
+    height: auto;
+    padding: 30px 0 30px 30px;
+    margin: 0 1.83% !important;
+    border-radius: 6px;
+    vertical-align: top;
+    float: left;
+    background: #FFFFFF;
+    box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
+
+    &--cyan {
+    	border-top: 6px solid $cyan;
+
+    	h2, h6 {
+    		color: $cyan;
+    	}
+    }
+    &--purple {
+    	border-top: 6px solid $purple;
+
+    	h2, h6 {
+    		color: $purple;
+    	}
+    }
+    &--red {
+    	border-top: 6px solid $red;
+
+    	h2, h6 {
+    		color: $red;
+    	}
+    }
+
+    @media (max-width: 980px) {
+      margin: 10px auto !important;
+    }
+}
+
+.home-card h2 {
+    text-transform: none !important;
+    font-weight: 700 !important;
+    @include font-size(22px);
+
+    @media (max-width: 1000px) {
+    	margin-top: 0px;
+    }
+}
+
+.home-card h6 {
+    font-weight: 700 !important;
+}
+
+.home-card a {
+    text-decoration: none;
+    color: $black;
+    font-size: 16px;
+}
+
+.home-card a:hover {
+    text-decoration: underline;
+}
+
+.home-card ul {
+    float: left;
+    font-size: 16px !important;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 20px 0 0;
+
+    @media (max-width: 1000px) {
+    	width: 45%;
+    }
+    @media (max-width: 480px) {
+    	width: 100%;
+    }
+}
+
+.home-card li:after {
+    position: initial;
+    right: 0.75em;
+    bottom: 0.675em;
+    font-family: 'FontAwesome';
+    color: inherit;
+    content: "\f054";
+    font-weight: normal;
+    font-style: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    display: inline-block;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.overlay-card {
+  padding: 30px;
+  border-radius: 6px;
+  vertical-align: top;
+  float: left;
+  background: #FFFFFF;
+  box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
+
+  @include breakpoint(very-large) {
+    transform: translateY(75%);
+  }
+  @include breakpoint(divi-medium) {
+    width: 90% !important; // Divi override
+  }
+
+  h2 {
+    font-weight: 700;
+    color: $cyan;
+    @include font-size(22px);
+
+    @media (max-width: 1000px) {
+    	margin-top: 0px;
+    }
+  }
+}
+
+.overlay-card--left {
+  left: -10%;
+
+  @include breakpoint(very-large) {
+    left: 5%;
+  }
+}
+
+.overlay-card--right {
+  right: -10%;
+
+  @include breakpoint(very-large) {
+    right: 5%;
+  }
+}
+
+#main-content .card-section {
+  padding: 0 0 64px;
+
+  @include breakpoint(very-large) {
+    padding-bottom: 200px;
+  }
+  @include breakpoint(small) {
+    padding-bottom: 250px;
+  }
+}
+
+.event-card {
+  padding: 20px;
+  border-radius: 6px;
+  vertical-align: top;
+  float: left;
+  background: #FFFFFF;
+  box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.03);
+  margin-bottom: 25px;
+
+  h6 {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  &--cyan {
+    border-top: 6px solid $cyan;
+
+    h2, h6 {
+      color: $cyan;
+    }
+  }
+  &--purple {
+    border-top: 6px solid $purple;
+
+    h2, h6 {
+      color: $purple;
+    }
+  }
+  &--red {
+    border-top: 6px solid $red;
+
+    h2, h6 {
+      color: $red;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  p {
+    @include font-size(14px);
+    line-height: 1.5;
+  }
+}
+
+#main-content .event-card {
+  h2 {
+    @include font-size(20px);
+    text-transform: capitalize;
+    line-height: 1.25;
+  }
+}
+
