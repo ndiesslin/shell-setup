@@ -15,6 +15,7 @@
 @import "layout/team";
 @import "layout/margins";
 @import "layout/padding";
+@import "layout/section-background-color";
 
 // Modules
 @import "modules/post";
@@ -26,5 +27,8 @@
 @import "modules/breadcrumbs";
 @import "modules/lists";
 @import "modules/social";
+@import "modules/card";
+@import "modules/wp-pagenavi";
+@import "modules/search";
 
 @import "divi-overrides";

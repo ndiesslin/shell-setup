@@ -1,17 +1,27 @@
-.et_pb_social_media_follow {
-  width: 200px;
+.social-navigation-container {
   position: absolute;
-  top: 35px;
-  right: 65px;
-
-  @include breakpoint (large) {
-    top: 20px;
-    right: 40px;
+  top: 15px;
+  right: 0;
+  width: 300px;
+  @include breakpoint(divi-medium) {
+    right: 0;
+    margin-right: 0;
   }
+  @include breakpoint(medium) {
+    top: initial;
+    bottom: 15px;
+  }
+}
 
-  @include breakpoint (small) {
-    top: 75px;
-    right: 39px;
+.et_pb_social_media_follow {
+  position: absolute;
+  top: 5px;
+  right: 115px;
+  margin: 0;
+  
+  @include breakpoint(large) {
+    display: inline-block;
+    margin-right: 10px;
   }
 
   li a {
@@ -22,3 +32,20 @@
 li.et_pb_social_icon a span {
   display: none;
 }
+
+ul.et_pb_social_media_follow {
+  margin: 0;
+}
+
+.et_pb_social_media_follow li a.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.et_pb_social_media_follow li a.icon::before {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+}
+

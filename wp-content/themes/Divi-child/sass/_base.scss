@@ -41,7 +41,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6{
-  color: $red;
+  color: $purple;
 }
 
 // Font Styles
@@ -114,18 +114,28 @@ sup{
   display: inline;
 }
 
+.display-flex {
+  display: flex;
+}
+
+.flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+
 .fa.fa--small {
   font-size: 0.5rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
   text-align: center;
 }
 
-body.home .et_pb_row {
-    position: initial;
-    min-height: 174px;
-    padding: 0;
+.text-right {
+  text-align: right;
 }
 
 .form-input.form-input--full-width {
@@ -135,4 +145,33 @@ body.home .et_pb_row {
 // Margins
 .margin-right--8 {
   margin-right: 0.5rem;
+}
+
+
+// Default white background to whitepurple
+.et_pb_section {
+  background-color: $whitepurple;
+}
+
+#main-content > article {
+  background-color: $whitepurple;
+}
+
+
+// For columns with equal heights
+.flex-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  .et_pb_ajax_pagination_container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+.eq-height article .entry-featured-image-url {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }

@@ -56,6 +56,8 @@ add_image_size( 'team-thumbnail', 216, 216, array( 'center', 'top' ) );
 
 add_image_size( 'homepage-slider', 2500, 800, true );
 
+add_image_size( 'event-card', 370, 200, array( 'center', 'center' ) );
+
 //title
 function page_title($title, $title_icon, $team_title) {
   echo '<div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular">
@@ -440,9 +442,23 @@ function app_icons() {
 }
 
 
-//filter
+// Increase file upload size
 add_filter('upload_size_limit', 'mhif_increase_upload');
 
 function mhif_increase_upload($bytes) {
     return 65536000;
 }
+
+
+// Search in different ways
+function my_pre_get_posts($query) {
+  if( is_admin() ) 
+      return;
+
+  if(isset($_GET['post-type'])) {
+    if( is_search() && $query->is_main_query() ) {
+      $query->set('post_type', $_GET['post-type']);
+    } 
+  }
+}
+add_action( 'pre_get_posts', 'my_pre_get_posts' );

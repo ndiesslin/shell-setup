@@ -21,4 +21,9 @@
 		</a>
 	</li>
 
+  <li class="et-social-icon et-social-instagram">
+		<a href="https://www.instagram.com/mplsheart" class="icon">
+			<span><?php esc_html_e( 'Instagram', 'Divi' ); ?></span>
+		</a>
+	</li>
 </ul>

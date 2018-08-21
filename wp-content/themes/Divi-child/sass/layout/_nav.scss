@@ -1,22 +1,32 @@
 #et-top-navigation {
-  text-transform: uppercase;
-  -moz-transition-property: all;
-	-moz-transition-duration: 2s;
-	-webkit-transition-property: all;
-	-webkit-transition-duration: 2s;
-	transition-property: all;
-	transition-duration: 2s;
-  transition: all !important;
-}
-
-.et_header_style_left #et-top-navigation {
-  padding-top: 123px;
-  @include breakpoint (large){
-    padding-top: 33px;
+  text-transform: capitalize;
+  display: inline-block;
+  padding-left: 0 !important; // Divi override
+  float: none;
+  position: relative;
+  @include breakpoint(large) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+  }
+  @include breakpoint(divi-medium) {
+    position: relative;
+    height: 40px;
+    padding-top: 0;
+  }
+  @include breakpoint(medium) {
+    height: 90px;
+    margin-top: -55px;
   }
 }
 
+.et_header_style_left #et-top-navigation {
+  padding-top: 0;
+}
+
 .nav{
+  font-weight: bold;
   li.slide-left li ul {
     left: auto;
     right: 240px;
@@ -33,24 +43,24 @@
 #top-menu {
   > .menu-item-has-children {
     > a:first-child {
-      padding-right: 1em;
+      padding: 10px;
       &:after {
-        content: "5";
+        content: ""; // Divi override
       }
       .et-hover & {
         color: green;
       }
       &:hover::after {
-        content: "3";
+        content: ""; // Divi override
       }
     }
     &.et-hover > a:after {
-      content: "3";
+      content: ""; // Divi override
     }
   }
   .sub-menu {
     .menu-item-has-children {
-      a:after {
+      > a:after {
         content: "5";
       }
     }
@@ -66,7 +76,8 @@
 
 #top-menu, #mobile_menu {
   a {
-    color: $purple;
+    color: $darkgray;
+    z-index: 2;
   }
 }
 
@@ -85,79 +96,6 @@
 
   @include breakpoint (large) {
     display: block;
-  }
-}
-
-#et_top_search {
-  color: $purple;
-  position: absolute;
-  right: -2.5em;
-  @include breakpoint (large) {
-    margin: 8px 16px 0 33px;
-    position: relative;
-    float: left;
-    right: initial;
-  }
-}
-
-#et_search_icon {
-  color: $purple;
-  -moz-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  &:before {
-    top: -3px ;
-  }
-  &:hover {
-    color: $purple;
-    opacity: 0.7;
-  }
-}
-
-.et-search-form {
-  padding-top: 120px;
-  @include breakpoint (large) {
-    padding-top: 33px;
-    max-width: 50% !important;
-    padding: 0 0 0 1em;
-  }
-  input {
-    width: 100%;
-    position: initial;
-    //border: solid 1px $black;
-    border: none;
-    background-color: $mint;
-    border-radius: 10px;
-    padding: 0.5em;
-    color: $black;
-    right: auto;
-    left: 0;
-    @include breakpoint (large) {
-      width: 70%;
-      margin: 0 30% 0 0;
-    }
-    @include breakpoint (small) {
-      width: 60%;
-    }
-  }
-}
-
-span.et_close_search_field {
-  color: $purple;
-  margin: auto -3em auto 0;
-  padding: 119px 0 0 0;
-  height: initial;
-  @include breakpoint (large) {
-    padding: 29px 0 0 0;
-    margin: auto 1em auto 0;
-  }
-  &:after {
-    -moz-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-  &:hover:after {
-    opacity: 0.7;
   }
 }
 
@@ -191,28 +129,12 @@ span.et_close_search_field {
   @include breakpoint (small) {
     margin-top: -39px;
   }
+  z-index: 5;
 }
 
-.menu-item-has-children.ui-accordion {
-  ul {
-    display: none !important;
-  }
-  ul.ui-accordion-content-active {
-    display: inline !important;
-  }
-}
-
-.ui-accordion-icons {
-  &::after {
-    font-family: 'ETmodules';
-    content: "5";
-    font-size: 16px;
-    vertical-align: bottom;
-    right: 0;
-    top: 0;
-    font-weight: 800;
-  }
-  &.ui-accordion-header-active::after {
-    content: "3";
+.et_header_style_left .mobile_menu_bar, .et_header_style_split .mobile_menu_bar {
+  padding-bottom: 29px;
+  @include breakpoint(medium) {
+    padding-bottom: 78px;
   }
 }

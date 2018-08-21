@@ -5,6 +5,9 @@
 	}
 	@if $point == large {
 		@media (max-width: 1200px) { @content ; }
+  }
+  @if $point == divi-medium {
+		@media (max-width: 1000px) { @content ; }
 	}
 	@else if $point == medium {
 		@media (max-width: 768px) { @content ; }

@@ -131,98 +131,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
 			<div class="container clearfix et_menu_container">
-				<div class="logo-lg">
-					<?php
-						$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && '' != $user_logo
-							? $user_logo
-							: $template_directory_uri . '/images/logo.png';
-					?>
-				</div> <!-- /.logo-lg -->
-				<!-- <div class="logo-sm">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="">
-					</a>
-				</div> -->
-
 				<div class="logo_container">
-					<span class="logo_helper"></span>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo_link">
 						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo.png" id="logo" class="logo-lg" />
 						<img src="<?php echo get_bloginfo('template_directory');?>/../Divi-child/images/logo-sm.png" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo-sm" class="logo-sm" />
 					</a>
-          <ul class="et_pb_social_media_follow et_pb_module et_pb_bg_layout_light center et_pb_social_media_follow_0 clearfix">
-            <li class="et_pb_social_icon et_pb_social_network_link et-social-facebook et_pb_social_media_follow_network_0">
-              <a href="https://www.facebook.com/MinneapolisHeart/" class="icon rounded_rectangle" title="facebook" target="_blank" style="background-color: #250670;"><span>facebook</span></a>
-            </li>
-            <li class="et_pb_social_icon et_pb_social_network_link et-social-twitter et_pb_social_media_follow_network_1">
-              <a href="https://twitter.com/MHIF_Heart" class="icon rounded_rectangle" title="Twitter" target="_blank" style="background-color: #6ad1e3;"><span>Twitter</span></a>
-            </li>
-            <li class="et_pb_social_icon et_pb_social_network_link et-social-instagram et_pb_social_media_follow_network_2">
-              <a href="http://instagram.com/mplsheart" class="icon rounded_rectangle" title="Instagram" target="_blank" style="background-color: #dedc70;"><span>Instagram</span></a>
-            </li>
-            <li class="et_pb_social_icon et_pb_social_network_link et-social-linkedin et_pb_social_media_follow_network_3">
-              <a href="https://www.linkedin.com/company/357676/" class="icon rounded_rectangle" title="LinkedIn" target="_blank" style="background-color: #ab162b;"><span>LinkedIn</span></a>
-            </li> 
-          </ul>
-          <a class="btn-donate" href="/your-gift-matters/make-an-impact/donate-to-minneapolis-heart-institute-foundation/?donation-category=Area%20of%20greatest%20need">DONATE</a>
+          <div id="et-top-navigation">
+            <nav id="top-menu-nav">
+            <?php
+              $menuClass = 'nav';
+              if ( 'on' == et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
+              $primaryNav = '';
+
+              $primaryNav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'menu_id' => 'top-menu', 'echo' => false, 'depth' => 3 ) );
+
+              if ( '' == $primaryNav ) :
+            ?>
+              <ul id="top-menu" class="<?php echo esc_attr( $menuClass ); ?>">
+                <?php if ( 'on' == et_get_option( 'divi_home_link' ) ) { ?>
+                  <li <?php if ( is_home() ) echo( 'class="current_page_item"' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'Divi' ); ?></a></li>
+                <?php }; ?>
+
+                <?php show_page_menu( $menuClass, false, false ); ?>
+                <?php show_categories_menu( $menuClass, false ); ?>
+              </ul>
+            <?php
+              else :
+                echo( $primaryNav );
+              endif;
+            ?>
+            </nav>
+
+            <?php
+              if ( ! $et_top_info_defined ) {
+                et_show_cart_total( array(
+                  'no_text' => true,
+                ) );
+              }
+            ?>
+
+            <?php do_action( 'et_header_top' ); ?>
+            
+            <div class="et_search_outer">
+              <div class="et_search_form_container et_pb_search_form_hidden et_pb_no_animation">
+                <form role="search" method="get" class="et-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <?php
+                  printf( '<input type="search" class="et-search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',
+                    esc_attr__( 'Search &hellip;', 'Divi' ),
+                    get_search_query(),
+                    esc_attr__( 'Search for:', 'Divi' )
+                  );
+                ?>
+                </form>
+                <span class="et_close_search_field"></span>
+              </div>
+            </div>
+            
+            <?php if ( false !== et_get_option( 'show_search_icon', true ) ) : ?>
+            <div id="et_top_search">
+              <span id="et_search_icon" class="fa fa-search"></span>
+            </div>
+            <?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
+
+          </div> <!-- #et-top-navigation -->
+          <div class="text-right social-navigation-container">
+            <ul class="et_pb_social_media_follow et_pb_module et_pb_bg_layout_light center et_pb_social_media_follow_0 clearfix">
+              <li class="et_pb_social_icon et_pb_social_network_link et-social-facebook et_pb_social_media_follow_network_0">
+                <a href="https://www.facebook.com/MinneapolisHeart/" class="icon rounded_rectangle" title="facebook" target="_blank" style="background-color: #250670;"><span>facebook</span></a>
+              </li>
+              <li class="et_pb_social_icon et_pb_social_network_link et-social-twitter et_pb_social_media_follow_network_1">
+                <a href="https://twitter.com/MHIF_Heart" class="icon rounded_rectangle" title="Twitter" target="_blank" style="background-color: #6ad1e3;"><span>Twitter</span></a>
+              </li>
+              <li class="et_pb_social_icon et_pb_social_network_link et-social-instagram et_pb_social_media_follow_network_2">
+                <a href="http://instagram.com/mplsheart" class="icon rounded_rectangle" title="Instagram" target="_blank" style="background-color: #dedc70;"><span>Instagram</span></a>
+              </li>
+              <li class="et_pb_social_icon et_pb_social_network_link et-social-linkedin et_pb_social_media_follow_network_3">
+                <a href="https://www.linkedin.com/company/357676/" class="icon rounded_rectangle" title="LinkedIn" target="_blank" style="background-color: #ab162b;"><span>LinkedIn</span></a>
+              </li> 
+            </ul>
+            <a class="btn-donate btn-dontate--navigation" href="/your-gift-matters/make-an-impact/donate-to-minneapolis-heart-institute-foundation/?donation-category=Area%20of%20greatest%20need">DONATE</a>
+          </div>
 				</div>
-				<div id="et-top-navigation">
-					<nav id="top-menu-nav">
-					<?php
-						$menuClass = 'nav';
-						if ( 'on' == et_get_option( 'divi_disable_toptier' ) ) $menuClass .= ' et_disable_top_tier';
-						$primaryNav = '';
-
-						$primaryNav = wp_nav_menu( array( 'theme_location' => 'primary-menu', 'container' => '', 'fallback_cb' => '', 'menu_class' => $menuClass, 'menu_id' => 'top-menu', 'echo' => false, 'depth' => 3 ) );
-
-						if ( '' == $primaryNav ) :
-					?>
-						<ul id="top-menu" class="<?php echo esc_attr( $menuClass ); ?>">
-							<?php if ( 'on' == et_get_option( 'divi_home_link' ) ) { ?>
-								<li <?php if ( is_home() ) echo( 'class="current_page_item"' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'Divi' ); ?></a></li>
-							<?php }; ?>
-
-							<?php show_page_menu( $menuClass, false, false ); ?>
-							<?php show_categories_menu( $menuClass, false ); ?>
-						</ul>
-					<?php
-						else :
-							echo( $primaryNav );
-						endif;
-					?>
-					</nav>
-
-					<?php
-					if ( ! $et_top_info_defined ) {
-						et_show_cart_total( array(
-							'no_text' => true,
-						) );
-					}
-					?>
-
-					<?php if ( false !== et_get_option( 'show_search_icon', true ) ) : ?>
-					<div id="et_top_search">
-						<span id="et_search_icon" class="fa fa-search"></span>
-					</div>
-					<?php endif; // true === et_get_option( 'show_search_icon', false ) ?>
-
-					<?php do_action( 'et_header_top' ); ?>
-				</div> <!-- #et-top-navigation -->
 			</div> <!-- .container -->
-			<div class="et_search_outer">
-				<div class="container et_search_form_container">
-					<form role="search" method="get" class="et-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<?php
-						printf( '<input type="search" class="et-search-field" placeholder="%1$s" value="%2$s" name="s" title="%3$s" />',
-							esc_attr__( 'Search &hellip;', 'Divi' ),
-							get_search_query(),
-							esc_attr__( 'Search for:', 'Divi' )
-						);
-					?>
-					</form>
-					<span class="et_close_search_field"></span>
-				</div>
-			</div>
 		</header> <!-- #main-header -->
 		<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ) {
 				yoast_breadcrumb( '<p id="breadcrumbs" class="container clearfix et_menu_container">','</p>' );

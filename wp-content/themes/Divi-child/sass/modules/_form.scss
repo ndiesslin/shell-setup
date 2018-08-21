@@ -52,27 +52,29 @@ textarea {
     line-height: 44px;
 }
 .btn, .button, .wpcf7-form input[type=submit], .ctct-submit {
-    border-radius: 0;
-    background-color: #2b266d;
-    color: #ffffff;
-    display: inline-block;
-    height: 39px;
-    left: 0;
-    line-height: 39px;
-    margin-top: 10px;
-    padding: 0 28px;
-    text-align: center;
-    text-transform: uppercase;
     text-decoration: none;
-    font-size: 1rem;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    min-height: 40px;
+    border-radius: 4px;
+    background-color: #46C6DF;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
+    transition: all 240ms ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      background-color: darken(#46C6DF, 10%);
+    }
 }
 .btn a {
     color: #fff;
 }
 .btn-donate {
-  position: absolute;
-  right: -5px;
-  top: 30px;
   background: $purple;
   color: $white;
   text-decoration: none;
@@ -80,22 +82,12 @@ textarea {
   border-radius: 5px;
   font-weight: 700;
   line-height: 1;
-  z-index: 9999;
-
-  @include breakpoint(large) {
-    top: 15px;
+  z-index: 5;
+  display: inline-block;
+  position: relative;
+  @include breakpoint(medium) {
+    margin-right: 0;
   }
-
-  @include breakpoint (small) {
-    top: 70px;
-  }
-}
-.wpcf7-form input[type=submit]:hover, .btn:hover {
-    /* background-color: #ab1f2d; */
-    -webkit-transition: all 500ms ease-in-out;
-    -moz-transition:    all 500ms ease-in-out;
-    -ms-transition:     all 500ms ease-in-out;
-    -o-transition:      all 500ms ease-in-out;
 }
 .wpcf7-form .form-input.form-input--full-width {
   width: 100%;
@@ -178,4 +170,131 @@ textarea {
 
 .et_pb_button:hover, .et_pb_module .et_pb_button:hover {
   padding: 0.5em 1.1em;
+}
+
+// Search input form
+#main-content .search-container { // Move verbose to override Divi
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0) !important; // Divi override
+  padding: 0;
+  z-index: 2;
+
+  @include breakpoint(large) {
+    transform: translateY(0);
+  }
+
+  .et_pb_row {
+    padding: 0;
+  }
+}
+
+.search-module {
+  width: 75%;
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  display: flex;
+  flex-basis: auto;
+  flex: auto;
+
+  @include breakpoint(medium) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+    background-color: $white;
+    color: $midgray;
+    padding: 10px;
+    font-size: 15px;
+
+    @include breakpoint(medium) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__input--with-select {
+    padding-right: 170px;
+  }
+
+  &__select-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 225px;
+    height: 40px;
+
+    @include breakpoint(medium) {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__select {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 0 4px 4px 0;
+    border: solid 2px #D7D2E5; 
+    background-color: #D7D2E5;
+    font-weight: 700;
+    color: $purple;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none; // remove default arrow
+    background-image: url(...); // add custom arrow
+    font-size: 15px;
+
+    &:focus {
+      color: $purple;
+    }
+
+    @include breakpoint(medium) {
+      border-radius: 4px;
+    }
+  }
+
+  &__select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: .875rem;
+    font-size: 10px !important;
+    color: $purple;
+  }
+}
+
+.search-button {
+  width: 107px;
+  height: 40px;	
+  border-radius: 4px;	
+  background-color: #46C6DF;	
+  background: linear-gradient(135deg, #81D7E8 0%, #46C6DF 100%);
+  color: $white;
+  font-size: 15px;
+
+  &:focus {
+    border: solid;
+    border-color: white;
+  }
+}
+
+// Form Accesibility
+input[type=text]:focus, input[type=search], textarea {
+  border: solid 2px $white;
+}
+
+input.text:focus, input.title:focus, input[type=text]:focus, input[type=search]:focus, select:focus, textarea:focus {
+  border: solid 2px $cyan; 
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
 }
