@@ -18,6 +18,8 @@ wp-content/themes/twentythirteen/*
 wp-content/themes/twentyfourteen/*
 #wp-content/themes/Divi/*
 
+wp-content/themes/
+
 # no need for these #
 readme.html
 license.txt
