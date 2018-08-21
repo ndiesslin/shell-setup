@@ -1,6 +1,6 @@
 #main-footer {
   padding-top: 35px;
-  background-color: $purple;
+  background-color: #111;
   color: $white;
   a{
     color: $white;
@@ -47,7 +47,7 @@
 }
 
 #footer-bottom {
-  background-color: $purple;
+  background-color: #111;
 }
 
 .menu-secondary-footer-container {
@@ -73,7 +73,11 @@
 }
 
 #footer-bottom {
-	color: #707070 !important;
+  color: #707070 !important;
+  
+  .et-social-icons {
+    float: left;
+  }
 }
 #et-footer-nav a {
 	text-decoration: none !important;
@@ -85,8 +89,8 @@
     content: "";
     background: url("images/footer-logo.png") no-repeat 0 0;
     background-size: 100%;
-	float: left;
-	margin-right: 100px;
+    float: left;
+    margin-right: 100px;
 }
 @media only screen and (max-width: 800px) {
     #menu-footer-menu::before {
@@ -136,3 +140,4 @@
     -o-transition: all 240ms ease-in-out;
     transition: all 240ms ease-in-out;
 }
+
