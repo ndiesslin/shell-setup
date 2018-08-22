@@ -1205,25 +1205,6 @@ a:hover,
     margin-bottom: 0;
 }
 
-@media (max-width: 1200px) {
-    /* Correcting as in design of mobile site */
-    #et_top_search {
-        margin-top: -36px;
-        margin-right: 35px;
-    }
-    .et-search-form, span.et_close_search_field{
-        padding-top: 70px;
-    }
-    .mobile_menu_bar {
-        color: #2b266d;
-        height: 30px;
-        position: absolute;
-        top: 50%;
-        right: -10px;
-        z-index: 999;
-    }
-}
-
 @media (max-width: 767px) {
     .logo_container {
         text-align: left;
