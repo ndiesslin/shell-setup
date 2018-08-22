@@ -1,0 +1,14 @@
+.wp-pagenavi {
+  width: 100%;
+}
+.wp-pagenavi span.current, .wp-pagenavi a:hover{
+  color: $black !important; // Plugin override
+}
+.wp-pagenavi a, .wp-pagenavi span{
+  font-size: 19px !important; // Plugin override
+  margin: 0 1px;
+}
+.wp-pagenavi span.current{
+  text-decoration: underline;
+  font-weight: bold;
+}

@@ -16,8 +16,6 @@ wp-content/cache/*
 # Ignore themes except Divi child
 wp-content/themes/
 
-wp-content/themes/
-
 # no need for these #
 readme.html
 license.txt
