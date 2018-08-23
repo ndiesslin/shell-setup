@@ -34,6 +34,9 @@ function getEventCard( $atts ) {
       case 'featured-news':
           $item_loop.='event-card--purple';
           break;
+      case 'featured-event':
+          $item_loop.='event-card--purple';
+          break;
       // case 'events':
       //     $item_loop.='event-card--cyan';
       //     break;
