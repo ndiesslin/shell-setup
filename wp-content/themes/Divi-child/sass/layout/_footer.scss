@@ -1,5 +1,4 @@
 #main-footer {
-  padding-top: 35px;
   background-color: #111;
   color: $white;
   a{
@@ -47,7 +46,7 @@
 }
 
 #footer-bottom {
-  background-color: #111;
+  background-color: #1f1f1f;
 }
 
 .menu-secondary-footer-container {
@@ -78,7 +77,12 @@
   .et-social-icons {
     float: left;
   }
+
+  .et-social-icon a {
+    color: #707070;
+  }
 }
+
 #et-footer-nav a {
 	text-decoration: none !important;
 }
