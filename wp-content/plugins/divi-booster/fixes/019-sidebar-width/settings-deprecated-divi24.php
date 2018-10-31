@@ -1,0 +1,2 @@
+<?php $this->techlink('http://www.wpthemefaqs.com/increasing-the-width-of-the-divi-sidebar/'); ?>
+<?php $this->checkbox(__FILE__); ?> Sidebar width:<?php $this->numberpicker(__FILE__, 'sidebarwidth', 285, 0); ?>px

@@ -1,0 +1,1 @@
+<?php $this->hiddencheckbox(__FILE__); ?> Generated JavaScript: <a href="<?php echo htmlentities($this->cacheurl); ?>wp_footer.js" target="_blank">wp_footer.js</a>

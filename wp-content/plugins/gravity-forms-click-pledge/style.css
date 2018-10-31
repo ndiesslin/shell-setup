@@ -1,0 +1,48 @@
+/* default styling for Gravity Forms CnP plugin custom fields */
+
+.gform_wrapper .ginput_complex .gfcnp_recurring_left .gfcnp_echeck_left {
+	display:inline-block;
+	clear:none;
+	width:20%;
+}
+
+.gform_wrapper .ginput_complex .gfcnp_recurring_left.gfcnp_recurring_date .gfcnp_echeck_left {
+	width:24%;
+}
+
+.gform_wrapper .ginput_complex .gfcnp_recurring_left .gfcnp_echeck_left input,
+.gform_wrapper .ginput_complex .gfcnp_recurring_left .gfcnp_echeck_left select {
+	width: 100px !important;
+	margin-left:0px ! important;
+}
+
+.gform_wrapper.gf_browser_chrome .ginput_complex .gfcnp_recurring_left .gfcnp_echeck_left select {
+	padding: 2px 0px;
+	margin-bottom: 2px;
+}
+
+.gform_wrapper .gfcnp_recurring_complex .gfcnp_echeck_complex img.ui-datepicker-trigger {
+    vertical-align: middle;
+}
+
+.ui-datepicker-next label, .ui-datepicker-prev label {
+	display: none;
+}
+.nothing
+{
+   border-collapse:collapse;
+   border: 0px solid rgba(0, 0, 0, 0.1) !important; 
+
+} 
+.nothing td
+{
+   border:none;
+   outline:none;
+}
+div.validation_error {
+color: #000 !important;
+font-size: 100% !important;
+font-weight: normal !important;
+border: 1px solid #65A9CC !important;
+padding: 1em 0px 1em 20px !important;
+}

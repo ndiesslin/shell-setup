@@ -1,0 +1,2 @@
+<?php $this->techlink('http://www.wpthemefaqs.com/change-space-between-divi-menu-items/'); ?>
+<?php $this->checkbox(__FILE__); ?> Space between menu items: <?php $this->numberpicker(__FILE__, 'menuitempadding', 22); ?>px
