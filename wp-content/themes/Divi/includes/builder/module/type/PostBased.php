@@ -51,7 +51,7 @@ abstract class ET_Builder_Module_Type_PostBased extends ET_Builder_Module {
 	/**
 	 * Convert an array or comma-separated list of term ids and special keywords to an array of term ids.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string|array $terms Comma-separated list of term ids and special keywords.
 	 * @param integer $post_id Optional post id to resolve "current" categories.

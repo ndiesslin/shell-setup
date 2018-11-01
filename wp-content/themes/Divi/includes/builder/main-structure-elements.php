@@ -632,8 +632,8 @@ class ET_Builder_Section extends ET_Builder_Structure_Element {
 					$gutter_class .= ' et_pb_gutter_hover';
 
 					$gutter_hover_data = sprintf(
-						' data-original_gutter="%1$s" data-hover_gutter="%2$s"', 
-						esc_attr($gutter_width), 
+						' data-original_gutter="%1$s" data-hover_gutter="%2$s"',
+						esc_attr($gutter_width),
 						esc_attr($gutter_width_hover)
 					);
 				}
@@ -1029,7 +1029,7 @@ class ET_Builder_Section extends ET_Builder_Structure_Element {
 			$module_classes, // 3
 			$this->module_id(), // 4
 			( 'on' === $specialty ?
-				sprintf( '<div class="et_pb_row%1$s"%2$s>', $gutter_class, et_esc_previously( $gutter_hover_data ) )
+				sprintf( '<div class="et_pb_row%1$s"%2$s>', $gutter_class, et_core_esc_previously( $gutter_hover_data ) )
 				: '' ), // 5
 			( 'on' === $specialty ? '</div> <!-- .et_pb_row -->' : '' ), // 6
 			( '' !== $background_image && 'on' === $parallax
@@ -1042,8 +1042,8 @@ class ET_Builder_Section extends ET_Builder_Structure_Element {
 				: ''
 			), // 7
 			$this->get_module_data_attributes(), // 8
-			et_esc_previously( $top ), // 9
-			et_esc_previously( $bottom ) // 10
+			et_core_esc_previously( $top ), // 9
+			et_core_esc_previously( $bottom ) // 10
 		);
 
 		if ( 'on' === $specialty ) {
@@ -2237,8 +2237,8 @@ class ET_Builder_Row extends ET_Builder_Structure_Element {
 				$this->add_classname( 'et_pb_gutter_hover' );
 
 				$gutter_hover_data = sprintf(
-					' data-original_gutter="%1$s" data-hover_gutter="%2$s"', 
-					esc_attr($gutter_width), 
+					' data-original_gutter="%1$s" data-hover_gutter="%2$s"',
+					esc_attr($gutter_width),
 					esc_attr($gutter_width_hover)
 				);
 			}
@@ -2375,7 +2375,7 @@ class ET_Builder_Row extends ET_Builder_Structure_Element {
 
 		// Inner content shortcode parsing has to be done after all classname addition/removal
 		$inner_content = do_shortcode( et_pb_fix_shortcodes( $content ) );
-		$content_dependent_classname = '' == trim( $inner_content ) ? ' et_pb_row_empty' : '';
+		$content_dependent_classname = '' === trim( $inner_content ) ? ' et_pb_row_empty' : '';
 
 		// reset the global column settings to make sure they are not affected by internal content
 		// This has to be done after inner content's shortcode being parsed
@@ -2394,7 +2394,7 @@ class ET_Builder_Row extends ET_Builder_Structure_Element {
 			$background_video,
 			$parallax_image,
 			$content_dependent_classname,
-			et_esc_previously( $gutter_hover_data )
+			et_core_esc_previously( $gutter_hover_data )
 		);
 
 		return $output;
@@ -3247,8 +3247,8 @@ class ET_Builder_Row_Inner extends ET_Builder_Structure_Element {
 				$this->add_classname( 'et_pb_gutter_hover' );
 
 				$gutter_hover_data = sprintf(
-					' data-original_gutter="%1$s" data-hover_gutter="%2$s"', 
-					esc_attr($gutter_width), 
+					' data-original_gutter="%1$s" data-hover_gutter="%2$s"',
+					esc_attr($gutter_width),
 					esc_attr($gutter_width_hover)
 				);
 			}
@@ -3269,7 +3269,7 @@ class ET_Builder_Row_Inner extends ET_Builder_Structure_Element {
 
 		// Inner content shortcode parsing has to be done after all classname addition/removal
 		$inner_content = do_shortcode( et_pb_fix_shortcodes( $content ) );
-		$content_dependent_classname = '' == trim( $inner_content ) ? ' et_pb_row_empty' : '';
+		$content_dependent_classname = '' === trim( $inner_content ) ? ' et_pb_row_empty' : '';
 
 		// reset the global column settings to make sure they are not affected by internal content
 		$et_pb_all_column_settings_inner = $et_pb_all_column_settings_backup;
@@ -3287,7 +3287,7 @@ class ET_Builder_Row_Inner extends ET_Builder_Structure_Element {
 			$parallax_image,
 			$background_video,
 			$content_dependent_classname,
-			et_esc_previously( $gutter_hover_data )
+			et_core_esc_previously( $gutter_hover_data )
 		);
 
 		return $output;
@@ -3391,7 +3391,7 @@ class ET_Builder_Column extends ET_Builder_Structure_Element {
 		}
 
 		// Last column is when sum of column type value equals to 1
-		$is_last_column = 1 == $et_pb_column_completion;
+		$is_last_column = 1 === $et_pb_column_completion;
 
 		$background_color = isset( $backgrounds_array[$array_index]['color'] ) ? $backgrounds_array[$array_index]['color'] : '';
 		$background_img = isset( $backgrounds_array[$array_index]['image'] ) ? $backgrounds_array[$array_index]['image'] : '';
@@ -3728,7 +3728,7 @@ class ET_Builder_Column extends ET_Builder_Structure_Element {
 		$inner_content = do_shortcode( et_pb_fix_shortcodes( $content ) );
 
 		// Inner content dependant class in column shouldn't use add_classname/remove_classname method
-		$content_dependent_classname = '' == trim( $inner_content ) ? ' et_pb_column_empty' : '';
+		$content_dependent_classname = '' === trim( $inner_content ) ? ' et_pb_column_empty' : '';
 
 		$output = sprintf(
 			'<div class="%1$s%6$s"%4$s>

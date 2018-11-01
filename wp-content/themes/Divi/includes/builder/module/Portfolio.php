@@ -357,7 +357,7 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
 
 		if ( $is_front_page ) {
 			global $paged;
-			$paged = $et_paged;
+			$paged = $et_paged; // phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
 		}
 
 		// support pagination in VB
@@ -507,6 +507,7 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
 		) );
 
 		// setup overlay
+		$overlay = '';
 		if ( 'on' !== $fullwidth ) {
 			$data_icon = '' !== $hover_icon
 				? sprintf(
@@ -548,18 +549,18 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
 						<?php } else { ?>
 							<span class="et_portfolio_image">
 								<img src="<?php echo esc_url( $post->post_thumbnail ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" width="400" height="284" />
-								<?php echo $overlay; ?>
+								<?php echo et_core_esc_previously( $overlay ); ?>
 							</span>
 						<?php } ?>
 					</a>
 					<?php } ?>
 
 					<?php if ( 'on' === $show_title ) { ?>
-						<<?php echo $processed_header_level; ?> class="et_pb_module_header">
+						<<?php echo et_core_esc_previously( $processed_header_level ); ?> class="et_pb_module_header">
 							<a href="<?php echo esc_url( $post->post_permalink ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>">
 								<?php echo esc_html( get_the_title() ); ?>
 							</a>
-						</<?php echo $processed_header_level; ?>>
+						</<?php echo et_core_esc_previously( $processed_header_level ); ?>>
 					<?php } ?>
 
 
@@ -570,7 +571,7 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
 								foreach( $post->post_categories as $category ) {
 									$category_index++;
 									$separator =  $category_index < count(  $post->post_categories ) ? ', ' : '';
-									echo '<a href="'. esc_url( $category['permalink'] ) .'" title="' . esc_attr( $category['label'] ) . '">' . esc_html( $category['label'] ) . '</a>' . $separator;
+									echo '<a href="'. esc_url( $category['permalink'] ) .'" title="' . esc_attr( $category['label'] ) . '">' . esc_html( $category['label'] ) . '</a>' . et_core_intentionally_unescaped( $separator, 'fixed_string' );
 								}
 							?>
 						</p>
@@ -687,8 +688,8 @@ class ET_Builder_Module_Portfolio extends ET_Builder_Module_Type_PostBased {
 			$fullwidth ? '' : '<div class="et_pb_portfolio_grid_items">',
 			$fullwidth ? '' : '</div>',
 			isset( $pagination ) ? $pagination : '',
-			et_esc_previously( $data_background_layout ), // #10
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ), // #10
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

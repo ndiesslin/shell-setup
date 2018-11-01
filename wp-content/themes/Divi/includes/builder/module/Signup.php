@@ -277,6 +277,8 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 	}
 
 	protected static function _get_account_fields( $provider_slug ) {
+		et_core_nonce_verified_previously();
+
 		$fields  = self::providers()->account_fields( $provider_slug );
 		$is_VB   = isset( $_REQUEST['action'] ) && 'et_fb_retrieve_builder_data' === $_REQUEST['action'];
 		$show_if = $is_VB ? 'add_new_account' : 'manage|add_new_account';
@@ -328,7 +330,7 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 
 			$account_fields[ $field_id ] = array(
 				'name'            => $field_id,
-				'label'           => et_esc_previously( $field_info['label'] ),
+				'label'           => et_core_esc_previously( $field_info['label'] ),
 				'type'            => 'text',
 				'option_category' => 'basic_option',
 				'description'     => sprintf( '<a target="_blank" href="https://www.elegantthemes.com/documentation/bloom/accounts#%1$s">%2$s</a>', $provider_slug, $description_text ),
@@ -1137,11 +1139,12 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 			}
 
 			$footer_content = $this->props['footer_content'];
-			$footer_content = str_replace( '<br />', '', $footer_content );
-			$footer_content = html_entity_decode( $footer_content, ENT_COMPAT, 'UTF-8' );
+
+			$footer_content = preg_replace( '/^[\w]?<\/p>/smi', '', $footer_content );
+			$footer_content = preg_replace( '/<p>$/smi', '', $footer_content );
 
 			if ( $footer_content ) {
-				$footer_content = sprintf('<div class="et_pb_newsletter_footer">%1$s</div>', et_esc_previously( $footer_content ) );
+				$footer_content = sprintf('<div class="et_pb_newsletter_footer">%1$s</div>', et_core_esc_previously( $footer_content ) );
 			}
 
 			$form = sprintf( '
@@ -1211,8 +1214,9 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 		) );
 
 		$description = $this->props['description'];
-		$description = str_replace( '&gt;<br />', '&gt;', $description );
-		$description = html_entity_decode( $description, ENT_COMPAT, 'UTF-8' );
+
+		$description = preg_replace( '/^[\w]?<\/p>/smi', '', $description );
+		$description = preg_replace( '/<p>$/smi', '', $description );
 
 		$output = sprintf(
 			'<div%6$s class="%4$s"%5$s%9$s%10$s%11$s%12$s>
@@ -1224,7 +1228,7 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 				</div>
 				%3$s
 			</div>',
-			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_esc_previously( $title ) ) : '' ),
+			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_core_esc_previously( $title ) ) : '' ),
 			$description,
 			$form,
 			$this->module_classname( $render_slug ),
@@ -1234,8 +1238,8 @@ class ET_Builder_Module_Signup extends ET_Builder_Module {
 			$parallax_image_background,
 			$success_redirect_url,
 			$success_redirect_query, // #10
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

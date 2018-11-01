@@ -554,7 +554,7 @@ class ET_Builder_Module_Filterable_Portfolio extends ET_Builder_Module_Type_Post
 
 								printf( '<span class="et_overlay%1$s"%2$s></span>',
 									( '' !== $hover_icon ? ' et_pb_inline_icon' : '' ),
-									$data_icon
+									et_core_esc_previously( $data_icon )
 								);
 
 						?>
@@ -566,11 +566,11 @@ class ET_Builder_Module_Filterable_Portfolio extends ET_Builder_Module_Type_Post
 				?>
 
 				<?php if ( 'on' === $show_title ) : ?>
-					<<?php echo et_pb_process_header_level( $header_level, 'h2' ) ?> class="et_pb_module_header"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo $titletext; ?></a></<?php echo et_pb_process_header_level( $header_level, 'h2' ) ?>>
+					<<?php echo et_pb_process_header_level( $header_level, 'h2' ) ?> class="et_pb_module_header"><a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $titletext ); ?></a></<?php echo et_pb_process_header_level( $header_level, 'h2' ) ?>>
 				<?php endif; ?>
 
 				<?php if ( 'on' === $show_categories ) : ?>
-					<p class="post-meta"><?php echo $post_meta; ?></p>
+					<p class="post-meta"><?php echo et_core_esc_wp( $post_meta ); ?></p>
 				<?php endif; ?>
 
 				</div><!-- .et_pb_portfolio_item -->
@@ -668,8 +668,8 @@ class ET_Builder_Module_Filterable_Portfolio extends ET_Builder_Module_Type_Post
 			is_rtl() ? ' data-rtl="true"' : '',
 			$video_background,
 			$parallax_image_background, // #10
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

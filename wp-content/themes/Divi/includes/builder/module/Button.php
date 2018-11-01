@@ -186,11 +186,11 @@ class ET_Builder_Module_Button extends ET_Builder_Module {
 			'<div class="et_pb_button_module_wrapper et_pb_button_%3$s_wrapper %2$s et_pb_module "%4$s%5$s>
 				%1$s
 			</div>',
-			$button,
+			et_core_esc_previously( $button ),
 			sprintf( 'et_pb_button_alignment_%1$s', esc_attr( $button_alignment ) ),
-			$this->render_count(),
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			esc_attr( $this->render_count() ),
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

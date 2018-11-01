@@ -233,8 +233,8 @@ class ET_Builder_Module_Bar_Counters extends ET_Builder_Module {
 			$this->content,
 			$this->module_classname( $render_slug ),
 			$this->module_id(),
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #5
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #5
 		);
 
 		return $output;

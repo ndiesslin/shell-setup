@@ -274,7 +274,7 @@ class ET_Builder_Module_Video_Slider_Item extends ET_Builder_Module {
 			</div>',
 			( '' !== $video_src ? $video_src : '' ),
 			(
-				( '' !== $image_overlay_output && $et_pb_slider_image_overlay == 'on' )
+				( '' !== $image_overlay_output && $et_pb_slider_image_overlay === 'on' )
 					? sprintf(
 						'<div class="et_pb_video_overlay" style="background-image: url(%1$s);">
 							<div class="et_pb_video_overlay_hover">
@@ -320,8 +320,8 @@ class ET_Builder_Module_Video_Slider_Item extends ET_Builder_Module {
 			$this->module_classname( $render_slug ),
 			( '' !== $video_output ? $video_output : '' ),
 			( '' !== $thumbnail_track_output ? sprintf( ' data-image="%1$s"', esc_attr( $thumbnail_track_output ) ) : '' ),
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #5
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #5
 		);
 
 		return $output;

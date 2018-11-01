@@ -620,7 +620,7 @@ class ET_Builder_Module_Login extends ET_Builder_Module {
 				</div>
 				%3$s
 			</div>',
-			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_esc_previously( $title ) ) : '' ),
+			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_core_esc_previously( $title ) ) : '' ),
 			( '' !== $content ? '<div class="et_pb_newsletter_description_content">' . $content . '</div>' : '' ),
 			$form,
 			$this->module_classname( $render_slug ),
@@ -628,8 +628,8 @@ class ET_Builder_Module_Login extends ET_Builder_Module {
 			$this->module_id(),
 			$video_background,
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #10
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #10
 		);
 
 		return $output;

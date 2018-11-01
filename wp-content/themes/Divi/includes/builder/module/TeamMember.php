@@ -337,6 +337,7 @@ class ET_Builder_Module_Team_Member extends ET_Builder_Module {
 
 		if ( '' !== $image_url ) {
 			// Images: Add CSS Filters and Mix Blend Mode rules (if set)
+			$generate_css_filters_image = '';
 			if ( array_key_exists( 'image', $this->advanced_fields ) && array_key_exists( 'css', $this->advanced_fields['image'] ) ) {
 				$generate_css_filters_image = $this->generate_css_filters(
 					$render_slug,
@@ -403,13 +404,13 @@ class ET_Builder_Module_Team_Member extends ET_Builder_Module {
 			( '' !== $image ? $image : '' ),
 			$this->module_id(),
 			$this->module_classname( $render_slug ),
-			( '' !== $name ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h4' ), et_esc_previously( $name ) ) : '' ), // #5
-			( '' !== $position ? sprintf( '<p class="et_pb_member_position">%1$s</p>', et_esc_previously( $position ) ) : '' ),
+			( '' !== $name ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h4' ), et_core_esc_previously( $name ) ) : '' ), // #5
+			( '' !== $position ? sprintf( '<p class="et_pb_member_position">%1$s</p>', et_core_esc_previously( $position ) ) : '' ),
 			$social_links,
 			$video_background,
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ), // #10
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ), // #10
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

@@ -195,8 +195,9 @@ class ET_Builder_Module_Sidebar extends ET_Builder_Module {
 
 		ob_start();
 
-		if ( is_active_sidebar( $area ) )
+		if ( is_active_sidebar( $area ) ) {
 			dynamic_sidebar( $area );
+		}
 
 		$widgets = ob_get_contents();
 
@@ -244,8 +245,8 @@ class ET_Builder_Module_Sidebar extends ET_Builder_Module {
 			$this->module_id(),
 			$video_background,
 			$parallax_image_background, // #5
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

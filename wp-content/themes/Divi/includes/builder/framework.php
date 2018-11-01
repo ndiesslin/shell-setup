@@ -81,6 +81,7 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 	$load_builder_on_ajax = false;
 
 	// If current request's query string exists on list of possible values, load builder
+	// phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification
 	foreach ( $builder_load_requests as $query_string => $possible_values ) {
 		if ( isset( $_REQUEST[ $query_string ] ) && in_array( $_REQUEST[ $query_string ], $possible_values ) ) {
 			$load_builder_on_ajax = true;
@@ -92,7 +93,7 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 	$force_builder_load = isset( $_POST['et_load_builder_modules'] ) && '1' === $_POST['et_load_builder_modules'];
 	$force_memory_limit = isset( $_POST['action'] ) && 'et_fb_retrieve_builder_data' === $_POST['action'];
 
-	if ( isset( $_REQUEST['action'] ) && 'heartbeat' == $_REQUEST['action'] ) {
+	if ( isset( $_REQUEST['action'] ) && 'heartbeat' === $_REQUEST['action'] ) {
 		// if this is the heartbeat, and if its not packing our heartbeat data, then return
 		if ( !isset( $_REQUEST['data'] ) || !isset( $_REQUEST['data']['et'] ) ) {
 			return;
@@ -104,6 +105,7 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 	if ( $force_memory_limit || et_should_memory_limit_increase() ) {
 		et_increase_memory_limit();
 	}
+	// phpcs:enable
 }
 
 function et_builder_load_global_functions_script() {
@@ -229,11 +231,11 @@ function et_builder_get_modules_js_data() {
 	?>
 	<script type="text/javascript">
 		<?php if ( $animation_data ): ?>
-		var et_animation_data = <?php echo et_esc_previously( $animation_data_json ); ?>;
+		var et_animation_data = <?php echo et_core_esc_previously( $animation_data_json ); ?>;
 		<?php endif;
 
 		if ( $link_options_data ): ?>
-		var et_link_options_data = <?php echo et_esc_previously( $link_options_data_json ); ?>;
+		var et_link_options_data = <?php echo et_core_esc_previously( $link_options_data_json ); ?>;
 		<?php endif; ?>
 	</script>
 	<?php
@@ -270,8 +272,8 @@ function et_builder_handle_animation_data( $element_data = false ) {
 		return;
 	}
 
-	$data[] = $element_data;
-	$data_classes[] = $element_data['class'];
+	$data[] = et_core_esc_previously( $element_data );
+	$data_classes[] = et_core_esc_previously( $element_data['class'] );
 }
 
 function et_builder_handle_link_options_data( $element_data = false ) {

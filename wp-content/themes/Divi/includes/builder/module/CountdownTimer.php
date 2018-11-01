@@ -167,7 +167,7 @@ class ET_Builder_Module_Countdown_Timer extends ET_Builder_Module {
 		if ( '' !== $title ) {
 			$title = sprintf(
 				'<%2$s class="title">%s</%2$s>',
-				et_esc_previously( $title ),
+				et_core_esc_previously( $title ),
 				et_pb_process_header_level( $header_level, 'h4' )
 			);
 		}
@@ -228,7 +228,7 @@ class ET_Builder_Module_Countdown_Timer extends ET_Builder_Module {
 			$this->module_classname( $render_slug ),
 			'',
 			esc_attr( strtotime( "{$end_date} {$gmt}" ) ),
-			et_esc_previously( $title ), // #5
+			et_core_esc_previously( $title ), // #5
 			esc_html__( 'Day(s)', 'et_builder' ),
 			esc_html__( 'Hour(s)', 'et_builder' ),
 			esc_attr__( 'Hrs', 'et_builder' ),
@@ -239,8 +239,8 @@ class ET_Builder_Module_Countdown_Timer extends ET_Builder_Module {
 			esc_attr__( 'Day', 'et_builder' ),
 			$video_background,
 			$parallax_image_background, // #15
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

@@ -417,8 +417,8 @@ class ET_Builder_Module_Search extends ET_Builder_Module {
 			esc_attr__( 'Search', 'et_builder' ),
 			$video_background, // #10
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

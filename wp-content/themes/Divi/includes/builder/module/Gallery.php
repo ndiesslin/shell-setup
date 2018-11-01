@@ -538,8 +538,8 @@ class ET_Builder_Module_Gallery extends ET_Builder_Module {
 			$this->module_id(),
 			$this->module_classname( $render_slug ),
 			esc_attr( $posts_number ),
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #5
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #5
 		);
 
 		$output .= $video_background;

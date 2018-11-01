@@ -515,7 +515,7 @@ class ET_Builder_Module_Shop extends ET_Builder_Module_Type_PostBased {
 		);
 
 		// https://github.com/woocommerce/woocommerce/issues/17769
-		$GLOBALS['post'] = $post;
+		$GLOBALS['post'] = $post; // phpcs:ignore WordPress.Variables.GlobalVariables.OverrideProhibited
 
 		do_action( 'et_pb_shop_after_print_shop' );
 

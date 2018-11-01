@@ -1795,41 +1795,6 @@
 				});
 			}
 
-			function et_audio_module_set() {
-				if ( $( '.et_pb_audio_module .mejs-audio' ).length || $( '.et_audio_content .mejs-audio' ).length ) {
-					$( '.et_audio_container' ).each( function(){
-						et_pb_audio_module_init( $(this) );
-					});
-				}
-			}
-
-			window.et_pb_audio_module_init = function( $audio_container ) {
-				var $this_player = $audio_container,
-					$time_rail = $this_player.find( '.mejs-time-rail' ),
-					$time_slider = $this_player.find( '.mejs-time-slider' );
-				// remove previously added width and min-width attributes to calculate the new sizes accurately
-				$time_rail.removeAttr( 'style' );
-				$time_slider.removeAttr( 'style' );
-
-				var $count_timer = $this_player.find( 'div.mejs-currenttime-container' ),
-					$count_timer_width_container = $this_player.find( '.mejs-duration-container' ).length ? $this_player.find( '.mejs-duration-container' ) : $this_player.find( '.mejs-currenttime-container' ),
-					player_width = $this_player.width(),
-					controls_play_width = $this_player.find( '.mejs-play' ).outerWidth(),
-					time_width = $count_timer_width_container.outerWidth(),
-					volume_icon_width = $this_player.find( '.mejs-volume-button' ).outerWidth(),
-					volume_bar_width = $this_player.find( '.mejs-horizontal-volume-slider' ).outerWidth(),
-					new_time_rail_width;
-
-				$count_timer.addClass( 'custom' );
-				$this_player.find( '.mejs-controls div.mejs-duration-container' ).replaceWith( $count_timer );
-				new_time_rail_width = player_width - ( controls_play_width + time_width + volume_icon_width + volume_bar_width + 65 );
-
-				if ( 0 < new_time_rail_width ) {
-					$time_rail.attr( 'style', 'min-width: ' + new_time_rail_width + 'px;' );
-					$time_slider.attr( 'style', 'min-width: ' + new_time_rail_width + 'px;' );
-				}
-			}
-
 			if ( $('.et_pb_section_video').length ) {
 				window._wpmejsSettings.pauseOtherPlayers = false;
 			}
@@ -4964,8 +4929,6 @@
 
 				window.et_fix_testimonial_inner_width();
 
-				et_audio_module_set();
-
 				if ( $et_pb_counter_amount.length ) {
 					$et_pb_counter_amount.each(function(){
 						window.et_bar_counters_init( $( this ) );
@@ -5051,8 +5014,6 @@
 						et_pb_parallax_init( $(this) );
 					});
 				}
-
-				et_audio_module_set();
 
 				window.et_reinit_waypoint_modules();
 

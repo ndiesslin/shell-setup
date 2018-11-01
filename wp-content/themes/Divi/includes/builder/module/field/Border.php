@@ -265,15 +265,15 @@ class ET_Builder_Module_Field_Border extends ET_Builder_Module_Field_Base {
 			return '';
 		}
 
-		if ( isset( $settings['default'] ) && ( $settings['default'] != $radii ) ) {
+		if ( isset( $settings['default'] ) && ( $settings['default'] !== $radii ) ) {
 			$radii = explode( '|', $radii );
-			if ( count( $radii ) == 5 ) {
+			if ( count( $radii ) === 5 ) {
 				$top_left_radius     = empty( $radii[1] ) ? '0' : esc_html( $radii[1] );
 				$top_right_radius    = empty( $radii[2] ) ? '0' : esc_html( $radii[2] );
 				$bottom_right_radius = empty( $radii[3] ) ? '0' : esc_html( $radii[3] );
 				$bottom_left_radius  = empty( $radii[4] ) ? '0' : esc_html( $radii[4] );
 
-				$important = et_intentionally_unescaped( $important, 'fixed_string' );
+				$important = et_core_intentionally_unescaped( $important, 'fixed_string' );
 				$style = "border-radius: {$top_left_radius} {$top_right_radius} {$bottom_right_radius} {$bottom_left_radius}{$important};";
 				if ( true === $overflow ) {
 					$style .= "overflow: hidden{$important};";

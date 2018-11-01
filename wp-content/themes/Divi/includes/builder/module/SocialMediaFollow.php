@@ -204,8 +204,8 @@ class ET_Builder_Module_Social_Media_Follow extends ET_Builder_Module {
 			$this->module_id(),
 			$video_background,
 			$parallax_image_background, // #5
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

@@ -45,7 +45,7 @@ class ET_Core_Data_Utils {
 		$output = '';
 
 		foreach ( $members as $name => $value ) {
-			$output .= sprintf( '<member><name>%1$s</name>%2$s</member>', $name, $this->_create_xmlrpc_value( $value ) );
+			$output .= sprintf( '<member><name>%1$s</name>%2$s</member>', esc_html( $name ), $this->_create_xmlrpc_value( $value ) );
 		}
 
 		return "<struct>{$output}</struct>";
@@ -62,6 +62,7 @@ class ET_Core_Data_Utils {
 		$output = '';
 
 		if ( is_string( $value ) ) {
+			$value = esc_html( wp_strip_all_tags( $value ) );
 			$output = "<string>{$value}</string>";
 		} else if ( is_bool( $value ) ) {
 			$value  = (int) $value;
@@ -369,6 +370,8 @@ class ET_Core_Data_Utils {
 			$output .= "<param>{$value}</param>";
 		}
 
+		$method_name = esc_html( $method_name );
+
 		return
 			"<?xml version='1.0' encoding='UTF-8'?>
 			<methodCall>
@@ -380,6 +383,31 @@ class ET_Core_Data_Utils {
 	}
 
 	/**
+	 * Disable XML entity loader.
+	 *
+	 * @param bool $disable
+	 *
+	 * @return void
+	 */
+	public function libxml_disable_entity_loader( $disable ) {
+		if ( function_exists( 'libxml_disable_entity_loader' ) ) {
+			libxml_disable_entity_loader( $disable );
+		}
+	}
+
+	/**
+	 * Securely use simplexml_load_string.
+	 *
+	 * @param string $data XML data string.
+	 *
+	 * @return SimpleXMLElement
+	 */
+	public function simplexml_load_string( $data ) {
+		$this->libxml_disable_entity_loader( true );
+		return simplexml_load_string( $data );
+	}
+
+	/**
 	 * Process an XML-RPC response string.
 	 *
 	 * @param $response
@@ -387,7 +415,7 @@ class ET_Core_Data_Utils {
 	 * @return mixed
 	 */
 	public function process_xmlrpc_response( $response, $skip_processing = false ) {
-		$response = simplexml_load_string( $response );
+		$response = $this->simplexml_load_string( $response );
 		$result   = array();
 
 		if ( $skip_processing ) {
@@ -471,7 +499,7 @@ class ET_Core_Data_Utils {
 
 	public function sanitize_text_fields( $fields ) {
 		if ( ! is_array( $fields ) ) {
-			return $fields;
+			return sanitize_text_field( $fields );
 		}
 
 		$result = array();
@@ -486,6 +514,39 @@ class ET_Core_Data_Utils {
 			}
 
 			$result[ $field_id ] = $field_value;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Recursively traverses an array and escapes the keys and values according to passed escaping function.
+	 *
+	 * @since ??
+	 *
+	 * @param array  $values            The array to be recursively escaped.
+	 * @param string $escaping_function The escaping function to be used on keys and values. Default 'esc_html'. Optional.
+	 *
+	 * @return array
+	 */
+
+	public function esc_array( $values, $escaping_function = 'esc_html' ) {
+		if ( ! is_array( $values ) ) {
+			return $escaping_function( $values );
+		}
+
+		$result = array();
+
+		foreach ( $values as $key => $value ) {
+			$key = $escaping_function( $key );
+
+			if ( is_array( $value ) ) {
+				$value = $this->esc_array( $value, $escaping_function );
+			} else {
+				$value = $escaping_function( $value );
+			}
+
+			$result[ $key ] = $value;
 		}
 
 		return $result;
@@ -560,12 +621,12 @@ class ET_Core_Data_Utils {
 	 *
 	 * @return array
 	 */
-	function xml_to_array( $xml_data ) {
+	public function xml_to_array( $xml_data ) {
 		if ( is_string( $xml_data ) ) {
-			$xml_data = simplexml_load_string( $xml_data );
+			$xml_data = $this->simplexml_load_string( $xml_data );
 		}
 
-		$json = json_encode( $xml_data );
+		$json = wp_json_encode( $xml_data );
 		return json_decode( $json, true );
 	}
 

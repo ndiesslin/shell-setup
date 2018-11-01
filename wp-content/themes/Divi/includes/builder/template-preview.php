@@ -88,7 +88,7 @@ $post = get_post( $post_id );
 								wp_reset_postdata();
 							}
 
-							echo $content;
+							echo et_core_intentionally_unescaped( $content, 'html' );
 						} else {
 							printf( '<p class="et-pb-preview-loading"><span>%1$s</span></p>', esc_html__( 'Loading preview...', 'et_builder' ) );
 						}

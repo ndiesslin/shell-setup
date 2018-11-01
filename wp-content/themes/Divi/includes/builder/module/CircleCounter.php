@@ -248,13 +248,13 @@ class ET_Builder_Module_Circle_Counter extends ET_Builder_Module {
 			esc_attr( $number ),
 			esc_attr( $bar_bg_color ),
 			( 'on' == $percent_sign ? '%' : ''), // #5
-			( '' !== $title ?  sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h3' ), et_esc_previously( $title ) ) : '' ),
+			( '' !== $title ?  sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h3' ), et_core_esc_previously( $title ) ) : '' ),
 			$circle_color_data,
 			$circle_color_alpha_data,
 			$video_background,
 			$parallax_image_background, // #10
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

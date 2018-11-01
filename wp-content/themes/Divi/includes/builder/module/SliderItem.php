@@ -530,14 +530,14 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 			if ( '#' !== $button_link ) {
 				$heading = sprintf( '<a href="%1$s">%2$s</a>',
 					esc_url( $button_link ),
-					et_esc_previously( $heading )
+					et_core_esc_previously( $heading )
 				);
 			}
 
 			$heading = sprintf(
 				'<%1$s class="et_pb_slide_title">%2$s</%1$s>',
 				et_pb_process_header_level( $header_level, 'h2' ),
-				et_esc_previously( $heading )
+				et_core_esc_previously( $heading )
 			);
 		}
 
@@ -565,7 +565,7 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 			'display_button'      => true,
 		) );
 
-		$style = $class = '';
+		$class = '';
 
 		if ( 'on' === $use_bg_overlay && '' !== $bg_overlay_color ) {
 			ET_Builder_Element::set_style( $render_slug, array(
@@ -607,8 +607,6 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 				),
 			) );
 		}
-
-		$style = '' !== $style ? " style='{$style}'" : '';
 
 		$image = '' !== $image
 			? sprintf( '<div class="et_pb_slide_image"><img src="%1$s" alt="%2$s" /></div>',
@@ -681,7 +679,7 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 		$slide_content = sprintf(
 			'%1$s
 				<div class="et_pb_slide_content%3$s">%2$s</div>',
-			et_esc_previously( $heading ),
+			et_core_esc_previously( $heading ),
 			$this->content,
 			( 'on' !== $et_pb_slider_show_mobile['show_content_on_mobile'] ? esc_attr( " {$hide_on_mobile_class}" ) : '' )
 		);
@@ -710,24 +708,23 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 		}
 
 		$output = sprintf(
-			'<div class="%5$s"%3$s%8$s%9$s%11$s%12$s>
-				%7$s
-				%10$s
+			'<div class="%4$s"%7$s%8$s%10$s%11$s>
+				%6$s
+				%9$s
 				<div class="et_pb_container clearfix">
 					<div class="et_pb_slider_container_inner">
-						%4$s
+						%3$s
 						<div class="et_pb_slide_description">
 							%1$s
 							%2$s
 						</div> <!-- .et_pb_slide_description -->
 					</div>
 				</div> <!-- .et_pb_container -->
-				%6$s
+				%5$s
 			</div> <!-- .et_pb_slide -->
 			',
 			$slide_content,
 			$button,
-			$style,
 			$image,
 			$this->module_classname( $render_slug ), // #5
 			$video_background,
@@ -735,8 +732,8 @@ class ET_Builder_Module_Slider_Item extends ET_Builder_Module {
 			$data_dot_nav_custom_color,
 			$data_arrows_custom_color,
 			'on' === $use_bg_overlay ? '<div class="et_pb_slide_overlay_container"></div>' : '', // #10
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

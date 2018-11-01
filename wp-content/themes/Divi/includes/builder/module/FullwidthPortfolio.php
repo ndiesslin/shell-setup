@@ -475,7 +475,7 @@ class ET_Builder_Module_Fullwidth_Portfolio extends ET_Builder_Module_Type_PostB
 
 									printf( '<span class="et_overlay%1$s"%2$s></span>',
 										( '' !== $hover_icon ? ' et_pb_inline_icon' : '' ),
-										$data_icon
+										et_core_esc_previously( $data_icon )
 									);
 								?>
 									<?php if ( 'on' === $show_title ) : ?>
@@ -514,7 +514,7 @@ class ET_Builder_Module_Fullwidth_Portfolio extends ET_Builder_Module_Type_PostB
 			) );
 		}
 
-		$portfolio_title = sprintf( '<%1$s class="et_pb_portfolio_title">%2$s</%1$s>', et_pb_process_header_level( $portfolio_header, 'h2' ), et_esc_previously( $title ) );
+		$portfolio_title = sprintf( '<%1$s class="et_pb_portfolio_title">%2$s</%1$s>', et_pb_process_header_level( $portfolio_header, 'h2' ), et_core_esc_previously( $title ) );
 
 		$data_background_layout       = '';
 		$data_background_layout_hover = '';
@@ -558,8 +558,8 @@ class ET_Builder_Module_Fullwidth_Portfolio extends ET_Builder_Module_Type_PostB
 			( '' !== $title ? $portfolio_title : '' ),
 			$video_background,
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #10
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #10
 		);
 
 		return $output;

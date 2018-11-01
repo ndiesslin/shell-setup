@@ -35,7 +35,7 @@ class ET_Builder_Settings {
 
 	public function __construct() {
 		if ( null !== self::$_instance ) {
-			wp_die( get_class( $this ) . 'is a singleton class. You cannot create a another instance.' );
+			wp_die( esc_html( get_class( $this ) . 'is a singleton class. You cannot create a another instance.' ) );
 		}
 
 		$this->_initialize();
@@ -791,7 +791,7 @@ class ET_Builder_Settings {
 
 		foreach ( $tabs as $tab_slug => $tab_name ) {
 			$sections[ $tab_slug ] = array(
-				'title'    => et_esc_previously( $tab_name ),
+				'title'    => et_core_esc_previously( $tab_name ),
 				'contents' => array(
 					'main' => esc_html__( 'Main', 'et_builder' ),
 				),

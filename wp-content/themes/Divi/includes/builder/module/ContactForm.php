@@ -334,14 +334,16 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 
 		$content = $this->content;
 
+		$nonce_result = isset( $_POST['_wpnonce-et-pb-contact-form-submitted'] ) && wp_verify_nonce( $_POST['_wpnonce-et-pb-contact-form-submitted'], 'et-pb-contact-form-submit' ) ? true : false;
+
 		$et_error_message = '';
 		$et_contact_error = false;
 		$current_form_fields = isset( $_POST['et_pb_contact_email_fields_' . $et_pb_contact_form_num] ) ? $_POST['et_pb_contact_email_fields_' . $et_pb_contact_form_num] : '';
 		$hidden_form_fields = isset( $_POST['et_pb_contact_email_hidden_fields_' . $et_pb_contact_form_num] ) ? $_POST['et_pb_contact_email_hidden_fields_' . $et_pb_contact_form_num] : false;
 		$contact_email = '';
 		$processed_fields_values = array();
+		$utils = self::$data_utils;
 
-		$nonce_result = isset( $_POST['_wpnonce-et-pb-contact-form-submitted'] ) && wp_verify_nonce( $_POST['_wpnonce-et-pb-contact-form-submitted'], 'et-pb-contact-form-submit' ) ? true : false;
 
 		// check that the form was submitted and et_pb_contactform_validate field is empty to protect from spam
 		if ( $nonce_result && isset( $_POST['et_pb_contactform_submit_' . $et_pb_contact_form_num] ) && empty( $_POST['et_pb_contactform_validate_' . $et_pb_contact_form_num] ) ) {
@@ -358,6 +360,9 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 				// check all fields on current form and generate error message if needed
 				if ( ! empty( $fields_data_array ) ) {
 					foreach( $fields_data_array as $index => $value ) {
+						// sanitize all the values of this array
+						$value = $utils->sanitize_text_fields( $value );
+
 						// check all the required fields, generate error message if required field is empty
 						$field_value = isset( $_POST[ $value['field_id'] ] ) ? trim( $_POST[ $value['field_id'] ] ) : '';
 
@@ -379,7 +384,7 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 
 						// prepare the array of processed field values in convenient format
 						if ( false === $et_contact_error ) {
-							$processed_fields_values[ $value['original_id'] ]['value'] = $field_value;
+							$processed_fields_values[ $value['original_id'] ]['value'] = sanitize_text_field( $field_value );
 							$processed_fields_values[ $value['original_id'] ]['label'] = $value['field_label'];
 						}
 					}
@@ -415,7 +420,7 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 				// insert the data from contact form into the message pattern
 				foreach ( $processed_fields_values as $key => $value ) {
 					// strip all tags from each field. Don't strip tags from the entire message to allow using HTML in the pattern.
-					$message_pattern = str_ireplace( "%%{$key}%%", wp_strip_all_tags( $value['value'] ), $message_pattern );
+					$message_pattern = str_ireplace( "%%{$key}%%", $value['value'], $message_pattern );
 				}
 
 				if ( false !== $hidden_form_fields ) {
@@ -448,7 +453,7 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 				$message_pattern = wp_strip_all_tags( $message_pattern );
 			}
 
-			$http_host = str_replace( 'www.', '', $_SERVER['HTTP_HOST'] );
+			$http_host = str_replace( 'www.', '', sanitize_text_field( $_SERVER['HTTP_HOST'] ) );
 
 			$headers[] = "From: \"{$contact_name}\" <mail@{$http_host}>";
 			$headers[] = "Reply-To: \"{$contact_name}\" <{$contact_email}>";
@@ -470,7 +475,7 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 
 			remove_filter( 'et_get_safe_localization', 'et_allow_ampersand' );
 
-			$et_error_message = sprintf( '<p>%1$s</p>', et_esc_previously( $success_message ) );
+			$et_error_message = sprintf( '<p>%1$s</p>', et_core_esc_previously( $success_message ) );
 		}
 
 		$form = '';
@@ -547,7 +552,7 @@ class ET_Builder_Module_Contact_Form extends ET_Builder_Module {
 				%3$s
 			</div> <!-- .et_pb_contact_form_container -->
 			',
-			( '' !== $title ? sprintf( '<%2$s class="et_pb_contact_main_title">%1$s</%2$s>', et_esc_previously( $title ), et_pb_process_header_level( $header_level, 'h1' ) ) : '' ),
+			( '' !== $title ? sprintf( '<%2$s class="et_pb_contact_main_title">%1$s</%2$s>', et_core_esc_previously( $title ), et_pb_process_header_level( $header_level, 'h1' ) ) : '' ),
 			$et_error_message,
 			$form,
 			( '' !== $module_id

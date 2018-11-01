@@ -243,7 +243,7 @@ function et_fb_output_wp_auth_check_html() {
 		$output
 	);
 
-	echo $output;
+	echo et_core_intentionally_unescaped( $output, 'html' );
 }
 
 function et_fb_set_editor_available_cookie() {

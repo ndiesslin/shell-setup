@@ -1,3 +1,21 @@
+version 3.17.4 ( updated 10-31-2018 )
+	- Fixed the internal server error that occurred when the Yoast SEO plugin was activated.
+	- Fixed paragraphs encoding issue when multiple Code Module were added in the same page.
+	- Fixed a PHP Warning caused by the Post Slider Module.
+	- Fixed broken shortcode rendering on code and fullwidth module caused by late line break stripping.
+		* includes/builder/functions.php
+		* includes/builder/core.php
+		* includes/builder/class-et-builder-element.php
+		* includes/builder/module/PostSlider.php
+		* includes/builder/module/Code.php
+		* includes/builder/module/FullwidthCode.php
+
+version 3.17.3 ( updated 10-30-2018 )
+	- Important Security Update. Following an internal code audit, various security improvements were made and several minor security vulnerabilities were patched. For more information, please refer to the disclosure here: https://us7.campaign-archive.com/?u=9ae7aa91c578052b052b864d6&id=a9763c15f2
+	- Fixed Right-click controls missing in empty fullwidth sections.
+	- Added missing extend options to border styles and background tabs.
+	- Fixed languages using quote characters different from the ones in English causing Dynamic Content to not render properly in the front-end.
+
 version 3.17.2 ( updated 10-17-2018 )
 - Fixed issue with rendering dynamic content in Global Modules in some cases.
 - Fixed the issue where Button Text option can't be copied between Button modules.

@@ -271,7 +271,7 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 
 		$menuClass = 'fullwidth-menu nav';
 
-		if ( ! et_is_builder_plugin_active() && 'on' == et_get_option( 'divi_disable_toptier' ) ) {
+		if ( ! et_is_builder_plugin_active() && 'on' === et_get_option( 'divi_disable_toptier' ) ) {
 			$menuClass .= ' et_disable_top_tier';
 		}
 		$menuClass .= ( '' !== $args['submenu_direction'] ? sprintf( ' %s', esc_attr( $args['submenu_direction'] ) ) : '' );
@@ -293,7 +293,7 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 
 		$primaryNav = wp_nav_menu( apply_filters( 'et_fullwidth_menu_args', $menu_args ) );
 
-		if ( '' == $primaryNav ) {
+		if ( empty( $primaryNav ) ) {
 			$menu .= sprintf(
 				'<ul class="%1$s">
 					%2$s',
@@ -558,8 +558,8 @@ class ET_Builder_Module_Fullwidth_Menu extends ET_Builder_Module {
 			$video_background, // #5
 			$parallax_image_background,
 			'upwards' === $submenu_direction ? ' et_pb_mobile_menu_upwards' : '',
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

@@ -666,7 +666,6 @@ class ET_Builder_Module_Fullwidth_Header extends ET_Builder_Module {
 		$parallax_image_background = $this->get_parallax_image_background();
 
 		// Images: Add CSS Filters and Mix Blend Mode rules (if set)
-		$generate_css_image_filters = '';
 		if ( array_key_exists( 'image', $this->advanced_fields ) && array_key_exists( 'css', $this->advanced_fields['image'] ) ) {
 			$this->add_classname($this->generate_css_filters(
 				$render_slug,
@@ -696,12 +695,12 @@ class ET_Builder_Module_Fullwidth_Header extends ET_Builder_Module {
 						%5$s
 					</div>
 				</div>',
-				( $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h1' ), et_esc_previously( $title ) ) : '' ),
-				( $subhead ? sprintf( '<span class="et_pb_fullwidth_header_subhead">%1$s</span>', et_esc_previously( $subhead ) ) : '' ),
+				( $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h1' ), et_core_esc_previously( $title ) ) : '' ),
+				( $subhead ? sprintf( '<span class="et_pb_fullwidth_header_subhead">%1$s</span>', et_core_esc_previously( $subhead ) ) : '' ),
 				$logo_image,
 				sprintf( '<div class="et_pb_header_content_wrapper">%1$s</div>', $this->content ),
 				( '' !== $button_output ? $button_output : '' ),
-				( '' !== $content_orientation ? sprintf( ' %1$s', $content_orientation ) : '' )
+				( '' !== $content_orientation ? sprintf( ' %1$s', esc_attr( $content_orientation ) ) : '' )
 			);
 		}
 
@@ -711,12 +710,11 @@ class ET_Builder_Module_Fullwidth_Header extends ET_Builder_Module {
 			$header_image = sprintf(
 				'<div class="header-image-container%2$s">
 					<div class="header-image">
-						<img src="%1$s" alt="%4$s" title="%5$s" />
+						<img src="%1$s" alt="%3$s" title="%4$s" />
 					</div>
 				</div>',
 				( '' !== $header_image_url ? esc_url( $header_image_url ) : '' ),
-				( '' !== $image_orientation ? sprintf( ' %1$s', $image_orientation ) : '' ),
-				$generate_css_image_filters,
+				( '' !== $image_orientation ? sprintf( ' %1$s', esc_attr( $image_orientation ) ) : '' ),
 				esc_attr( $image_alt_text ),
 				esc_attr( $image_title )
 			);
@@ -775,8 +773,8 @@ class ET_Builder_Module_Fullwidth_Header extends ET_Builder_Module {
 			$parallax_image_background,
 			$this->module_id(),
 			$video_background,
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover ) // #10
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover ) // #10
 		);
 
 		return $output;

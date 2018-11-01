@@ -207,12 +207,12 @@ class ET_Builder_Module_Number_Counter extends ET_Builder_Module {
 			esc_attr( $number ),
 			( '' !== $counter_color ? sprintf( ' style="color:%s"', esc_attr( $counter_color ) ) : '' ),
 			( 'on' == $percent_sign ? '%' : ''), // #5
-			( '' !== $title ? sprintf( '<%1$s class="title">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h3' ), et_esc_previously( $title ) ) : '' ),
+			( '' !== $title ? sprintf( '<%1$s class="title">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h3' ), et_core_esc_previously( $title ) ) : '' ),
 			esc_attr( $separator ),
 			$video_background,
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ), // #10
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ), // #10
+			et_core_esc_previously( $data_background_layout_hover )
 		 );
 
 		return $output;

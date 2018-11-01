@@ -402,7 +402,7 @@ class ET_Builder_Module_Field_TextShadow extends ET_Builder_Module_Field_Base {
 
 		return sprintf(
 			'text-shadow: %s%s;',
-			et_esc_previously( join( ' ', array_filter( $text_shadow ) ) ),
+			et_core_esc_previously( join( ' ', array_filter( $text_shadow ) ) ),
 			$important ? '!important' : ''
 		);
 	}//end get_declaration()

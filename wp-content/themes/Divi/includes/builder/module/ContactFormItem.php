@@ -327,6 +327,8 @@ class ET_Builder_Module_Contact_Form_Item extends ET_Builder_Module {
 	function render( $attrs, $content = null, $render_slug ) {
 		global $et_pb_half_width_counter, $et_pb_contact_form_num;
 
+		et_core_nonce_verified_previously();
+
 		$field_title                = $this->props['field_title'];
 		$field_type                 = $this->props['field_type'];
 		$field_id                   = $this->props['field_id'];

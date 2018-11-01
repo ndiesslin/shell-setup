@@ -88,7 +88,7 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 	/**
 	 * Whitelist hidden WooCommerce meta keys for dynamic content.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param array<string> $meta_keys
 	 * @param integer $post_id
@@ -106,7 +106,7 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 	/**
 	 * Rename label of known displayed hidden post meta fields in dynamic content.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string $label
 	 * @param string $key
@@ -131,7 +131,7 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 	/**
 	 * Format WooCommerce meta values accordingly.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string $meta_value
 	 * @param string $meta_key

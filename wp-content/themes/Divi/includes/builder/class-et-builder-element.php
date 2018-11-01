@@ -22,7 +22,7 @@ class ET_Builder_Element {
 	public $slug;
 	public $type;
 	public $child_slug;
-	public $decode_entities;
+	public $use_raw_content = false;
 	public $fields = array();
 	public $advanced_fields;
 	public $has_advanced_fields;
@@ -37,7 +37,7 @@ class ET_Builder_Element {
 	/**
 	 * Unprocessed attributes.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @var array<string, mixed>
 	 */
@@ -46,7 +46,7 @@ class ET_Builder_Element {
 	/**
 	 * Unprocessed content.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @var string
 	 */
@@ -270,8 +270,6 @@ class ET_Builder_Element {
 
 		$this->type = isset( $this->type ) ? $this->type : '';
 
-		$this->decode_entities = isset( $this->decode_entities ) ? (bool) $this->decode_entities : false;
-
 		$this->_style_priority = (int) self::DEFAULT_PRIORITY;
 		if ( isset( $this->type ) && 'child' === $this->type ) {
 			$this->_style_priority = $this->_style_priority + 1;
@@ -323,7 +321,19 @@ class ET_Builder_Element {
 				self::$_module_slugs_by_post_type[ $post_type ][] = $this->slug;
 			}
 
-			if ( 'child' == $this->type ) {
+			if ( isset( $this->additional_shortcode ) && ! in_array( $this->additional_shortcode, self::$_module_slugs_by_post_type[ $post_type ] ) ) {
+				self::$_module_slugs_by_post_type[ $post_type ][] = $this->additional_shortcode;
+			}
+
+			if ( isset( $this->additional_shortcode_slugs ) ) {
+				foreach ( $this->additional_shortcode_slugs as $additional_shortcode_slug ) {
+					if ( ! in_array( $additional_shortcode_slug, self::$_module_slugs_by_post_type[ $post_type ] ) ) {
+						self::$_module_slugs_by_post_type[ $post_type ][] = $additional_shortcode_slug;
+					}
+				}
+			}
+
+			if ( 'child' === $this->type ) {
 				self::$child_modules[ $post_type ][ $this->slug ] = $this;
 			} else {
 				self::$parent_modules[ $post_type ][ $this->slug ] = $this;
@@ -560,7 +570,7 @@ class ET_Builder_Element {
 	 * - get_the_ID()
 	 * Similar to get_the_ID() but in reverse order and statically callable.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @return int|bool
 	 */
@@ -591,11 +601,11 @@ class ET_Builder_Element {
 
 		if ( wp_doing_ajax() ) {
 			// get the post ID if loading data for VB
-			return isset( $_POST['et_post_id'] ) ? absint( $_POST['et_post_id'] ) : false;
+			return isset( $_POST['et_post_id'] ) ? absint( $_POST['et_post_id'] ) : false; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 		}
 
 		// fallback to $_GET['post'] to cover the BB data loading
-		return isset( $_GET['post'] ) ? absint( $_GET['post'] ) : false;
+		return isset( $_GET['post'] ) ? absint( $_GET['post'] ) : false; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 	}
 
 	/**
@@ -1033,7 +1043,7 @@ class ET_Builder_Element {
 	 * @return bool
 	 */
 	private function is_loading_vb_data() {
-		return isset( $_POST['action'] ) && 'et_fb_retrieve_builder_data' === $_POST['action'];
+		return isset( $_POST['action'] ) && 'et_fb_retrieve_builder_data' === $_POST['action']; // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 	}
 
 	private function register_post_type( $post_type ) {
@@ -1465,15 +1475,15 @@ class ET_Builder_Element {
 	/**
 	 * Resolves the values for dynamic attributes.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param  array  $attrs              List of attributes
-	 * 
+	 *
 	 * @return array                      Processed attributes with resolved dynamic values.
 	 */
 	function process_dynamic_attrs( $original_attrs ) {
 		global $et_fb_processing_shortcode_object;
-		
+
 		$attrs                      = $original_attrs;
 		$enabled_dynamic_attributes = $this->_get_enabled_dynamic_attributes( $attrs );
 
@@ -1600,6 +1610,10 @@ class ET_Builder_Element {
 					$global_content = et_pb_get_global_module_content( $global_module_data, $render_slug );
 				}
 
+				if ( in_array($render_slug, array('et_pb_code', 'et_pb_fullwidth_code')) ) {
+					$global_content = _et_pb_code_module_prep_content($global_content);
+				}
+
 				// cleanup the shortcode string to avoid the attributes messing with content
 				$global_content_processed = false !== $global_content ? str_replace( $global_content, '', $global_module_data ) : $global_module_data;
 				$global_atts = shortcode_parse_atts( et_pb_remove_shortcode_content( $global_content_processed, $this->slug ) );
@@ -1662,15 +1676,23 @@ class ET_Builder_Element {
 			$et_fb_processing_shortcode_object
 		);
 
+		$content = apply_filters( 'et_pb_module_content', $content, $this->props, $attrs, $render_slug, $_address, $global_content );
+
 		// Set empty TinyMCE content '&lt;br /&gt;<br />' as empty string.
 		if ( 'ltbrgtbr' === preg_replace( '/[^a-z]/', '', $content ) ) {
 			$content = '';
 		}
 
 		if ( $et_fb_processing_shortcode_object ) {
-			$this->content = et_pb_fix_shortcodes( $content, $this->decode_entities );
+			$this->content = et_pb_fix_shortcodes( $content, $this->use_raw_content );
 		} else {
-			$this->props['content'] = $this->content = ! ( isset( $this->is_structure_element ) && $this->is_structure_element ) ? do_shortcode( et_pb_fix_shortcodes( $content, $this->decode_entities ) ) : '';
+			// Line breaks should be converted before do_shortcode to avoid legit rendered shortcode
+			// line breaks being trimmed into one line and causing issue like broken javascript code
+			if ( $this->use_raw_content ) {
+				$content = et_builder_convert_line_breaks( et_builder_replace_code_content_entities( $content ) );
+			}
+
+			$this->props['content'] = $this->content = ! ( isset( $this->is_structure_element ) && $this->is_structure_element ) ? do_shortcode( et_pb_fix_shortcodes( $content, $this->use_raw_content ) ) : '';
 		}
 
 		// Restart classname on shortcode callback. Module class is only called once, not on every
@@ -1735,14 +1757,14 @@ class ET_Builder_Element {
 
 			if ( $module_class ) {
 				et_builder_handle_animation_data( array(
-					'class'            => trim( $module_class ),
-					'style'            => $animation_style,
-					'repeat'           => $animation_repeat,
-					'duration'         => $animation_duration,
-					'delay'            => $animation_delay,
-					'intensity'        => $animation_intensity,
-					'starting_opacity' => $animation_starting_opacity,
-					'speed_curve'      => $animation_speed_curve,
+					'class'            => esc_attr( trim( $module_class ) ),
+					'style'            => esc_html( $animation_style ),
+					'repeat'           => esc_html( $animation_repeat ),
+					'duration'         => esc_html( $animation_duration ),
+					'delay'            => esc_html( $animation_delay ),
+					'intensity'        => esc_html( $animation_intensity ),
+					'starting_opacity' => esc_html( $animation_starting_opacity ),
+					'speed_curve'      => esc_html( $animation_speed_curve ),
 				) );
 			}
 
@@ -2022,6 +2044,9 @@ class ET_Builder_Element {
 		global $post;
 
 		// this is called during pageload, but we want to ignore that round, as this data will be built and returned on separate ajax request instead
+
+		et_core_nonce_verified_previously();
+
 		if ( ! isset( $_POST['action'] ) ) {
 			return '';
 		}
@@ -2161,7 +2186,7 @@ class ET_Builder_Element {
 				}
 
 				if ( ! is_callable( $field['computed_callback'] ) ) {
-					die( $shortcode_attr_key . ' Callback:' . $field['computed_callback'] . ' is not callable.... '); // TODO, fix this make it more graceful...
+					wp_die( esc_html( $shortcode_attr_key . ' Callback:' . $field['computed_callback'] . ' is not callable.... ' ) );
 				}
 
 				$value = call_user_func( $field['computed_callback'], $depends_on );
@@ -2221,7 +2246,7 @@ class ET_Builder_Element {
 
 		if ( empty( $attrs ) ) {
 			// Visual Builder expects $attrs to be an object.
-			// Associative array converted to an object by json_encode correctly, but empty array is not and it causes issues.
+			// Associative array converted to an object by wp_json_encode correctly, but empty array is not and it causes issues.
 			$attrs = new stdClass();
 		}
 
@@ -5631,7 +5656,7 @@ class ET_Builder_Element {
 	function get_post_type() {
 		global $post, $et_builder_post_type;
 
-		if ( isset( $_POST['et_post_type'] ) && ! $et_builder_post_type ) {
+		if ( isset( $_POST['et_post_type'] ) && ! $et_builder_post_type ) {  // phpcs:ignore WordPress.Security.NonceVerification.NoNonceVerification
 			$et_builder_post_type = sanitize_text_field( $_POST['et_post_type'] );
 		}
 
@@ -5697,14 +5722,14 @@ class ET_Builder_Element {
 
 		$output = sprintf(
 			'%6$s<div class="et-pb-option et-pb-option--%10$s%1$s%2$s%3$s%8$s%9$s%12$s"%4$s tabindex="-1" data-option_name="%11$s">%5$s</div>%7$s',
-			( ! empty( $field['type'] ) && 'tiny_mce' == $field['type'] ? ' et-pb-option-main-content' : '' ),
+			( ! empty( $field['type'] ) && 'tiny_mce' === $field['type'] ? ' et-pb-option-main-content' : '' ),
 			$depends || $new_depends ? ' et-pb-depends' : '',
-			( ! empty( $field['type'] ) && 'hidden' == $field['type'] ? ' et_pb_hidden' : '' ),
+			( ! empty( $field['type'] ) && 'hidden' === $field['type'] ? ' et_pb_hidden' : '' ),
 			( $depends ? $depends_attr : '' ),
 			"\n\t\t\t\t" . $option_output . "\n\t\t\t",
 			"\t",
 			"\n\n\t\t",
-			( ! empty( $field['type'] ) && 'hidden' == $field['type'] ? esc_attr( sprintf( ' et-pb-option-%1$s', $field['name'] ) ) : '' ),
+			( ! empty( $field['type'] ) && 'hidden' === $field['type'] ? esc_attr( sprintf( ' et-pb-option-%1$s', $field['name'] ) ) : '' ),
 			( ! empty( $field['option_class'] ) ? ' ' . $field['option_class'] : '' ),
 			isset( $field['type'] ) ? esc_attr( $field['type'] ) : '',
 			esc_attr( $field['name'] ),
@@ -5884,9 +5909,9 @@ class ET_Builder_Element {
 					</div>
 				</div>
 			<%% } %%>',
-			et_intentionally_unescaped( $this->get_field_variable_name( $field ), 'underscore_template' ),
-			et_intentionally_unescaped( $this->get_icon( 'lock' ) . $dynamic_content_notice, 'underscore_template'),
-			et_intentionally_unescaped( $output, 'underscore_template' )
+			et_core_intentionally_unescaped( $this->get_field_variable_name( $field ), 'underscore_template' ),
+			et_core_intentionally_unescaped( $this->get_icon( 'lock' ) . $dynamic_content_notice, 'underscore_template'),
+			et_core_intentionally_unescaped( $output, 'underscore_template' )
 		);
 
 		return $output;
@@ -5911,9 +5936,9 @@ class ET_Builder_Element {
 
 		$label = sprintf(
 			'<label%1$s>%2$s%4$s %3$s</label>',
-			$attributes,
-			$label,
-			$required,
+			et_core_esc_previously( $attributes ),
+			et_core_intentionally_unescaped( $label, 'html' ),
+			et_core_intentionally_unescaped( $required, 'fixed_string' ),
 			isset( $field['no_colon'] ) && true === $field['no_colon'] ? '' : ':'
 		);
 
@@ -6555,7 +6580,7 @@ class ET_Builder_Element {
 		}
 
 		// Tab Nav
-		$background .= sprintf( '<%%= window.et_builder.options_template_output("background_tabs_nav",%1$s) %%>', json_encode( $tab_names_processed ) );
+		$background .= sprintf( '<%%= window.et_builder.options_template_output("background_tabs_nav",%1$s) %%>', wp_json_encode( $tab_names_processed ) );
 
 		// Tabs
 		foreach ( $tab_names as $tab_name ) {
@@ -6651,7 +6676,7 @@ class ET_Builder_Element {
 	/**
 	 * Get field name for use in underscore templates.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param array $field
 	 *
@@ -6769,11 +6794,11 @@ class ET_Builder_Element {
 		if ( is_array( $default_arr ) && isset( $default_arr[1] ) && is_array( $default_arr[1] ) ) {
 			list($default_parent_id, $defaults_list) = $default_arr;
 			$default_parent_id = sprintf( '%1$set_pb_%2$s', $is_child ? 'data.' : '', $default_parent_id );
-			$default = esc_attr( json_encode( $default_arr ) );
+			$default = esc_attr( wp_json_encode( $default_arr ) );
 			$default_value = sprintf(
 				'(typeof(%1$s) !== \'undefined\' ? ( typeof(%1$s) === \'object\' ? (%2$s)[jQuery(%1$s).val()] : (%2$s)[%1$s] ) : \'\')',
 				$default_parent_id,
-				json_encode( $defaults_list )
+				wp_json_encode( $defaults_list )
 			);
 
 			$default_is_arr = true;
@@ -6913,7 +6938,7 @@ class ET_Builder_Element {
 					$field_custom_value .= '.replace( /%91/g, "&#91;" ).replace( /%93/g, "&#93;" )';
 				}
 
-				if ( in_array( $field_name, array( 'et_pb_raw_content', 'et_pb_custom_message' ) ) ) {
+				if ( in_array( $field_name, array( 'et_pb_custom_message' ) ) ) {
 					// escape html to make sure it's not rendered inside the Textarea field in Settings Modal.
 					$field_custom_value = sprintf( '_.escape( %1$s )', $field_custom_value );
 				}
@@ -6923,7 +6948,7 @@ class ET_Builder_Element {
 					esc_attr( $field['class'] ),
 					esc_attr( $field['id'] ),
 					esc_html( $field_var_name ),
-					et_esc_previously( $field_custom_value )
+					et_core_esc_previously( $field_custom_value )
 				);
 
 				if ( 'options_list' === $field['type'] || 'sortable_list' === $field['type'] ) {
@@ -6957,7 +6982,7 @@ class ET_Builder_Element {
 						esc_attr( $field['class'] ),
 						esc_attr( $field['id'] ),
 						esc_html( $field_var_name ),
-						et_esc_previously( $field_custom_value ),
+						et_core_esc_previously( $field_custom_value ),
 						esc_attr( $row_class ),
 						$radio_check,
 						esc_html__( 'Add New Item', 'et_builder' )
@@ -7003,7 +7028,7 @@ class ET_Builder_Element {
 					esc_attr( $field['class'] ),
 					esc_attr( $field['id'] ),
 					esc_html( $field_var_name ),
-					et_esc_previously( $field_custom_value ),
+					et_core_esc_previously( $field_custom_value ),
 					$field_selects,
 					esc_html__( 'checked', 'et_builder' ),
 					esc_html__( 'not checked', 'et_builder' ),
@@ -7040,7 +7065,7 @@ class ET_Builder_Element {
 
 				//If default is an array, then $default_value value is an js expression, so it doesn't need to be encoded
 				//In other case it needs to be encoded
-				$select_default = $default_is_arr ? $default_value : json_encode( $default_value );
+				$select_default = $default_is_arr ? $default_value : wp_json_encode( $default_value );
 
 				if ( 'font' === $field['type'] ) {
 					$group_label = isset( $field['group_label'] ) ? $field['group_label'] : '';
@@ -7067,7 +7092,7 @@ class ET_Builder_Element {
 				if ( 'font' === $field['type'] ) {
 					$font_style_button_html = sprintf(
 						'<%%= window.et_builder.options_template_output("font_buttons",%1$s) %%>',
-						json_encode( array( 'italic', 'uppercase', 'capitalize', 'underline', 'line_through' ) )
+						wp_json_encode( array( 'italic', 'uppercase', 'capitalize', 'underline', 'line_through' ) )
 					);
 
 					$field_el .= sprintf(
@@ -7088,7 +7113,7 @@ class ET_Builder_Element {
 
 					$text_align_style_button_html = sprintf(
 						'<%%= window.et_builder.options_text_align_buttons_output(%1$s, "%2$s") %%>',
-						json_encode( $text_align_options ),
+						wp_json_encode( $text_align_options ),
 						$is_module_alignment ? 'module' : 'text'
 					);
 
@@ -7115,7 +7140,7 @@ class ET_Builder_Element {
 					$animation_buttons_array[ $option_name ] = sanitize_text_field( $option_title );
 				}
 
-				$animation_buttons = sprintf( '<%%= window.et_builder.options_template_output("animation_buttons",%1$s) %%>', json_encode( $animation_buttons_array ) );
+				$animation_buttons = sprintf( '<%%= window.et_builder.options_template_output("animation_buttons",%1$s) %%>', wp_json_encode( $animation_buttons_array ) );
 
 				$field_el = sprintf(
 					'<div class="et_select_animation et-pb-main-setting" data-default="none">
@@ -7134,7 +7159,7 @@ class ET_Builder_Element {
 
 				foreach ( $presets as $preset ) {
 					$fields = isset( $preset['fields'] )
-						? htmlspecialchars( json_encode( $preset['fields'] ), ENT_QUOTES, 'UTF-8' )
+						? htmlspecialchars( wp_json_encode( $preset['fields'] ), ENT_QUOTES, 'UTF-8' )
 						: '[]';
 					$presets_buttons .= sprintf(
 						'<div class="et-preset" data-value="%1$s" data-fields="%2$s">',
@@ -7255,7 +7280,7 @@ class ET_Builder_Element {
 				break;
 			case 'checkbox':
 				$field_el .= sprintf(
-					'<input type="checkbox" name="%1$s" id="%2$s" class="et-pb-main-setting" value="on" <%%- typeof( %3$s ) !==  \'undefined\' && %3$s == \'on\' ? checked="checked" : "" %%>>',
+					'<input type="checkbox" name="%1$s" id="%2$s" class="et-pb-main-setting" value="on" <%%- typeof( %3$s ) !==  \'undefined\' && %3$s === \'on\' ? checked="checked" : "" %%>>',
 					esc_attr( $field['name'] ),
 					esc_attr( $field['id'] ),
 					esc_attr( str_replace( '-', '_', $field['name'] ) )
@@ -7363,28 +7388,28 @@ class ET_Builder_Element {
 					esc_attr( $default ), // #5
 					! isset( $field['sides'] ) || ( ! empty( $field['sides'] ) && in_array( 'top', $field['sides'] ) ) ?
 						sprintf( '<%%= window.et_builder.options_template_output("padding",%1$s) %%>',
-							json_encode( array_merge( $single_fields_settings, array(
+							wp_json_encode( array_merge( $single_fields_settings, array(
 								'side' => 'top',
 								'label' => esc_html__( 'Top', 'et_builder' ),
 							) ) )
 						) : '',
 					! isset( $field['sides'] ) || ( ! empty( $field['sides'] ) && in_array( 'right', $field['sides'] ) ) ?
 						sprintf( '<%%= window.et_builder.options_template_output("padding",%1$s) %%>',
-							json_encode( array_merge( $single_fields_settings, array(
+							wp_json_encode( array_merge( $single_fields_settings, array(
 								'side' => 'right',
 								'label' => esc_html__( 'Right', 'et_builder' ),
 							) ) )
 						) : '',
 					! isset( $field['sides'] ) || ( ! empty( $field['sides'] ) && in_array( 'bottom', $field['sides'] ) ) ?
 						sprintf( '<%%= window.et_builder.options_template_output("padding",%1$s) %%>',
-							json_encode( array_merge( $single_fields_settings, array(
+							wp_json_encode( array_merge( $single_fields_settings, array(
 								'side' => 'bottom',
 								'label' => esc_html__( 'Bottom', 'et_builder' ),
 							) ) )
 						) : '',
 					! isset( $field['sides'] ) || ( ! empty( $field['sides'] ) && in_array( 'left', $field['sides'] ) ) ?
 						sprintf( '<%%= window.et_builder.options_template_output("padding",%1$s) %%>',
-							json_encode( array_merge( $single_fields_settings, array(
+							wp_json_encode( array_merge( $single_fields_settings, array(
 								'side' => 'left',
 								'label' => esc_html__( 'Left', 'et_builder' ),
 							) ) )
@@ -7615,7 +7640,7 @@ class ET_Builder_Element {
 			switch ( $element['type'] ) {
 				case 'button':
 					$class     = isset( $element['class'] ) ? esc_attr( $element['class'] ) : '';
-					$text      = isset( $element['text'] ) ? et_esc_previously( $element['text'] ) : '';
+					$text      = isset( $element['text'] ) ? et_core_esc_previously( $element['text'] ) : '';
 					$field_el .= sprintf( '<button class="button %1$s"%2$s>%3$s</button>', $class, $attributes, $text );
 
 					break;
@@ -7672,7 +7697,7 @@ class ET_Builder_Element {
 					sprintf(
 						'{select_name: "%1$s", list: %2$s, default: %3$s, }',
 						$name,
-						json_encode($option_group),
+						wp_json_encode( $option_group ),
 						$default
 					)
 				);
@@ -7689,7 +7714,7 @@ class ET_Builder_Element {
 				sprintf(
 					'{select_name: "%1$s", list: %2$s, default: %3$s, }',
 					$name,
-					json_encode($options),
+					wp_json_encode( $options ),
 					$default
 				)
 			);
@@ -7709,7 +7734,7 @@ class ET_Builder_Element {
 					'<div class="et_pb_yes_no_button_wrapper %2$s">
 						%1$s',
 					sprintf( '<%%= window.et_builder.options_template_output("yes_no_button",%1$s) %%>',
-						json_encode( array(
+						wp_json_encode( array(
 							'on' => esc_html( $processed_options['on'] ),
 							'off' => esc_html( $processed_options['off'] ),
 						) )
@@ -7741,7 +7766,7 @@ class ET_Builder_Element {
 				: ''
 			),
 			sprintf( '<%%= window.et_builder.options_template_output("multiple_buttons",%1$s) %%>',
-				json_encode( $options )
+				wp_json_encode( $options )
 			),
 			esc_attr( $name )
 		);
@@ -7933,7 +7958,7 @@ class ET_Builder_Element {
 							</div>
 						</div>',
 						esc_html__( $this->name, 'et_builder' ),
-						et_esc_previously( $toggle_unclassified_output ),
+						et_core_esc_previously( $toggle_unclassified_output ),
 						'et-pb-options-toggle-disabled'
 					);
 				}
@@ -8126,7 +8151,7 @@ class ET_Builder_Element {
 				'label' => $tab_name,
 			);
 
-			$tabs_json = json_encode( $tabs_array );
+			$tabs_json = wp_json_encode( $tabs_array );
 		}
 
 		$tabs_output = sprintf( '<%%= window.et_builder.settings_tabs_output(%1$s) %%>', $tabs_json );
@@ -8272,10 +8297,10 @@ class ET_Builder_Element {
 			</script>',
 			esc_attr( $id_attr ),
 			esc_html( $settings_text ),
-			$output
+			et_core_intentionally_unescaped( $output, 'html' )
 		);
 
-		if ( $this->type == 'child' ) {
+		if ( 'child' === $this->type ) {
 			$title_var = esc_js( $this->child_title_var );
 			$title_var = false === strpos( $title_var, 'et_pb_' ) ? 'et_pb_'. $title_var : $title_var;
 			$title_fallback_var = esc_js( $this->child_title_fallback_var );
@@ -10672,7 +10697,7 @@ class ET_Builder_Element {
 		$parent_modules = self::get_parent_modules( $post_type );
 		if ( ! empty( $parent_modules ) ) {
 			foreach( $parent_modules as $module ) {
-				if ( isset( $module->use_row_content ) && $module->use_row_content ) {
+				if ( isset( $module->use_raw_content ) && $module->use_raw_content ) {
 					$shortcodes[] = $module->slug;
 				}
 			}
@@ -10681,7 +10706,7 @@ class ET_Builder_Element {
 		$child_modules = self::get_child_modules( $post_type );
 		if ( ! empty( $child_modules ) ) {
 			foreach( $child_modules as $module ) {
-				if ( isset( $module->use_row_content ) && $module->use_row_content ) {
+				if ( isset( $module->use_raw_content ) && $module->use_raw_content ) {
 					$shortcodes[] = $module->slug;
 				}
 			}
@@ -10770,7 +10795,7 @@ class ET_Builder_Element {
 		self::$structure_modules = array();
 		foreach ( $parent_modules as $parent_module ) {
 			if ( isset( $parent_module->is_structure_element ) && $parent_module->is_structure_element ) {
-				$parent_module->plural = empty($parent_module->plural) ? $parent_module->name : $parent_module->plural;
+				$parent_module->plural = empty( $parent_module->plural ) ? $parent_module->name : $parent_module->plural;
 
 				self::$structure_modules[] = $parent_module;
 			}
@@ -11712,14 +11737,14 @@ class ET_Builder_Element {
 
 			foreach ( $field_info[ $dependency_type ] as $dependency => $value ) {
 				// dependency -> dependent (eg. et_pb_signup.provider.affects.first_name_field.show_if: mailchimp)
-				$address = array( $slug, $dependency, 'affects', $field_id, $dependency_type );
+				$address = self::$_->esc_array( array( $slug, $dependency, 'affects', $field_id, $dependency_type ), 'esc_attr' );
 
-				self::$data_utils->array_set( self::$field_dependencies, $address, $value );
+				self::$data_utils->array_set( self::$field_dependencies, $address, self::$_->esc_array( $value, 'esc_attr' ) );
 
 				// dependent -> dependency (eg. et_pb_signup.first_name_field.show_if.provider: mailchimp)
-				$address = array( $slug, $field_id, $dependency_type, $dependency );
+				$address = self::$_->esc_array( array( $slug, $field_id, $dependency_type, $dependency ), 'esc_attr' );
 
-				self::$data_utils->array_set( self::$field_dependencies, $address, $value );
+				self::$data_utils->array_set( self::$field_dependencies, $address, self::$_->esc_array( $value, 'esc_attr' ) );
 			}
 		}
 	}
@@ -11767,7 +11792,7 @@ class ET_Builder_Element {
 		$builder_post_types = et_builder_get_builder_post_types();
 		$allowed_post_types = apply_filters( 'et_builder_set_style_allowed_post_types', $builder_post_types );
 
-		if ( $builder_post_types != $allowed_post_types ) {
+		if ( $builder_post_types !== $allowed_post_types ) {
 			$matches = array_intersect( $allowed_post_types, array_keys( self::$_module_slugs_by_post_type ) );
 			$allowed = false;
 
@@ -11968,7 +11993,7 @@ class ET_Builder_Element {
 			}
 		}
 
-		if ( '' !== $background_image && 'on' == $parallax ) {
+		if ( '' !== $background_image && 'on' === $parallax ) {
 			$parallax_classname = array( 'et_parallax_bg' );
 
 			if ( 'off' === $parallax_method ) {
@@ -12014,7 +12039,7 @@ class ET_Builder_Element {
 		// If `$selectors` is a string, convert to an array before we continue
 		$selectors_prepared = $selectors;
 		if ( ! is_array( $selectors ) ) {
-			$selectors_prepared = explode( ',', et_intentionally_unescaped( $selectors, 'fixed_string' ) );
+			$selectors_prepared = explode( ',', et_core_intentionally_unescaped( $selectors, 'fixed_string' ) );
 		}
 
 		$additional_classes = '';
@@ -12374,9 +12399,9 @@ class ET_Builder_Element {
 	 * @return string module id / module id wrapped by id attribute
 	 */
 	function module_id( $include_attribute = true ) {
-		$module_id = $this->props['module_id'];
+		$module_id = esc_attr( $this->props['module_id'] );
 
-		$output = $include_attribute ? sprintf( ' id="%1$s"', esc_attr( $module_id ) ) : $module_id;
+		$output = $include_attribute ? sprintf( ' id="%1$s"', $module_id ) : $module_id;
 
 		return '' !== $module_id ? $output : '';
 	}
@@ -12436,11 +12461,11 @@ class ET_Builder_Element {
 		// Render button
 		return sprintf( '%7$s<a%9$s class="%5$s" href="%1$s"%3$s%4$s%6$s>%2$s</a>%8$s',
 			esc_url( $args['button_url'] ),
-			et_esc_previously( $button_text ),
+			et_core_esc_previously( $button_text ),
 			( 'on' === $args['url_new_window'] ? ' target="_blank"' : '' ),
-			et_esc_previously( $data_icon ),
+			et_core_esc_previously( $data_icon ),
 			esc_attr( implode( ' ', array_unique( $button_classname ) ) ), // #5
-			et_esc_previously( $this->get_rel_attributes( $args['button_rel'] ) ),
+			et_core_esc_previously( $this->get_rel_attributes( $args['button_rel'] ) ),
 			$args['has_wrapper'] ? '<div class="et_pb_button_wrapper">' : '',
 			$args['has_wrapper'] ? '</div>' : '',
 			'' !== $args['button_id'] ? sprintf( ' id="%1$s"', esc_attr( $args['button_id'] ) ) : ''
@@ -12526,7 +12551,7 @@ class ET_Builder_Element {
 	/**
 	 * Get array of attributes which have dynamic content enabled.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param array<string, mixed> $attrs
 	 *
@@ -12542,7 +12567,7 @@ class ET_Builder_Element {
 	/**
 	 * Check if an attribute value is dynamic or not.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string $attribute
 	 * @param string $value
@@ -12561,7 +12586,7 @@ class ET_Builder_Element {
 	/**
 	 * Resolve a value, be it static or dynamic to a static one.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param integer $post_id
 	 * @param string $field
@@ -12588,7 +12613,7 @@ class ET_Builder_Element {
 	/**
 	 * Escape an attribute's value.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string $attribute
 	 * @param string $html 'limited', 'full', 'none'
@@ -12624,7 +12649,7 @@ class ET_Builder_Element {
 
 		// Dynamic content values are escaped when they are resolved so we do not want to
 		// double-escape them when using them in the frontend, for example.
-		return et_esc_previously( $formatted );
+		return et_core_esc_previously( $formatted );
 	}
 }
 
@@ -12687,14 +12712,14 @@ class ET_Builder_Structure_Element extends ET_Builder_Element {
 
 				$output = sprintf(
 					'%6$s<div class="et-pb-option et-pb-option--%11$s%1$s%2$s%3$s%8$s%9$s%10$s"%4$s data-option_name="%12$s">%5$s</div>%7$s',
-					( ! empty( $field['type'] ) && 'tiny_mce' == $field['type'] ? ' et-pb-option-main-content' : '' ),
+					( ! empty( $field['type'] ) && 'tiny_mce' === $field['type'] ? ' et-pb-option-main-content' : '' ),
 					$depends ? ' et-pb-depends' : '',
-					( ! empty( $field['type'] ) && 'hidden' == $field['type'] ? ' et_pb_hidden' : '' ),
+					( ! empty( $field['type'] ) && 'hidden' === $field['type'] ? ' et_pb_hidden' : '' ),
 					( $depends ? $depends_attr : '' ),
 					"\n\t\t\t\t" . $option_output . "\n\t\t\t",
 					"\t",
 					"\n\n\t\t",
-					( ! empty( $field['type'] ) && 'hidden' == $field['type'] ? esc_attr( sprintf( ' et-pb-option-%1$s', $field['name'] ) ) : '' ),
+					( ! empty( $field['type'] ) && 'hidden' === $field['type'] ? esc_attr( sprintf( ' et-pb-option-%1$s', $field['name'] ) ) : '' ),
 					( ! empty( $field['option_class'] ) ? ' ' . $field['option_class'] : '' ),
 					isset( $field['specialty_only'] ) && 'yes' === $field['specialty_only'] ? ' et-pb-specialty-only-option' : '',
 					isset( $field['type'] ) ? esc_attr( $field['type'] ) : '',

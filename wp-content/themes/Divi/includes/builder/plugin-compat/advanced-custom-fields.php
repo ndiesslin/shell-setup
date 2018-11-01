@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Compatibility for the Advanced Custom Fields plugin.
  *
- * @since ??
+ * @since 3.17.2
  *
  * @link https://www.advancedcustomfields.com/
  */
@@ -15,7 +15,7 @@ class ET_Builder_Plugin_Compat_Advanced_Custom_Fields extends ET_Builder_Plugin_
 	/**
 	 * Constructor.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 */
 	public function __construct() {
 		$this->plugin_id = 'advanced-custom-fields/acf.php';
@@ -25,7 +25,7 @@ class ET_Builder_Plugin_Compat_Advanced_Custom_Fields extends ET_Builder_Plugin_
 	/**
 	 * Hook methods to WordPress.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @return void
 	 */
@@ -42,7 +42,7 @@ class ET_Builder_Plugin_Compat_Advanced_Custom_Fields extends ET_Builder_Plugin_
 	/**
 	 * Format ACF meta values accordingly.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param string $meta_value
 	 * @param string $meta_key
@@ -71,7 +71,7 @@ class ET_Builder_Plugin_Compat_Advanced_Custom_Fields extends ET_Builder_Plugin_
 	/**
 	 * Format ACF dynamic content field.
 	 *
-	 * @since ??
+	 * @since 3.17.2
 	 *
 	 * @param array<string, array> $custom_fields
 	 * @param int   $post_id
@@ -172,7 +172,7 @@ class ET_Builder_Plugin_Compat_Advanced_Custom_Fields extends ET_Builder_Plugin_
 		}
 
 		// Value escaping left to the user to decide since some fields hold rich content.
-		$value = et_esc_previously( $value );
+		$value = et_core_esc_previously( $value );
 
 		return $value;
 	}

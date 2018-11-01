@@ -887,10 +887,12 @@
 
 				if ( et_is_fixed_nav ) {
 
-					if ( window.et_is_transparent_nav && ! window.et_is_vertical_nav && $et_pb_first_row.length ){
+					// We don't want product pages with divi-builder to trigger fixed navigation
+					// based on builder row/module position
+					if (window.et_is_transparent_nav && ! (window.et_is_vertical_nav || $('body.woocommerce.single-product').length) && $et_pb_first_row.length) {
 
 						// Fullscreen section at the first row requires specific adjustment
-						if ( $et_pb_first_row.is( '.et_pb_fullwidth_section' ) ){
+						if ($et_pb_first_row.is('.et_pb_fullwidth_section')) {
 							$waypoint_selector = $et_pb_first_row.children('.et_pb_module:visible:first');
 						} else {
 							$waypoint_selector = $et_pb_first_row.find('.et_pb_row:visible:first');
@@ -900,10 +902,10 @@
 						// has no module OR b) other section has no row. When this happened,
 						// the safest option is look for the first visible module and use it
 						// as waypoint selector
-						if ( ! $waypoint_selector.length ) {
-							$waypoint_selector = $( 'body.et_pb_pagebuilder_layout .et_pb_module:visible:first' );
+						if (! $waypoint_selector.length) {
+							$waypoint_selector = $('body.et_pb_pagebuilder_layout .et_pb_module:visible:first');
 						}
-					} else if ( window.et_is_transparent_nav && ! window.et_is_vertical_nav && $et_main_content_first_row.length ) {
+					} else if (window.et_is_transparent_nav && ! window.et_is_vertical_nav && $et_main_content_first_row.length) {
 						$waypoint_selector = $('#content-area');
 					} else {
 						$waypoint_selector = $('#main-content');

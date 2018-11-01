@@ -317,13 +317,13 @@ class ET_Builder_Module_Audio extends ET_Builder_Module {
 			if ( '' !== $artist_name ) {
 				$artist_name = sprintf(
 					et_get_safe_localization( _x( 'by <strong>%1$s</strong>', 'Audio Module meta information', 'et_builder' ) ),
-					et_esc_previously( $artist_name )
+					et_core_esc_previously( $artist_name )
 				);
 			}
 
 			$meta = sprintf( '%1$s%2$s',
-				et_esc_previously( $artist_name ),
-				et_esc_previously( $album_name )
+				et_core_esc_previously( $artist_name ),
+				et_core_esc_previously( $album_name )
 			);
 
 			$meta = sprintf( '<p class="et_audio_module_meta">%1$s</p>', $meta );
@@ -333,7 +333,7 @@ class ET_Builder_Module_Audio extends ET_Builder_Module {
 			$cover_art = sprintf(
 				'<div class="et_pb_audio_cover_art" style="background-image: url(%1$s);">
 				</div>',
-				esc_attr( $image_url )
+				esc_url( $image_url )
 			);
 		}
 
@@ -393,18 +393,18 @@ class ET_Builder_Module_Audio extends ET_Builder_Module {
 					%3$s
 				</div>
 			</div>',
-			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_esc_previously( $title ) ) : '' ),
-			$meta,
+			( '' !== $title ? sprintf( '<%1$s class="et_pb_module_header">%2$s</%1$s>', et_pb_process_header_level( $header_level, 'h2' ), et_core_esc_previously( $title ) ) : '' ),
+			et_core_esc_previously( $meta ),
 			self::get_audio( array(
 				'audio' => $audio,
 			) ),
 			$this->module_classname( $render_slug ),
-			$cover_art,
+			et_core_esc_previously( $cover_art ),
 			$this->module_id(),
 			$video_background,
 			$parallax_image_background,
-			et_esc_previously( $data_background_layout ), // #10
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ), // #10
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

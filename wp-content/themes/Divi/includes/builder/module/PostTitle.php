@@ -410,8 +410,8 @@ class ET_Builder_Module_Post_Title extends ET_Builder_Module {
 			'on' === $featured_image && 'above' === $featured_placement ? $featured_image_output : '',
 			'on' === $featured_image && 'below' === $featured_placement ? $featured_image_output : '',
 			$video_background,
-			et_esc_previously( $data_background_layout ),
-			et_esc_previously( $data_background_layout_hover )
+			et_core_esc_previously( $data_background_layout ),
+			et_core_esc_previously( $data_background_layout_hover )
 		);
 
 		return $output;

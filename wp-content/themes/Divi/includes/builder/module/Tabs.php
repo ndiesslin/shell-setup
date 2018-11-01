@@ -181,7 +181,7 @@ class ET_Builder_Module_Tabs extends ET_Builder_Module {
 			foreach ( $et_pb_tab_titles as $tab_title ){
 				++$i;
 				$tabs .= sprintf( '<li class="%3$s%1$s"><a href="#">%2$s</a></li>',
-					( 1 == $i ? ' et_pb_tab_active' : '' ),
+					( 1 === $i ? ' et_pb_tab_active' : '' ),
 					esc_html( $tab_title ),
 					esc_attr( ltrim( $et_pb_tab_classes[ $i-1 ] ) )
 				);
