@@ -152,12 +152,30 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 
 /* That's all, stop editing! Happy Pressing. */
 
-
-
-
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+/** Redirect http to https */
+if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
+  // Redirect to https://$primary_domain in the Live environment
+  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
+    $primary_domain = 'mplsheart.org';
+  }
+  else {
+    // Redirect to HTTPS on every Pantheon environment.
+    $primary_domain = $_SERVER['HTTP_HOST'];
+  }
+
+  if ($_SERVER['HTTP_HOST'] != $primary_domain
+      || !isset($_SERVER['HTTP_USER_AGENT_HTTPS'])
+      || $_SERVER['HTTP_USER_AGENT_HTTPS'] != 'ON' ) {
+
+    header('HTTP/1.0 301 Moved Permanently');
+    header('Location: https://'. $primary_domain . $_SERVER['REQUEST_URI']);
+    exit();
+  }
+}
