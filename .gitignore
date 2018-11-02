@@ -4,6 +4,9 @@
 # Allow Divi child theme 
 !wp-content/themes/Divi-child/
 
+# Node Modules
+node_modules/
+
 ############
 # Pantheon Gitignore settings
 ############
@@ -68,4 +71,3 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
->>>>>>> e01848da1dd605b5f68423289d1956e8f77ce492
