@@ -1,5 +1,6 @@
-/* team tempalte */
-.et_pb_row.full-width-row {
+/* team template */
+// Specificity increased with new Divi theme
+.et-db #et-boc .et_pb_row.full-width-row {
     max-width: 100%;
     width: 100%;
 }
@@ -65,8 +66,7 @@
       height: 75px;
     }
 }
-.page .et_pb_posts article.team.has-post-thumbnail a.more-link {
+#et-boc .et_pb_posts article.team.has-post-thumbnail a.more-link {
     display: inline-block;
     padding: 0;
 }
-

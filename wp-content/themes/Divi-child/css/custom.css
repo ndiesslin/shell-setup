@@ -31,7 +31,7 @@ p, .et_pb_post p, .et_pb_text, .et_pb_toggle_content {
 .home .et-fixed-header .container.clearfix.et_menu_container{
     height: 100% !important;
 }
-.container, .et_pb_row, .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .content-wrapper{
+.container, .et_pb_row, .et-db #et-boc .et_pb_fullwidth_header .et_pb_fullwidth_header_container, .content-wrapper{
     width: 90%;
     max-width: 1160px;
 }
