@@ -15,5 +15,6 @@ This repo contains most of my personal command line settings.
 - Install Vim
 - Enter Vim. Then enter :PluginInstall to install all vim plugins
 - Install Tmux
+- Install https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard for mac users
 - Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 - Install Plugins Ctl+b, shift+i

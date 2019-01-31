@@ -42,7 +42,7 @@ nnoremap : ;
 " Enable spell check
 set spell
 
-" Set file  backup directories
+" Set file backup directories
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
@@ -70,6 +70,7 @@ set paste
 
 " Correct copying
 set clipboard=unnamed
+" Make sure clipboard support is installed  http://www.markcampbell.me/2016/04/12/setting-up-yank-to-clipboard-on-a-mac-with-vim.html
 
 " set the runtime path to include Vundle and initialize
 set backspace=2
@@ -125,7 +126,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mattn/emmet-vim'
 
 " Multi selection
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 
 " Visually show git edits
 Plugin 'mhinz/vim-signify'

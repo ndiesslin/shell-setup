@@ -1,5 +1,3 @@
-//console.time('test');
-
 // App parameters
 var apiParams = {
   units: 'imperial',
@@ -7,8 +5,11 @@ var apiParams = {
   appId: '14e3df96753ec1ac143f5e11dbd7a196', // User API ID
 }
 
-// Get initial weather
-getWeather();
+// Run get weather once the script starts
+setImmediate(getWeather);
+
+// Run get weather each specified amount
+setInterval(getWeather, 900000);
 
 function getWeather() {
   var http = require('http');
@@ -92,5 +93,3 @@ function kiteCheck(wind) {
   }
   return;
 }
-
-//console.timeEnd('test');
